@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5j6heiwov2bc"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_ypik8"]
+[ext_resource type="Texture2D" uid="uid://eehibl1nyct2" path="res://icon.svg" id="2_vh8ia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o335b"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ypik8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_o335b")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(434, 208)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1075, 82)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(136, 181)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(427, 434)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(129, 380)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(638, 198)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(785, 409)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(864, 200)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+position = Vector2(1033, 460)
+texture = ExtResource("2_vh8ia")
