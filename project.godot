@@ -11,5 +11,17 @@ config_version=5
 [application]
 
 config/name="Pizza Delivery"
-config/features=PackedStringArray("4.4", "Forward Plus")
+<<<<<<< HEAD
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="res://node_2d.tscn"
+=======
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+>>>>>>> 08d61f6d59661fb0aab99a76b15581d6d58a562b
