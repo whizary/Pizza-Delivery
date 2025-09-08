@@ -28,3 +28,23 @@ texture = ExtResource("2_vh8ia")
 [node name="Icon3" type="Sprite2D" parent="."]
 position = Vector2(427, 434)
 texture = ExtResource("2_vh8ia")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(129, 380)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(638, 198)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(785, 409)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(864, 200)
+texture = ExtResource("2_vh8ia")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+position = Vector2(1033, 460)
+texture = ExtResource("2_vh8ia")
