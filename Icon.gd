@@ -10,7 +10,7 @@ func _process(delta:float) -> void:
 	
 	direction = direction.normalized()
 	position += direction * delta * normal_speed
-	var speed := "hej neger"
+	var speed := "hej negero"
 	
 	if direction.length() > 0:
 		rotation = direction.angle() + PI / 2  # Samma som -90°
