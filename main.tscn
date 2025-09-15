@@ -45,3 +45,7 @@ offset_left = 199.0
 offset_top = 264.0
 offset_right = 239.0
 offset_bottom = 304.0
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(358, 175)
+texture = ExtResource("2_a1g5q")
