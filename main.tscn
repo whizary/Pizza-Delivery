@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=4 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_g7axb"]
 [ext_resource type="Texture2D" uid="uid://eehibl1nyct2" path="res://icon.svg" id="2_a1g5q"]
-[ext_resource type="Script" path="res://Icon.gd" id="3_yc4ao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n84h8"]
 
@@ -16,32 +15,13 @@ script = ExtResource("1_g7axb")
 shape = SubResource("CircleShape2D_n84h8")
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(463, 14)
+position = Vector2(81, 80)
 texture = ExtResource("2_a1g5q")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(436, 475)
+position = Vector2(384, 402)
 texture = ExtResource("2_a1g5q")
-script = ExtResource("3_yc4ao")
 
 [node name="Icon2" type="Sprite2D" parent="."]
 position = Vector2(974, 157)
 texture = ExtResource("2_a1g5q")
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(616, 409)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D"]
-position = Vector2(-194, -45)
-
-[node name="Container" type="Container" parent="Node2D/CollisionPolygon2D"]
-offset_left = -194.0
-offset_top = 197.0
-offset_right = -154.0
-offset_bottom = 237.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 199.0
-offset_top = 264.0
-offset_right = 239.0
-offset_bottom = 304.0
