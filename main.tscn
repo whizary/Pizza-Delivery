@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=6 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_g7axb"]
 [ext_resource type="Texture2D" uid="uid://eehibl1nyct2" path="res://icon.svg" id="2_a1g5q"]
+[ext_resource type="Texture2D" uid="uid://b6iq7d81g8aiq" path="res://maps/tileset.png" id="3_fkvsl"]
 [ext_resource type="Script" path="res://Icon.gd" id="3_yc4ao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n84h8"]
@@ -18,6 +19,11 @@ shape = SubResource("CircleShape2D_n84h8")
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(463, 14)
 texture = ExtResource("2_a1g5q")
+
+[node name="Tileset" type="Sprite2D" parent="."]
+position = Vector2(573, 310)
+scale = Vector2(8.36719, 5.8125)
+texture = ExtResource("3_fkvsl")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(436, 475)
