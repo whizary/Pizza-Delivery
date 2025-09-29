@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxrfwO7SFTw"]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource type="TileSet" id="tileset_id" path="tileset.tres"]
+[ext_resource path="tileset.tres" type="TileSet" id=1]
 
-[node name="Campfire_10" type="TileMapLayer"]
-collision_enabled = true
-tile_set = ExtResource("tileset_id")
-tile_map_data = PackedByteArray(0, 0, 211, 0, 134, 0, 0, 0, 5, 0, 28, 0, 0, 0, 212, 0, 134, 0, 0, 0, 6, 0, 28, 0, 0, 0, 211, 0, 135, 0, 0, 0, 7, 0, 28, 0, 0, 0, 212, 0, 135, 0, 0, 0, 0, 0, 29, 0, 0, 0)
+[node name="Campfire_10" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 8782035, 229, 0, 8782036, 230, 0, 8847571, 231, 0, 8847572, 232, 0 )
