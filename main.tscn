@@ -1,8 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=19 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_g7axb"]
 [ext_resource type="Texture2D" uid="uid://eehibl1nyct2" path="res://icon.svg" id="2_a1g5q"]
 [ext_resource type="Script" path="res://Icon.gd" id="3_yc4ao"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Cabin_6.tscn" id="4_h2glp"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Campfire_10.tscn" id="5_lpfhs"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Dirt_5.tscn" id="6_sdke3"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Fence_1.tscn" id="7_dwqd6"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Hint_0.tscn" id="8_gwy7b"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Ice_12.tscn" id="9_3l50h"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Logs_11.tscn" id="10_rcumt"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Snowman_7.tscn" id="11_gbhda"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Snowman_8.tscn" id="12_33lrr"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Snowman_9.tscn" id="13_8hnqi"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Snow_13.tscn" id="14_i6wxp"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Spawn_Location_2.tscn" id="15_6po8u"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Trees_4.tscn" id="16_p27yr"]
+[ext_resource type="PackedScene" path="res://Maps/Ice Map/Water_3.tscn" id="17_sxdqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n84h8"]
 
@@ -53,3 +67,143 @@ offset_bottom = 304.0
 [node name="Icon3" type="Sprite2D" parent="."]
 position = Vector2(358, 175)
 texture = ExtResource("2_a1g5q")
+
+[node name="Cabin_6" parent="." instance=ExtResource("4_h2glp")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Campfire_10" parent="." instance=ExtResource("5_lpfhs")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Dirt_5" parent="." instance=ExtResource("6_sdke3")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Fence_1" parent="." instance=ExtResource("7_dwqd6")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Hint_0" parent="." instance=ExtResource("8_gwy7b")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Ice_12" parent="." instance=ExtResource("9_3l50h")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Logs_11" parent="." instance=ExtResource("10_rcumt")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Snowman_7" parent="." instance=ExtResource("11_gbhda")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Snowman_8" parent="." instance=ExtResource("12_33lrr")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Snowman_9" parent="." instance=ExtResource("13_8hnqi")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Snow_13" parent="." instance=ExtResource("14_i6wxp")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Spawn_Location_2" parent="." instance=ExtResource("15_6po8u")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Trees_4" parent="." instance=ExtResource("16_p27yr")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
+
+[node name="Water_3" parent="." instance=ExtResource("17_sxdqy")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+script = null
