@@ -1,8 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd7q33iju0h7a"]
-
-[ext_resource type="PackedScene" path="res://Map/Map.tscn" id="1_3cmd8"]
+[gd_scene format=3 uid="uid://duh60ldb74u0r"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="map" parent="." instance=ExtResource("1_3cmd8")]
-position = Vector2(-150, -663)
