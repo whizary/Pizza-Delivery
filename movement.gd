@@ -15,12 +15,22 @@ func get_input():
 	var forward = Input.is_action_pressed('move_down')
 	
 	var run = Input.is_key_pressed(KEY_SHIFT)
+	var dodge = Input.is_action_just_pressed("KEY_Q")
 	
 	if run:
-		walk_speed = 225
+		walk_speed = 200
 	elif right || left || back || forward || right && forward || right && back || left && back || left && forward:
 		walk_speed = 150
-
+	
+	if dodge && right:
+		position.x += 100
+	elif dodge && left:
+		position.x -= 100
+	elif dodge && back:
+		position.y -= 100
+	elif dodge && forward:
+		position.y += 100
+	
 	if right:
 		velocity.x += walk_speed
 		_animated_sprite.play("WalkRight")

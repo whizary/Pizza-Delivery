@@ -108,19 +108,19 @@ radius = 13.0
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(21, 8)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="map"]
+[node name="DefaultCharacter2D" type="CharacterBody2D" parent="map"]
 position = Vector2(1280, 1064)
 script = ExtResource("1_amgfo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/DefaultCharacter2D"]
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_8wl6k")
 animation = &"WalkLeft"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/DefaultCharacter2D"]
 shape = SubResource("CircleShape2D_56h3a")
 
-[node name="Camera2D" type="Camera2D" parent="map/CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="map/DefaultCharacter2D"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2, 2)
