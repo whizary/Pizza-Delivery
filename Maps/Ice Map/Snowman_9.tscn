@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf6EMcuBeTw"]
-
-[ext_resource type="TileSet" id="tileset_id" path="tileset.tres"]
-
-[node name="Snowman_9" type="TileMapLayer"]
-collision_enabled = true
-tile_set = ExtResource("tileset_id")
-tile_map_data = PackedByteArray(0, 0, 210, 0, 134, 0, 0, 0, 2, 0, 17, 0, 0, 0, 211, 0, 134, 0, 0, 0, 3, 0, 17, 0, 0, 0, 210, 0, 135, 0, 0, 0, 4, 0, 17, 0, 0, 0, 211, 0, 135, 0, 0, 0, 5, 0, 17, 0, 0, 0, 210, 0, 136, 0, 0, 0, 6, 0, 17, 0, 0, 0, 211, 0, 136, 0, 0, 0, 7, 0, 17, 0, 0, 0, 210, 0, 137, 0, 0, 0, 0, 0, 18, 0, 0, 0, 211, 0, 137, 0, 0, 0, 1, 0, 18, 0, 0, 0)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=7 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_g7axb"]
 [ext_resource type="Texture2D" uid="uid://eehibl1nyct2" path="res://icon.svg" id="2_a1g5q"]
 [ext_resource type="Script" path="res://Icon.gd" id="3_yc4ao"]
+[ext_resource type="Texture2D" uid="uid://clcudh417ghbj" path="res://Pizza.png" id="4_dev0f"]
+[ext_resource type="Texture2D" uid="uid://cej7ryxxs6ker" path="res://Play-button.png" id="5_e7ngl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n84h8"]
 
@@ -23,3 +25,13 @@ texture = ExtResource("2_a1g5q")
 position = Vector2(436, 475)
 texture = ExtResource("2_a1g5q")
 script = ExtResource("3_yc4ao")
+
+[node name="Pizza2" type="Sprite2D" parent="."]
+position = Vector2(152, 162)
+scale = Vector2(1.06081, 1.15385)
+texture = ExtResource("4_dev0f")
+
+[node name="Play-button" type="Sprite2D" parent="."]
+position = Vector2(571, 139)
+scale = Vector2(0.939716, 0.88)
+texture = ExtResource("5_e7ngl")
