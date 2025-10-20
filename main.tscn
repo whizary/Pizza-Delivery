@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=17 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://movement.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/IdleBack.webp" id="1_qo8cd"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/WalkForwardL.webp" id="8_4l2fk"]
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/WalkLR.webp" id="10_ysw8g"]
+[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Earth_map/Map.tscn" id="14_p5bhk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -22,7 +23,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleBack",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -30,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleFront",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -38,7 +39,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleLeft",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -46,7 +47,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleRight",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -75,36 +76,51 @@ animations = [{
 "texture": ExtResource("9_qyv2l")
 }, {
 "duration": 1.0,
+"texture": ExtResource("3_da3xp")
+}, {
+"duration": 1.0,
 "texture": ExtResource("10_ysw8g")
 }],
 "loop": true,
 "name": &"WalkLeft",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_bj7qf")
 }, {
 "duration": 1.0,
+"texture": ExtResource("4_32nv4")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_uusdn")
 }],
 "loop": true,
 "name": &"WalkRight",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
-radius = 13.6
+radius = 13.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(102, 34)
+[node name="Node2D" type="Node2D"]
+
+[node name="map" parent="." instance=ExtResource("14_p5bhk")]
+position = Vector2(21, 8)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="map"]
+position = Vector2(1280, 1064)
 script = ExtResource("1_amgfo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/CharacterBody2D"]
+position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_8wl6k")
-animation = &"WalkForward"
+animation = &"WalkLeft"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/CharacterBody2D"]
 shape = SubResource("CircleShape2D_56h3a")
+
+[node name="Camera2D" type="Camera2D" parent="map/CharacterBody2D"]
+position = Vector2(-141, -110)
+offset = Vector2(140, 110)
+zoom = Vector2(2, 2)
