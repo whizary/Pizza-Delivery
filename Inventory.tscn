@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6funmbkvus0g"]
+[gd_scene load_steps=6 format=3 uid="uid://c6funmbkvus0g"]
 
 [ext_resource type="Texture2D" uid="uid://dki5kwn57dnao" path="res://Inventory-stuff/Inventory.png" id="1_lctyf"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://Inventory-stuff/Berries.webp" id="2_h7g6a"]
 [ext_resource type="Texture2D" uid="uid://7t4l3qve78bu" path="res://Inventory-stuff/Food.webp" id="3_5qavx"]
+[ext_resource type="Texture2D" uid="uid://cpxsyr61r4e3i" path="res://Inventory-stuff/Map.png" id="4_2gavy"]
 [ext_resource type="Texture2D" uid="uid://c6c2yo15uxhsl" path="res://Inventory-stuff/Sword.png" id="4_gydmb"]
 
 [node name="Inventory" type="Control"]
@@ -10,6 +11,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -21.0
+offset_right = 9.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -57,6 +62,7 @@ expand_mode = 1
 [node name="Slot5" type="TextureRect" parent="TextureRect/BagSlots"]
 custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
+texture = ExtResource("4_2gavy")
 expand_mode = 1
 
 [node name="Slot6" type="TextureRect" parent="TextureRect/BagSlots"]
