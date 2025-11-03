@@ -123,4 +123,4 @@ shape = SubResource("CircleShape2D_56h3a")
 [node name="Camera2D" type="Camera2D" parent="map/DefaultCharacter2D"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
