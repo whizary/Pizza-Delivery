@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0apgbnks5pa4"
-path="res://.godot/imported/WalkLR.webp-7e4919a172f057b26a4e8c0614df0cc7.ctex"
+uid="uid://bomn5g8wcr7ma"
+path="res://.godot/imported/WalkRightRight.webp-b3a6f7dd16c84c1e6946ffd0c4f1d83e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/WalkLR.webp"
-dest_files=["res://.godot/imported/WalkLR.webp-7e4919a172f057b26a4e8c0614df0cc7.ctex"]
+source_file="res://Characters/Man/WalkRightRight.webp"
+dest_files=["res://.godot/imported/WalkRightRight.webp-b3a6f7dd16c84c1e6946ffd0c4f1d83e.ctex"]
 
 [params]
 

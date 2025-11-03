@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csutm3h64noe5"
-path="res://.godot/imported/WalkForwardR.webp-de38b2d5a5280bcadb4acc35d322290e.ctex"
+uid="uid://bilnupcx0ytwo"
+path="res://.godot/imported/IdleRight.webp-c35c0414ff3591b7a1369ac1254ff02f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/WalkForwardR.webp"
-dest_files=["res://.godot/imported/WalkForwardR.webp-de38b2d5a5280bcadb4acc35d322290e.ctex"]
+source_file="res://Characters/Man/IdleRight.webp"
+dest_files=["res://.godot/imported/IdleRight.webp-c35c0414ff3591b7a1369ac1254ff02f.ctex"]
 
 [params]
 
