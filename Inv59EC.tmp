@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6funmbkvus0g"]
+[gd_scene load_steps=7 format=3 uid="uid://c6funmbkvus0g"]
 
 [ext_resource type="Script" path="res://Inventory.gd" id="1_2ngyt"]
 [ext_resource type="Texture2D" uid="uid://dki5kwn57dnao" path="res://Inventory-stuff/Inventory.png" id="1_lctyf"]
-[ext_resource type="Script" path="res://slot_node.gd" id="3_6h6w4"]
+[ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://Inventory-stuff/Berries.webp" id="2_h7g6a"]
+[ext_resource type="Texture2D" uid="uid://7t4l3qve78bu" path="res://Inventory-stuff/Food.webp" id="3_5qavx"]
+[ext_resource type="Texture2D" uid="uid://bhjaorpxct3dx" path="res://Inventory-stuff/Map.png" id="4_2gavy"]
 [ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://Inventory-stuff/Sword.webp" id="6_wv0t4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3i2tu"]
-font_size = 50
-font_color = Color(0.913725, 0.913725, 0.913725, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -46,33 +42,35 @@ columns = 3
 [node name="Slot1" type="TextureRect" parent="TextureRect/BagSlots"]
 custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
+texture = ExtResource("2_h7g6a")
 expand_mode = 1
-script = ExtResource("3_6h6w4")
 
-[node name="icon" type="TextureRect" parent="TextureRect/BagSlots/Slot1"]
+[node name="Slot2" type="TextureRect" parent="TextureRect/BagSlots"]
 custom_minimum_size = Vector2(230, 230)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -115.0
-offset_right = 115.0
-offset_bottom = 115.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TextureRect/BagSlots/Slot1"]
-layout_mode = 1
-offset_left = 190.0
-offset_top = 182.0
-offset_right = 248.0
-offset_bottom = 251.0
-text = "99
-"
+[node name="Slot3" type="TextureRect" parent="TextureRect/BagSlots"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Slot4" type="TextureRect" parent="TextureRect/BagSlots"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+texture = ExtResource("3_5qavx")
+expand_mode = 1
+
+[node name="Slot5" type="TextureRect" parent="TextureRect/BagSlots"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+texture = ExtResource("4_2gavy")
+expand_mode = 1
+
+[node name="Slot6" type="TextureRect" parent="TextureRect/BagSlots"]
+custom_minimum_size = Vector2(230, 230)
+layout_mode = 2
+expand_mode = 1
 
 [node name="KeyBar" type="GridContainer" parent="TextureRect"]
 layout_mode = 0
@@ -90,23 +88,7 @@ layout_mode = 2
 texture = ExtResource("6_wv0t4")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TextureRect/KeyBar/Slot1"]
-offset_left = 170.0
-offset_top = 160.0
-offset_right = 228.0
-offset_bottom = 229.0
-text = "99"
-label_settings = SubResource("LabelSettings_3i2tu")
-
 [node name="Slot2" type="TextureRect" parent="TextureRect/KeyBar"]
 custom_minimum_size = Vector2(230, 230)
 layout_mode = 2
 expand_mode = 1
-
-[node name="Label" type="Label" parent="TextureRect/KeyBar/Slot2"]
-offset_left = 170.0
-offset_top = 160.0
-offset_right = 228.0
-offset_bottom = 229.0
-text = "99"
-label_settings = SubResource("LabelSettings_3i2tu")
