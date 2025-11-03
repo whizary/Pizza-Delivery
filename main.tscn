@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=17 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" path="res://movement.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/IdleBack.webp" id="1_qo8cd"]
