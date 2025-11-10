@@ -73,20 +73,20 @@ func get_input():
 		_animated_sprite.stop()
 	
 	if right && forward:
-		velocity.x = walk_speed * 0.7
-		velocity.y = walk_speed * 0.7
+		velocity.x = walk_speed * 0.6
+		velocity.y = walk_speed * 0.6
 	
 	elif right && back:
-		velocity.x = walk_speed * 0.7
-		velocity.y = -walk_speed * 0.7
+		velocity.x = walk_speed * 0.6
+		velocity.y = -walk_speed * 0.6
 	
 	elif left && back:
-		velocity.x = -walk_speed * 0.7
-		velocity.y = -walk_speed * 0.7
+		velocity.x = -walk_speed * 0.6
+		velocity.y = -walk_speed * 0.6
 	
 	elif left && forward:
-		velocity.x = -walk_speed * 0.7
-		velocity.y = walk_speed * 0.7
+		velocity.x = -walk_speed * 0.6
+		velocity.y = walk_speed * 0.6
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
