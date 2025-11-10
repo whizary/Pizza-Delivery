@@ -284,7 +284,7 @@ script = ExtResource("1_amgfo")
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_8wl6k")
 animation = &"IdleFront"
-frame_progress = 0.171385
+frame_progress = 0.158552
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
 shape = SubResource("CircleShape2D_56h3a")

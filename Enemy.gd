@@ -9,11 +9,11 @@ extends CharacterBody2D
 var player = null
 
 func _ready():
-	# Find the player node in the scene
+
 	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta):
-	if player == null:		
+	if player == null:
 		return 
 
 	var distance_to_player = global_position.distance_to(player.global_position)
