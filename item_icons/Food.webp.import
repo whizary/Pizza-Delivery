@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1b8k1h87jw7r"
-path="res://.godot/imported/Berries.webp-95f578f5d73b3f427b115351229abd1c.ctex"
+uid="uid://7t4l3qve78bu"
+path="res://.godot/imported/Food.webp-c0800824a79a17932a4ac8cef7494c82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory-stuff/Berries.webp"
-dest_files=["res://.godot/imported/Berries.webp-95f578f5d73b3f427b115351229abd1c.ctex"]
+source_file="res://item_icons/Food.webp"
+dest_files=["res://.godot/imported/Food.webp-c0800824a79a17932a4ac8cef7494c82.ctex"]
 
 [params]
 

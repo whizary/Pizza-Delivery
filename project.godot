@@ -17,11 +17,16 @@ config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://node_2d.tscn"
 <<<<<<<HEADconfig/features=PackedStringArray("4.2", "Forward Plus")
 
+[autoload]
+
+JsonData="*res://JSONData.gd"
+
 [file_customization]
 
 folder_colors={
 "res://Buttons/": "red",
-"res://Inventory-stuff/": "green"
+"res://Inventory-stuff/": "green",
+"res://item_icons/": "blue"
 }
 
 [input]

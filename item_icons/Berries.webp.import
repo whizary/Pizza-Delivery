@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqkggtm8lnnhk"
-path="res://.godot/imported/Sword.webp-8b6b750f2f588825af7e278af0159426.ctex"
+uid="uid://d1b8k1h87jw7r"
+path="res://.godot/imported/Berries.webp-a474de02c2d1e87a1ebfe2f7ad123164.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory-stuff/Sword.webp"
-dest_files=["res://.godot/imported/Sword.webp-8b6b750f2f588825af7e278af0159426.ctex"]
+source_file="res://item_icons/Berries.webp"
+dest_files=["res://.godot/imported/Berries.webp-a474de02c2d1e87a1ebfe2f7ad123164.ctex"]
 
 [params]
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2tnbvg2sfand"]
+[gd_scene load_steps=5 format=3 uid="uid://d2tnbvg2sfand"]
 
-[ext_resource type="Script" path="res://Inventory.gd" id="1_2ngyt"]
 [ext_resource type="Texture2D" uid="uid://dki5kwn57dnao" path="res://Inventory-stuff/Inventory.png" id="1_lctyf"]
 [ext_resource type="Texture2D" uid="uid://cbslnp8twk61l" path="res://Inventory-stuff/slots_hover.png" id="2_4pobm"]
 [ext_resource type="Script" path="res://Slot.gd" id="3_v8oeq"]
@@ -9,7 +8,6 @@
 texture = ExtResource("2_4pobm")
 
 [node name="Inventory" type="Node2D"]
-script = ExtResource("1_2ngyt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 312.0

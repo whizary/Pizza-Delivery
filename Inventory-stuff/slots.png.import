@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7t4l3qve78bu"
-path="res://.godot/imported/Food.webp-4e1ba381db862640a02e60502bf952a9.ctex"
+uid="uid://damheo1n2mvxs"
+path="res://.godot/imported/slots.png-9d78e7dc21a16e5a2eb2e1c11d6eefe3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory-stuff/Food.webp"
-dest_files=["res://.godot/imported/Food.webp-4e1ba381db862640a02e60502bf952a9.ctex"]
+source_file="res://Inventory-stuff/slots.png"
+dest_files=["res://.godot/imported/slots.png-9d78e7dc21a16e5a2eb2e1c11d6eefe3.ctex"]
 
 [params]
 
