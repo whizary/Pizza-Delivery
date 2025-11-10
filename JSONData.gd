@@ -7,10 +7,10 @@ func _ready():
 	item_data = LoadData("res://Data/ItemData.json")
 
 func LoadData(file_path):
-	var json_data
-	var file_data = File.new()
 	
-	file_data.open(file_path, File.READ)
-	json_data = JSON.parse(file_data.get_as_text())
-	file_data.close()
+	var file_data = FileAccess.open(file_path, FileAccess.READ)
+	var json_text = file_data.get_as_text()
+	var json_data = JSON.parse_string(json_text)
+	return json_data
+
 	return json_data.result

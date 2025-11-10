@@ -12,3 +12,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("2_3rkfl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 51.0
+offset_right = 92.0
+offset_bottom = 74.0
+text = "99"

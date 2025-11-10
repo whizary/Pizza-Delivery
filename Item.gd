@@ -1,8 +1,31 @@
 extends Node2D
 
+var item_name
+var item_quantity
+
 
 func _ready():
-	if randi() % 2 == 0:
-		$TextureRect.texture = load("res://item_icons/Sword.webp")
-	else: 
-		$TextureRect.texture = load("res://item_icons/Berries.webp")
+	var rand_val = randi() % 3
+	if rand_val == 0:
+		item_name = "Sword"
+	elif rand_val == 1:
+		item_name = "Food"
+	else:
+		item_name = "Berries"
+	
+	$TextureRect.texture = load("res://item_icons/" + item_name + ".webp")
+	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
+	item_quantity = randi() % stack_size + 1
+	
+	if stack_size == 1:
+		$Label.visible = false
+	else:
+		$Label.text = str(item_quantity)
+		
+func add_item_quantity(amount_to_add):
+	item_quantity += amount_to_add
+	$Label.text = str(item_quantity)
+	
+func decrease_item_quantity(amount_to_remove):
+	item_quantity -= amount_to_remove
+	$Label.text = str(item_quantity)
