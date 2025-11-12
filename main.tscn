@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Man/WalkForwardL.webp" id="8_4l2fk"]
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
-[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Earth_map/Map.tscn" id="14_p5bhk"]
+[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]

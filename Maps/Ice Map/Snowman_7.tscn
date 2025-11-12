@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="TileSet" path="./tileset.tres" id="1"]
+
+[node name="Snowman_7" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 8847573, 133, 0, 8847574, 134, 0, 8913109, 135, 0, 8913110, 136, 0, 8978645, 137, 0, 8978646, 132, 0 )
