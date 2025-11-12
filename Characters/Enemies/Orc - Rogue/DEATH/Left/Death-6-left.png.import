@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b1hpor5glhadk"
-
-path="res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"
+uid="uid://d201rh25052hx"
+path="res://.godot/imported/Death-6-left.png-0c5ff5d13b7121650d0c2a01735bdd94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Man/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"]
+source_file="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-6-left.png"
+dest_files=["res://.godot/imported/Death-6-left.png-0c5ff5d13b7121650d0c2a01735bdd94.ctex"]
 
 [params]
 

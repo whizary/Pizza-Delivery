@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b1hpor5glhadk"
-
-path="res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"
+uid="uid://chjkbb0ensj7e"
+path="res://.godot/imported/Idle-3-left.png-26f651c8c1ad095268a74bc560027f43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Man/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"]
+source_file="res://Characters/Enemies/Orc - Rogue/IDLE/Left/Idle-3-left.png"
+dest_files=["res://.godot/imported/Idle-3-left.png-26f651c8c1ad095268a74bc560027f43.ctex"]
 
 [params]
 
