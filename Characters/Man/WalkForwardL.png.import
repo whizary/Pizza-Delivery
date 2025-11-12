@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b1hpor5glhadk"
-
-path="res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"
+uid="uid://hr1ol4lf7bi3"
+path="res://.godot/imported/WalkForwardL.png-e34d045b27f18dfcf1f6e2bdc3b2fec5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Man/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"]
+source_file="res://Characters/Man/WalkForwardL.png"
+dest_files=["res://.godot/imported/WalkForwardL.png-e34d045b27f18dfcf1f6e2bdc3b2fec5.ctex"]
 
 [params]
 

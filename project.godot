@@ -14,8 +14,6 @@ config/name="Pizza Delivery"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
-<<<<<<<HEADrun/main_scene="res://node_2d.tscn"
-<<<<<<<HEADconfig/features=PackedStringArray("4.2", "Forward Plus")
 
 [input]
 
