@@ -9,7 +9,6 @@ extends CharacterBody2D
 var player = null
 
 func _ready():
-
 	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta):
@@ -19,12 +18,17 @@ func _physics_process(delta):
 	var distance_to_player = global_position.distance_to(player.global_position)
 
 	if distance_to_player <= chase_distance and distance_to_player > stop_distance:
-		# Move towards the player
-		_animated_enemy_sprite.play("run_left")
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
+		if velocity.x >= 1:
+			_animated_enemy_sprite.play("run_right")
+		elif velocity.x <= -1:
+			_animated_enemy_sprite.play("run_left")
 	else:
 		_animated_enemy_sprite.play("idle_right")
 		velocity = Vector2.ZERO
-
 	move_and_slide()
+
+func _on_player_area_2d_body_entered(body):
+	if body.name == "Enemy":
+		queue_free()

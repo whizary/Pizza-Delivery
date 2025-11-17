@@ -70,7 +70,7 @@ func get_input():
 		_animated_sprite.play("WalkForward")	
 	
 	else:
-		_animated_sprite.stop()
+		_animated_sprite.play("IdleFront")
 	
 	if right && forward:
 		velocity.x = walk_speed * 0.6

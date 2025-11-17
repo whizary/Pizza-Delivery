@@ -1,8 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=54 format=3 uid="uid://duh60ldb74u0r"]
 
-[ext_resource type="Script" path="res://movement.gd" id="1_amgfo"]
+[ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
-[ext_resource type="Texture2D" uid="uid://brpn8puhc6ujn" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
+[ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
 [ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
 [ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Man/WalkRightRight.webp" id="4_bj7qf"]
@@ -133,8 +133,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mydo"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="GDScript" id="GDScript_fmfy4"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.has_method(\"_enemy_death\"):
+		body._enemy_death()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
+radius = 8.0
+height = 26.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
 animations = [{
@@ -287,14 +300,27 @@ animation = &"IdleFront"
 frame_progress = 0.158552
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-shape = SubResource("CircleShape2D_56h3a")
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_2mydo")
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
 
-[node name="Enemy" type="CharacterBody2D" parent="map"]
+[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
+visible = false
+position = Vector2(-1, 2)
+texture = ExtResource("1_xmroj")
+
+[node name="Player_Area2D" type="Area2D" parent="map/Player"]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_fmfy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_235ec")
+
+[node name="Enemy" type="CharacterBody2D" parent="map" groups=["Enemy"]]
 position = Vector2(1426, 736)
 script = ExtResource("15_gjgar")
 
@@ -307,3 +333,9 @@ frame_progress = 0.369426
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_urjn3")
+
+[node name="Enemy2D" type="Sprite2D" parent="map/Enemy"]
+visible = false
+texture = ExtResource("33_bb4v8")
+
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Enemy" method="_on_player_area_2d_body_entered"]
