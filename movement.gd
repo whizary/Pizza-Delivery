@@ -6,11 +6,17 @@ var walk_speed = 150
 var gravity = 0
 var dodgeCD = 2
 var dodgeBool = true
+@onready var inventory = $Inventory
 
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
+
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		print("open inventory")
+		inventory.visible = !inventory.visible
 
 func get_input():
 	velocity.x = 0
@@ -92,3 +98,11 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	get_input()
 	move_and_slide()
+
+
+func _on_pickup_zone_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_pickup_zone_body_exited(body):
+	pass # Replace with function body.

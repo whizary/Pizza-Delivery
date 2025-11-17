@@ -1,21 +1,22 @@
-[gd_scene load_steps=52 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=55 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://movement.gd" id="1_amgfo"]
-[ext_resource type="Texture2D" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
-[ext_resource type="Texture2D" uid="uid://brpn8puhc6ujn" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
-[ext_resource type="Texture2D" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
-[ext_resource type="Texture2D" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkRightRight.webp" id="4_bj7qf"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkBackR.webp" id="5_ify2i"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkRL.webp" id="5_uusdn"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkBackL.webp" id="6_g8a6i"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkForwardR.webp" id="7_gagy4"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkForwardL.webp" id="8_4l2fk"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
-[ext_resource type="Texture2D" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
+[ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
+[ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
+[ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
+[ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
+[ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Man/WalkRightRight.webp" id="4_bj7qf"]
+[ext_resource type="Texture2D" uid="uid://bka5ky4x74kag" path="res://Characters/Man/WalkBackR.webp" id="5_ify2i"]
+[ext_resource type="Texture2D" uid="uid://dr6obc3si86c5" path="res://Characters/Man/WalkRL.webp" id="5_uusdn"]
+[ext_resource type="Texture2D" uid="uid://bxnousctgrjmi" path="res://Characters/Man/WalkBackL.webp" id="6_g8a6i"]
+[ext_resource type="Texture2D" uid="uid://csutm3h64noe5" path="res://Characters/Man/WalkForwardR.webp" id="7_gagy4"]
+[ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Man/WalkForwardL.webp" id="8_4l2fk"]
+[ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
+[ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
+[ext_resource type="Script" path="res://PickupZone.gd" id="16_prybg"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
 [ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
@@ -47,6 +48,8 @@
 [ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="45_kaa6j"]
 [ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="46_e1kx0"]
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
+[ext_resource type="PackedScene" uid="uid://8a8yvwfkl8g7" path="res://Inventory.tscn" id="48_lhoea"]
+[ext_resource type="PackedScene" uid="uid://bvgc7njsvrvgg" path="res://item_drop.tscn" id="49_48jc5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -278,6 +281,7 @@ position = Vector2(21, 8)
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 position = Vector2(1280, 1064)
+collision_mask = 12
 script = ExtResource("1_amgfo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
@@ -287,6 +291,7 @@ animation = &"IdleFront"
 frame_progress = 0.158552
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+visible = false
 shape = SubResource("CircleShape2D_56h3a")
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
@@ -294,8 +299,22 @@ position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
 
+[node name="Inventory" parent="map/Player" instance=ExtResource("48_lhoea")]
+visible = false
+position = Vector2(-416, -244)
+
+[node name="PickupZone" type="Area2D" parent="map/Player"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("16_prybg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
+shape = SubResource("CircleShape2D_56h3a")
+
 [node name="Enemy" type="CharacterBody2D" parent="map"]
 position = Vector2(1426, 736)
+collision_layer = 8
 script = ExtResource("15_gjgar")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]
@@ -307,3 +326,10 @@ frame_progress = 0.369426
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_urjn3")
+
+[node name="ItemDrop" parent="map" instance=ExtResource("49_48jc5")]
+position = Vector2(1333, 1042)
+collision_layer = 4
+
+[connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
+[connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
