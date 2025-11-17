@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_play_pressed():
-	pass
+	get_tree().change_scene_to_file("res://Inventory.tscn")
 
 
 func _on_settings_pressed():
