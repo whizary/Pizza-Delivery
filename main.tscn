@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://duh60ldb74u0r"]
 
-[ext_resource type="Script" path="res://movement.gd" id="1_amgfo"]
+[ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
@@ -299,10 +299,6 @@ position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
 
-[node name="Inventory" parent="map/Player" instance=ExtResource("48_lhoea")]
-visible = false
-position = Vector2(-416, -244)
-
 [node name="PickupZone" type="Area2D" parent="map/Player"]
 position = Vector2(0, 1)
 collision_layer = 0
@@ -311,6 +307,10 @@ script = ExtResource("16_prybg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
 shape = SubResource("CircleShape2D_56h3a")
+
+[node name="Inventory" parent="map/Player" instance=ExtResource("48_lhoea")]
+visible = false
+position = Vector2(-416, -244)
 
 [node name="Enemy" type="CharacterBody2D" parent="map"]
 position = Vector2(1426, 736)
@@ -329,7 +329,6 @@ shape = SubResource("CapsuleShape2D_urjn3")
 
 [node name="ItemDrop" parent="map" instance=ExtResource("49_48jc5")]
 position = Vector2(1333, 1042)
-collision_layer = 4
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]

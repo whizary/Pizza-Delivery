@@ -15,8 +15,13 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
-		print("open inventory")
 		inventory.visible = !inventory.visible
+		$Inventory.initialize_inventory()
+	if event.is_action_pressed("pickup"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)
 
 func get_input():
 	velocity.x = 0

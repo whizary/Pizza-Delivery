@@ -44,6 +44,8 @@ _data = {
 }
 
 [node name="ItemDrop" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_0d400")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
