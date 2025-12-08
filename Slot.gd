@@ -9,6 +9,7 @@ var empty_style: StyleBoxTexture = null
 
 var ItemClass = preload("res://Item.tscn")
 var item = null
+var slot_index
 
 func _ready():
 	default_style = StyleBoxTexture.new()
@@ -44,7 +45,7 @@ func putIntoSlot(new_item):
 	
 func initialize_item(item_name, item_quantity):
 	if item == null:
-		item = ItemClass.instance()
+		item = ItemClass.instantiate()
 		add_child(item)
 		item.set_item(item_name, item_quantity)
 	else:

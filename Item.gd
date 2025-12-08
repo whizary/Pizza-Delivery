@@ -32,7 +32,7 @@ func set_item(nm, qt):
 		$Label.visible = false
 	else:
 		$Label.visible = true
-		$Label.text = String(item_quantity)
+		$Label.text = str(item_quantity)
 
 func add_item_quantity(amount_to_add):
 	item_quantity += amount_to_add

@@ -328,28 +328,7 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_urjn3")
 
 [node name="ItemDrop" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1336, 1046)
-
-[node name="ItemDrop2" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1343, 1079)
-
-[node name="ItemDrop3" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1367, 990)
-
-[node name="ItemDrop4" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1320, 1005)
-
-[node name="ItemDrop5" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1365, 1019)
-
-[node name="ItemDrop6" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1315, 1093)
-
-[node name="ItemDrop7" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1269, 992)
-
-[node name="ItemDrop8" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1374, 1050)
+position = Vector2(1333, 1042)
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
