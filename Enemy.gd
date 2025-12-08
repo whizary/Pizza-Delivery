@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var _animated_enemy_sprite = $EnemyAnimatedSprite2D
 
-@export var speed = 160.0
+@export var speed = 140.0
 @export var chase_distance = 250.0
-@export var stop_distance = 40.0
+@export var stop_distance = 35.0
 
 var player = null
 
@@ -20,9 +20,9 @@ func _physics_process(delta):
 	if distance_to_player <= chase_distance and distance_to_player > stop_distance:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
-		if velocity.x >= 1:
+		if velocity.x >= 0.0001:
 			_animated_enemy_sprite.play("run_right")
-		elif velocity.x <= -1:
+		elif velocity.x <= -0.0001:
 			_animated_enemy_sprite.play("run_left")
 	else:
 		_animated_enemy_sprite.play("idle_right")

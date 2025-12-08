@@ -133,9 +133,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mydo"]
-radius = 8.0
-height = 26.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
+radius = 7.0
+height = 24.0
 
 [sub_resource type="GDScript" id="GDScript_fmfy4"]
 script/source = "extends Area2D
@@ -278,8 +278,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urjn3"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knix3"]
+radius = 8.5
 height = 28.0
 
 [node name="Node2D" type="Node2D"]
@@ -287,10 +287,9 @@ height = 28.0
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(21, 8)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="map"]
-
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 position = Vector2(1280, 1064)
+safe_margin = 0.6
 script = ExtResource("1_amgfo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
@@ -298,10 +297,6 @@ position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_8wl6k")
 animation = &"IdleFront"
 frame_progress = 0.158552
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-position = Vector2(-1, -1)
-shape = SubResource("CapsuleShape2D_2mydo")
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
@@ -313,6 +308,11 @@ visible = false
 position = Vector2(-1, 2)
 texture = ExtResource("1_xmroj")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_3lykh")
+one_way_collision_margin = 0.0
+
 [node name="Player_Area2D" type="Area2D" parent="map/Player"]
 position = Vector2(-1, -1)
 script = SubResource("GDScript_fmfy4")
@@ -320,7 +320,7 @@ script = SubResource("GDScript_fmfy4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
 shape = SubResource("CapsuleShape2D_235ec")
 
-[node name="Enemy" type="CharacterBody2D" parent="map" groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" parent="map" groups=["enemy"]]
 position = Vector2(1426, 736)
 script = ExtResource("15_gjgar")
 
@@ -331,8 +331,8 @@ frame = 1
 frame_progress = 0.369426
 
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_urjn3")
+position = Vector2(-0.5, 2)
+shape = SubResource("CapsuleShape2D_knix3")
 
 [node name="Enemy2D" type="Sprite2D" parent="map/Enemy"]
 visible = false

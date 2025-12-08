@@ -6,11 +6,24 @@ var walk_speed = 150
 var gravity = 0
 var dodgeCD = 2
 var dodgeBool = true
+var normal_walk_speed = 150
+var normal_run_speed = 200
+@onready var inventory = $Inventory
 
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
+
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		inventory.visible = !inventory.visible
+		$Inventory.initialize_inventory()
+	if event.is_action_pressed("pickup"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)
 
 func get_input():
 	velocity.x = 0
@@ -49,9 +62,9 @@ func get_input():
 	
 	#MOVEMENT MECHANICS
 	if run:
-		walk_speed = 200
+		walk_speed = normal_run_speed
 	elif right || left || back || forward || right && forward || right && back || left && back || left && forward:
-		walk_speed = 150
+		walk_speed = normal_walk_speed
 	
 	if right:
 		velocity.x += walk_speed
@@ -92,3 +105,20 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	get_input()
 	move_and_slide()
+
+func use_redgem_power_up():
+	var powerupduration = 5.0
+	print("powerup")
+	normal_walk_speed = walk_speed * 2.0
+	normal_run_speed = walk_speed * 3.0
+	await get_tree().create_timer(powerupduration).timeout
+	print("powerdown")
+	normal_walk_speed = walk_speed / 2.0
+	normal_run_speed = walk_speed / 3.0
+ 
+func _on_pickup_zone_body_entered(body):
+	pass # Replace with function body.
+ 
+ 
+func _on_pickup_zone_body_exited(body):
+	pass # Replace with function body.
