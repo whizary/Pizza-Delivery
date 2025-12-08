@@ -1,10 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c_VynXaIVQo"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dxu0epsuiowrx"]
 
-[ext_resource type="Texture2D" path="tileset.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bguphbra3cky3" path="res://Maps/Ice Map/tileset.png" id="1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cD6D1lyiKSv"]
 texture = ExtResource("1")
-texture_region_size = Vector2i(16, 16)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -409,7 +408,6 @@ texture_region_size = Vector2i(16, 16)
 0:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [resource]
-tile_size = Vector2i(16, 16)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_cD6D1lyiKSv")
