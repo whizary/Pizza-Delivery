@@ -66,13 +66,10 @@ func _physics_process(delta):
 	#MOVEMENT MECHANICS
 	if run && stamina >= 0:
 		walk_speed = normal_run_speed
-		stamina = -delta
+		stamina -= delta * staminaDrain
 		
 	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
 		walk_speed = normal_walk_speed
-	
-	#if stamina <= 0:
-		#stamina = -2
 	
 	if right:
 		velocity.x += walk_speed
