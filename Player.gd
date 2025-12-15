@@ -24,6 +24,10 @@ func _input(event):
 			var pickup_item = $PickupZone.items_in_range.values()[0]
 			pickup_item.pick_up_item(self)
 			$PickupZone.items_in_range.erase(pickup_item)
+	if event.is_action_pressed("scroll_up"):
+		PlayerInventory.active_item_scroll_up()
+	elif event.is_action_pressed("scroll_down"):
+		PlayerInventory.active_item_scroll_down()
  
 func get_input():
 	velocity.x = 0

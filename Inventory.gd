@@ -9,6 +9,7 @@ func _ready():
 	for i in range(slots.size()):
 		slots[i].connect("gui_input", Callable(self, "slot_gui_input").bind(slots[i]))
 		slots[i].slot_index = i
+		slots[i].slot_type = SlotClass.SlotType.INVENTORY
 	initialize_inventory()
 
 
