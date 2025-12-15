@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var _animated_enemy_sprite = $EnemyAnimatedSprite2D
 
 @export var speed = 140.0
-@export var chase_distance = 250.0
+#var chase_distance = 250.0
 @export var stop_distance = 35.0
 
 var player = null
@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 	var distance_to_player = global_position.distance_to(player.global_position)
 
-	if distance_to_player <= chase_distance and distance_to_player > stop_distance:
+	if distance_to_player <= Global.chase_distance and distance_to_player > stop_distance:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 		if velocity.x >= 0.0001:
@@ -31,4 +31,4 @@ func _physics_process(delta):
 
 func _on_player_area_2d_body_entered(body):
 	if body.name == "Enemy":
-		queue_free()
+		print("Player hit")
