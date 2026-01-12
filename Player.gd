@@ -8,22 +8,12 @@ var dodgeCD = 2
 var dodgeBool = true
 var normal_walk_speed = 150
 var normal_run_speed = 200
-@onready var inventory = $Inventory
+var bluepowerup = false
  
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
- 
-func _input(event):
-	if event.is_action_pressed("inventory"):
-		inventory.visible = !inventory.visible
-		$Inventory.initialize_inventory()
-	if event.is_action_pressed("pickup"):
-		if $PickupZone.items_in_range.size() > 0:
-			var pickup_item = $PickupZone.items_in_range.values()[0]
-			pickup_item.pick_up_item(self)
-			$PickupZone.items_in_range.erase(pickup_item)
  
 func get_input():
 	velocity.x = 0
@@ -93,6 +83,13 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
  
+func _on_area_2d_body_entered(body): 
+	if body.name == "Player":
+		if bluepowerup == true:
+			$forceshield.visible = false   # hide
+			print("bluegem_powerdown")
+			bluepowerup = false
+
 func use_redgem_power_up(): #speed boost
 	var powerupduration = 8.0
 	print("redgem_powerup")
@@ -102,16 +99,11 @@ func use_redgem_power_up(): #speed boost
 	print("redgem_powerdown")
 	normal_walk_speed = 150
 	normal_run_speed = 200
-
-func use_bluegem_power_up(): #invisibility
-	var powerupduration = 10.0
+	
+func use_bluegem_power_up(): #force shield
+	bluepowerup = true
 	print("bluegem_powerup")
-	Global.chase_distance = 0
-	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
-	await get_tree().create_timer(powerupduration).timeout
-	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-	Global.chase_distance = 250
-	print("bluegem_powerdown")
+	$forceshield.visible = true  # show
 	
 func use_yellowgem_power_up():
 	var powerupduration = 5.0
@@ -127,16 +119,21 @@ func use_greengem_power_up():
 	await get_tree().create_timer(powerupduration).timeout
 	print("greengem_powerdown")
 	
-func use_blackgem_power_up():
-	var powerupduration = 5.0
+func use_blackgem_power_up(): #invisibility
+	var powerupduration = 10.0
 	print("blackgem_powerup")
-	
+	Global.chase_distance = 0
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	await get_tree().create_timer(powerupduration).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
+	Global.chase_distance = 250
 	print("blackgem_powerdown")
+	
 	
 func use_blackcoin_power_up(): #invert movement
 	var powerupduration = 5.0
 	print("blackcoin_powerup")
+	
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
 	InputMap.action_erase_events("move_up")
@@ -156,10 +153,20 @@ func use_blackcoin_power_up(): #invert movement
 	
 	await get_tree().create_timer(powerupduration).timeout
 	
+	InputMap.action_erase_events("move_right")
+	InputMap.action_erase_events("move_left")
+	InputMap.action_erase_events("move_up")
+	InputMap.action_erase_events("move_down")
+	event_d = InputEventKey.new()
+	event_d.physical_keycode = KEY_D
+	InputMap.action_add_event("move_right", event_d)
+	event_a = InputEventKey.new()
+	event_a.physical_keycode = KEY_A
+	InputMap.action_add_event("move_left", event_a)
+	event_s = InputEventKey.new()
+	event_s.physical_keycode = KEY_S
+	InputMap.action_add_event("move_down", event_s)
+	event_w = InputEventKey.new()
+	event_w.physical_keycode = KEY_W
+	InputMap.action_add_event("move_up", event_w)
 	print("blackcoin_powerdown")
-	
-func _on_pickup_zone_body_entered(body):
-	pass # Replace with function body.
-
-func _on_pickup_zone_body_exited(body):
-	pass # Replace with function body.

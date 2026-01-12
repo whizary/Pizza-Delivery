@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=110 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Ice Map/Map.tscn" id="1_hrvbo"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://Coin_Gems/spr_coin_gri.png" id="58_uit24"]
 [ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://blackcoin.gd" id="59_ruth0"]
 [ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="60_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="61_rm4vd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -161,6 +162,35 @@ func _on_body_entered(body):
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
 radius = 9.0
 height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
+atlas = ExtResource("61_rm4vd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
+atlas = ExtResource("61_rm4vd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
+atlas = ExtResource("61_rm4vd")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruth0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dllo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
 animations = [{
@@ -294,6 +324,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urjn3"]
 radius = 8.0
 height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rm4vd"]
+radius = 9.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uypp3"]
 atlas = ExtResource("49_hrvbo")
@@ -576,8 +609,16 @@ script = SubResource("GDScript_fmfy4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
 shape = SubResource("CapsuleShape2D_235ec")
 
+[node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
+visible = false
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ruth0")
+autoplay = "default"
+
 [node name="Enemy" type="CharacterBody2D" parent="map" groups=["Enemy"]]
 position = Vector2(1426, 736)
+safe_margin = 0.1
 script = ExtResource("15_gjgar")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]
@@ -593,6 +634,12 @@ shape = SubResource("CapsuleShape2D_urjn3")
 [node name="Enemy2D" type="Sprite2D" parent="map/Enemy"]
 visible = false
 texture = ExtResource("33_bb4v8")
+
+[node name="Area2D" type="Area2D" parent="map/Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Enemy/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_rm4vd")
 
 [node name="redgem" type="Area2D" parent="map"]
 position = Vector2(1216, 1049)
@@ -661,6 +708,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_gx4rg")
 
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Enemy" method="_on_player_area_2d_body_entered"]
+[connection signal="body_entered" from="map/Enemy/Area2D" to="map/Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bluegem" to="map/bluegem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/yellowgem" to="map/yellowgem" method="_on_body_entered"]
