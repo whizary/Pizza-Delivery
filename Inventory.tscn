@@ -8,7 +8,9 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jyj5a"]
 texture = ExtResource("2_4pobm")
 
-[node name="Inventory" type="Node2D"]
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_2ngyt")
 
 [node name="TextureRect" type="TextureRect" parent="."]

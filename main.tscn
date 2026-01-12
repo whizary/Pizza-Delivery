@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=54 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -16,8 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
-[ext_resource type="Script" path="res://PickupZone.gd" id="16_prybg"]
-[ext_resource type="PackedScene" uid="uid://dy1fucs74qatv" path="res://Hotbar.tscn" id="17_orhqa"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
 [ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
@@ -49,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="45_kaa6j"]
 [ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="46_e1kx0"]
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
-[ext_resource type="PackedScene" uid="uid://8a8yvwfkl8g7" path="res://Inventory.tscn" id="48_lhoea"]
 [ext_resource type="PackedScene" uid="uid://bvgc7njsvrvgg" path="res://item_drop.tscn" id="49_48jc5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
@@ -139,6 +136,8 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
 radius = 13.0
+
+[sub_resource type="GDScript" id="GDScript_k4347"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
 animations = [{
@@ -305,23 +304,15 @@ zoom = Vector2(2.235, 2.235)
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("16_prybg")
+script = SubResource("GDScript_k4347")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
 shape = SubResource("CircleShape2D_56h3a")
 
-[node name="Inventory" parent="map/Player" instance=ExtResource("48_lhoea")]
-visible = false
-position = Vector2(-416, -244)
-
-[node name="Hotbar" parent="map/Player" instance=ExtResource("17_orhqa")]
-position = Vector2(3, 106)
-scale = Vector2(0.6, 0.6)
-
 [node name="Enemy" type="CharacterBody2D" parent="map"]
 position = Vector2(1426, 736)
 collision_layer = 8
-safe_margin = 0.4
+safe_margin = 0.1
 script = ExtResource("15_gjgar")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]

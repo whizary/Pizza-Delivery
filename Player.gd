@@ -14,21 +14,7 @@ func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
- 
-func _input(event):
-	if event.is_action_pressed("inventory"):
-		inventory.visible = !inventory.visible
-		$Inventory.initialize_inventory()
-	if event.is_action_pressed("pickup"):
-		if $PickupZone.items_in_range.size() > 0:
-			var pickup_item = $PickupZone.items_in_range.values()[0]
-			pickup_item.pick_up_item(self)
-			$PickupZone.items_in_range.erase(pickup_item)
-	if event.is_action_pressed("scroll_up"):
-		PlayerInventory.active_item_scroll_up()
-	elif event.is_action_pressed("scroll_down"):
-		PlayerInventory.active_item_scroll_down()
- 
+
 func get_input():
 	velocity.x = 0
 	velocity.y = 0

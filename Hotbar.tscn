@@ -4,7 +4,9 @@
 [ext_resource type="Script" path="res://Hotbar.gd" id="1_a83s6"]
 [ext_resource type="Script" path="res://Slot.gd" id="2_osg4u"]
 
-[node name="Hotbar" type="Node2D"]
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(0.9, 0.9)
 script = ExtResource("1_a83s6")
 
