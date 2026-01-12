@@ -8,24 +8,12 @@ var dodgeCD = 2
 var dodgeBool = true
 var normal_walk_speed = 150
 var normal_run_speed = 200
-var stamina = 100
-var staminaDrain = 5
 @onready var inventory = $Inventory
 
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
-
-func _input(event):
-	if event.is_action_pressed("inventory"):
-		inventory.visible = !inventory.visible
-		$Inventory.initialize_inventory()
-	if event.is_action_pressed("pickup"):
-		if $PickupZone.items_in_range.size() > 0:
-			var pickup_item = $PickupZone.items_in_range.values()[0]
-			pickup_item.pick_up_item(self)
-			$PickupZone.items_in_range.erase(pickup_item)
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -64,11 +52,17 @@ func _physics_process(delta):
 		dodgeCD = 2
 	
 	#MOVEMENT MECHANICS
-	if run && stamina >= 0:
+	if Global.stamina >= Global.maxStamina:
+		Global.stamina = 100
+	
+	if Global.stamina <= 0 and run == false or Global.stamina >= 0 and run == false:
+		Global.stamina += delta * Global.staminaRecovery
+	
+	if run and Global.stamina > 0:
 		walk_speed = normal_run_speed
-		stamina -= delta * staminaDrain
+		Global.stamina -= delta * Global.staminaDrain
 		
-	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
+	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:		
 		walk_speed = normal_walk_speed
 	
 	if right:
@@ -88,7 +82,7 @@ func _physics_process(delta):
 		_animated_sprite.play("WalkForward")
 	
 	else:
-		_animated_sprite.play("IdleFront")	
+		_animated_sprite.play("IdleFront")
 	
 	if right && forward:
 		velocity.x = walk_speed * 0.7
@@ -105,6 +99,8 @@ func _physics_process(delta):
 	elif left && forward:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
+	
+	$Camera2D/Label.text = "STA: " + str(round(Global.stamina))
 
 func use_redgem_power_up():
 	var powerupduration = 5.0
@@ -115,10 +111,3 @@ func use_redgem_power_up():
 	print("powerdown")
 	normal_walk_speed = 150
 	normal_run_speed = 200
- 
-func _on_pickup_zone_body_entered(body):
-	pass # Replace with function body.
- 
- 
-func _on_pickup_zone_body_exited(body):
-	pass # Replace with function body.
