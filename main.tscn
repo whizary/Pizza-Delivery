@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=56 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -47,7 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="45_kaa6j"]
 [ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="46_e1kx0"]
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
-[ext_resource type="PackedScene" uid="uid://bvgc7njsvrvgg" path="res://item_drop.tscn" id="49_48jc5"]
+[ext_resource type="PackedScene" uid="uid://croxgn356sgtk" path="res://Inventory_Item.tscn" id="48_amqjv"]
+[ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
+[ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="50_chjiq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -326,29 +328,15 @@ visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_urjn3")
 
-[node name="ItemDrop" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1336, 1046)
+[node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1336, 1081)
+item_type = "Consumable"
+item_texture = ExtResource("49_sjkjh")
 
-[node name="ItemDrop2" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1343, 1079)
-
-[node name="ItemDrop3" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1367, 990)
-
-[node name="ItemDrop4" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1320, 1005)
-
-[node name="ItemDrop5" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1365, 1019)
-
-[node name="ItemDrop6" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1315, 1093)
-
-[node name="ItemDrop7" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1269, 992)
-
-[node name="ItemDrop8" parent="map" instance=ExtResource("49_48jc5")]
-position = Vector2(1374, 1050)
+[node name="Inventory_Item2" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1259, 1107)
+item_type = "Quest"
+item_texture = ExtResource("50_chjiq")
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]

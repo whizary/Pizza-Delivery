@@ -8,7 +8,6 @@ var dodgeCD = 2
 var dodgeBool = true
 var normal_walk_speed = 150
 var normal_run_speed = 200
-@onready var inventory = $Inventory
  
 func _process(delta):
 	dodgeCD -= delta
@@ -90,8 +89,5 @@ func use_redgem_power_up():
 	normal_walk_speed = walk_speed / 2.0
 	normal_run_speed = walk_speed / 3.0
 
-func _on_pickup_zone_body_entered(body):
-	pass # Replace with function body.
-
-func _on_pickup_zone_body_exited(body):
-	pass # Replace with function body.
+func _ready():
+	Global.set_player_reference(self)
