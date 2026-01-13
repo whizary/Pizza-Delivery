@@ -19,16 +19,25 @@ func _physics_process(delta):
 	if distance_to_player <= Global.chase_distance and distance_to_player > stop_distance:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
-		if velocity.x >= 0.00001:
+		if velocity.x >= 0.000001:
 			_animated_enemy_sprite.play("run_right")
-		elif velocity.x <= -0.00001:
+		elif velocity.x <= -0.000001:
 			_animated_enemy_sprite.play("run_left")
 	else:
 		_animated_enemy_sprite.play("idle_right")
 		velocity = Vector2.ZERO
 	move_and_slide()
+	
+	if Global.iframes == true and Global.death == false:
+		Global.iframesTimer -= delta
+	
+	if Global.iframesTimer <= 0:
+		Global.iframes = false
 
 func _on_player_area_2d_body_entered(body):
-	if body.name == "Enemy":
+	if body.name == "Enemy" and Global.iframes == false:
+		Global.iframes = true
+		Global.iframesTimer = 1
 		print("Player hit")
-		queue_free()
+		Global.health -= 10
+

@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://duh60ldb74u0r"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
 [ext_resource type="Script" path="res://Maps/Earth Map/Map.gd" id="2_nf4i1"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
@@ -313,12 +313,19 @@ offset_bottom = -107.0
 theme_override_font_sizes/font_size = 10
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
+offset_left = -287.0
+offset_top = -113.0
+offset_right = -247.0
+offset_bottom = -90.0
+theme_override_font_sizes/font_size = 10
+
 [node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, 2)
 texture = ExtResource("1_xmroj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
 position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_3lykh")
 one_way_collision_margin = 0.0
@@ -332,7 +339,7 @@ shape = SubResource("CapsuleShape2D_235ec")
 
 [node name="Enemy" type="CharacterBody2D" parent="map" groups=["enemy"]]
 position = Vector2(1426, 736)
-safe_margin = 0.2
+safe_margin = 0.001
 script = ExtResource("15_gjgar")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]
@@ -349,4 +356,5 @@ shape = SubResource("CapsuleShape2D_knix3")
 visible = false
 texture = ExtResource("33_bb4v8")
 
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Enemy" method="_on_player_area_2d_body_entered"]
