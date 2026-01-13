@@ -6,13 +6,13 @@ var gravity = 0
 var bluepowerup = false
 
 #Dodge variables
-var dodgeCD = 2
+var dodgeCD = 2.0
 var dodgeBool = true
 
 #Movement variables
-var walk_speed = 150
-var normal_walk_speed = 150
-var normal_run_speed = 200
+var walk_speed = 150.0
+var normal_walk_speed = 150.0
+var normal_run_speed = 200.0
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -32,6 +32,7 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
 	
+	#Movement variables
 	var run = Input.is_action_pressed("run")
 	var forward = Input.is_action_pressed('move_down')
 	var right = Input.is_action_pressed('move_right')
@@ -59,13 +60,19 @@ func _physics_process(delta):
 			position += Vector2(0, 100)
 		
 		dodgeBool = false
-		dodgeCD = 2
+		dodgeCD = 2.0
 	
 	#HEALTH
 	if Global.health <= 0 and Global.death == false:
 		Global.death = true
 		Global.health = 0
 		print("GAME OVER")
+	
+	if Global.iframes == true and Global.death == false:
+		Global.iframesTimer -= delta
+	
+	if Global.iframesTimer <= 0:
+		Global.iframes = false
 	
 	#STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
@@ -125,6 +132,15 @@ func _on_player_area_2d_body_entered(body):
 			$forceshield.visible = false   # hide
 			print("bluegem_powerdown")
 			bluepowerup = false
+	
+	if body.name == "Enemy" and Global.iframes == false:
+		Global.iframes = true
+		Global.iframesTimer = 1.0
+		print("Player hit")
+		Global.health -= 10.0
+	
+	if body.is_in_group("enemy"):
+		body.queue_free()
 
 func use_redgem_power_up(): #speed boost
 	var powerupduration = 8.0
@@ -133,8 +149,8 @@ func use_redgem_power_up(): #speed boost
 	normal_run_speed = walk_speed * 1.8
 	await get_tree().create_timer(powerupduration).timeout
 	print("redgem_powerdown")
-	normal_walk_speed = 150
-	normal_run_speed = 200
+	normal_walk_speed = 150.0
+	normal_run_speed = 200.0
 
 func use_bluegem_power_up(): #force shield
 	bluepowerup = true

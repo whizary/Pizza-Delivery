@@ -27,17 +27,8 @@ func _physics_process(delta):
 		_animated_enemy_sprite.play("idle_right")
 		velocity = Vector2.ZERO
 	move_and_slide()
-	
-	if Global.iframes == true and Global.death == false:
-		Global.iframesTimer -= delta
-	
-	if Global.iframesTimer <= 0:
-		Global.iframes = false
 
 func _on_player_area_2d_body_entered(body):
 	if body.name == "Enemy" and Global.iframes == false:
-		Global.iframes = true
-		Global.iframesTimer = 1
-		print("Player hit")
-		Global.health -= 10
+		queue_free()
 
