@@ -1,6 +1,8 @@
 extends CharacterBody2D
  
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var interact_ui = $InteractUI
+@onready var inventory_ui = $InventoryUI
  
 var walk_speed = 150
 var gravity = 0
@@ -91,3 +93,8 @@ func use_redgem_power_up():
 
 func _ready():
 	Global.set_player_reference(self)
+
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		inventory_ui.visible = !inventory_ui.visible
+		get_tree().paused = !get_tree().paused

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=57 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
+[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
 [ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
@@ -47,7 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="45_kaa6j"]
 [ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="46_e1kx0"]
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
-[ext_resource type="PackedScene" uid="uid://croxgn356sgtk" path="res://Inventory_Item.tscn" id="48_amqjv"]
+[ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
 [ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="50_chjiq"]
 
@@ -282,6 +283,7 @@ position = Vector2(21, 8)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="map"]
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
+process_mode = 3
 position = Vector2(1280, 1064)
 collision_mask = 12
 safe_margin = 0.6
@@ -310,6 +312,67 @@ script = SubResource("GDScript_k4347")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
 shape = SubResource("CircleShape2D_56h3a")
+
+[node name="InteractUI" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/InteractUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -56.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.192157, 0.376471, 0.321569, 1)
+
+[node name="Label" type="Label" parent="map/Player/InteractUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -11.5
+offset_right = 74.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Press \"E\" to pick up"
+
+[node name="InventoryUI" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/InventoryUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.376471, 0.321569, 1)
+
+[node name="Label" type="Label" parent="map/Player/InventoryUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = 50.0
+offset_right = 37.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Inventory
+"
+
+[node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_3e7ec")]
+layout_mode = 1
 
 [node name="Enemy" type="CharacterBody2D" parent="map"]
 position = Vector2(1426, 736)
