@@ -27,8 +27,3 @@ func _physics_process(delta):
 		_animated_enemy_sprite.play("idle_right")
 		velocity = Vector2.ZERO
 	move_and_slide()
-
-func _on_player_area_2d_body_entered(body):
-	if body.name == "Enemy" and Global.iframes == false:
-		queue_free()
-

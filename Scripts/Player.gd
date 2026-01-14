@@ -139,8 +139,8 @@ func _on_player_area_2d_body_entered(body):
 		print("Player hit")
 		Global.health -= 10.0
 	
-	if body.is_in_group("enemy"):
-		body.queue_free()
+	#if body.is_in_group("enemy"):
+		#body.queue_free()
 
 func use_redgem_power_up(): #speed boost
 	var powerupduration = 8.0
