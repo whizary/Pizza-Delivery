@@ -92,7 +92,8 @@ func use_redgem_power_up():
 	normal_run_speed = walk_speed / 3.0
 
 func _ready():
-	Global.set_player_reference(self)
+	Global.player_node = self
+
 
 func _input(event):
 	if event.is_action_pressed("inventory"):

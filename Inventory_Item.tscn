@@ -8,6 +8,7 @@ radius = 5.09902
 [node name="Inventory_Item" type="Node2D" groups=["Items"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_pba8l")
+item_effect = ""
 
 [node name="Area2D" type="Area2D" parent="."]
 

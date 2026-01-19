@@ -50,7 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
-[ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="50_chjiq"]
+[ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -394,12 +394,23 @@ shape = SubResource("CapsuleShape2D_urjn3")
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
 item_type = "Consumable"
+item_name = "Berry"
 item_texture = ExtResource("49_sjkjh")
+item_effect = "Health"
 
 [node name="Inventory_Item2" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1259, 1107)
-item_type = "Quest"
-item_texture = ExtResource("50_chjiq")
+item_type = "Consumable"
+item_name = "Food"
+item_texture = ExtResource("51_pbdrf")
+item_effect = "hp"
+
+[node name="Inventory_Item3" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1316, 1124)
+item_type = "Consumable"
+item_name = "Food"
+item_texture = ExtResource("51_pbdrf")
+item_effect = "hp"
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]

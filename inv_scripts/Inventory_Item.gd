@@ -1,12 +1,10 @@
-@tool
+
 extends Node2D
 
 @export var item_type = ""
 @export var item_name = ""
-@export var item_texture: Texture
-@export var item_effect = ""
-var scene_path: String = "res://Inventory_Item.tscn"
-
+@export var item_texture: Texture2D
+@export var item_effect: String = "health"
 @onready var icon_sprite = $Sprite2D
 
 var player_in_range = false
@@ -18,23 +16,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Engine.is_editor_hint():
-		icon_sprite.texture = item_texture
 	if player_in_range and Input.is_action_just_pressed("ui_add"):
 		pickup_item()
+		print("item")
 
 
 func pickup_item():
 	var item = {
-		"quantity" : 1,
-		"item_type" : item_type,
-		"item_name" : item_name,
-		"item_texture" : item_texture,
-		"item_effect" : scene_path,
+		"quantity": 1,
+		"type": item_type,
+		"name": item_name,
+		"texture": item_texture,
+		"effect": item_effect,
 	}
-	if Global.player_node:
-		Global.add_item(item)
-		self.queue_free()
+	var added: bool = Global.add_item(item)
+
+	if added:
+		queue_free()
+	else:
+		print("Inventory full / kunde inte lägga till item")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
