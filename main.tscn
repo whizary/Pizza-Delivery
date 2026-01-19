@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=120 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Ice Map/Map.tscn" id="1_hrvbo"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
+[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
 [ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
@@ -61,6 +62,8 @@
 [ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://blackcoin.gd" id="59_ruth0"]
 [ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="60_rm4vd"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="61_rm4vd"]
+[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://redcoin.gd" id="62_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="63_b17eg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -569,6 +572,52 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gx4rg"]
 radius = 8.062258
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_phcyf"]
+atlas = ExtResource("63_b17eg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_birbe"]
+atlas = ExtResource("63_b17eg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1p13"]
+atlas = ExtResource("63_b17eg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4obbf"]
+atlas = ExtResource("63_b17eg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcoh"]
+atlas = ExtResource("63_b17eg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1p13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phcyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_birbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1p13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4obbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcoh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4obbf"]
+radius = 8.062258
+
 [node name="Node2D" type="Node2D"]
 
 [node name="map2" parent="." instance=ExtResource("1_hrvbo")]
@@ -615,6 +664,13 @@ position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ruth0")
 autoplay = "default"
+
+[node name="Blackscreenmode" type="Sprite2D" parent="map/Player"]
+visible = false
+z_index = 11
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_pjyto")
 
 [node name="Enemy" type="CharacterBody2D" parent="map" groups=["Enemy"]]
 position = Vector2(1426, 736)
@@ -707,6 +763,18 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/blackcoin"]
 shape = SubResource("CircleShape2D_gx4rg")
 
+[node name="redcoin" type="Area2D" parent="map"]
+script = ExtResource("62_sm6fg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/redcoin"]
+position = Vector2(1057, 1151)
+sprite_frames = SubResource("SpriteFrames_f1p13")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/redcoin"]
+position = Vector2(1057, 1151)
+shape = SubResource("CircleShape2D_4obbf")
+
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Enemy" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/Enemy/Area2D" to="map/Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
@@ -715,3 +783,4 @@ shape = SubResource("CircleShape2D_gx4rg")
 [connection signal="body_entered" from="map/greengem" to="map/greengem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/blackgem" to="map/blackgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/blackcoin" to="map/blackcoin" method="_on_body_entered"]
+[connection signal="body_entered" from="map/redcoin" to="map/redcoin" method="_on_body_entered"]

@@ -2,5 +2,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.use_yellowgem_power_up()
+		body.use_redcoin_power_up()
 		queue_free()

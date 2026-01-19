@@ -90,48 +90,53 @@ func _on_area_2d_body_entered(body):
 			print("bluegem_powerdown")
 			bluepowerup = false
 
-func use_redgem_power_up(): #speed boost
-	var powerupduration = 8.0
+func use_redgem_power_up(): # damage boost
+	var powerupduration = 5.0
 	print("redgem_powerup")
-	normal_walk_speed = walk_speed * 1.5
-	normal_run_speed = walk_speed * 1.8
+
 	await get_tree().create_timer(powerupduration).timeout
+
 	print("redgem_powerdown")
-	normal_walk_speed = 150
-	normal_run_speed = 200
-	
+
 func use_bluegem_power_up(): #force shield
 	bluepowerup = true
 	print("bluegem_powerup")
 	$forceshield.visible = true  # show
-	
-func use_yellowgem_power_up():
-	var powerupduration = 5.0
+
+func use_yellowgem_power_up(): # speed boost
+	var powerupduration = 8.0
 	print("yellowgem_powerup")
-	
+	normal_walk_speed = walk_speed * 1.4
+	normal_run_speed = walk_speed * 1.7
 	await get_tree().create_timer(powerupduration).timeout
 	print("yellowgem_powerdown")
-	
-func use_greengem_power_up():
+	normal_walk_speed = 150
+	normal_run_speed = 200
+
+func use_greengem_power_up(): # health boost
 	var powerupduration = 5.0
 	print("greengem_powerup")
 	
 	await get_tree().create_timer(powerupduration).timeout
-	print("greengem_powerdown")
 	
-func use_blackgem_power_up(): #invisibility
+	print("greengem_powerdown")
+
+func use_blackgem_power_up(): #invisibility men lite slowness
 	var powerupduration = 10.0
 	print("blackgem_powerup")
+	normal_walk_speed = walk_speed * 0.75
+	normal_run_speed = (walk_speed + 50) * 0.75
 	Global.chase_distance = 0
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
 	Global.chase_distance = 250
+	normal_walk_speed = 150
+	normal_run_speed = 200
 	print("blackgem_powerdown")
-	
-	
+
 func use_blackcoin_power_up(): #invert movement
-	var powerupduration = 5.0
+	var powerupduration = 25.0
 	print("blackcoin_powerup")
 	
 	InputMap.action_erase_events("move_right")
@@ -150,7 +155,7 @@ func use_blackcoin_power_up(): #invert movement
 	var event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_down", event_w)
-	
+
 	await get_tree().create_timer(powerupduration).timeout
 	
 	InputMap.action_erase_events("move_right")
@@ -170,3 +175,15 @@ func use_blackcoin_power_up(): #invert movement
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_up", event_w)
 	print("blackcoin_powerdown")
+
+func use_redcoin_power_up(): # blindness and slowness
+	var powerupduration = 18.0
+	print("redcoin_powerup")
+	$Blackscreenmode.visible = true
+	normal_walk_speed = walk_speed * 0.6
+	normal_run_speed = (walk_speed + 50) * 0.6
+	await get_tree().create_timer(powerupduration).timeout
+	$Blackscreenmode.visible = false
+	normal_walk_speed = 150
+	normal_run_speed = 200
+	print("redcoin_powerdown")
