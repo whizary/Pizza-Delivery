@@ -6,6 +6,7 @@ extends Node2D
 @export var item_texture: Texture2D
 @export var item_effect: String = "health"
 @onready var icon_sprite = $Sprite2D
+@export var scene_path: String = "res://Inventory_Item.tscn"
 
 var player_in_range = false
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +29,7 @@ func pickup_item():
 		"name": item_name,
 		"texture": item_texture,
 		"effect": item_effect,
+		"scene_path": scene_path,
 	}
 	var added: bool = Global.add_item(item)
 
@@ -47,3 +49,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true
 		body.interact_ui.visible = true
+
+func set_item_data(data):
+	item_type = data["type"]
+	item_name = data["name"]
+	item_effect = data["effect"]
+	item_texture = data["texture"]
