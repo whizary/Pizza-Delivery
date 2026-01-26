@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+@onready var sound = $AudioStreamPlayer2D
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var interact_ui = $InteractUI
+@onready var inventory_ui = $InventoryUI
 
 var gravity = 0
 var bluepowerup = false
@@ -63,25 +66,25 @@ func _physics_process(delta):
 		dodgeCD = 2.0
 	
 	#HEALTH
-	if Global.health <= 0 and Global.death == false:
+	if Global.health <= 0.0 and Global.death == false:
 		Global.death = true
-		Global.health = 0
+		Global.health = 0.0
 		print("GAME OVER")
 	
 	if Global.iframes == true and Global.death == false:
 		Global.iframesTimer -= delta
 	
-	if Global.iframesTimer <= 0:
+	if Global.iframesTimer <= 0.0:
 		Global.iframes = false
 	
 	#STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
 		Global.stamina = Global.maxStamina
 	
-	if Global.stamina <= 0 and run == false or Global.stamina >= 0 and run == false:
+	if Global.stamina <= 0.0 and run == false or Global.stamina >= 0.0 and run == false:
 		Global.stamina += delta * Global.staminaRecovery
 	
-	if run and Global.stamina > 0:
+	if run and Global.stamina > 0.0:
 		walk_speed = normal_run_speed
 		Global.stamina -= delta * Global.staminaDrain
 	
@@ -134,6 +137,7 @@ func _on_player_area_2d_body_entered(body):
 			bluepowerup = false
 	
 	if body.name == "Enemy" and Global.iframes == false:
+		sound.play()
 		Global.iframes = true
 		Global.iframesTimer = 1.0
 		print("Player hit")
@@ -142,45 +146,50 @@ func _on_player_area_2d_body_entered(body):
 	#if body.is_in_group("enemy"):
 		#body.queue_free()
 
-func use_redgem_power_up(): #speed boost
-	var powerupduration = 8.0
+func use_redgem_power_up(): # damage boost
+	var powerupduration = 5.0
 	print("redgem_powerup")
-	normal_walk_speed = walk_speed * 1.5
-	normal_run_speed = walk_speed * 1.8
+ 
 	await get_tree().create_timer(powerupduration).timeout
+ 
 	print("redgem_powerdown")
-	normal_walk_speed = 150.0
-	normal_run_speed = 200.0
-
+ 
 func use_bluegem_power_up(): #force shield
 	bluepowerup = true
 	print("bluegem_powerup")
 	$forceshield.visible = true  # show
-
-func use_yellowgem_power_up():
-	var powerupduration = 5.0
+ 
+func use_yellowgem_power_up(): # speed boost
+	var powerupduration = 8.0
 	print("yellowgem_powerup")
+	normal_walk_speed = walk_speed * 1.4
+	normal_run_speed = walk_speed * 1.7
 	await get_tree().create_timer(powerupduration).timeout
 	print("yellowgem_powerdown")
-
-func use_greengem_power_up():
-	var powerupduration = 5.0
+	normal_walk_speed = 150.0
+	normal_run_speed = 200.0
+ 
+func use_greengem_power_up(): # health boost
 	print("greengem_powerup")
-	await get_tree().create_timer(powerupduration).timeout
+	Global.health = 100.0
 	print("greengem_powerdown")
-
-func use_blackgem_power_up(): #invisibility
+ 
+func use_blackgem_power_up(): #invisibility men lite slowness
 	var powerupduration = 10.0
 	print("blackgem_powerup")
+	normal_walk_speed = walk_speed * 0.75
+	normal_run_speed = (walk_speed + 50) * 0.75
 	Global.chase_distance = 0
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-	Global.chase_distance = 250
+	Global.chase_distance = 250.0
+	normal_walk_speed = 150.0
+	normal_run_speed = 200.0
 	print("blackgem_powerdown")
-
+ 
 func use_blackcoin_power_up(): #invert movement
-	var powerupduration = 5.0
+	var powerupduration = 25.0
 	print("blackcoin_powerup")
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
@@ -198,6 +207,7 @@ func use_blackcoin_power_up(): #invert movement
 	var event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_down", event_w)
+ 
 	await get_tree().create_timer(powerupduration).timeout
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
@@ -216,3 +226,25 @@ func use_blackcoin_power_up(): #invert movement
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_up", event_w)
 	print("blackcoin_powerdown")
+ 
+func use_redcoin_power_up(): # blindness and slowness
+	var powerupduration = 18.0
+	print("redcoin_powerup")
+	$Blackscreenmode.visible = true
+	$Blackscreenmega.visible = true
+	normal_walk_speed = walk_speed * 0.6
+	normal_run_speed = (walk_speed + 50) * 0.6
+	await get_tree().create_timer(powerupduration).timeout
+	$Blackscreenmode.visible = false
+	$Blackscreenmega.visible = false
+	normal_walk_speed = 150
+	normal_run_speed = 200
+	print("redcoin_powerdown")
+	
+#func _ready():
+	#Global.player_node = self
+
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		inventory_ui.visible = !inventory_ui.visible
+		get_tree().paused = !get_tree().paused

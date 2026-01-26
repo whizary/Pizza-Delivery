@@ -1,6 +1,7 @@
 extends Node
 
 var chase_distance = 250.0
+var player_hit = false
 
 var stamina = 100.0
 var maxStamina = 100.0
