@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=59 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
 [ext_resource type="Script" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
+[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
 [ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
@@ -51,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
+[ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="52_3n72m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -304,6 +306,18 @@ position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
 
+[node name="Label" type="Label" parent="map/Player/Camera2D"]
+offset_left = 335.0
+offset_top = 222.0
+offset_right = 375.0
+offset_bottom = 245.0
+
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
+offset_left = -98.0
+offset_top = 220.0
+offset_right = -58.0
+offset_bottom = 243.0
+
 [node name="PickupZone" type="Area2D" parent="map/Player"]
 position = Vector2(0, 1)
 collision_layer = 0
@@ -374,6 +388,10 @@ text = "Inventory
 [node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_3e7ec")]
 layout_mode = 1
 
+[node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
+
+[node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_p4lcs")]
+
 [node name="Enemy" type="CharacterBody2D" parent="map"]
 position = Vector2(1426, 736)
 collision_layer = 8
@@ -396,7 +414,7 @@ position = Vector2(1336, 1081)
 item_type = "Consumable"
 item_name = "Berry"
 item_texture = ExtResource("49_sjkjh")
-item_effect = "Health"
+item_effect = "Stamina"
 
 [node name="Inventory_Item2" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1259, 1107)
@@ -411,6 +429,13 @@ item_type = "Consumable"
 item_name = "Food"
 item_texture = ExtResource("51_pbdrf")
 item_effect = "hp"
+
+[node name="Inventory_Item4" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1255, 1047)
+item_type = "Boost"
+item_name = "Bag"
+item_texture = ExtResource("52_3n72m")
+item_effect = "Slot Boost"
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]

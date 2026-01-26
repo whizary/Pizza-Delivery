@@ -7,9 +7,14 @@ extends Control
 @onready var item_type = $DetailsPanel/ItemType
 @onready var item_effect = $DetailsPanel/ItemEffect
 @onready var usage_panel = $UsagePanel
+@onready var assign_button = $UsagePanel/AssignButton
 
 
 var item = null
+var slot_index = -1
+
+func set_slot_index(new_index):
+	slot_index = new_index
 
 
 func _on_item_button_mouse_exited():
@@ -73,4 +78,19 @@ func _on_drop_button_pressed() -> void:
 		drop_offset = drop_offset.rotated(Global.player_node.rotation)
 		Global.drop_item(item, drop_position + drop_offset)
 		Global.remove_item(item["type"], item["effect"])
+		Global.remove_hotbar_item(item["type"], item["effect"])
 		usage_panel.visible = false
+
+
+func _on_use_button_pressed():
+	usage_panel.visible = false
+	if item != null and item["effect"] != "":
+		if Global.player_node:
+			Global.player_node.apply_item_effect(item)
+			Global.remove_item(item["type"], item["effect"])
+		else:
+			print("Player could not be found")
+
+
+func _on_assign_button_pressed():
+	pass # Replace with function body.

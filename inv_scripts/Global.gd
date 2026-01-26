@@ -1,7 +1,22 @@
 extends Node
 
+#inventory items
 var inventory = []
 
+var chase_distance = 250.0
+var stamina = 100
+var maxStamina = 100.1
+var staminaDrain = 25
+var staminaRecovery = 15
+var health = 100
+var maxHealth = 100
+var iframesTimer = 1
+var iframes = false
+var death = false
+
+#Hotbar Items
+var hotbar_size = 3
+var hotbar_inventory = []
 
 signal inventory_updated
 
@@ -10,24 +25,32 @@ var player_node: Node = null
 
 func _ready():
 	inventory.resize(12)
+	hotbar_inventory.resize(hotbar_size)
 
 
-func add_item(item: Dictionary) -> bool:
-	for i in range(inventory.size()):
-		if inventory[i] != null and inventory[i]["name"] == item["name"]:
-			inventory[i]["quantity"] += item["quantity"]
-			inventory_updated.emit()
-			print("Item stacked", inventory)
-			return true
-		elif inventory[i] == null:
-			inventory[i] = item
-			inventory_updated.emit()
-			print("Item added", inventory)
-			return true
+func add_item(item: Dictionary, to_hotbar = false) -> bool:
+	var added_to_hotbar = false
+	#Add to hotbar
+	if to_hotbar:
+		added_to_hotbar = add_hotbar_item(item)
+		inventory_updated.emit()
+		#Add to inventory
+	if not added_to_hotbar:
+		for i in range(inventory.size()):
+			if inventory[i] != null and inventory[i]["name"] == item["name"]:
+				inventory[i]["quantity"] += item["quantity"]
+				inventory_updated.emit()
+				print("Item stacked", inventory)
+				return true
+			elif inventory[i] == null:
+				inventory[i] = item
+				inventory_updated.emit()
+				print("Item added", inventory)
+				return true
 
-	print("Inventory full", inventory)
+		print("Inventory full", inventory)
+		return false
 	return false
-
 
 
 func remove_item(item_type, item_effect):
@@ -40,7 +63,8 @@ func remove_item(item_type, item_effect):
 			return true
 	return false
 
-func increase_inventory_size():
+func increase_inventory_size(extra_slots):
+	inventory.resize(inventory.size() + extra_slots)
 	inventory_updated.emit()
 
 func set_player_reference(player):
@@ -72,3 +96,28 @@ func drop_item(item_data, drop_position):
 	drop_position = adjust_drop_position(drop_position)
 	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
+
+func add_hotbar_item(item):
+	for i in range(hotbar_size):
+		if hotbar_inventory[i] == null:
+			hotbar_inventory[i] = item
+			return true
+	return false
+
+func remove_hotbar_item(item_type, item_effect):
+	for i in range(hotbar_inventory.size()):
+		if hotbar_inventory[i] != null and hotbar_inventory[i]["type"] == item_type and hotbar_inventory[i]["effect"] == item_effect:
+			if hotbar_inventory[i]["quantity"] <= 0:
+				hotbar_inventory[i] = null
+			inventory_updated.emit()
+			return true
+	return false
+	
+
+func unassign_hotbar_item(item_type, item_effect):
+	for i in range(hotbar_inventory.size()):
+		if hotbar_inventory[i] != null and hotbar_inventory[i]["type"] == item_type and hotbar_inventory[i]["effect"] == item_effect:
+			hotbar_inventory[i] = null
+			inventory_updated.emit()
+			return true
+	return false

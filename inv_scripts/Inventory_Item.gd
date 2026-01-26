@@ -31,7 +31,7 @@ func pickup_item():
 		"effect": item_effect,
 		"scene_path": scene_path,
 	}
-	var added: bool = Global.add_item(item)
+	var added: bool = Global.add_item(item, false)
 
 	if added:
 		queue_free()
