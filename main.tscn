@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=123 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Ice Map/Map.tscn" id="1_hrvbo"]
@@ -14,13 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Characters/Man/WalkForwardL.webp" id="8_4l2fk"]
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Characters/Man/WalkLR.webp" id="10_ysw8g"]
-[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Maps/Earth Map/Map.tscn" id="14_p5bhk"]
+[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
+[ext_resource type="AudioStream" uid="uid://b3vn4s51qaxup" path="res://Coin_Gems/powerUp.wav" id="18_ntx8l"]
 [ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
+[ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Coin_Gems/powerDown.wav" id="19_rqtf5"]
+[ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Coin_Gems/pickupCoin.wav" id="20_1vm84"]
 [ext_resource type="Texture2D" uid="uid://b2e0hxi2j1cgu" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-5-left.png" id="20_wturq"]
 [ext_resource type="Texture2D" uid="uid://d201rh25052hx" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-6-left.png" id="21_6wxh2"]
 [ext_resource type="Texture2D" uid="uid://b0jyfisrvucv8" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Right/Death-1.png" id="22_v7q57"]
@@ -624,7 +627,7 @@ radius = 8.062258
 position = Vector2(6, -5)
 
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
-position = Vector2(21, 8)
+position = Vector2(-4049, -1798)
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 position = Vector2(1280, 1064)
@@ -645,6 +648,21 @@ shape = SubResource("CapsuleShape2D_2mydo")
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
+
+[node name="Label" type="Label" parent="map/Player/Camera2D"]
+offset_left = 488.0
+offset_top = 322.0
+offset_right = 528.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.6363851, 1.540184e-06, 0.37704763, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
+offset_left = -203.0
+offset_top = 274.0
+offset_right = -163.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0.96373683, 0, 0.49361706, 1)
 
 [node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
 visible = false
@@ -671,6 +689,21 @@ z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_pjyto")
+
+[node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
+visible = false
+z_index = 9
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17_pjyto")
+
+[node name="powerup" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("18_ntx8l")
+
+[node name="powerdown" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("19_rqtf5")
+
+[node name="pickupcoin" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("20_1vm84")
 
 [node name="Enemy" type="CharacterBody2D" parent="map" groups=["Enemy"]]
 position = Vector2(1426, 736)
@@ -764,6 +797,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_gx4rg")
 
 [node name="redcoin" type="Area2D" parent="map"]
+position = Vector2(32, 24)
 script = ExtResource("62_sm6fg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/redcoin"]

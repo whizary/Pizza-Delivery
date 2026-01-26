@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="tileset.tres" type="TileSet" id=1]
-
-[node name="Campfire_10" type="TileMap"]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 8782035, 229, 0, 8782036, 230, 0, 8847571, 231, 0, 8847572, 232, 0 )
