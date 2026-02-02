@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1hpor5glhadk"
-path="res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"
+uid="uid://dqkggtm8lnnhk"
+path="res://.godot/imported/Sword.webp-68e52fc9cf7c08a34c0d17d7932a22ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Man/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-a60fa08bdc78037dfdc87a7a298a4aa9.ctex"]
+source_file="res://item_icons/Sword.webp"
+dest_files=["res://.godot/imported/Sword.webp-68e52fc9cf7c08a34c0d17d7932a22ee.ctex"]
 
 [params]
 
