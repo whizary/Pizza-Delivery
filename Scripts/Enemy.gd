@@ -2,7 +2,7 @@ extends CharacterBody2D
  
 @onready var _animated_enemy_sprite = $EnemyAnimatedSprite2D
  
-@export var speed = 140.0
+@export var speed = 155.0
 @export var stop_distance = 35.0
  
 var player = null

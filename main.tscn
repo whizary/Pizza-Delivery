@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
-[ext_resource type="Script" path="res://Maps/Earth Map/Map.gd" id="2_nf4i1"]
+[ext_resource type="Script" path="res://Scripts/Map.gd" id="2_nf4i1"]
 [ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_66rmd"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
 [ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="AudioStream" uid="uid://xmfn5p7d6v6f" path="res://Audio/hitHurt2.wav" id="17_h8hfl"]
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="17_41to2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -186,9 +186,11 @@ script = SubResource("GDScript_fmfy4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
 shape = SubResource("CapsuleShape2D_235ec")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="map/Player"]
-position = Vector2(-1301, -1072)
-stream = ExtResource("17_h8hfl")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
+script = ExtResource("17_41to2")
+
+[node name="RayCast2D" type="RayCast2D" parent="map/Player"]
+position = Vector2(-1, 0)
+target_position = Vector2(0, 12)
 
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
-[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player/AudioStreamPlayer2D" method="_on_player_area_2d_body_entered"]
