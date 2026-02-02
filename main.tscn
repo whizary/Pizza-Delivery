@@ -166,7 +166,7 @@ script = ExtResource("2_nf4i1")
 orc_scene = ExtResource("3_66rmd")
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
-process_mode = 3
+
 position = Vector2(1280, 1064)
 safe_margin = 1.2
 script = ExtResource("1_amgfo")
