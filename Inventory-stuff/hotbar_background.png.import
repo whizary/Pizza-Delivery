@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccvqsf0m2fht4"
-path="res://.godot/imported/Food.webp-c0800824a79a17932a4ac8cef7494c82.ctex"
+uid="uid://5cgf68365ob0"
+path="res://.godot/imported/hotbar_background.png-afd199e75b4f1d77bd73e003854a5e8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item_icons/Food.webp"
-dest_files=["res://.godot/imported/Food.webp-c0800824a79a17932a4ac8cef7494c82.ctex"]
+source_file="res://Inventory-stuff/hotbar_background.png"
+dest_files=["res://.godot/imported/hotbar_background.png-afd199e75b4f1d77bd73e003854a5e8d.ctex"]
 
 [params]
 
