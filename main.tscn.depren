@@ -1,0 +1,441 @@
+[gd_scene load_steps=59 format=3 uid="uid://duh60ldb74u0r"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
+[ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
+[ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
+[ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
+[ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
+[ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Man/WalkRightRight.webp" id="4_bj7qf"]
+[ext_resource type="Texture2D" uid="uid://bka5ky4x74kag" path="res://Characters/Man/WalkBackR.webp" id="5_ify2i"]
+[ext_resource type="Texture2D" uid="uid://dr6obc3si86c5" path="res://Characters/Man/WalkRL.webp" id="5_uusdn"]
+[ext_resource type="Texture2D" uid="uid://bxnousctgrjmi" path="res://Characters/Man/WalkBackL.webp" id="6_g8a6i"]
+[ext_resource type="Texture2D" uid="uid://csutm3h64noe5" path="res://Characters/Man/WalkForwardR.webp" id="7_gagy4"]
+[ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Man/WalkForwardL.webp" id="8_4l2fk"]
+[ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
+[ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
+[ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
+[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="15_gjgar"]
+[ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
+[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
+[ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
+[ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="18_gdxvv"]
+[ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="19_3638n"]
+[ext_resource type="Texture2D" uid="uid://b2e0hxi2j1cgu" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-5-left.png" id="20_wturq"]
+[ext_resource type="Texture2D" uid="uid://d201rh25052hx" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-6-left.png" id="21_6wxh2"]
+[ext_resource type="Texture2D" uid="uid://b0jyfisrvucv8" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-1.png" id="22_v7q57"]
+[ext_resource type="Texture2D" uid="uid://bmt2gvmfx7hu7" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-2.png" id="23_qei4q"]
+[ext_resource type="Texture2D" uid="uid://dsxc02juyxb3w" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-3.png" id="24_6pyor"]
+[ext_resource type="Texture2D" uid="uid://d1573led727ju" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-4.png" id="25_0iw8p"]
+[ext_resource type="Texture2D" uid="uid://cnvn0ffq4pprx" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-5.png" id="26_46rav"]
+[ext_resource type="Texture2D" uid="uid://dagxioffyol72" path="res://Characters/Enemies/Orc - Rogue/DEATH/Right/Death-6.png" id="27_mi4su"]
+[ext_resource type="Texture2D" uid="uid://c8cl38etuk62o" path="res://Characters/Enemies/Orc - Rogue/IDLE/Left/Idle-1-left.png" id="28_oxm2u"]
+[ext_resource type="Texture2D" uid="uid://dewg6c8c0y4q0" path="res://Characters/Enemies/Orc - Rogue/IDLE/Left/Idle-2-left.png" id="29_msn04"]
+[ext_resource type="Texture2D" uid="uid://chjkbb0ensj7e" path="res://Characters/Enemies/Orc - Rogue/IDLE/Left/Idle-3-left.png" id="30_wwjt8"]
+[ext_resource type="Texture2D" uid="uid://7qheemxc3mcb" path="res://Characters/Enemies/Orc - Rogue/IDLE/Left/Idle-4-left.png" id="31_4q5ms"]
+[ext_resource type="Texture2D" uid="uid://bp4rdlmnxm2yq" path="res://Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-1.png" id="32_30exd"]
+[ext_resource type="Texture2D" uid="uid://c3yjbqdjw25o7" path="res://Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-2.png" id="33_bb4v8"]
+[ext_resource type="Texture2D" uid="uid://cingelp3mk5sk" path="res://Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-3.png" id="34_83n0l"]
+[ext_resource type="Texture2D" uid="uid://c7phstncpypr4" path="res://Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-4.png" id="35_pydgt"]
+[ext_resource type="Texture2D" uid="uid://iokhx3qel84p" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-1-left.png" id="36_whut1"]
+[ext_resource type="Texture2D" uid="uid://dv2vr8jk5bvxb" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-2-left.png" id="37_i0j3l"]
+[ext_resource type="Texture2D" uid="uid://cmyhtgabk5t2s" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-3-left.png" id="38_xsw1k"]
+[ext_resource type="Texture2D" uid="uid://df0ex5whxf60c" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-4-left.png" id="39_o8s4h"]
+[ext_resource type="Texture2D" uid="uid://dqlxvyhss7l80" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-5-left.png" id="40_7vkwk"]
+[ext_resource type="Texture2D" uid="uid://dyyomcoomsivi" path="res://Characters/Enemies/Orc - Rogue/RUN/Left/Run-6-left.png" id="41_8j1iv"]
+[ext_resource type="Texture2D" uid="uid://da6l7oydypht2" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-1.png" id="42_ifd52"]
+[ext_resource type="Texture2D" uid="uid://iqwhjcvfnx70" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-2.png" id="43_pwigh"]
+[ext_resource type="Texture2D" uid="uid://bdx3rhaufd38s" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-3.png" id="44_tt583"]
+[ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="45_kaa6j"]
+[ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="46_e1kx0"]
+[ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="47_nsbjf"]
+[ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
+[ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
+[ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
+[ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="52_3n72m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qo8cd")
+}],
+"loop": true,
+"name": &"IdleBack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xmroj")
+}],
+"loop": true,
+"name": &"IdleFront",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_da3xp")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_32nv4")
+}],
+"loop": true,
+"name": &"IdleRight",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ify2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g8a6i")
+}],
+"loop": true,
+"name": &"WalkBack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gagy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4l2fk")
+}],
+"loop": true,
+"name": &"WalkForward",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_qyv2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_da3xp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ysw8g")
+}],
+"loop": true,
+"name": &"WalkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bj7qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_32nv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uusdn")
+}],
+"loop": true,
+"name": &"WalkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
+radius = 13.0
+
+[sub_resource type="GDScript" id="GDScript_k4347"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_eabmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uh5or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gdxvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3638n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wturq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_6wxh2")
+}],
+"loop": true,
+"name": &"death_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_v7q57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qei4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6pyor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0iw8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_46rav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_mi4su")
+}],
+"loop": true,
+"name": &"death_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_oxm2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_msn04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wwjt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_4q5ms")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_30exd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_bb4v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_83n0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_pydgt")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_whut1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_i0j3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_xsw1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_o8s4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_7vkwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_8j1iv")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_ifd52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_pwigh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_tt583")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_kaa6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_e1kx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_nsbjf")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urjn3"]
+radius = 8.0
+height = 28.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="map" parent="." instance=ExtResource("14_p5bhk")]
+position = Vector2(21, 8)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="map"]
+
+[node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
+process_mode = 3
+position = Vector2(1280, 1064)
+collision_mask = 12
+safe_margin = 0.6
+script = ExtResource("1_amgfo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
+position = Vector2(-1, 2)
+sprite_frames = SubResource("SpriteFrames_8wl6k")
+animation = &"IdleFront"
+frame_progress = 0.158552
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+visible = false
+shape = SubResource("CircleShape2D_56h3a")
+
+[node name="Camera2D" type="Camera2D" parent="map/Player"]
+position = Vector2(-141, -110)
+offset = Vector2(140, 110)
+zoom = Vector2(2.235, 2.235)
+
+[node name="Label" type="Label" parent="map/Player/Camera2D"]
+offset_left = 335.0
+offset_top = 222.0
+offset_right = 375.0
+offset_bottom = 245.0
+
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
+offset_left = -98.0
+offset_top = 220.0
+offset_right = -58.0
+offset_bottom = 243.0
+
+[node name="PickupZone" type="Area2D" parent="map/Player"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 4
+script = SubResource("GDScript_k4347")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
+shape = SubResource("CircleShape2D_56h3a")
+
+[node name="InteractUI" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/InteractUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -56.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.192157, 0.376471, 0.321569, 1)
+
+[node name="Label" type="Label" parent="map/Player/InteractUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -11.5
+offset_right = 74.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Press \"E\" to pick up"
+
+[node name="InventoryUI" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/InventoryUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.376471, 0.321569, 1)
+
+[node name="Label" type="Label" parent="map/Player/InventoryUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = 50.0
+offset_right = 37.5
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Inventory
+"
+
+[node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_3e7ec")]
+layout_mode = 1
+
+[node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
+
+[node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_p4lcs")]
+
+[node name="Enemy" type="CharacterBody2D" parent="map"]
+position = Vector2(1426, 736)
+collision_layer = 8
+safe_margin = 0.1
+script = ExtResource("15_gjgar")
+
+[node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]
+sprite_frames = SubResource("SpriteFrames_8un5o")
+animation = &"idle_right"
+frame = 1
+frame_progress = 0.369426
+
+[node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_urjn3")
+
+[node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1336, 1081)
+item_type = "Consumable"
+item_name = "Berry"
+item_texture = ExtResource("49_sjkjh")
+item_effect = "Stamina"
+
+[node name="Inventory_Item2" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1259, 1107)
+item_type = "Consumable"
+item_name = "Food"
+item_texture = ExtResource("51_pbdrf")
+item_effect = "hp"
+
+[node name="Inventory_Item3" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1316, 1124)
+item_type = "Consumable"
+item_name = "Food"
+item_texture = ExtResource("51_pbdrf")
+item_effect = "hp"
+
+[node name="Inventory_Item4" parent="." instance=ExtResource("48_amqjv")]
+position = Vector2(1255, 1047)
+item_type = "Boost"
+item_name = "Bag"
+item_texture = ExtResource("52_3n72m")
+item_effect = "Slot Boost"
+
+[connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
+[connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
