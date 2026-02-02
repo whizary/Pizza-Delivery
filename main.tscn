@@ -188,20 +188,14 @@ offset_top = 222.0
 offset_right = 375.0
 offset_bottom = 245.0
 
-[node name="Label2" type="Label" parent="map/Player/Camera2D"]
-offset_left = -98.0
-offset_top = 220.0
-offset_right = -58.0
-offset_bottom = 243.0
-
 [node name="PickupZone" type="Area2D" parent="map/Player"]
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 4
-script = SubResource("GDScript_k4347")
+script = SubResource("GDScript_fmfy4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
-shape = SubResource("CircleShape2D_56h3a")
+shape = null
 
 [node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
