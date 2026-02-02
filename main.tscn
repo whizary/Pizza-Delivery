@@ -320,7 +320,7 @@ target_position = Vector2(0, 12)
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
 visible = false
 position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_urjn3")
+shape = null
 
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
