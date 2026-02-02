@@ -8,10 +8,16 @@ extends Control
 @onready var item_effect = $DetailsPanel/ItemEffect
 @onready var usage_panel = $UsagePanel
 @onready var assign_button = $UsagePanel/AssignButton
+@onready var outer_border = $OuterBorder
+
+
+signal drag_start(slot)
+signal drag_end()
 
 
 var item = null
 var slot_index = -1
+var is_assigned = false
 
 func set_slot_index(new_index):
 	slot_index = new_index
@@ -25,11 +31,6 @@ func _on_item_button_mouse_entered():
 	if item != null:
 		usage_panel.visible = false
 		details_panel.visible = true
-
-
-func _on_item_button_pressed():
-	if item != null:
-		usage_panel.visible = !usage_panel.visible
 
 
 func set_empty():
@@ -68,6 +69,7 @@ func set_item(new_item):
 		item_effect.text = "+" + str(new_item["effect"])
 	else:
 		item_effect.text = ""
+	update_assignment_status()
 
 
 
@@ -91,6 +93,35 @@ func _on_use_button_pressed():
 		else:
 			print("Player could not be found")
 
+func update_assignment_status():
+	is_assigned = Global.is_item_assigned_to_hotbar(item)
+	if is_assigned:
+		assign_button.text = "Unassign"
+	else:
+		assign_button.text = "Assign"
 
 func _on_assign_button_pressed():
-	pass # Replace with function body.
+	if item != null:
+		if is_assigned:
+			Global.unassign_hotbar_item(item["type"], item["effect"])
+			is_assigned = false
+		else:
+			Global.add_item(item, true)
+			is_assigned = true
+		update_assignment_status()
+
+
+func _on_item_button_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			if item != null:
+				usage_panel.visible = !usage_panel.visible
+			
+			#Drag system
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.is_pressed():
+				outer_border.modulate = Color(1, 1, 0)
+				drag_start.emit(self)
+			else:
+				outer_border.modulate = Color(1, 1, 1)
+				drag_end.emit()
