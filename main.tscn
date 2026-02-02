@@ -1,8 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=22 format=3 uid="uid://duh60ldb74u0r"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
+[ext_resource type="Script" path="res://Scripts/Map.gd" id="2_nf4i1"]
+[ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_66rmd"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
 [ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
 [ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Man/WalkRightRight.webp" id="4_bj7qf"]
@@ -53,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
 [ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="52_3n72m"]
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="17_41to2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -139,156 +142,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
+radius = 7.0
+height = 24.0
 
-[sub_resource type="GDScript" id="GDScript_k4347"]
+[sub_resource type="GDScript" id="GDScript_fmfy4"]
+script/source = "extends Area2D
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_eabmt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_uh5or")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_gdxvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_3638n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_wturq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_6wxh2")
-}],
-"loop": true,
-"name": &"death_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("22_v7q57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_qei4q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_6pyor")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_0iw8p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_46rav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_mi4su")
-}],
-"loop": true,
-"name": &"death_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("28_oxm2u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_msn04")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_wwjt8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_4q5ms")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("32_30exd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_bb4v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_83n0l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_pydgt")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("36_whut1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_i0j3l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_xsw1k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_o8s4h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_7vkwk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_8j1iv")
-}],
-"loop": true,
-"name": &"run_left",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("42_ifd52")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_pwigh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_tt583")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_kaa6j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_e1kx0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_nsbjf")
-}],
-"loop": true,
-"name": &"run_right",
-"speed": 7.0
-}]
+func _on_body_entered(body):
+	if body.has_method(\"_enemy_death\"):
+		body._enemy_death()
+"
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urjn3"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
 radius = 8.0
-height = 28.0
+height = 26.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(21, 8)
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="map"]
+script = ExtResource("2_nf4i1")
+orc_scene = ExtResource("3_66rmd")
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 process_mode = 3
 position = Vector2(1280, 1064)
-collision_mask = 12
-safe_margin = 0.6
+safe_margin = 1.2
 script = ExtResource("1_amgfo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
@@ -296,10 +176,6 @@ position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_8wl6k")
 animation = &"IdleFront"
 frame_progress = 0.158552
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-visible = false
-shape = SubResource("CircleShape2D_56h3a")
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
@@ -397,12 +273,55 @@ position = Vector2(1426, 736)
 collision_layer = 8
 safe_margin = 0.1
 script = ExtResource("15_gjgar")
+offset_left = -287.0
+offset_top = -130.0
+offset_right = -247.0
+offset_bottom = -107.0
+theme_override_font_sizes/font_size = 10
+metadata/_edit_use_anchors_ = true
 
-[node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="map/Enemy"]
-sprite_frames = SubResource("SpriteFrames_8un5o")
-animation = &"idle_right"
-frame = 1
-frame_progress = 0.369426
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
+offset_left = -287.0
+offset_top = -113.0
+offset_right = -247.0
+offset_bottom = -90.0
+theme_override_font_sizes/font_size = 10
+
+[node name="OrcSpawn1" type="Marker2D" parent="map/Player/Camera2D"]
+position = Vector2(-268, -43)
+
+[node name="OrcSpawn2" type="Marker2D" parent="map/Player/Camera2D"]
+position = Vector2(462, -42)
+
+[node name="OrcSpawn3" type="Marker2D" parent="map/Player/Camera2D"]
+position = Vector2(465, 248)
+
+[node name="OrcSpawn4" type="Marker2D" parent="map/Player/Camera2D"]
+position = Vector2(-265, 257)
+
+[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
+visible = false
+position = Vector2(-1, 2)
+texture = ExtResource("1_xmroj")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_3lykh")
+one_way_collision_margin = 0.0
+
+[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_fmfy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_235ec")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
+script = ExtResource("17_41to2")
+
+[node name="RayCast2D" type="RayCast2D" parent="map/Player"]
+position = Vector2(-1, 0)
+target_position = Vector2(0, 12)
 
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="map/Enemy"]
 visible = false
@@ -439,3 +358,4 @@ item_effect = "Slot Boost"
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
