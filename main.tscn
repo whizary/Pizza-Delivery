@@ -192,10 +192,10 @@ offset_bottom = 245.0
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 4
-script = SubResource("GDScript_k4347")
+script = SubResource("GDScript_fmfy4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
-shape = SubResource("CircleShape2D_56h3a")
+shape = null
 
 [node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
