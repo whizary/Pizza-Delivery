@@ -116,17 +116,16 @@ func _physics_process(delta):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _on_player_area_2d_body_entered(body):
-	if body.name == "Player":
-		if bluepowerup == true:
-			$forceshield.visible = false   # hide
-			print("bluegem_powerdown")
-			powerdownsound.play()
-			bluepowerup = false
 	if body.name == "Enemy" and Global.iframes == false:
 		Global.iframes = true
 		Global.iframesTimer = 1.0
 		print("Player hit")
 		Global.health -= 10.0
+	if bluepowerup == true and body.name == "Enemy":
+		$forceshield.visible = false # hide
+		print("bluegem_powerdown")
+		powerdownsound.play()
+		bluepowerup = false
 	#if body.is_in_group("enemy"):
 		#body.queue_free()
  
@@ -219,14 +218,14 @@ func use_blackcoin_power_up(): #invert movement
 func use_redcoin_power_up(): # blindness and slowness
 	var powerupduration = 18.0
 	print("redcoin_powerup")
-	$Blackscreenmode.visible = true
-	$Blackscreenmega.visible = true
+	$Blackscreenmode.modulate = Color(1, 1, 1, 1) # show
+	$Blackscreenmega.modulate = Color(1, 1, 1, 1) # show
 	normal_walk_speed = walk_speed * 0.6
 	normal_run_speed = (walk_speed + 50) * 0.6
 	pickupcoinsound.play()
 	await get_tree().create_timer(powerupduration).timeout
-	$Blackscreenmode.visible = false
-	$Blackscreenmega.visible = false
+	$Blackscreenmode.modulate = Color(1, 1, 1, 0) # hide
+	$Blackscreenmega.modulate = Color(1, 1, 1, 0) # hide
 	normal_walk_speed = 150
 	normal_run_speed = 200
 	print("redcoin_powerdown")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=123 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=122 format=3 uid="uid://cd7q33iju0h7a"]
 
-[ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Player.gd" id="1_amgfo"]
-[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Ice Map/Map.tscn" id="1_hrvbo"]
+[ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Characters/Man/IdleFront.png" id="1_xmroj"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Characters/Man/IdleLeft.webp" id="3_da3xp"]
@@ -15,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Enemy.gd" id="15_gjgar"]
+[ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Scripts/Enemy.gd" id="15_gjgar"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="16_eabmt"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="17_uh5or"]
@@ -153,9 +152,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mydo"]
-radius = 8.0
-height = 26.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_uatky"]
+radius = 7.0
 
 [sub_resource type="GDScript" id="GDScript_fmfy4"]
 script/source = "extends Area2D
@@ -623,9 +621,6 @@ radius = 8.062258
 
 [node name="Node2D" type="Node2D"]
 
-[node name="map2" parent="." instance=ExtResource("1_hrvbo")]
-position = Vector2(6, -5)
-
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(-4049, -1798)
 
@@ -641,8 +636,8 @@ animation = &"IdleFront"
 frame_progress = 0.158552
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-position = Vector2(-1, -1)
-shape = SubResource("CapsuleShape2D_2mydo")
+position = Vector2(-1, 6)
+shape = SubResource("CircleShape2D_uatky")
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
@@ -684,14 +679,14 @@ sprite_frames = SubResource("SpriteFrames_ruth0")
 autoplay = "default"
 
 [node name="Blackscreenmode" type="Sprite2D" parent="map/Player"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_pjyto")
 
 [node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 9
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("17_pjyto")
@@ -809,6 +804,7 @@ autoplay = "default"
 position = Vector2(1057, 1151)
 shape = SubResource("CircleShape2D_4obbf")
 
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Enemy" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/Enemy/Area2D" to="map/Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
