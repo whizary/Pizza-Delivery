@@ -128,6 +128,7 @@ func _on_player_area_2d_body_entered(body):
 		Global.iframesTimer = 1.0
 		print("Player hit")
 		Global.health -= 10.0
+		queue_free()
 	if bluepowerup == true and body.name == "Enemy":
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
