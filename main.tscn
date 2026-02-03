@@ -1,7 +1,5 @@
-[gd_scene load_steps=59 format=3 uid="uid://duh60ldb74u0r"]
 [gd_scene load_steps=22 format=3 uid="uid://duh60ldb74u0r"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_amgfo"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
@@ -144,153 +142,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
-radius = 13.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
 radius = 7.0
 height = 24.0
 
-[sub_resource type="GDScript" id="GDScript_k4347"]
 [sub_resource type="GDScript" id="GDScript_fmfy4"]
 script/source = "extends Area2D
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8un5o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_eabmt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_uh5or")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_gdxvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_3638n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_wturq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_6wxh2")
-}],
-"loop": true,
-"name": &"death_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("22_v7q57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_qei4q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_6pyor")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_0iw8p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_46rav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_mi4su")
-}],
-"loop": true,
-"name": &"death_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("28_oxm2u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_msn04")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_wwjt8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_4q5ms")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("32_30exd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_bb4v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_83n0l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_pydgt")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("36_whut1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_i0j3l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_xsw1k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_o8s4h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_7vkwk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_8j1iv")
-}],
-"loop": true,
-"name": &"run_left",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("42_ifd52")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_pwigh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_tt583")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_kaa6j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_e1kx0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_nsbjf")
-}],
-"loop": true,
-"name": &"run_right",
-"speed": 7.0
-}]
 func _on_body_entered(body):
 	if body.has_method(\"_enemy_death\"):
 		body._enemy_death()
 "
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urjn3"]
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
 radius = 8.0
-height = 28.0
 height = 26.0
 
 [node name="Node2D" type="Node2D"]
@@ -298,15 +163,12 @@ height = 26.0
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(21, 8)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="map"]
 script = ExtResource("2_nf4i1")
 orc_scene = ExtResource("3_66rmd")
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 process_mode = 3
 position = Vector2(1280, 1064)
-collision_mask = 12
-safe_margin = 0.6
 safe_margin = 1.2
 script = ExtResource("1_amgfo")
 
