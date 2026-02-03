@@ -178,10 +178,6 @@ sprite_frames = SubResource("SpriteFrames_8wl6k")
 animation = &"IdleFront"
 frame_progress = 0.158552
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-visible = false
-shape = SubResource("CircleShape2D_56h3a")
-
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
