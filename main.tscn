@@ -275,8 +275,6 @@ target_position = Vector2(0, 12)
 
 [node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
 position = Vector2(-1, -1)
-collision_layer = 2
-collision_mask = 2
 script = SubResource("GDScript_fmfy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
