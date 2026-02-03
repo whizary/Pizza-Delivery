@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://duh60ldb74u0r"]
+[gd_scene load_steps=30 format=3 uid="uid://duh60ldb74u0r"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -16,10 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
-[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
+[ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_3e7ec"]
+[ext_resource type="PackedScene" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="17_41to2"]
-[ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
+[ext_resource type="PackedScene" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
 [ext_resource type="Texture2D" uid="uid://dqkggtm8lnnhk" path="res://item_icons/Sword.webp" id="52_3n72m"]
@@ -117,6 +117,18 @@ radius = 5.69458
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
 radius = 7.0
 height = 24.0
+
+[sub_resource type="GDScript" id="GDScript_fmfy4"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.has_method(\"_enemy_death\"):
+		body._enemy_death()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
+radius = 8.0
+height = 26.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -261,6 +273,13 @@ script = ExtResource("17_41to2")
 position = Vector2(-1, 0)
 target_position = Vector2(0, 12)
 
+[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_fmfy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_235ec")
+
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
 item_type = "Consumable"
@@ -291,3 +310,4 @@ item_effect = "Slot Boost"
 
 [connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
