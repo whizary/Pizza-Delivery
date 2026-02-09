@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b0woo3ewbrdfs"]
+[gd_scene load_steps=37 format=3 uid="uid://b0woo3ewbrdfs"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_qdngw"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="2_e2a4y"]
@@ -167,6 +167,9 @@ animations = [{
 radius = 8.5
 height = 28.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7equ6"]
+radius = 9.0
+
 [node name="OrcEnemy" type="Node2D"]
 
 [node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
@@ -187,3 +190,9 @@ shape = SubResource("CapsuleShape2D_jap2g")
 [node name="Enemy2D" type="Sprite2D" parent="Enemy"]
 visible = false
 texture = ExtResource("19_3x77w")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_7equ6")

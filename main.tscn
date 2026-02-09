@@ -623,14 +623,14 @@ sprite_frames = SubResource("SpriteFrames_ruth0")
 autoplay = "default"
 
 [node name="Blackscreenmode" type="Sprite2D" parent="map/Player"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_pjyto")
 
 [node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 9
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("17_pjyto")
