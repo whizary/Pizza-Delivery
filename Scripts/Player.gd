@@ -231,6 +231,10 @@ func use_redcoin_power_up(): # blindness and slowness
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
+		if inventory_ui.visible = true:
+			var walk_speed = 0
+			var normal_walk_speed = 0
+			var normal_run_speed = 0
 		get_tree().paused = !get_tree().paused
 		inventory_hotbar.visible = !inventory_hotbar.visible
 func apply_item_effect(item):
