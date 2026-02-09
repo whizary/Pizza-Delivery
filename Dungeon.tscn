@@ -1,0 +1,240 @@
+[gd_scene load_steps=30 format=3 uid="uid://kb64xwjl2eh8"]
+
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Map/Collision_layer_8.tscn" id="1_1312v"]
+[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="2_gbu8i"]
+[ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="3_1x724"]
+[ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Characters/Man/IdleBack.webp" id="4_lyk6o"]
+[ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Characters/Man/IdleFront.png" id="5_2ib7k"]
+[ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Characters/Man/IdleLeft.webp" id="6_awf4c"]
+[ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Characters/Man/IdleRight.webp" id="7_ja6cf"]
+[ext_resource type="Texture2D" uid="uid://bka5ky4x74kag" path="res://Characters/Characters/Man/WalkBackR.webp" id="8_cwdog"]
+[ext_resource type="Texture2D" uid="uid://bxnousctgrjmi" path="res://Characters/Characters/Man/WalkBackL.webp" id="9_xqq1n"]
+[ext_resource type="Texture2D" uid="uid://csutm3h64noe5" path="res://Characters/Characters/Man/WalkForwardR.webp" id="10_1apex"]
+[ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Characters/Man/WalkForwardL.webp" id="11_ylb45"]
+[ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Characters/Man/WalkLL.webp" id="12_dfd4i"]
+[ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Characters/Man/WalkLR.webp" id="13_r7vcl"]
+[ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Characters/Man/WalkRightRight.webp" id="14_x7oye"]
+[ext_resource type="Texture2D" uid="uid://dr6obc3si86c5" path="res://Characters/Characters/Man/WalkRL.webp" id="15_ps8kj"]
+[ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="16_5lepr"]
+[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_4u4od"]
+[ext_resource type="AudioStream" uid="uid://b3vn4s51qaxup" path="res://Coin_Gems/powerUp.wav" id="18_5pq5r"]
+[ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Coin_Gems/powerDown.wav" id="19_mm2d5"]
+[ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Coin_Gems/pickupCoin.wav" id="20_rqva7"]
+
+[sub_resource type="TileSet" id="TileSet_g2vuf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdpc1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lyk6o")
+}],
+"loop": true,
+"name": &"IdleBack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2ib7k")
+}],
+"loop": true,
+"name": &"IdleFront",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_awf4c")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ja6cf")
+}],
+"loop": true,
+"name": &"IdleRight",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_cwdog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xqq1n")
+}],
+"loop": true,
+"name": &"WalkBack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1apex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ylb45")
+}],
+"loop": true,
+"name": &"WalkForward",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_dfd4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_awf4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r7vcl")
+}],
+"loop": true,
+"name": &"WalkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_x7oye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ja6cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ps8kj")
+}],
+"loop": true,
+"name": &"WalkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1312v"]
+radius = 7.0
+
+[sub_resource type="GDScript" id="GDScript_71cia"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.has_method(\"_enemy_death\"):
+		body._enemy_death()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_db0rp"]
+radius = 9.0
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
+atlas = ExtResource("16_5lepr")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
+atlas = ExtResource("16_5lepr")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
+atlas = ExtResource("16_5lepr")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_douik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dllo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_g2vuf")
+format = 2
+
+[node name="Collision_layer_8" parent="." instance=ExtResource("1_1312v")]
+collision_visibility_mode = 2
+
+[node name="map" parent="." instance=ExtResource("2_gbu8i")]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(1251, 1102)
+safe_margin = 0.6
+script = ExtResource("3_1x724")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-1, 2)
+sprite_frames = SubResource("SpriteFrames_qdpc1")
+animation = &"IdleFront"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, 6)
+shape = SubResource("CircleShape2D_1312v")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-141, -110)
+offset = Vector2(140, 110)
+zoom = Vector2(4.26, 4.26)
+
+[node name="Label" type="Label" parent="Player/Camera2D"]
+offset_left = 488.0
+offset_top = 322.0
+offset_right = 528.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.6363851, 1.540184e-06, 0.37704763, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Player/Camera2D"]
+offset_left = -203.0
+offset_top = 274.0
+offset_right = -163.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0.96373683, 0, 0.49361706, 1)
+
+[node name="Player_Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(-1, 2)
+texture = ExtResource("5_2ib7k")
+
+[node name="Player_Area2D" type="Area2D" parent="Player"]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_71cia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_db0rp")
+
+[node name="forceshield" type="AnimatedSprite2D" parent="Player"]
+visible = false
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_douik")
+autoplay = "default"
+
+[node name="Blackscreenmode" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+z_index = 11
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_4u4od")
+
+[node name="Blackscreenmega" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17_4u4od")
+
+[node name="powerup" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("18_5pq5r")
+
+[node name="powerdown" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("19_mm2d5")
+
+[node name="pickupcoin" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("20_rqva7")
+
+[connection signal="body_entered" from="Player/Player_Area2D" to="Player" method="_on_player_area_2d_body_entered"]
