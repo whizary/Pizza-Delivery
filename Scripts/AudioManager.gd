@@ -4,14 +4,17 @@ var sounds = {
 	"grass": [
 		preload("res://Audio/grass1.mp3"),
 		preload("res://Audio/grass2.mp3"),
-		preload("res://Audio/grass3.mp3")
+		preload("res://Audio/grass3.mp3"),
 	],
 	"stone": [
 		preload("res://Audio/stone1.mp3"),
 		preload("res://Audio/stone2.mp3"),
-		preload("res://Audio/stone3.mp3")
+		preload("res://Audio/stone3.mp3"),
 	],
-	"hurt0": preload("res://Audio/hitHurt0.wav"),
+	"powerup": preload("res://Audio/powerUp.wav"),
+	"powerdown": preload("res://Audio/powerDown.wav"),
+	"pickupcoin": preload("res://Audio/pickupCoin.wav"),
+
 }
 
 var player: AudioStreamPlayer

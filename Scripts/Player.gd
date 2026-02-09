@@ -37,6 +37,7 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
+
 	#Movement variables
 	var run = Input.is_action_pressed("run")
 	var forward = Input.is_action_pressed('move_down')
@@ -44,6 +45,7 @@ func _physics_process(delta):
 	var left = Input.is_action_pressed('move_left')
 	var back = Input.is_action_pressed('move_up')
 	var dodge = Input.is_action_just_pressed("dodge")
+
 	#DODGE
 	if dodge and dodgeBool:
 		if back:
@@ -64,6 +66,7 @@ func _physics_process(delta):
 			position += Vector2(0, 100)
 		dodgeBool = false
 		dodgeCD = 2.0
+
 	#HEALTH
 	if Global.health <= 0.0 and Global.death == false:
 		Global.death = true
@@ -73,6 +76,7 @@ func _physics_process(delta):
 		Global.iframesTimer -= delta
 	if Global.iframesTimer <= 0.0:
 		Global.iframes = false
+
 	#STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
 		Global.stamina = Global.maxStamina
@@ -131,36 +135,40 @@ func _on_player_area_2d_body_entered(body):
 	if bluepowerup == true and body.name == "Enemy":
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
-		powerdownsound.play()
+		AudioManager.play_sound("powerdown")
 		bluepowerup = false
- 
+
 func use_redgem_power_up(): # damage boost
 	var powerupduration = 5.0
 	print("redgem_powerup")
-	powerupsound.play()
+	AudioManager.play_sound("powerup")
 	await get_tree().create_timer(powerupduration).timeout
 	print("redgem_powerdown")
-	powerdownsound.play()
+	AudioManager.play_sound("powerdown")
+
 func use_bluegem_power_up(): #force shield
 	bluepowerup = true
 	print("bluegem_powerup")
-	powerupsound.play()
+	AudioManager.play_sound("powerup")
 	$forceshield.visible = true  # show
+
 func use_yellowgem_power_up(): # speed boost
 	var powerupduration = 8.0
 	print("yellowgem_powerup")
 	normal_walk_speed = walk_speed * 1.4
 	normal_run_speed = walk_speed * 1.7
-	powerupsound.play()
+	AudioManager.play_sound("powerup")
 	await get_tree().create_timer(powerupduration).timeout
 	print("yellowgem_powerdown")
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
-	powerdownsound.play()
+	AudioManager.play_sound("powerdown")
+
 func use_greengem_power_up(): # health boost
 	print("greengem_powerup")
 	Global.health = 100.0
-	powerupsound.play()
+	AudioManager.play_sound("powerup")
+
 func use_blackgem_power_up(): #invisibility men lite slowness
 	var powerupduration = 10.0
 	print("blackgem_powerup")
@@ -168,14 +176,15 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	normal_run_speed = (walk_speed + 50) * 0.75
 	Global.chase_distance = 0
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
-	powerupsound.play()
+	AudioManager.play_sound("powerup")
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
 	Global.chase_distance = 250.0
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
-	powerdownsound.play()
+	AudioManager.play_sound("powerdown")
 	print("blackgem_powerdown")
+
 func use_blackcoin_power_up(): #invert movement
 	var powerupduration = 25.0
 	print("blackcoin_powerup")
@@ -195,7 +204,7 @@ func use_blackcoin_power_up(): #invert movement
 	var event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_down", event_w)
-	pickupcoinsound.play()
+	AudioManager.play_sound("pickupcoin")
 	await get_tree().create_timer(powerupduration).timeout
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
@@ -213,7 +222,9 @@ func use_blackcoin_power_up(): #invert movement
 	event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_up", event_w)
+	AudioManager.play_sound("powerdown")
 	print("blackcoin_powerdown")
+
 func use_redcoin_power_up(): # blindness and slowness
 	var powerupduration = 18.0
 	print("redcoin_powerup")
@@ -221,18 +232,21 @@ func use_redcoin_power_up(): # blindness and slowness
 	$Blackscreenmega.modulate = Color(1, 1, 1, 1) # show
 	normal_walk_speed = walk_speed * 0.6
 	normal_run_speed = (walk_speed + 50) * 0.6
-	pickupcoinsound.play()
+	AudioManager.play_sound("pickupcoin")
 	await get_tree().create_timer(powerupduration).timeout
 	$Blackscreenmode.modulate = Color(1, 1, 1, 0) # hide
 	$Blackscreenmega.modulate = Color(1, 1, 1, 0) # hide
 	normal_walk_speed = 150
 	normal_run_speed = 200
+	AudioManager.play_sound("powerdown")
 	print("redcoin_powerdown")
+
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
 		get_tree().paused = !get_tree().paused
 		inventory_hotbar.visible = !inventory_hotbar.visible
+
 func apply_item_effect(item):
 	match item["effect"]:
 		"Stamina":
@@ -254,6 +268,7 @@ func use_hotbar_item(slot_index):
 				Global.hotbar_inventory[slot_index] = null
 				Global.remove_item(item["type"], item["effect"])
 			Global.inventory_updated.emit()
+
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		for i in range(Global.hotbar_size):
