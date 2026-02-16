@@ -119,20 +119,15 @@ func _physics_process(delta):
 	elif left && forward:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
- 
-#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
-func _on_player_area_2d_body_entered(body):
-	if body.name == "Enemy" and Global.iframes == false:
-		Global.iframes = true
-		Global.iframesTimer = 1.0
-		print("Player hit")
-		Global.health -= 10.0
-	if bluepowerup == true and body.name == "Enemy":
+
+	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
 		powerdownsound.play()
 		bluepowerup = false
+ 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
  
 func use_redgem_power_up(): # damage boost
 	var powerupduration = 5.0
@@ -166,12 +161,14 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	print("blackgem_powerup")
 	normal_walk_speed = walk_speed * 0.75
 	normal_run_speed = (walk_speed + 50) * 0.75
-	Global.chase_distance = 0
+	Global.chase_distance = 999
+	Global.enemy_speed = 0.0
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	powerupsound.play()
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
 	Global.chase_distance = 250.0
+	Global.enemy_speed = 155.0
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
 	powerdownsound.play()
