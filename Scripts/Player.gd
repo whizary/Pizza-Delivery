@@ -64,6 +64,7 @@ func _physics_process(delta):
 			position += Vector2(0, 100)
 		dodgeBool = false
 		dodgeCD = 2.0
+		
 	#HEALTH
 	if Global.health <= 0.0 and Global.death == false:
 		Global.death = true
@@ -73,6 +74,9 @@ func _physics_process(delta):
 		Global.iframesTimer -= delta
 	if Global.iframesTimer <= 0.0:
 		Global.iframes = false
+	if Global.death == true:
+		Global.iframes = false
+	
 	#STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
 		Global.stamina = Global.maxStamina
@@ -91,6 +95,7 @@ func _physics_process(delta):
 		AudioManager.play_random_from("grass")
 	else:
 		delay -= delta
+		
 	#MOVEMENT
 	if right:
 		velocity.x += walk_speed
@@ -123,12 +128,12 @@ func _physics_process(delta):
 	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
+		Global.health = Global.health + 10
 		powerdownsound.play()
 		bluepowerup = false
  
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
- 
+  
 func use_redgem_power_up(): # damage boost
 	var powerupduration = 5.0
 	print("redgem_powerup")

@@ -33,10 +33,12 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 
-
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("player"):
+	if Global.death == false and Global.iframes == false:
+		if body.is_in_group("player"):
+			Global.iframes = true
+			Global.iframesTimer = 1.0
+			print("Player hit")
+			Global.health -= 10.0
+	else:
 		Global.iframes = true
-		Global.iframesTimer = 1.0
-		print("Player hit")
-		Global.health -= 10.0
