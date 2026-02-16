@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://csndjaybd36d4"]
+[gd_scene load_steps=8 format=3 uid="uid://dxjrennqgsby0"]
 
-[ext_resource type="Script" path="res://settings.gd" id="1_we7xk"]
+[ext_resource type="Script" uid="uid://rigr7btsbce5" path="res://setttings.gd" id="1_we7xk"]
+[ext_resource type="Texture2D" uid="uid://5cwppywwjlnl" path="res://Images/Settings.jpg" id="2_458cx"]
+[ext_resource type="Script" uid="uid://cpy4b5we7vfcg" path="res://BackButton.gd" id="2_dnd1c"]
+[ext_resource type="Script" uid="uid://du52jiy6tek4x" path="res://VolumeBar.gd" id="4_gn8x5"]
+[ext_resource type="Script" uid="uid://b4k2vmdqmuhev" path="res://KeybindsButton.gd" id="4_wwcur"]
+[ext_resource type="Script" uid="uid://b2ifrvf1ubsmy" path="res://SFXBar.gd" id="5_71mqq"]
+[ext_resource type="Script" uid="uid://cp6svgnvbkh57" path="res://MusicBar.gd" id="6_3j6r5"]
 
-[node name="Control" type="Control"]
+[node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,12 +17,233 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_we7xk")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 310.0
-offset_top = 51.0
-offset_right = 772.0
-offset_bottom = 193.0
-text = "Back"
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.615686, 0.615686, 0.615686, 0.886275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_458cx")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="BackButton" type="Button" parent="."]
+self_modulate = Color(0.796078, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+offset_right = 147.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 51
+text = "Back"
+script = ExtResource("2_dnd1c")
+
+[node name="Audio" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.166
+anchor_top = 0.198
+anchor_right = 0.166
+anchor_bottom = 0.198
+offset_left = -71.232
+offset_top = -40.304
+offset_right = 71.768
+offset_bottom = 29.696
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Audio"
+
+[node name="Main" type="Label" parent="Audio"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 67.0
+offset_right = 45.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 16
+text = "Main Volume:
+"
+
+[node name="VolumeBar" type="Control" parent="Audio/Main"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_gn8x5")
+
+[node name="ProgressBar" type="ProgressBar" parent="Audio/Main/VolumeBar"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = -1.0
+offset_right = 313.0
+offset_bottom = 26.0
+mouse_filter = 1
+step = 1.0
+value = 100.0
+
+[node name="SFX" type="Label" parent="Audio"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 131.0
+offset_right = 40.0
+offset_bottom = 154.0
+text = "SFX Volume:"
+
+[node name="SFXBar" type="Control" parent="Audio/SFX"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_71mqq")
+
+[node name="ProgressBar" type="ProgressBar" parent="Audio/SFX/SFXBar"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = -1.0
+offset_right = 313.0
+offset_bottom = 26.0
+mouse_filter = 1
+step = 1.0
+value = 100.0
+
+[node name="Music" type="Label" parent="Audio"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 203.0
+offset_right = 51.0
+offset_bottom = 226.0
+text = "Music Volume:"
+
+[node name="MusicBar" type="Control" parent="Audio/Music"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_3j6r5")
+
+[node name="ProgressBar" type="ProgressBar" parent="Audio/Music/MusicBar"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = -1.0
+offset_right = 313.0
+offset_bottom = 26.0
+mouse_filter = 1
+step = 1.0
+value = 100.0
+
+[node name="Display" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.868
+anchor_top = 0.198
+anchor_right = 0.868
+anchor_bottom = 0.198
+offset_left = -97.936
+offset_top = -44.304
+offset_right = 81.064
+offset_bottom = 25.696
+theme_override_font_sizes/font_size = 51
+text = "Display"
+
+[node name="FullScreen" type="Label" parent="Display"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 74.0
+offset_right = 55.0
+offset_bottom = 97.0
+text = "Fullscreen:"
+
+[node name="CheckBox" type="CheckBox" parent="Display/FullScreen"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 144.0
+offset_bottom = 24.0
+
+[node name="Resolution" type="Label" parent="Display"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 124.0
+offset_right = 65.0
+offset_bottom = 147.0
+text = "Resolution:
+"
+
+[node name="OptionButton" type="OptionButton" parent="Display/Resolution"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = -3.0
+offset_right = 229.0
+offset_bottom = 28.0
+selected = 0
+item_count = 4
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "2560x1440"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+popup/item_3/text = "1600 x 900"
+popup/item_3/id = 3
+
+[node name="Gameplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.526
+anchor_top = 0.19
+anchor_right = 0.526
+anchor_bottom = 0.19
+offset_left = -123.952
+offset_top = -35.12
+offset_right = 124.048
+offset_bottom = 34.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "Gameplay"
+
+[node name="VSync" type="Label" parent="Gameplay"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 72.0
+offset_right = 42.0
+offset_bottom = 95.0
+text = "VSync"
+
+[node name="CheckBox" type="CheckBox" parent="Gameplay/VSync"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = -2.0
+offset_right = 150.0
+offset_bottom = 22.0
+
+[node name="Particles" type="Label" parent="Gameplay"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 120.0
+offset_right = 56.0
+offset_bottom = 143.0
+text = "Particles
+"
+
+[node name="CheckBox" type="CheckBox" parent="Gameplay/Particles"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = -1.0
+offset_right = 158.0
+offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="Gameplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.526
+anchor_top = -0.908
+anchor_right = 0.526
+anchor_bottom = -0.908
+offset_left = -97.448
+offset_top = 263.56
+offset_right = 97.552
+offset_bottom = 328.56
+theme_override_font_sizes/font_size = 36
+text = "Keybinds"
+script = ExtResource("4_wwcur")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
+[connection signal="pressed" from="Gameplay/Button" to="Gameplay/Button" method="_on_pressed"]
