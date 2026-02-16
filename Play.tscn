@@ -1,0 +1,214 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4u55ihsa74n0"]
+
+[ext_resource type="Texture2D" uid="uid://d165tml2p8wxh" path="res://Images/Earth.png" id="1_mmr6e"]
+[ext_resource type="Texture2D" uid="uid://d2ippxg23l7tx" path="res://Images/Ice.jpg" id="2_aqeu7"]
+[ext_resource type="Texture2D" uid="uid://drw08u8aumjwx" path="res://Characters/Menu_Icons/Man.png" id="2_jd73c"]
+[ext_resource type="Texture2D" uid="uid://cytj47t42t38w" path="res://Images/Moon.jpg" id="3_v3g8h"]
+[ext_resource type="Texture2D" uid="uid://cryxt62iqngh7" path="res://Characters/Menu_Icons/Hunter.png" id="4_p8nt2"]
+[ext_resource type="Texture2D" uid="uid://b2wyvynasuvg5" path="res://Images/Dungeon.jpg" id="4_rr2ku"]
+[ext_resource type="Script" path="res://MapSelector.gd" id="5_th615"]
+[ext_resource type="Texture2D" uid="uid://dpngxys4c7ogt" path="res://Characters/Menu_Icons/Astronaut.png" id="6_k7dfb"]
+[ext_resource type="Texture2D" uid="uid://crq5v3o3cwe1j" path="res://Characters/Menu_Icons/Knight.png" id="8_af3vr"]
+[ext_resource type="Script" path="res://BackButton.gd" id="10_0qu6g"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Earth" type="Sprite2D" parent="."]
+position = Vector2(584.782, 383)
+scale = Vector2(0.291391, 0.336)
+texture = ExtResource("1_mmr6e")
+
+[node name="Man" type="Sprite2D" parent="Earth"]
+position = Vector2(14.4754, -38.6905)
+scale = Vector2(3.15242, 2.73389)
+texture = ExtResource("2_jd73c")
+
+[node name="Abilities" type="Button" parent="Earth"]
+offset_left = 649.0
+offset_top = -717.0
+offset_right = 1630.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 161
+text = "Abilities:
+Default
+"
+
+[node name="Button" type="Button" parent="Earth"]
+offset_left = -1595.0
+offset_top = -687.0
+offset_right = -737.0
+offset_bottom = -467.0
+theme_override_font_sizes/font_size = 136
+text = "Unlocked🔓"
+
+[node name="Ice" type="Sprite2D" parent="."]
+position = Vector2(582, 389)
+scale = Vector2(1.69565, 1.69565)
+texture = ExtResource("2_aqeu7")
+
+[node name="Hunter" type="Sprite2D" parent="Ice"]
+position = Vector2(1.76924, -9.43591)
+scale = Vector2(0.263871, 0.263871)
+texture = ExtResource("4_p8nt2")
+
+[node name="Abilities" type="Button" parent="Ice"]
+offset_left = 101.0
+offset_top = -146.0
+offset_right = 294.0
+offset_bottom = 68.0
+text = "Abilities:
++ 10% Faster
++ 5% Dash Power
+- 10% HP
+
+"
+
+[node name="Button" type="Button" parent="Ice"]
+offset_left = -272.462
+offset_top = -140.359
+offset_right = -84.4619
+offset_bottom = -81.3592
+theme_override_font_sizes/font_size = 31
+text = "Locked 🔒"
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(720, 363)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_v3g8h")
+
+[node name="Astronaut" type="Sprite2D" parent="Moon"]
+position = Vector2(-221.667, -33.3334)
+scale = Vector2(1.10763, 1.10763)
+texture = ExtResource("6_k7dfb")
+
+[node name="Abilities" type="Button" parent="Moon"]
+offset_left = 38.0
+offset_top = -310.0
+offset_right = 500.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 46
+text = "Abilities:
+- 10% Faster
++ 10% More HP
++ 20% Dash Power
+"
+
+[node name="Button" type="Button" parent="Moon"]
+offset_left = -1000.0
+offset_top = -310.0
+offset_right = -481.0
+offset_bottom = -164.0
+theme_override_font_sizes/font_size = 101
+text = "Locked 🔒"
+
+[node name="Dungeon" type="Sprite2D" parent="."]
+position = Vector2(591.5, 348)
+scale = Vector2(1.95261, 2.04651)
+texture = ExtResource("4_rr2ku")
+
+[node name="Knight" type="Sprite2D" parent="Dungeon"]
+position = Vector2(-6.40169, -9.77274)
+scale = Vector2(0.157317, 0.150099)
+texture = ExtResource("8_af3vr")
+
+[node name="Abilities" type="Button" parent="Dungeon"]
+offset_left = 90.3918
+offset_top = -96.2614
+offset_right = 250.392
+offset_bottom = 58.7386
+text = "Abilities:
++ 10% Faster
++ 20% More HP
+-5% Dash Power
+"
+
+[node name="Button" type="Button" parent="Dungeon"]
+offset_left = -263.0
+offset_top = -96.0
+offset_right = -75.0
+offset_bottom = -37.0
+theme_override_font_sizes/font_size = 31
+text = "Locked🔒"
+
+[node name="MapSelector" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.343
+anchor_right = 0.366
+anchor_bottom = 0.343
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 1165.0
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_th615")
+
+[node name="MapLabel" type="Button" parent="MapSelector"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.5
+offset_right = 65.5
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 86
+
+[node name="LeftButton" type="Button" parent="MapSelector"]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 463.0
+offset_right = 368.0
+offset_bottom = 651.0
+theme_override_font_sizes/font_size = 131
+text = "<"
+alignment = 2
+clip_text = true
+icon_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MapSelector"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -119.0
+offset_right = 151.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 81
+text = "Play"
+
+[node name="RightButton" type="Button" parent="MapSelector"]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 459.0
+offset_right = 920.0
+offset_bottom = 647.0
+theme_override_font_sizes/font_size = 131
+text = ">"
+
+[node name="TextureButton" type="TextureButton" parent="MapSelector"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 370.0
+offset_right = 202.0
+offset_bottom = 463.0
+
+[node name="BackButton" type="Button" parent="MapSelector"]
+self_modulate = Color(0.796078, 0, 0, 1)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 559.0
+offset_right = 162.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 51
+text = "Back"
+script = ExtResource("10_0qu6g")
+
+[connection signal="pressed" from="MapSelector/LeftButton" to="MapSelector/LeftButton" method="_on_pressed"]
+[connection signal="pressed" from="MapSelector/PlayButton" to="MapSelector" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MapSelector/RightButton" to="MapSelector/RightButton" method="_on_pressed"]
+[connection signal="pressed" from="MapSelector/BackButton" to="MapSelector/BackButton" method="_on_pressed"]
