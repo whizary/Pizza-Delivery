@@ -5,7 +5,7 @@ var inventory = []
  
 var chase_distance = 250.0
 var player_hit = false
- 
+var enemy_speed = 155
 var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0

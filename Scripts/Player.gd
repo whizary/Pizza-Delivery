@@ -1,5 +1,5 @@
 extends CharacterBody2D
- 
+
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var interact_ui = $InteractUI
 @onready var inventory_ui = $InventoryUI
@@ -7,29 +7,29 @@ extends CharacterBody2D
 @onready var powerupsound = $powerup
 @onready var powerdownsound = $powerdown
 @onready var pickupcoinsound = $pickupcoin
- 
+
 var gravity = 0
 var bluepowerup = false
 var delay = 0
- 
+
 #Dodge variables
 var dodgeCD = 2.0
 var dodgeBool = true
- 
+
 #Movement variables
 var walk_speed = 150.0
 var normal_walk_speed = 150.0
 var normal_run_speed = 200.0
- 
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
+
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
 		dodgeBool = true
- 
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
+
 func _physics_process(delta):
 	$Camera2D/Label.text = "STA: " + str(round(Global.stamina))
 	$Camera2D/Label2.text = "HP: " + str(round(Global.health))
@@ -95,6 +95,7 @@ func _physics_process(delta):
 		AudioManager.play_random_from("grass")
 	else:
 		delay -= delta
+
 	#MOVEMENT
 	if right:
 		velocity.x += walk_speed
@@ -102,7 +103,6 @@ func _physics_process(delta):
 	elif left:
 		velocity.x -= walk_speed
 		_animated_sprite.play("WalkLeft")
- 
 	elif back:
 		velocity.y -= walk_speed
 		_animated_sprite.play("WalkBack")
@@ -124,19 +124,13 @@ func _physics_process(delta):
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
  
-#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
-func _on_player_area_2d_body_entered(body):
-	if body.name == "Enemy" and Global.iframes == false:
-		Global.iframes = true
-		Global.iframesTimer = 1.0
-		print("Player hit")
-		Global.health -= 10.0
-	if bluepowerup == true and body.name == "Enemy":
+	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func use_redgem_power_up(): # damage boost
 	var powerupduration = 5.0
@@ -151,7 +145,7 @@ func use_bluegem_power_up(): #force shield
 	print("bluegem_powerup")
 	AudioManager.play_sound("powerup")
 	$forceshield.visible = true  # show
-
+	
 func use_yellowgem_power_up(): # speed boost
 	var powerupduration = 8.0
 	print("yellowgem_powerup")
@@ -174,12 +168,14 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	print("blackgem_powerup")
 	normal_walk_speed = walk_speed * 0.75
 	normal_run_speed = (walk_speed + 50) * 0.75
-	Global.chase_distance = 0
+	Global.chase_distance = 999
+	Global.enemy_speed = 0.0
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	AudioManager.play_sound("powerup")
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
 	Global.chase_distance = 250.0
+	Global.enemy_speed = 155.0
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
@@ -257,7 +253,7 @@ func apply_item_effect(item):
 			print("Slots increased to ", Global.inventory.size())
 		_:
 			print("There is no effect for this item")
-
+ 
 func use_hotbar_item(slot_index):
 	if slot_index < Global.hotbar_inventory.size():
 		var item = Global.hotbar_inventory[slot_index]

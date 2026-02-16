@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://b0woo3ewbrdfs"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_qdngw"]
+[ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Scripts/Enemy.gd" id="1_qdngw"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="2_e2a4y"]
 [ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="3_80wj4"]
 [ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="4_ky2ac"]
@@ -174,6 +174,8 @@ radius = 9.0
 
 [node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
 position = Vector2(19, 18)
+collision_layer = 2
+collision_mask = 3
 safe_margin = 0.001
 script = ExtResource("1_qdngw")
 
@@ -196,3 +198,5 @@ texture = ExtResource("19_3x77w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_7equ6")
+
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
