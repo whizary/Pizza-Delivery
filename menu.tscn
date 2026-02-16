@@ -19,8 +19,8 @@ grow_vertical = 2
 script = ExtResource("1_icw1u")
 
 [node name="Menu-Background" type="Sprite2D" parent="."]
-position = Vector2(572.75, 323.75)
-scale = Vector2(0.596094, 0.598611)
+position = Vector2(960.25, 540.25)
+scale = Vector2(0.99974, 0.999537)
 texture = ExtResource("2_5ck2t")
 
 [node name="Play" type="Button" parent="."]
