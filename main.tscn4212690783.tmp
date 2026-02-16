@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=100 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -24,7 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Coin_Gems/powerDown.wav" id="19_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Coin_Gems/pickupCoin.wav" id="20_1vm84"]
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="25_gngh3"]
-[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://complete_quest.tscn" id="26_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dx0nbh3h5gqno" path="res://item_icons/Bag.png" id="42_2amsj"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="43_anp0o"]
 [ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://redgem.gd" id="48_0cbny"]
@@ -130,6 +129,11 @@ animations = [{
 "name": &"WalkRight",
 "speed": 5.0
 }]
+
+[sub_resource type="GDScript" id="GDScript_k4347"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
+radius = 5.77129
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
 radius = 7.0
@@ -516,6 +520,17 @@ position = Vector2(465, 248)
 [node name="OrcSpawn4" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-265, 257)
 
+[node name="PickupZone" type="Area2D" parent="map/Player"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 4
+script = SubResource("GDScript_k4347")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
+position = Vector2(-1, 3)
+scale = Vector2(1.05365, -1.06626)
+shape = SubResource("CircleShape2D_56h3a")
+
 [node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
 
@@ -676,18 +691,15 @@ text = "Talk to Ally
 "
 
 [node name="quest1" parent="map/Player" instance=ExtResource("25_gngh3")]
-visible = false
-offset_left = -428.0
-offset_top = -239.0
-offset_right = -428.0
-offset_bottom = -239.0
-
-[node name="complete_quest1" parent="map/Player" instance=ExtResource("26_0n3wm")]
-visible = false
-offset_left = -432.0
-offset_top = -239.0
-offset_right = -432.0
-offset_bottom = -239.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -415.0
+offset_top = -226.0
+offset_right = -415.0
+offset_bottom = -226.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="redgem" type="Area2D" parent="map"]
 position = Vector2(1216, 1049)
@@ -796,9 +808,11 @@ item_name = "Bag"
 item_texture = ExtResource("42_2amsj")
 item_effect = "Slot Boost"
 
-[node name="quest_giver" parent="." groups=["quest"] instance=ExtResource("43_anp0o")]
-position = Vector2(1410, 1041)
+[node name="quest1" parent="." groups=["quest"] instance=ExtResource("43_anp0o")]
+position = Vector2(1414.9999, 1040)
 
+[connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
+[connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
 [connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bluegem" to="map/bluegem" method="_on_body_entered"]

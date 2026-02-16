@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 @onready var pickupcoinsound = $pickupcoin
 
+var player_in_range = false
 var gravity = 0
 
 var bluepowerup = false
@@ -481,5 +482,3 @@ func _unhandled_input(event):
 				use_hotbar_item(i)
 
 				break
-
- 

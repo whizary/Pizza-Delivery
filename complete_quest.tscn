@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b8oavdwtlpj0w"]
+[gd_scene format=3 uid="uid://isaw5ceoe8nv"]
 
-[node name="quest1" type="Control"]
+[node name="complete_quest1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -9,9 +9,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
-offset_right = 288.0
-offset_bottom = 49.0
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 theme_override_font_sizes/font_size = 25
-text = "☐ Find food
-"
+text = "☑ Go back to ally"
