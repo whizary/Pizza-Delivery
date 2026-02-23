@@ -2,8 +2,6 @@ extends CharacterBody2D
  
 @onready var _animated_enemy_sprite = $EnemyAnimatedSprite2D
  
-@export var stop_distance = 35.0
- 
 var player = null
  
 func _ready():
@@ -13,10 +11,12 @@ func _physics_process(_delta):
 	if player == null:
 		return
 	
+	$enemy_HP_bar.value = Global.enemy_health
+	
 	var distance_to_player = global_position.distance_to(player.global_position)
 	var direction_to_player = player.global_position - global_position
 	
-	if distance_to_player <= Global.chase_distance and distance_to_player > stop_distance:
+	if distance_to_player <= Global.chase_distance and distance_to_player > Global.stop_distance:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * Global.enemy_speed
 		if direction_to_player.x > 0:
@@ -24,7 +24,7 @@ func _physics_process(_delta):
 		else:
 			_animated_enemy_sprite.play("run_left")
 	
-	elif distance_to_player <= stop_distance:
+	elif distance_to_player <= Global.stop_distance:
 		velocity = Vector2.ZERO
 		if player.global_position.x > global_position.x:
 			_animated_enemy_sprite.play("idle_right")
@@ -34,6 +34,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
+	Global.enemy_health -= 10
 	if Global.death == false and Global.iframes == false:
 		if body.is_in_group("player"):
 			Global.iframes = true

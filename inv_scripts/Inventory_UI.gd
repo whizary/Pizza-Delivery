@@ -74,4 +74,3 @@ func drop_slot(slot1: Control, slot2: Control):
 		_on_inventory_updated()
 	else:
 		print("Swap failed:", slot1_index, slot2_index)
-

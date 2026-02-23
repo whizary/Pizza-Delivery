@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cytj47t42t38w" path="res://Images/Moon.jpg" id="3_v3g8h"]
 [ext_resource type="Texture2D" uid="uid://cryxt62iqngh7" path="res://Characters/Menu_Icons/Hunter.png" id="4_p8nt2"]
 [ext_resource type="Texture2D" uid="uid://b2wyvynasuvg5" path="res://Images/Dungeon.jpg" id="4_rr2ku"]
-[ext_resource type="Script" path="res://MapSelector.gd" id="5_th615"]
+[ext_resource type="Script" uid="uid://di3gg81jiy131" path="res://Scripts/MapSelector.gd" id="5_th615"]
 [ext_resource type="Texture2D" uid="uid://dpngxys4c7ogt" path="res://Characters/Menu_Icons/Astronaut.png" id="6_k7dfb"]
 [ext_resource type="Texture2D" uid="uid://crq5v3o3cwe1j" path="res://Characters/Menu_Icons/Knight.png" id="8_af3vr"]
-[ext_resource type="Script" path="res://BackButton.gd" id="10_0qu6g"]
+[ext_resource type="Script" uid="uid://cpy4b5we7vfcg" path="res://Scripts/BackButton.gd" id="10_0qu6g"]
 
 [node name="Map" type="Node2D"]
 
