@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=98 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://b3vn4s51qaxup" path="res://Coin_Gems/powerUp.wav" id="18_ntx8l"]
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Coin_Gems/powerDown.wav" id="19_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Coin_Gems/pickupCoin.wav" id="20_1vm84"]
+[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://Images/TextRuta.png" id="43_d2t1y"]
 [ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="48_0cbny"]
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="49_hrvbo"]
@@ -539,6 +540,7 @@ shape = SubResource("CircleShape2D_56h3a")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/Player/InteractUI"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -597,9 +599,20 @@ text = "Inventory
 layout_mode = 1
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
+layer = 0
 
 [node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_p4lcs")]
+z_as_relative = false
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="map/Player"]
+
+[node name="TextureRect" type="TextureRect" parent="map/Player/CanvasLayer"]
+offset_left = 1136.0
+offset_top = 1193.0
+offset_right = 1461.3448
+offset_bottom = 1304.0
+texture = ExtResource("43_d2t1y")
 
 [node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
 position = Vector2(-1, -1)
@@ -620,12 +633,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_pjyto")
-
-[node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
-modulate = Color(1, 1, 1, 0)
-z_index = 9
-scale = Vector2(1.6, 1.6)
 texture = ExtResource("17_pjyto")
 
 [node name="powerup" type="AudioStreamPlayer2D" parent="map/Player"]
@@ -698,6 +705,14 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/blackgem"]
 shape = SubResource("CircleShape2D_jx0wj")
+
+[node name="Blackscreenmega" type="Sprite2D" parent="map"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+position = Vector2(1377, 1112)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("17_pjyto")
 
 [node name="blackcoin" type="Area2D" parent="map"]
 position = Vector2(1434, 1176)
