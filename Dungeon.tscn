@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=58 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_837t5"]
+[ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://newmapdoor.gd" id="2_1312v"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="3_1312v"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="4_gbu8i"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="5_1x724"]
@@ -19,6 +20,11 @@
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="17_ps8kj"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="18_5lepr"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_4u4od"]
+[ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
+[ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
+size = Vector2(26, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5pq5r"]
 animations = [{
@@ -107,7 +113,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_837t5"]
 radius = 5.515381
-height = 16.63794
+height = 14.637939
 
 [sub_resource type="GDScript" id="GDScript_qdpc1"]
 script/source = "extends Area2D
@@ -150,55 +156,242 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ib7k"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awf4c"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja6cf"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwdog"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqq1n"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apex"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylb45"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfd4i"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7vcl"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7oye"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps8kj"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lepr"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u4od"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pq5r"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm2d5"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqva7"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2vuf"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdpc1"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1cd4"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71cia"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db0rp"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_douik"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28olu"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(704, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3gdi"]
+atlas = ExtResource("22_lyk6o")
+region = Rect2(736, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2adg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ib7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awf4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja6cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwdog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqq1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylb45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfd4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7vcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7oye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps8kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lepr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pq5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm2d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqva7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2vuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdpc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1cd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71cia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db0rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_douik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28olu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3gdi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mn6qf"]
+radius = 5.0990195
+
 [node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("1_nulmw")]
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+[node name="newmapdoor" type="Area2D" parent="map"]
+position = Vector2(1556, 321)
+script = ExtResource("2_1312v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/newmapdoor"]
+position = Vector2(12, 17.5)
+shape = SubResource("RectangleShape2D_gbu8i")
+
+[node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 process_mode = 3
 position = Vector2(1250.319, 1083.4846)
 collision_mask = 11
 safe_margin = 0.6
 script = ExtResource("2_837t5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_5pq5r")
 animation = &"IdleFront"
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(4.5, 4.5)
 
-[node name="Label" type="Label" parent="Player/Camera2D"]
+[node name="Label" type="Label" parent="map/Player/Camera2D"]
 offset_left = 335.0
 offset_top = 222.0
 offset_right = 375.0
 offset_bottom = 245.0
 
-[node name="Label2" type="Label" parent="Player/Camera2D"]
+[node name="Label2" type="Label" parent="map/Player/Camera2D"]
 offset_left = -98.0
 offset_top = 220.0
 offset_right = -58.0
 offset_bottom = 243.0
 
-[node name="OrcSpawn1" type="Marker2D" parent="Player/Camera2D"]
+[node name="OrcSpawn1" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-268, -43)
 
-[node name="OrcSpawn2" type="Marker2D" parent="Player/Camera2D"]
+[node name="OrcSpawn2" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(462, -42)
 
-[node name="OrcSpawn3" type="Marker2D" parent="Player/Camera2D"]
+[node name="OrcSpawn3" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(465, 248)
 
-[node name="OrcSpawn4" type="Marker2D" parent="Player/Camera2D"]
+[node name="OrcSpawn4" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-265, 257)
 
-[node name="InteractUI" type="CanvasLayer" parent="Player"]
+[node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Player/InteractUI"]
+[node name="ColorRect" type="ColorRect" parent="map/Player/InteractUI"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -212,7 +405,7 @@ grow_horizontal = 0
 grow_vertical = 0
 color = Color(0.192157, 0.376471, 0.321569, 1)
 
-[node name="Label" type="Label" parent="Player/InteractUI/ColorRect"]
+[node name="Label" type="Label" parent="map/Player/InteractUI/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -228,10 +421,10 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Press \"E\" to pick up"
 
-[node name="InventoryUI" type="CanvasLayer" parent="Player"]
+[node name="InventoryUI" type="CanvasLayer" parent="map/Player"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Player/InventoryUI"]
+[node name="ColorRect" type="ColorRect" parent="map/Player/InventoryUI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -239,7 +432,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.192157, 0.376471, 0.321569, 1)
 
-[node name="Label" type="Label" parent="Player/InventoryUI/ColorRect"]
+[node name="Label" type="Label" parent="map/Player/InventoryUI/ColorRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -253,57 +446,71 @@ theme_override_font_sizes/font_size = 60
 text = "Inventory
 "
 
-[node name="Inventory_UI" parent="Player/InventoryUI/ColorRect" instance=ExtResource("15_r7vcl")]
+[node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_r7vcl")]
 layout_mode = 1
 
-[node name="InventoryHotbar" type="CanvasLayer" parent="Player"]
+[node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
 
-[node name="Inventory_Hotbar" parent="Player/InventoryHotbar" instance=ExtResource("16_x7oye")]
+[node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_x7oye")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Player_Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, 2)
 texture = ExtResource("4_gbu8i")
 
-[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
 position = Vector2(-1, 6.8)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_837t5")
 one_way_collision_margin = 0.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
 script = ExtResource("17_ps8kj")
 
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
+[node name="RayCast2D" type="RayCast2D" parent="map/Player"]
 position = Vector2(-1, 0)
 target_position = Vector2(0, 12)
 
-[node name="Player_Area2D" type="Area2D" parent="Player" groups=["player"]]
+[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
 position = Vector2(-1, -1)
 script = SubResource("GDScript_qdpc1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player_Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
 shape = SubResource("CapsuleShape2D_a1cd4")
 
-[node name="forceshield" type="AnimatedSprite2D" parent="Player"]
+[node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_71cia")
 autoplay = "default"
 
-[node name="Blackscreenmode" type="Sprite2D" parent="Player"]
+[node name="Blackscreenmode" type="Sprite2D" parent="map/Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_4u4od")
 
-[node name="Blackscreenmega" type="Sprite2D" parent="Player"]
+[node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 9
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("19_4u4od")
 
-[connection signal="body_entered" from="Player/Player_Area2D" to="Player" method="_on_player_area_2d_body_entered"]
+[node name="key" type="Area2D" parent="map"]
+position = Vector2(1603, 413)
+script = ExtResource("21_1x724")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/key"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_y2adg")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/key"]
+shape = SubResource("CircleShape2D_mn6qf")
+
+[connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
+[connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]

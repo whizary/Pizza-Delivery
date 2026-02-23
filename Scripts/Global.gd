@@ -10,6 +10,7 @@ var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
 var staminaRecovery = 15.0
+var stop_distance = 35.0
  
 var health = 100.0
 var maxHealth = 100.0

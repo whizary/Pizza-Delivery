@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var door: Node2D = $"../door"
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var interact_ui = $InteractUI
 @onready var inventory_ui = $InventoryUI
@@ -8,9 +8,11 @@ extends CharacterBody2D
 @onready var powerdownsound = $powerdown
 @onready var pickupcoinsound = $pickupcoin
 
+#Random ahh shi
 var gravity = 0
 var bluepowerup = false
 var delay = 0
+var dooropen = false
 
 #Dodge variables
 var dodgeCD = 2.0
@@ -168,14 +170,12 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	print("blackgem_powerup")
 	normal_walk_speed = walk_speed * 0.75
 	normal_run_speed = (walk_speed + 50) * 0.75
-	Global.chase_distance = 999
-	Global.enemy_speed = 0.0
+	Global.stop_distance = 9999999999999
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	AudioManager.play_sound("powerup")
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-	Global.chase_distance = 250.0
-	Global.enemy_speed = 155.0
+	Global.stop_distance = 35.0
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
@@ -237,6 +237,11 @@ func use_redcoin_power_up(): # blindness and slowness
 	AudioManager.play_sound("powerdown")
 	print("redcoin_powerdown")
 
+func use_key():
+	door.visible = false
+	dooropen = true
+	print("key_picked_up")
+
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
@@ -271,3 +276,8 @@ func _unhandled_input(event):
 			if Input.is_action_just_pressed("hotbar_" + str(i + 1)):
 				use_hotbar_item(i)
 				break
+
+func use_door():
+	if dooropen == true:
+		print("newmap")
+		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
