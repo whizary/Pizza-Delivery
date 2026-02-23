@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=99 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -133,6 +133,23 @@ animations = [{
 "name": &"WalkRight",
 "speed": 5.0
 }]
+
+[sub_resource type="GDScript" id="GDScript_k4347"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56h3a"]
+radius = 5.77129
+
+[sub_resource type="GDScript" id="GDScript_fmfy4"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.has_method(\"_enemy_death\"):
+		body._enemy_death()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
+radius = 8.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("61_rm4vd")
@@ -509,6 +526,17 @@ position = Vector2(465, 248)
 [node name="OrcSpawn4" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-265, 257)
 
+[node name="PickupZone" type="Area2D" parent="map/Player"]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 4
+script = SubResource("GDScript_k4347")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/Player/PickupZone"]
+position = Vector2(-1, 3)
+scale = Vector2(1.05365, -1.06626)
+shape = SubResource("CircleShape2D_56h3a")
+
 [node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
 
@@ -626,6 +654,13 @@ text = "I will be guiding you through difficult and dangerous
 terrain. I will also guide you to victory!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_fmfy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_235ec")
 
 [node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
 visible = false
@@ -772,6 +807,9 @@ item_name = "Bag"
 item_texture = ExtResource("52_3n72m")
 item_effect = "Slot Boost"
 
+[connection signal="body_entered" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_entered"]
+[connection signal="body_exited" from="map/Player/PickupZone" to="map/Player/PickupZone" method="_on_body_exited"]
+[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bluegem" to="map/bluegem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/yellowgem" to="map/yellowgem" method="_on_body_entered"]

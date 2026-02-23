@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxabq0peewkr1"]
+
+[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://Images/TextRuta.png" id="1_8fvjm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_top = 0.08800001
+anchor_bottom = 0.08800001
+offset_top = -95.04001
+offset_bottom = -95.04001
+
+[node name="TextRuta" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, 2)
+scale = Vector2(3.224138, 3.224138)
+texture = ExtResource("1_8fvjm")
