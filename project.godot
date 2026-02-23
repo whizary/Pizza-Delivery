@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 AudioManager="*res://Scripts/AudioManager.gd"
-JsonData="*res://JSONData.gd"
-GameManager="*res://GameManager.gd"
-SettingsManager="*res://SettingsManager.gd"
+JsonData="*res://Scripts/JSONData.gd"
+GameManager="*res://Scripts/GameManager.gd"
+SettingsManager="*res://Scripts/SettingsManager.gd"
+KeybindsManager="*res://Scripts/KeybindsManager.gd"
 
 [display]
 
