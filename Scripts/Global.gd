@@ -27,6 +27,7 @@ var hotbar_inventory = []
 signal inventory_updated
 var player_node: Node = null
 @onready var inventory_slot_scene = preload("res://Inventory_Slot.tscn")
+
 func _ready():
 	inventory.resize(12)
 	hotbar_inventory.resize(hotbar_size)
@@ -104,7 +105,6 @@ func remove_hotbar_item(item_type, item_effect):
 			inventory_updated.emit()
 			return true
 	return false
- 
 
 func unassign_hotbar_item(item_type, item_effect):
 	for i in range(hotbar_inventory.size()):
