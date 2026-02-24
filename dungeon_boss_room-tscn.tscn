@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqwgb4egs5qhq"]
+[gd_scene load_steps=5 format=3 uid="uid://bqwgb4egs5qhq"]
 
-[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room/Map.tscn" id="1_nkgkt"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
+[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
 [ext_resource type="Script" path="res://spikes.gd" id="20_x8erc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l57no"]
@@ -8,7 +9,11 @@ size = Vector2(11.023009, 15)
 
 [node name="Node2D2" type="Node2D"]
 
-[node name="map" parent="." instance=ExtResource("1_nkgkt")]
+[node name="map" parent="." instance=ExtResource("4_jt7ob")]
+script = ExtResource("2_cmqoe")
+
+[node name="SpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(756.5437, 499.68195)
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(551.4363, 424.3703)

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var door: Node2D = $"../door"
+@onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
 
 @onready var interact_ui = $InteractUI
@@ -21,6 +21,7 @@ var bluepowerup = false
 
 var delay = 0
 var dooropen = false
+var bossdooropen = true
 
 #Dodge variables
 
@@ -444,3 +445,14 @@ func use_door():
 	if dooropen == true:
 		print("newmap")
 		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
+
+func use_spikes():
+	if Global.health > 0 and Global.health >= 20:
+		Global.health -= 20
+	elif Global.health > 0 and Global.health < 20:
+		Global.health = 0
+
+func use_boss_door():
+	if bossdooropen == true:
+		print("bossroomentered")
+		get_tree().change_scene_to_file("res://dungeon_boss_room-tscn.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen

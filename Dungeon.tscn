@@ -1,11 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=36 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
-[ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://dungeonnewmapdoor.gd" id="2_1312v"]
+[ext_resource type="Script" path="res://dungeonnewmapdoor.gd" id="2_1312v"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_i2x58"]
 [ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
-[ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="23_lyk6o"]
+[ext_resource type="Script" path="res://spikes.gd" id="23_lyk6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
@@ -183,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn6qf"]
@@ -195,6 +196,7 @@ size = Vector2(11.068634, 13.9999695)
 [node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("1_nulmw")]
+script = ExtResource("2_i2x58")
 
 [node name="newmapdoor" type="Area2D" parent="map"]
 position = Vector2(1556, 321)
@@ -223,6 +225,9 @@ script = ExtResource("23_2ib7k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/bossroomdoor"]
 position = Vector2(12, 17.5)
 shape = SubResource("RectangleShape2D_gbu8i")
+
+[node name="SpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(777, 909)
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(743.522, 872.48785)

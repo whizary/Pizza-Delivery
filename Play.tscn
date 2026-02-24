@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4u55ihsa74n0"]
+[gd_scene load_steps=11 format=3 uid="uid://mkglh6nawbnw"]
 
 [ext_resource type="Texture2D" uid="uid://d165tml2p8wxh" path="res://Images/Earth.png" id="1_mmr6e"]
 [ext_resource type="Texture2D" uid="uid://d2ippxg23l7tx" path="res://Images/Ice.jpg" id="2_aqeu7"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://di3gg81jiy131" path="res://Scripts/MapSelector.gd" id="5_th615"]
 [ext_resource type="Texture2D" uid="uid://dpngxys4c7ogt" path="res://Characters/Menu_Icons/Astronaut.png" id="6_k7dfb"]
 [ext_resource type="Texture2D" uid="uid://crq5v3o3cwe1j" path="res://Characters/Menu_Icons/Knight.png" id="8_af3vr"]
-[ext_resource type="Script" uid="uid://cpy4b5we7vfcg" path="res://Scripts/BackButton.gd" id="10_0qu6g"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="10_0qu6g"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -35,7 +35,7 @@ offset_top = -717.0
 offset_right = 1630.0
 offset_bottom = 363.0
 theme_override_font_sizes/font_size = 161
-text = "Abilities:
+text = "Passives:
 Default
 "
 
@@ -62,7 +62,7 @@ offset_left = 101.0
 offset_top = -146.0
 offset_right = 294.0
 offset_bottom = 68.0
-text = "Abilities:
+text = "Passives:
 + 10% Faster
 + 5% Dash Power
 - 10% HP
@@ -93,7 +93,7 @@ offset_top = -290.2507
 offset_right = 702.6685
 offset_bottom = 232.7493
 theme_override_font_sizes/font_size = 46
-text = "Abilities:
+text = "Passives:
 - 10% Faster
 + 10% More HP
 + 20% Dash Power
@@ -122,7 +122,7 @@ offset_left = 90.3918
 offset_top = -96.2614
 offset_right = 250.392
 offset_bottom = 58.7386
-text = "Abilities:
+text = "Passives:
 + 10% Faster
 + 20% More HP
 -5% Dash Power

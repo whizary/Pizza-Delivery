@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=33 format=3 uid="uid://cu5chayfyfdd8"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -18,13 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
-[ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
-[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
+[ext_resource type="PackedScene" path="res://quest.tscn" id="19_sbwqj"]
+[ext_resource type="PackedScene" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
-radius = 7.0
-height = 24.0
+radius = 5.0
+height = 14.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ldla"]
 animations = [{
@@ -156,13 +156,14 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 process_mode = 3
-position = Vector2(1280, 1064)
+position = Vector2(-0.0078125, -0.0078125)
 collision_mask = 14
 safe_margin = 0.6
 script = ExtResource("1_olqyp")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, -1)
+position = Vector2(-0.9921875, 7.0078125)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ph33w")
 one_way_collision_margin = 0.0
 
@@ -181,20 +182,8 @@ position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
 
-[node name="OrcSpawn1" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(-268, -43)
-
-[node name="OrcSpawn2" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(462, -42)
-
-[node name="OrcSpawn3" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(465, 248)
-
-[node name="OrcSpawn4" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(-265, 257)
-
 [node name="HP_bar" type="TextureProgressBar" parent="Player/Camera2D"]
-z_index = 1
+z_index = 50
 z_as_relative = false
 offset_left = -123.0
 offset_top = 214.0
@@ -209,7 +198,7 @@ tint_progress = Color(1, 0.047058824, 0.105882354, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="STA_bar" type="TextureProgressBar" parent="Player/Camera2D"]
-z_index = 1
+z_index = 50
 offset_left = 295.0
 offset_top = 214.0
 offset_right = 405.0
