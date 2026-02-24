@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=103 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -18,16 +18,16 @@
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
 [ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
-[ext_resource type="Script" uid="uid://cusdu7n734kyo" path="res://Scripts/AudioManager.gd" id="17_41to2"]
+[ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="17_41to2"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="17_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
 [ext_resource type="AudioStream" uid="uid://b3vn4s51qaxup" path="res://Audio/powerUp.wav" id="18_ntx8l"]
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Audio/powerDown.wav" id="19_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Audio/pickupCoin.wav" id="20_1vm84"]
-[ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="25_gngh3"]
-[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="26_0n3wm"]
+[ext_resource type="PackedScene" path="res://quest.tscn" id="25_gngh3"]
+[ext_resource type="PackedScene" path="res://Scripts/complete_quest.tscn" id="26_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dx0nbh3h5gqno" path="res://item_icons/Bag.png" id="42_2amsj"]
-[ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="43_anp0o"]
+[ext_resource type="PackedScene" path="res://quest_giver.tscn" id="43_anp0o"]
 [ext_resource type="Script" path="res://Scripts/redgem.gd" id="48_0cbny"]
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="49_hrvbo"]
@@ -141,9 +141,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
-radius = 7.0
-height = 24.0
 [sub_resource type="MeshTexture" id="MeshTexture_gngh3"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_0cp0l"]
@@ -765,6 +762,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Talk to Ally
 "
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
 script = ExtResource("17_41to2")
 
@@ -878,7 +876,6 @@ item_effect = "Slot Boost"
 [node name="quest_giver" parent="." groups=["quest"] instance=ExtResource("43_anp0o")]
 position = Vector2(1410, 1041)
 
-[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bluegem" to="map/bluegem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/yellowgem" to="map/yellowgem" method="_on_body_entered"]

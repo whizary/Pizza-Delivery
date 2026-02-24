@@ -1,6 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=70 format=3 uid="uid://kb64xwjl2eh8"]
 
-[ext_resource type="PackedScene" uid="uid://d0b8n4gq044nw" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
+[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_837t5"]
 [ext_resource type="Script" path="res://newmapdoor.gd" id="2_1312v"]
 [ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="4_lyk6o"]
@@ -24,8 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_4u4od"]
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Audio/powerDown.wav" id="19_mm2d5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Audio/pickupCoin.wav" id="20_rqva7"]
-[ext_resource type="Script" path="res://key.gd" id="21_1x724"]
+[ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
+[ext_resource type="Script" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
+[ext_resource type="Script" path="res://spikes.gd" id="23_lyk6o"]
 [ext_resource type="PackedScene" path="res://quest.tscn" id="24_1apex"]
 [ext_resource type="PackedScene" path="res://Scripts/complete_quest.tscn" id="25_ylb45"]
 
@@ -341,6 +343,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn6qf"]
 radius = 5.0990195
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ib7k"]
+size = Vector2(11.068634, 13.9999695)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("1_nulmw")]
@@ -651,5 +656,59 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/key"]
 shape = SubResource("CircleShape2D_mn6qf")
 
+[node name="bossroomdoor" type="Area2D" parent="map"]
+position = Vector2(756, 817)
+script = ExtResource("23_2ib7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/bossroomdoor"]
+position = Vector2(12, 17.5)
+shape = SubResource("RectangleShape2D_gbu8i")
+
+[node name="spikes1" type="Area2D" parent="."]
+position = Vector2(743.522, 872.48785)
+script = ExtResource("23_lyk6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes1"]
+position = Vector2(0.0637207, -1.487854)
+shape = SubResource("RectangleShape2D_2ib7k")
+
+[node name="spikes2" type="Area2D" parent="."]
+position = Vector2(2871.5298, 840.5057)
+script = ExtResource("23_lyk6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes2"]
+position = Vector2(0.0637207, -1.5056763)
+shape = SubResource("RectangleShape2D_2ib7k")
+
+[node name="spikes3" type="Area2D" parent="."]
+position = Vector2(2711.4934, 2312.4631)
+script = ExtResource("23_lyk6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes3"]
+position = Vector2(0.041015625, -1.4631348)
+shape = SubResource("RectangleShape2D_2ib7k")
+
+[node name="spikes4" type="Area2D" parent="."]
+position = Vector2(1415.486, 2152.3672)
+script = ExtResource("23_lyk6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes4"]
+position = Vector2(0.0637207, -1.3671875)
+shape = SubResource("RectangleShape2D_2ib7k")
+
+[node name="spikes5" type="Area2D" parent="."]
+position = Vector2(1175.4669, 1576.4656)
+script = ExtResource("23_lyk6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes5"]
+position = Vector2(0.0637207, -1.4655762)
+shape = SubResource("RectangleShape2D_2ib7k")
+
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]
+[connection signal="body_entered" from="map/bossroomdoor" to="map/bossroomdoor" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes4" to="spikes4" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes5" to="spikes5" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b8oavdwtlpj0w"]
+[gd_scene load_steps=0 format=3 uid="uid://b8oavdwtlpj0w"]
 
 [node name="quest1" type="Control"]
 layout_mode = 3
