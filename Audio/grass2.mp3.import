@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/grass2.mp3-b680385072bec0a33d23553cf94f57ba.m
 [params]
 
 loop=false
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4
