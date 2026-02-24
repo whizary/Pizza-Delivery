@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=34 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -21,6 +21,35 @@
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
+atlas = ExtResource("17_11gg7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
+atlas = ExtResource("17_11gg7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
+atlas = ExtResource("17_11gg7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dllo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
 radius = 7.0
@@ -119,36 +148,11 @@ animations = [{
 
 [sub_resource type="MeshTexture" id="MeshTexture_3vlem"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
-atlas = ExtResource("17_11gg7")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
-atlas = ExtResource("17_11gg7")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
-atlas = ExtResource("17_11gg7")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wy5fy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gx4rg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dllo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5x828"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqcod"]
 radius = 7.0
 height = 26.0
 
@@ -156,10 +160,24 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 process_mode = 3
-position = Vector2(1280, 1064)
+position = Vector2(1, 0)
 collision_mask = 14
 safe_margin = 0.6
 script = ExtResource("1_olqyp")
+
+[node name="forceshield" type="AnimatedSprite2D" parent="Player"]
+visible = false
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8eeqe")
+autoplay = "default"
+
+[node name="Blackscreenmega" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+position = Vector2(-0.85941887, -1.010557)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("18_qpa8y")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, -1)
@@ -176,22 +194,17 @@ position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_7ldla")
 animation = &"IdleFront"
 
+[node name="Blackscreenmode" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+z_index = 11
+position = Vector2(-1.1221218, -1.0387316)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_qpa8y")
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
 zoom = Vector2(2.235, 2.235)
-
-[node name="OrcSpawn1" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(-268, -43)
-
-[node name="OrcSpawn2" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(462, -42)
-
-[node name="OrcSpawn3" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(465, 248)
-
-[node name="OrcSpawn4" type="Marker2D" parent="Player/Camera2D"]
-position = Vector2(-265, 257)
 
 [node name="HP_bar" type="TextureProgressBar" parent="Player/Camera2D"]
 z_index = 1
@@ -221,6 +234,22 @@ texture_progress = SubResource("MeshTexture_3vlem")
 tint_under = Color(0.42745098, 0.45882353, 0.40784314, 0.8352941)
 tint_progress = Color(0.06666667, 0.3372549, 0.7411765, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="quest" type="Area2D" parent="Player"]
+position = Vector2(18, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/quest"]
+position = Vector2(-19, -1)
+shape = SubResource("CapsuleShape2D_5x828")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+script = ExtResource("21_sweqm")
+
+[node name="PlayerArea2D" type="Area2D" parent="Player" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea2D" groups=["player"]]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_qqcod")
 
 [node name="InteractUI" type="CanvasLayer" parent="Player"]
 visible = false
@@ -289,95 +318,13 @@ layer = 0
 
 [node name="Inventory_Hotbar" parent="Player/InventoryHotbar" instance=ExtResource("16_8gxox")]
 z_as_relative = false
-metadata/_edit_use_anchors_ = true
-
-[node name="forceshield" type="AnimatedSprite2D" parent="Player"]
-visible = false
-position = Vector2(-1, -1)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_8eeqe")
-autoplay = "default"
-
-[node name="Blackscreenmode" type="Sprite2D" parent="Player"]
-modulate = Color(1, 1, 1, 0)
-z_index = 11
-position = Vector2(19, 0)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_qpa8y")
-
-[node name="quest" type="Area2D" parent="Player"]
-position = Vector2(18, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/quest"]
-position = Vector2(-19, -1)
-shape = SubResource("CapsuleShape2D_5x828")
-
-[node name="TakeQuest" type="CanvasLayer" parent="Player"]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Player/TakeQuest"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 7.0
-offset_right = -5.0
-offset_bottom = 113.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0.752941, 0.607843, 0.101961, 1)
-
-[node name="Label" type="Label" parent="Player/TakeQuest"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = 10.0
-offset_right = -7.0
-offset_bottom = 97.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Talk to Ally
-"
-
-[node name="CompleteQuest" type="CanvasLayer" parent="Player"]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Player/CompleteQuest"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 7.0
-offset_right = -5.0
-offset_bottom = 113.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0.752941, 0.607843, 0.101961, 1)
-
-[node name="Label" type="Label" parent="Player/CompleteQuest"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = 25.0
-offset_right = -13.0
-offset_bottom = 157.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Completed ally
-
-"
+offset_left = 569.00006
+offset_top = -131.00006
+offset_right = 569.0
+offset_bottom = 369.0
+rotation = 3.1415927
+scale = Vector2(-0.056472383, 0.29072562)
+size_flags_vertical = 8
 
 [node name="quest1" parent="Player" instance=ExtResource("19_sbwqj")]
 visible = false
@@ -393,38 +340,5 @@ offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
 
-[node name="Completequest1" type="CanvasLayer" parent="Player"]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Player/Completequest1"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 7.0
-offset_right = -5.0
-offset_bottom = 113.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0.752941, 0.607843, 0.101961, 1)
-
-[node name="Label" type="Label" parent="Player/Completequest1"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = 10.0
-offset_right = -7.0
-offset_bottom = 97.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Talk to Ally
-"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
-script = ExtResource("21_sweqm")
+[connection signal="body_entered" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_entered"]
+[connection signal="body_exited" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_exited"]

@@ -88,7 +88,7 @@ func drop_item(item_data, drop_position):
 		return
 	var item_instance = item_scene.instantiate()
 	item_instance.set_item_data(item_data)
-	drop_position = adjust_drop_position(drop_position)
+	drop_position = Global.player_node.global_position
 	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
 func add_hotbar_item(item):

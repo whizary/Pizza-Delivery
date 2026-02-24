@@ -1,49 +1,32 @@
 extends CharacterBody2D
-@onready var door: Node2D = $"../door"
+@onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
-
 @onready var interact_ui = $InteractUI
-
 @onready var inventory_ui = $InventoryUI
-
 @onready var inventory_hotbar = $InventoryHotbar
-
-@onready var powerupsound = $powerup
-
-@onready var powerdownsound = $powerdown
-
-@onready var pickupcoinsound = $pickupcoin
 
 var player_in_range = false
 var gravity = 0
-
 var bluepowerup = false
 
 var delay = 0
 var dooropen = false
 
 #Dodge variables
-
 var dodgeCD = 2.0
-
 var dodgeBool = true
 
 #Movement variables
 
 var walk_speed = 150.0
-
 var normal_walk_speed = 150.0
-
 var normal_run_speed = 200.0
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _process(delta):
-
 	dodgeCD -= delta
-
 	if dodgeCD <=0 && dodgeBool == false:
-
 		dodgeBool = true
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -51,50 +34,32 @@ func _process(delta):
 func _physics_process(delta):
 	$Camera2D/STA_bar.value = Global.stamina
 	$Camera2D/HP_bar.value = Global.health
+	Global.player_node = self
 	velocity.y += gravity * delta
-
+	
 	move_and_slide()
-
 	velocity.x = 0
-
 	velocity.y = 0
 	
-	#Movement variables
-
+	#Movement variables	
 	var run = Input.is_action_pressed("run")
-
 	var forward = Input.is_action_pressed('move_down')
-
 	var right = Input.is_action_pressed('move_right')
-
 	var left = Input.is_action_pressed('move_left')
-
 	var back = Input.is_action_pressed('move_up')
-
 	var dodge = Input.is_action_just_pressed("dodge")
 	
 	#DODGE
-
 	if dodge and dodgeBool:
-
 		if back:
-
 			position += Vector2(0, -100)
-
 		elif back and right:
-
 			position += Vector2(70, -70)
-
 		elif back and left:
-
 			position += Vector2(-70, -70)
-
 		elif forward and right:
-
 			position += Vector2(70, 70)
-
 		elif forward and left:
-
 			position += Vector2(-70, 70)
 
 		elif right:
@@ -412,13 +377,15 @@ func _input(event):
 func apply_item_effect(item):
 	match item["effect"]:
 		"Stamina":
-			walk_speed += 50
-			print("Speed increased to ", walk_speed)
+			normal_walk_speed = 200.0
+			normal_run_speed = 250.0
+			print("Walk speed increased to ", normal_walk_speed," and run speed to ", normal_run_speed)
 		"Slot Boost":
 			Global.increase_inventory_size(5)
 			print("Slots increased to ", Global.inventory.size())
 		"Health boost":
-			Global.health = 200
+			Global.maxHealth = 200
+			Global.health = Global.maxHealth
 		_:
 			print("There is no effect for this item")
  

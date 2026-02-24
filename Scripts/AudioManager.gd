@@ -23,15 +23,15 @@ func _ready():
 	player = AudioStreamPlayer.new()
 	add_child(player)
  
-func play_sound(name: String):
-	if not sounds.has(name):
-		push_warning("Sound '%s' not found" % name)
+func play_sound(sound: String):
+	if not sounds.has(sound):
+		push_warning("Sound '%s' not found" % sound)
 		return
 
 	var p = AudioStreamPlayer.new()
 	add_child(p)
 
-	p.stream = sounds[name]
+	p.stream = sounds[sound]
 	p.pitch_scale = randf_range(0.95, 1.05)
 	p.play()
 

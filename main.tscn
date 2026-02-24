@@ -1,8 +1,8 @@
 [gd_scene load_steps=68 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_nf4i1"]
+[ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_ryguw"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
 [ext_resource type="Texture2D" uid="uid://dx0nbh3h5gqno" path="res://item_icons/Bag.png" id="42_2amsj"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="43_anp0o"]
 [ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="48_0cbny"]
@@ -315,11 +315,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4obbf"]
 radius = 8.06226
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("14_p5bhk")]
 position = Vector2(21, 8)
 script = ExtResource("2_nf4i1")
+orc_scene = ExtResource("3_ryguw")
+
+[node name="SpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(1303.508, 1051.683)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_d2t1y")
@@ -379,14 +383,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/blackgem"]
 shape = SubResource("CircleShape2D_jx0wj")
 
-[node name="Blackscreenmega" type="Sprite2D" parent="map"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-z_index = 9
-position = Vector2(1377, 1112)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("17_pjyto")
-
 [node name="blackcoin" type="Area2D" parent="map"]
 position = Vector2(1434, 1176)
 script = ExtResource("59_ruth0")
@@ -410,6 +406,106 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/redcoin"]
 position = Vector2(1057, 1151)
 shape = SubResource("CircleShape2D_4obbf")
+
+[node name="TakeQuest" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
+
+[node name="CompleteQuest" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 25.0
+offset_right = -13.0
+offset_bottom = 157.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Completed ally
+
+"
+
+[node name="Completequest1" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
 
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
