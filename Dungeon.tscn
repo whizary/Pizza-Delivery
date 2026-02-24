@@ -1,36 +1,46 @@
-[gd_scene load_steps=58 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=67 format=3 uid="uid://kb64xwjl2eh8"]
 
-[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
+[ext_resource type="PackedScene" uid="uid://d0b8n4gq044nw" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_837t5"]
-[ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://newmapdoor.gd" id="2_1312v"]
-[ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="3_1312v"]
-[ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="4_gbu8i"]
-[ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="5_1x724"]
-[ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="6_lyk6o"]
-[ext_resource type="Texture2D" uid="uid://bka5ky4x74kag" path="res://Characters/Man/WalkBackR.webp" id="7_2ib7k"]
-[ext_resource type="Texture2D" uid="uid://bxnousctgrjmi" path="res://Characters/Man/WalkBackL.webp" id="8_awf4c"]
-[ext_resource type="Texture2D" uid="uid://csutm3h64noe5" path="res://Characters/Man/WalkForwardR.webp" id="9_ja6cf"]
-[ext_resource type="Texture2D" uid="uid://upecsyisvhd5" path="res://Characters/Man/WalkForwardL.webp" id="10_cwdog"]
-[ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="11_xqq1n"]
-[ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="12_1apex"]
-[ext_resource type="Texture2D" uid="uid://bomn5g8wcr7ma" path="res://Characters/Man/WalkRightRight.webp" id="13_ylb45"]
-[ext_resource type="Texture2D" uid="uid://dr6obc3si86c5" path="res://Characters/Man/WalkRL.webp" id="14_dfd4i"]
+[ext_resource type="Script" path="res://newmapdoor.gd" id="2_1312v"]
+[ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="4_lyk6o"]
+[ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="5_2ib7k"]
+[ext_resource type="Texture2D" uid="uid://b3a8oibb8jy2c" path="res://Characters/Characters/Man/IdleLeft.webp" id="6_awf4c"]
+[ext_resource type="Texture2D" uid="uid://empgac43c8oh" path="res://Characters/Characters/Man/IdleRight.webp" id="7_ja6cf"]
+[ext_resource type="Texture2D" uid="uid://ds8ka0xyi3pce" path="res://Characters/Characters/Man/WalkBackR.webp" id="8_cwdog"]
+[ext_resource type="Texture2D" uid="uid://wmde4qu1xmw7" path="res://Characters/Characters/Man/WalkBackL.webp" id="9_xqq1n"]
+[ext_resource type="Texture2D" uid="uid://cx7chkkgsivfm" path="res://Characters/Characters/Man/WalkForwardR.webp" id="10_1apex"]
+[ext_resource type="Texture2D" uid="uid://br2v6jmps7ge6" path="res://Characters/Characters/Man/WalkForwardL.webp" id="11_ylb45"]
+[ext_resource type="Texture2D" uid="uid://c4kvp8f1qttmn" path="res://Characters/Characters/Man/WalkLL.webp" id="12_dfd4i"]
+[ext_resource type="Texture2D" uid="uid://bp48r1lkfhrfy" path="res://Characters/Characters/Man/WalkLR.webp" id="13_r7vcl"]
+[ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="14_x7oye"]
+[ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="15_ps8kj"]
 [ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_r7vcl"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_x7oye"]
+[ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="16_xqq1n"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="17_ps8kj"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="18_5lepr"]
+[ext_resource type="AudioStream" uid="uid://b3vn4s51qaxup" path="res://Audio/powerUp.wav" id="18_5pq5r"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_4u4od"]
-[ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
+[ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Audio/powerDown.wav" id="19_mm2d5"]
+[ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Audio/pickupCoin.wav" id="20_rqva7"]
+[ext_resource type="Script" path="res://key.gd" id="21_1x724"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
+[ext_resource type="PackedScene" path="res://quest.tscn" id="24_1apex"]
+[ext_resource type="PackedScene" path="res://Scripts/complete_quest.tscn" id="25_ylb45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5pq5r"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfd4i"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7vcl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1312v")
+"texture": ExtResource("4_lyk6o")
 }],
 "loop": true,
 "name": &"IdleBack",
@@ -38,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_gbu8i")
+"texture": ExtResource("5_2ib7k")
 }],
 "loop": true,
 "name": &"IdleFront",
@@ -46,7 +56,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_1x724")
+"texture": ExtResource("6_awf4c")
 }],
 "loop": true,
 "name": &"IdleLeft",
@@ -54,7 +64,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_lyk6o")
+"texture": ExtResource("7_ja6cf")
 }],
 "loop": true,
 "name": &"IdleRight",
@@ -62,10 +72,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_2ib7k")
+"texture": ExtResource("8_cwdog")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_awf4c")
+"texture": ExtResource("9_xqq1n")
 }],
 "loop": true,
 "name": &"WalkBack",
@@ -73,10 +83,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_ja6cf")
+"texture": ExtResource("10_1apex")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_cwdog")
+"texture": ExtResource("11_ylb45")
 }],
 "loop": true,
 "name": &"WalkForward",
@@ -84,13 +94,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_xqq1n")
+"texture": ExtResource("12_dfd4i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_1x724")
+"texture": ExtResource("6_awf4c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_1apex")
+"texture": ExtResource("13_r7vcl")
 }],
 "loop": true,
 "name": &"WalkLeft",
@@ -98,34 +108,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_ylb45")
+"texture": ExtResource("14_x7oye")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_lyk6o")
+"texture": ExtResource("7_ja6cf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_dfd4i")
+"texture": ExtResource("15_ps8kj")
 }],
 "loop": true,
 "name": &"WalkRight",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_837t5"]
-radius = 5.515381
-height = 14.637939
+[sub_resource type="MeshTexture" id="MeshTexture_x7oye"]
 
-[sub_resource type="GDScript" id="GDScript_qdpc1"]
-script/source = "extends Area2D
+[sub_resource type="MeshTexture" id="MeshTexture_ps8kj"]
 
-func _on_body_entered(body):
-	if body.has_method(\"_enemy_death\"):
-		body._enemy_death()
-"
+[sub_resource type="MeshTexture" id="MeshTexture_5lepr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1cd4"]
-radius = 8.0
-height = 26.0
+[sub_resource type="MeshTexture" id="MeshTexture_4u4od"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("18_5lepr")
@@ -139,7 +141,7 @@ region = Rect2(128, 0, 128, 128)
 atlas = ExtResource("18_5lepr")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_71cia"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pq5r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -155,6 +157,10 @@ animations = [{
 "name": &"default",
 "speed": 4.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mm2d5"]
+radius = 7.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ib7k"]
 atlas = ExtResource("22_lyk6o")
@@ -354,27 +360,25 @@ collision_mask = 11
 safe_margin = 0.6
 script = ExtResource("2_837t5")
 
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_dfd4i")
+one_way_collision_margin = 0.0
+
+[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
+visible = false
+position = Vector2(-1, 2)
+texture = ExtResource("5_2ib7k")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
 position = Vector2(-1, 2)
-sprite_frames = SubResource("SpriteFrames_5pq5r")
+sprite_frames = SubResource("SpriteFrames_r7vcl")
 animation = &"IdleFront"
 
 [node name="Camera2D" type="Camera2D" parent="map/Player"]
 position = Vector2(-141, -110)
 offset = Vector2(140, 110)
-zoom = Vector2(4.5, 4.5)
-
-[node name="Label" type="Label" parent="map/Player/Camera2D"]
-offset_left = 335.0
-offset_top = 222.0
-offset_right = 375.0
-offset_bottom = 245.0
-
-[node name="Label2" type="Label" parent="map/Player/Camera2D"]
-offset_left = -98.0
-offset_top = 220.0
-offset_right = -58.0
-offset_bottom = 243.0
+zoom = Vector2(2.235, 2.235)
 
 [node name="OrcSpawn1" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-268, -43)
@@ -387,6 +391,33 @@ position = Vector2(465, 248)
 
 [node name="OrcSpawn4" type="Marker2D" parent="map/Player/Camera2D"]
 position = Vector2(-265, 257)
+
+[node name="HP_bar" type="TextureProgressBar" parent="map/Player/Camera2D"]
+z_index = 1
+z_as_relative = false
+offset_left = -123.0
+offset_top = 214.0
+offset_right = -13.0
+offset_bottom = 241.0
+nine_patch_stretch = true
+texture_under = SubResource("MeshTexture_x7oye")
+texture_over = ExtResource("16_xqq1n")
+texture_progress = SubResource("MeshTexture_ps8kj")
+tint_under = Color(0.45882353, 0.45882353, 0.45882353, 0.88235295)
+tint_progress = Color(1, 0.047058824, 0.105882354, 1)
+
+[node name="STA_bar" type="TextureProgressBar" parent="map/Player/Camera2D"]
+z_index = 1
+offset_left = 295.0
+offset_top = 214.0
+offset_right = 405.0
+offset_bottom = 241.0
+nine_patch_stretch = true
+texture_under = SubResource("MeshTexture_5lepr")
+texture_over = ExtResource("16_xqq1n")
+texture_progress = SubResource("MeshTexture_4u4od")
+tint_under = Color(0.42745098, 0.45882353, 0.40784314, 0.8352941)
+tint_progress = Color(0.06666667, 0.3372549, 0.7411765, 1)
 
 [node name="InteractUI" type="CanvasLayer" parent="map/Player"]
 visible = false
@@ -450,40 +481,16 @@ text = "Inventory
 layout_mode = 1
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
+layer = 0
 
 [node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_x7oye")]
 metadata/_edit_use_anchors_ = true
-
-[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
-visible = false
-position = Vector2(-1, 2)
-texture = ExtResource("4_gbu8i")
-
-[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
-position = Vector2(-1, 6.8)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_837t5")
-one_way_collision_margin = 0.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
-script = ExtResource("17_ps8kj")
-
-[node name="RayCast2D" type="RayCast2D" parent="map/Player"]
-position = Vector2(-1, 0)
-target_position = Vector2(0, 12)
-
-[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
-position = Vector2(-1, -1)
-script = SubResource("GDScript_qdpc1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
-shape = SubResource("CapsuleShape2D_a1cd4")
 
 [node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_71cia")
+sprite_frames = SubResource("SpriteFrames_5pq5r")
 autoplay = "default"
 
 [node name="Blackscreenmode" type="Sprite2D" parent="map/Player"]
@@ -499,6 +506,139 @@ z_index = 9
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("19_4u4od")
 
+[node name="powerup" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("18_5pq5r")
+
+[node name="powerdown" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("19_mm2d5")
+
+[node name="pickupcoin" type="AudioStreamPlayer2D" parent="map/Player"]
+stream = ExtResource("20_rqva7")
+
+[node name="quest" type="Area2D" parent="map/Player"]
+position = Vector2(18, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/quest"]
+position = Vector2(-19, -1)
+shape = SubResource("CapsuleShape2D_mm2d5")
+
+[node name="TakeQuest" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/Player/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
+
+[node name="CompleteQuest" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/Player/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 25.0
+offset_right = -13.0
+offset_bottom = 157.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Completed ally
+
+"
+
+[node name="quest1" parent="map/Player" instance=ExtResource("24_1apex")]
+visible = false
+offset_left = -428.0
+offset_top = -239.0
+offset_right = -428.0
+offset_bottom = -239.0
+
+[node name="complete_quest1" parent="map/Player" instance=ExtResource("25_ylb45")]
+visible = false
+offset_left = -432.0
+offset_top = -239.0
+offset_right = -432.0
+offset_bottom = -239.0
+
+[node name="Completequest1" type="CanvasLayer" parent="map/Player"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Player/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/Player/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
+script = ExtResource("17_ps8kj")
+
 [node name="key" type="Area2D" parent="map"]
 position = Vector2(1603, 413)
 script = ExtResource("21_1x724")
@@ -512,5 +652,4 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_mn6qf")
 
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
-[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]
