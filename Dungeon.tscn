@@ -1,8 +1,8 @@
 [gd_scene load_steps=70 format=3 uid="uid://kb64xwjl2eh8"]
 
-[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
+[ext_resource type="PackedScene" uid="uid://d0b8n4gq044nw" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_837t5"]
-[ext_resource type="Script" path="res://newmapdoor.gd" id="2_1312v"]
+[ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://dungeonnewmapdoor.gd" id="2_1312v"]
 [ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="4_lyk6o"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="5_2ib7k"]
 [ext_resource type="Texture2D" uid="uid://b3a8oibb8jy2c" path="res://Characters/Characters/Man/IdleLeft.webp" id="6_awf4c"]
@@ -24,12 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_4u4od"]
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Audio/powerDown.wav" id="19_mm2d5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Audio/pickupCoin.wav" id="20_rqva7"]
-[ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
+[ext_resource type="Script" path="res://key.gd" id="21_1x724"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
-[ext_resource type="Script" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
-[ext_resource type="Script" path="res://spikes.gd" id="23_lyk6o"]
-[ext_resource type="PackedScene" path="res://quest.tscn" id="24_1apex"]
-[ext_resource type="PackedScene" path="res://Scripts/complete_quest.tscn" id="25_ylb45"]
+[ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
+[ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="23_lyk6o"]
+[ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="24_1apex"]
+[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="25_ylb45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
