@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b0woo3ewbrdfs"]
+[gd_scene load_steps=40 format=3 uid="uid://b0woo3ewbrdfs"]
 
 [ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://Scripts/Enemy.gd" id="1_qdngw"]
 [ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="2_e2a4y"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="31_i0fiv"]
 [ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="32_t1xms"]
 [ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://Characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="33_enwvb"]
+[ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="34_5ilqk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvroo"]
 animations = [{
@@ -55,9 +56,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_i8yk3")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -78,9 +79,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_pq2py")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -170,6 +171,10 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7equ6"]
 radius = 9.0
 
+[sub_resource type="MeshTexture" id="MeshTexture_7bvfm"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_6wsfp"]
+
 [node name="OrcEnemy" type="Node2D"]
 
 [node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
@@ -181,9 +186,7 @@ script = ExtResource("1_qdngw")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_vvroo")
-animation = &"idle_right"
-frame = 1
-frame_progress = 0.942642
+animation = &"death_left"
 
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, 2)
@@ -193,10 +196,27 @@ shape = SubResource("CapsuleShape2D_jap2g")
 visible = false
 texture = ExtResource("19_3x77w")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+avoidance_enabled = true
+radius = 8.0
+neighbor_distance = 64.0
+
 [node name="Area2D" type="Area2D" parent="Enemy"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_7equ6")
+
+[node name="enemy_HP_bar" type="TextureProgressBar" parent="Enemy"]
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 9.0
+offset_bottom = -17.0
+nine_patch_stretch = true
+texture_under = SubResource("MeshTexture_7bvfm")
+texture_over = ExtResource("34_5ilqk")
+texture_progress = SubResource("MeshTexture_6wsfp")
+tint_under = Color(0.5372549, 0.5372549, 0.5372549, 0.8509804)
+tint_progress = Color(0.16410574, 0.6838889, 0.09445078, 1)
 
 [connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]

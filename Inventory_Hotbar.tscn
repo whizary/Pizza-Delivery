@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d4e184kshuhim"]
 
-[ext_resource type="Script" path="res://inv_scripts/Inventory_Hotbar.gd" id="1_v3xsw"]
+[ext_resource type="Script" uid="uid://wexuipopdal8" path="res://inv_scripts/Inventory_Hotbar.gd" id="1_v3xsw"]
 
 [node name="Inventory_Hotbar" type="Control"]
 layout_mode = 3
