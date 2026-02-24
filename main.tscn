@@ -1,9 +1,9 @@
-[gd_scene load_steps=100 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=101 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
 [ext_resource type="Texture2D" uid="uid://b1hpor5glhadk" path="res://Characters/Man/IdleFront.png" id="1_xmroj"]
-[ext_resource type="Script" path="res://Scripts/Map.gd" id="2_nf4i1"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_nf4i1"]
 [ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_66rmd"]
 [ext_resource type="Texture2D" uid="uid://kw5mw2bmg37t" path="res://Characters/Man/IdleLeft.webp" id="3_da3xp"]
 [ext_resource type="Texture2D" uid="uid://bilnupcx0ytwo" path="res://Characters/Man/IdleRight.webp" id="4_32nv4"]
@@ -16,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://2bb5elh3aeap" path="res://Characters/Man/WalkLL.webp" id="9_qyv2l"]
 [ext_resource type="Texture2D" uid="uid://d0apgbnks5pa4" path="res://Characters/Man/WalkLR.webp" id="10_ysw8g"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
-[ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_3e7ec"]
-[ext_resource type="PackedScene" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
+[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_3e7ec"]
+[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_p4lcs"]
 [ext_resource type="Script" uid="uid://cusdu7n734kyo" path="res://Scripts/AudioManager.gd" id="17_41to2"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="17_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
@@ -25,7 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://jb01qrpmmmd2" path="res://Coin_Gems/powerDown.wav" id="19_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://dx3mtveh4c86h" path="res://Coin_Gems/pickupCoin.wav" id="20_1vm84"]
 [ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="48_0cbny"]
-[ext_resource type="PackedScene" path="res://Inventory_Item.tscn" id="48_amqjv"]
+[ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="49_hrvbo"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
 [ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://Scripts/bluegem.gd" id="51_blkrb"]
@@ -43,6 +43,11 @@
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="61_rm4vd"]
 [ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://Scripts/redcoin.gd" id="62_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="63_b17eg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d2t1y"]
+vertices = PackedVector2Array(1667.1484, 1277.8828, 930.0625, 1269.1094, 932.9297, 847.97656, 1673.8438, 847.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(923, 838, 1684, 837, 1677, 1288, 920, 1279)])
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wl6k"]
 animations = [{
@@ -475,6 +480,9 @@ radius = 8.06226
 position = Vector2(21, 8)
 script = ExtResource("2_nf4i1")
 orc_scene = ExtResource("3_66rmd")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
+navigation_polygon = SubResource("NavigationPolygon_d2t1y")
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 process_mode = 3

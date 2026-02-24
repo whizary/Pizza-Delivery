@@ -56,9 +56,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_i8yk3")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,9 +79,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_pq2py")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -186,7 +186,7 @@ script = ExtResource("1_qdngw")
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_vvroo")
-animation = &"idle_left"
+animation = &"death_left"
 
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, 2)
@@ -195,6 +195,11 @@ shape = SubResource("CapsuleShape2D_jap2g")
 [node name="Enemy2D" type="Sprite2D" parent="Enemy"]
 visible = false
 texture = ExtResource("19_3x77w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+avoidance_enabled = true
+radius = 8.0
+neighbor_distance = 64.0
 
 [node name="Area2D" type="Area2D" parent="Enemy"]
 

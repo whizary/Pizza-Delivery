@@ -70,13 +70,10 @@ func _physics_process(delta):
 	#HEALTH
 	if Global.health <= 0.0 and Global.death == false:
 		Global.death = true
-		Global.health = 0.0
 		print("GAME OVER")
 	if Global.iframes == true and Global.death == false:
 		Global.iframesTimer -= delta
 	if Global.iframesTimer <= 0.0:
-		Global.iframes = false
-	if Global.death == true:
 		Global.iframes = false
 	
 	#STAMINA AND RUN CODE
@@ -173,8 +170,7 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	powerupsound.play()
 	await get_tree().create_timer(powerupduration).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-	Global.chase_distance = 250.0
-	Global.enemy_speed = 155.0
+	Global.stop_distance = 35
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
 	powerdownsound.play()
