@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://u27kiqmt1pg8"]
+
+[ext_resource type="Script" uid="uid://cvb3qltdu8f11" path="res://Scripts/BackButtonKeybinds.gd" id="1_5meiw"]
+
+[node name="Keybinds" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 764.0
+offset_bottom = 420.0
+
+[node name="BackButton" type="Button" parent="Control"]
+self_modulate = Color(0.796078, 0, 0, 1)
+layout_mode = 0
+offset_top = 568.0
+offset_right = 147.0
+offset_bottom = 646.0
+theme_override_font_sizes/font_size = 51
+text = "Back"
+script = ExtResource("1_5meiw")
+
+[connection signal="pressed" from="Control/BackButton" to="Control/BackButton" method="_on_pressed"]

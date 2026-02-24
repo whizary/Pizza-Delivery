@@ -48,11 +48,8 @@ func _process(delta):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _physics_process(delta):
-
-	$Camera2D/Label.text = "STA: " + str(round(Global.stamina))
-
-	$Camera2D/Label2.text = "HP: " + str(round(Global.health))
-
+	$Camera2D/STA_bar.value = Global.stamina
+	$Camera2D/HP_bar.value = Global.health
 	velocity.y += gravity * delta
 
 	move_and_slide()
@@ -60,7 +57,7 @@ func _physics_process(delta):
 	velocity.x = 0
 
 	velocity.y = 0
-
+	
 	#Movement variables
 
 	var run = Input.is_action_pressed("run")
@@ -74,7 +71,7 @@ func _physics_process(delta):
 	var back = Input.is_action_pressed('move_up')
 
 	var dodge = Input.is_action_just_pressed("dodge")
-
+	
 	#DODGE
 
 	if dodge and dodgeBool:
@@ -114,15 +111,12 @@ func _physics_process(delta):
 		dodgeBool = false
 
 		dodgeCD = 2.0
-
+		
 	#HEALTH
 
 	if Global.health <= 0.0 and Global.death == false:
 
 		Global.death = true
-
-		Global.health = 0.0
-
 		print("GAME OVER")
 
 	if Global.iframes == true and Global.death == false:
@@ -132,7 +126,7 @@ func _physics_process(delta):
 	if Global.iframesTimer <= 0.0:
 
 		Global.iframes = false
-
+	
 	#STAMINA AND RUN CODE
 
 	if Global.stamina > Global.maxStamina:
@@ -168,7 +162,7 @@ func _physics_process(delta):
 	else:
 
 		delay -= delta
-
+		
 	#MOVEMENT
 
 	if right:
@@ -222,20 +216,18 @@ func _physics_process(delta):
 		velocity.x = -walk_speed * 0.7
 
 		velocity.y = walk_speed * 0.7
- 
-	if bluepowerup == true and Global.iframes == true:
 
+	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 
 		print("bluegem_powerdown")
-
+		Global.health = Global.health + 10
 		powerdownsound.play()
 
 		bluepowerup = false
-
+ 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+  
 func use_redgem_power_up(): # damage boost
 
 	var powerupduration = 5.0
@@ -299,11 +291,7 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	normal_walk_speed = walk_speed * 0.75
 
 	normal_run_speed = (walk_speed + 50) * 0.75
-
-	Global.chase_distance = 999
-
-	Global.enemy_speed = 0.0
-
+	Global.stop_distance = 999999
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 
 	powerupsound.play()
@@ -311,11 +299,7 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	await get_tree().create_timer(powerupduration).timeout
 
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-
-	Global.chase_distance = 250.0
-
-	Global.enemy_speed = 155.0
-
+	Global.stop_distance = 35
 	normal_walk_speed = 150.0
 
 	normal_run_speed = 200.0
