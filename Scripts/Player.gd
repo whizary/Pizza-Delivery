@@ -423,35 +423,21 @@ func apply_item_effect(item):
 			print("There is no effect for this item")
  
 func use_hotbar_item(slot_index):
-
 	if slot_index < Global.hotbar_inventory.size():
-
 		var item = Global.hotbar_inventory[slot_index]
-
 		if item != null:
-
 			apply_item_effect(item)
-
 			item["quantity"] -= 1
-
 			if item["quantity"] <= 0:
-
 				Global.hotbar_inventory[slot_index] = null
-
 				Global.remove_item(item["type"], item["effect"])
-
 			Global.inventory_updated.emit()
 
 func _unhandled_input(event):
-
 	if event is InputEventKey and event.pressed:
-
 		for i in range(Global.hotbar_size):
-
 			if Input.is_action_just_pressed("hotbar_" + str(i + 1)):
-
 				use_hotbar_item(i)
-
 				break
 
 func use_door():
