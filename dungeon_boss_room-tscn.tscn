@@ -1,31 +1,31 @@
-[gd_scene load_steps=30 format=3 uid="uid://djj7ohtljjywk"]
+[gd_scene load_steps=30 format=3 uid="uid://b0heum281a5w6"]
 
-[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room/Map.tscn" id="1_x2sbu"]
-[ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_lworr"]
-[ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="3_l57no"]
-[ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="4_0yexb"]
-[ext_resource type="Texture2D" uid="uid://b3a8oibb8jy2c" path="res://Characters/Characters/Man/IdleLeft.webp" id="5_wy2x1"]
-[ext_resource type="Texture2D" uid="uid://empgac43c8oh" path="res://Characters/Characters/Man/IdleRight.webp" id="6_u7nwf"]
-[ext_resource type="Texture2D" uid="uid://ds8ka0xyi3pce" path="res://Characters/Characters/Man/WalkBackR.webp" id="7_ahtd4"]
-[ext_resource type="Texture2D" uid="uid://wmde4qu1xmw7" path="res://Characters/Characters/Man/WalkBackL.webp" id="8_5lovx"]
-[ext_resource type="Texture2D" uid="uid://cx7chkkgsivfm" path="res://Characters/Characters/Man/WalkForwardR.webp" id="9_b70wf"]
-[ext_resource type="Texture2D" uid="uid://br2v6jmps7ge6" path="res://Characters/Characters/Man/WalkForwardL.webp" id="10_mkkuf"]
-[ext_resource type="Texture2D" uid="uid://c4kvp8f1qttmn" path="res://Characters/Characters/Man/WalkLL.webp" id="11_i8hli"]
-[ext_resource type="Texture2D" uid="uid://bp48r1lkfhrfy" path="res://Characters/Characters/Man/WalkLR.webp" id="12_cjbg8"]
-[ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="13_cux8p"]
-[ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="14_8a16u"]
-[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_chdum"]
-[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_b2ae5"]
-[ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="17_iwak8"]
-[ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="18_2g32g"]
-[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_qsktm"]
-[ext_resource type="Script" path="res://spikes.gd" id="20_lworr"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room/Map.tscn" id="1_nkgkt"]
+[ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="2_b4oi2"]
+[ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="3_e57uv"]
+[ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="4_1rmmj"]
+[ext_resource type="Texture2D" uid="uid://b3a8oibb8jy2c" path="res://Characters/Characters/Man/IdleLeft.webp" id="5_uxyem"]
+[ext_resource type="Texture2D" uid="uid://empgac43c8oh" path="res://Characters/Characters/Man/IdleRight.webp" id="6_047ll"]
+[ext_resource type="Texture2D" uid="uid://ds8ka0xyi3pce" path="res://Characters/Characters/Man/WalkBackR.webp" id="7_me6y7"]
+[ext_resource type="Texture2D" uid="uid://wmde4qu1xmw7" path="res://Characters/Characters/Man/WalkBackL.webp" id="8_e0nw7"]
+[ext_resource type="Texture2D" uid="uid://cx7chkkgsivfm" path="res://Characters/Characters/Man/WalkForwardR.webp" id="9_tcamw"]
+[ext_resource type="Texture2D" uid="uid://br2v6jmps7ge6" path="res://Characters/Characters/Man/WalkForwardL.webp" id="10_t1ld0"]
+[ext_resource type="Texture2D" uid="uid://c4kvp8f1qttmn" path="res://Characters/Characters/Man/WalkLL.webp" id="11_i6lms"]
+[ext_resource type="Texture2D" uid="uid://bp48r1lkfhrfy" path="res://Characters/Characters/Man/WalkLR.webp" id="12_iij6x"]
+[ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="13_rhw6b"]
+[ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="14_u3jsf"]
+[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_oem2v"]
+[ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_l68jp"]
+[ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="17_gaev5"]
+[ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="18_cvvn2"]
+[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="19_35034"]
+[ext_resource type="Script" path="res://spikes.gd" id="20_x8erc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2ay3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_l57no")
+"texture": ExtResource("3_e57uv")
 }],
 "loop": true,
 "name": &"IdleBack",
@@ -33,7 +33,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0yexb")
+"texture": ExtResource("4_1rmmj")
 }],
 "loop": true,
 "name": &"IdleFront",
@@ -41,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_wy2x1")
+"texture": ExtResource("5_uxyem")
 }],
 "loop": true,
 "name": &"IdleLeft",
@@ -49,7 +49,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_u7nwf")
+"texture": ExtResource("6_047ll")
 }],
 "loop": true,
 "name": &"IdleRight",
@@ -57,10 +57,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ahtd4")
+"texture": ExtResource("7_me6y7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_5lovx")
+"texture": ExtResource("8_e0nw7")
 }],
 "loop": true,
 "name": &"WalkBack",
@@ -68,10 +68,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_b70wf")
+"texture": ExtResource("9_tcamw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_mkkuf")
+"texture": ExtResource("10_t1ld0")
 }],
 "loop": true,
 "name": &"WalkForward",
@@ -79,13 +79,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_i8hli")
+"texture": ExtResource("11_i6lms")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wy2x1")
+"texture": ExtResource("5_uxyem")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_cjbg8")
+"texture": ExtResource("12_iij6x")
 }],
 "loop": true,
 "name": &"WalkLeft",
@@ -93,13 +93,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_cux8p")
+"texture": ExtResource("13_rhw6b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u7nwf")
+"texture": ExtResource("6_047ll")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_8a16u")
+"texture": ExtResource("14_u3jsf")
 }],
 "loop": true,
 "name": &"WalkRight",
@@ -123,15 +123,15 @@ radius = 8.0
 height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
-atlas = ExtResource("18_2g32g")
+atlas = ExtResource("18_cvvn2")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
-atlas = ExtResource("18_2g32g")
+atlas = ExtResource("18_cvvn2")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
-atlas = ExtResource("18_2g32g")
+atlas = ExtResource("18_cvvn2")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fh66q"]
@@ -154,16 +154,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l57no"]
 size = Vector2(11.023009, 15)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
-[node name="map" parent="." instance=ExtResource("1_x2sbu")]
+[node name="map" parent="." instance=ExtResource("1_nkgkt")]
 
 [node name="Player" type="CharacterBody2D" parent="map" groups=["player"]]
 process_mode = 3
 position = Vector2(749.22296, 486.91064)
 collision_mask = 11
 safe_margin = 0.6
-script = ExtResource("2_lworr")
+script = ExtResource("2_b4oi2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/Player"]
 position = Vector2(-1, 2)
@@ -259,18 +259,18 @@ theme_override_font_sizes/font_size = 60
 text = "Inventory
 "
 
-[node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_chdum")]
+[node name="Inventory_UI" parent="map/Player/InventoryUI/ColorRect" instance=ExtResource("15_oem2v")]
 layout_mode = 1
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="map/Player"]
 
-[node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_b2ae5")]
+[node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_l68jp")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, 2)
-texture = ExtResource("4_0yexb")
+texture = ExtResource("4_1rmmj")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
 position = Vector2(-1, 6.8)
@@ -279,7 +279,7 @@ shape = SubResource("CapsuleShape2D_vjnto")
 one_way_collision_margin = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
-script = ExtResource("17_iwak8")
+script = ExtResource("17_gaev5")
 
 [node name="RayCast2D" type="RayCast2D" parent="map/Player"]
 position = Vector2(-1, 0)
@@ -304,18 +304,18 @@ modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_qsktm")
+texture = ExtResource("19_35034")
 
 [node name="Blackscreenmega" type="Sprite2D" parent="map/Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 9
 position = Vector2(54.777035, -28.910643)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("19_qsktm")
+texture = ExtResource("19_35034")
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(551.4363, 424.3703)
-script = ExtResource("20_lworr")
+script = ExtResource("20_x8erc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes1"]
 position = Vector2(0.0637207, -2.3703003)
@@ -323,7 +323,7 @@ shape = SubResource("RectangleShape2D_l57no")
 
 [node name="spikes2" type="Area2D" parent="."]
 position = Vector2(839.58344, 552.3691)
-script = ExtResource("20_lworr")
+script = ExtResource("20_x8erc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes2"]
 position = Vector2(-0.04663086, -2.8703003)
@@ -331,7 +331,7 @@ shape = SubResource("RectangleShape2D_l57no")
 
 [node name="spikes3" type="Area2D" parent="."]
 position = Vector2(855.4842, 360.53284)
-script = ExtResource("20_lworr")
+script = ExtResource("20_x8erc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes3"]
 position = Vector2(0.015808105, -1.0328369)
@@ -339,7 +339,7 @@ shape = SubResource("RectangleShape2D_l57no")
 
 [node name="spikes4" type="Area2D" parent="."]
 position = Vector2(935.4402, 616.43896)
-script = ExtResource("20_lworr")
+script = ExtResource("20_x8erc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes4"]
 position = Vector2(0.048339844, -0.93896484)
