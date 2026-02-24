@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=99 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_amgfo"]
 [ext_resource type="Texture2D" uid="uid://rr1v2a1gnax8" path="res://Characters/Man/IdleBack.webp" id="1_qo8cd"]
@@ -141,18 +141,6 @@ animations = [{
 [sub_resource type="MeshTexture" id="MeshTexture_0n3wm"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_d2t1y"]
-
-[sub_resource type="GDScript" id="GDScript_fmfy4"]
-script/source = "extends Area2D
-
-func _on_body_entered(body):
-	if body.has_method(\"_enemy_death\"):
-		body._enemy_death()
-"
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_235ec"]
-radius = 8.0
-height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("61_rm4vd")
@@ -613,13 +601,6 @@ layer = 0
 [node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_p4lcs")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
-position = Vector2(-1, -1)
-script = SubResource("GDScript_fmfy4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
-shape = SubResource("CapsuleShape2D_235ec")
-
 [node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, -1)
@@ -768,7 +749,6 @@ item_name = "Bag"
 item_texture = ExtResource("52_3n72m")
 item_effect = "Slot Boost"
 
-[connection signal="body_entered" from="map/Player/Player_Area2D" to="map/Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_entered" from="map/redgem" to="map/redgem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bluegem" to="map/bluegem" method="_on_body_entered"]
 [connection signal="body_entered" from="map/yellowgem" to="map/yellowgem" method="_on_body_entered"]
