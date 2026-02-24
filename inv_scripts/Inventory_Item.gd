@@ -1,5 +1,4 @@
-
-extends Node2D
+class_name ItemData extends Node2D
 
 @export var item_type = ""
 @export var item_name = ""
@@ -7,6 +6,8 @@ extends Node2D
 @export var item_effect: String = "health"
 @onready var icon_sprite = $Sprite2D
 @export var scene_path: String = "res://Inventory_Item.tscn"
+@onready var quest1 = $"../map/Player/quest1"
+@onready var completequest1 = $"../map/Player/complete_quest1"
 
 var player_in_range = false
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,7 @@ func _process(_delta):
 		print("item")
 
 
+
 func pickup_item():
 	var item = {
 		"quantity": 1,
@@ -32,11 +34,13 @@ func pickup_item():
 		"scene_path": scene_path,
 	}
 	var added: bool = Global.add_item(item, false)
-
 	if added:
 		queue_free()
 	else:
 		print("Inventory full / kunde inte lägga till item")
+	if quest1.visible == true and item["name"] == "Food":
+		quest1.visible = false
+		completequest1.visible = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

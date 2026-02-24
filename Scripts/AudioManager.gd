@@ -1,5 +1,5 @@
 extends Node
-
+ 
 var sounds = {
 	"grass": [
 		preload("res://Audio/grass1.mp3"),
@@ -16,39 +16,39 @@ var sounds = {
 	"pickupcoin": preload("res://Audio/pickupCoin.wav"),
 
 }
-
+ 
 var player: AudioStreamPlayer
-
+ 
 func _ready():
 	player = AudioStreamPlayer.new()
 	add_child(player)
-
+ 
 func play_sound(name: String):
 	if not sounds.has(name):
 		push_warning("Sound '%s' not found" % name)
 		return
-	
+
 	var p = AudioStreamPlayer.new()
 	add_child(p)
-	
+
 	p.stream = sounds[name]
 	p.pitch_scale = randf_range(0.95, 1.05)
 	p.play()
-	
+
 	p.finished.connect(p.queue_free)
-
-
+ 
+ 
 func play_random_from(category: String):
 	if not sounds.has(category):
 		return
-	
+
 	var stream = sounds[category].pick_random()
-	
+
 	var p = AudioStreamPlayer.new()
 	add_child(p)
-	
+
 	p.stream = stream
 	p.pitch_scale = randf_range(0.95, 1.05)
 	p.play()
-	
+
 	p.finished.connect(p.queue_free)
