@@ -22,6 +22,7 @@ AudioManager="*res://Scripts/AudioManager.gd"
 JsonData="*res://Scripts/JSONData.gd"
 GameManager="*res://Scripts/GameManager.gd"
 SettingsManager="*res://Scripts/SettingsManager.gd"
+KeybindsManager="*res://Scripts/KeybindsManager.gd"
 
 [display]
 

@@ -11,11 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://crq5v3o3cwe1j" path="res://Characters/Menu_Icons/Knight.png" id="8_af3vr"]
 [ext_resource type="Script" uid="uid://cpy4b5we7vfcg" path="res://Scripts/BackButton.gd" id="10_0qu6g"]
 
-[node name="Map" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Earth" type="Sprite2D" parent="."]
-position = Vector2(584.782, 383)
-scale = Vector2(0.291391, 0.336)
+position = Vector2(964.8237, 629.50006)
+scale = Vector2(0.48141187, 0.55511117)
 texture = ExtResource("1_mmr6e")
 
 [node name="Man" type="Sprite2D" parent="Earth"]
@@ -42,8 +48,8 @@ theme_override_font_sizes/font_size = 136
 text = "Unlocked🔓"
 
 [node name="Ice" type="Sprite2D" parent="."]
-position = Vector2(582, 389)
-scale = Vector2(1.69565, 1.69565)
+position = Vector2(963.00037, 643.00024)
+scale = Vector2(2.7999988, 2.7999988)
 texture = ExtResource("2_aqeu7")
 
 [node name="Hunter" type="Sprite2D" parent="Ice"]
@@ -72,20 +78,20 @@ theme_override_font_sizes/font_size = 31
 text = "Locked 🔒"
 
 [node name="Moon" type="Sprite2D" parent="."]
-position = Vector2(720, 363)
-scale = Vector2(0.6, 0.6)
+position = Vector2(1077, 541.5)
+scale = Vector2(0.8975, 0.8975)
 texture = ExtResource("3_v3g8h")
 
 [node name="Astronaut" type="Sprite2D" parent="Moon"]
-position = Vector2(-221.667, -33.3334)
+position = Vector2(-114.76318, -27.29806)
 scale = Vector2(1.10763, 1.10763)
 texture = ExtResource("6_k7dfb")
 
 [node name="Abilities" type="Button" parent="Moon"]
-offset_left = 38.0
-offset_top = -310.0
-offset_right = 500.0
-offset_bottom = 213.0
+offset_left = 240.66853
+offset_top = -290.2507
+offset_right = 702.6685
+offset_bottom = 232.7493
 theme_override_font_sizes/font_size = 46
 text = "Abilities:
 - 10% Faster
@@ -102,8 +108,8 @@ theme_override_font_sizes/font_size = 101
 text = "Locked 🔒"
 
 [node name="Dungeon" type="Sprite2D" parent="."]
-position = Vector2(591.5, 348)
-scale = Vector2(1.95261, 2.04651)
+position = Vector2(963.23975, 567.0002)
+scale = Vector2(3.167446, 3.3197668)
 texture = ExtResource("4_rr2ku")
 
 [node name="Knight" type="Sprite2D" parent="Dungeon"]
@@ -131,14 +137,14 @@ theme_override_font_sizes/font_size = 31
 text = "Locked🔒"
 
 [node name="MapSelector" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchor_top = 0.343
 anchor_right = 0.366
 anchor_bottom = 0.343
 offset_left = 2.0
-offset_top = 5.0
+offset_top = -8.719999
 offset_right = 1165.0
-offset_bottom = 642.0
+offset_bottom = 628.28
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_th615")
@@ -148,18 +154,19 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -63.5
-offset_right = 65.5
-offset_bottom = 126.0
+offset_left = -52.859985
+offset_top = -328.72
+offset_right = 76.140015
+offset_bottom = -202.72
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 86
 
 [node name="LeftButton" type="Button" parent="MapSelector"]
 layout_mode = 0
-offset_left = 285.0
-offset_top = 463.0
-offset_right = 368.0
-offset_bottom = 651.0
+offset_left = 643.0
+offset_top = 510.28003
+offset_right = 726.0
+offset_bottom = 698.28
 theme_override_font_sizes/font_size = 131
 text = "<"
 alignment = 2
@@ -173,9 +180,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -151.0
-offset_top = -119.0
-offset_right = 151.0
+offset_left = -113.859985
+offset_top = -77.71997
+offset_right = 188.14001
+offset_bottom = 41.28003
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 81
@@ -183,10 +191,10 @@ text = "Play"
 
 [node name="RightButton" type="Button" parent="MapSelector"]
 layout_mode = 0
-offset_left = 837.0
-offset_top = 459.0
-offset_right = 920.0
-offset_bottom = 647.0
+offset_left = 1208.0
+offset_top = 510.28003
+offset_right = 1291.0
+offset_bottom = 698.28
 theme_override_font_sizes/font_size = 131
 text = ">"
 
@@ -199,11 +207,14 @@ offset_bottom = 463.0
 
 [node name="BackButton" type="Button" parent="MapSelector"]
 self_modulate = Color(0.796078, 0, 0, 1)
-layout_mode = 0
-offset_left = 15.0
-offset_top = 559.0
-offset_right = 162.0
-offset_bottom = 630.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 4.2800293
+offset_right = 147.0
+offset_bottom = 82.28003
+grow_vertical = 0
 theme_override_font_sizes/font_size = 51
 text = "Back"
 script = ExtResource("10_0qu6g")

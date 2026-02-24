@@ -34,7 +34,7 @@ func _ready():
 	]
  
 	map_scenes = [
-		"res://Maps/Earth Map/Map.tscn",
+		"res://main.tscn",
 		"res://Maps/Ice Map/Map.tscn",
 		"res://Maps/Dungeon_Map/Map.tscn",
 		"res://Maps/Moon_Map/Map.tscn"
