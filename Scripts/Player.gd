@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var door: Node2D = $"../door"
+
 @onready var _animated_sprite = $AnimatedSprite2D
 
 @onready var interact_ui = $InteractUI
@@ -20,7 +20,6 @@ var gravity = 0
 var bluepowerup = false
 
 var delay = 0
-var dooropen = false
 
 #Dodge variables
 
@@ -222,30 +221,37 @@ func _physics_process(delta):
 		$forceshield.visible = false # hide
 
 		print("bluegem_powerdown")
-		AudioManager.play_sound("powerdown")
+		Global.health = Global.health + 10
+		powerdownsound.play()
+
 		bluepowerup = false
-
+ 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+  
 func use_redgem_power_up(): # damage boost
 
 	var powerupduration = 5.0
 
 	print("redgem_powerup")
-	AudioManager.play_sound("powerup")
+
+	powerupsound.play()
+
 	await get_tree().create_timer(powerupduration).timeout
 
 	print("redgem_powerdown")
-	AudioManager.play_sound("powerdown")
+
+	powerdownsound.play()
 
 func use_bluegem_power_up(): #force shield
 
 	bluepowerup = true
 
 	print("bluegem_powerup")
-	AudioManager.play_sound("powerup")
+
+	powerupsound.play()
+
 	$forceshield.visible = true  # show
-	
+
 func use_yellowgem_power_up(): # speed boost
 
 	var powerupduration = 8.0
@@ -255,7 +261,9 @@ func use_yellowgem_power_up(): # speed boost
 	normal_walk_speed = walk_speed * 1.4
 
 	normal_run_speed = walk_speed * 1.7
-	AudioManager.play_sound("powerup")
+
+	powerupsound.play()
+
 	await get_tree().create_timer(powerupduration).timeout
 
 	print("yellowgem_powerdown")
@@ -263,14 +271,16 @@ func use_yellowgem_power_up(): # speed boost
 	normal_walk_speed = 150.0
 
 	normal_run_speed = 200.0
-	AudioManager.play_sound("powerdown")
+
+	powerdownsound.play()
 
 func use_greengem_power_up(): # health boost
 
 	print("greengem_powerup")
 
 	Global.health = 100.0
-	AudioManager.play_sound("powerup")
+
+	powerupsound.play()
 
 func use_blackgem_power_up(): #invisibility men lite slowness
 
@@ -281,17 +291,21 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	normal_walk_speed = walk_speed * 0.75
 
 	normal_run_speed = (walk_speed + 50) * 0.75
-	Global.stop_distance = 9999999999999
+	Global.stop_distance = 999999
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
-	AudioManager.play_sound("powerup")
+
+	powerupsound.play()
+
 	await get_tree().create_timer(powerupduration).timeout
 
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
-	Global.stop_distance = 35.0
+	Global.stop_distance = 35
 	normal_walk_speed = 150.0
 
 	normal_run_speed = 200.0
-	AudioManager.play_sound("powerdown")
+
+	powerdownsound.play()
+
 	print("blackgem_powerdown")
 
 func use_blackcoin_power_up(): #invert movement
@@ -331,7 +345,9 @@ func use_blackcoin_power_up(): #invert movement
 	event_w.physical_keycode = KEY_W
 
 	InputMap.action_add_event("move_down", event_w)
-	AudioManager.play_sound("pickupcoin")
+
+	pickupcoinsound.play()
+
 	await get_tree().create_timer(powerupduration).timeout
 
 	InputMap.action_erase_events("move_right")
@@ -365,7 +381,7 @@ func use_blackcoin_power_up(): #invert movement
 	event_w.physical_keycode = KEY_W
 
 	InputMap.action_add_event("move_up", event_w)
-	AudioManager.play_sound("powerdown")
+
 	print("blackcoin_powerdown")
 
 func use_redcoin_power_up(): # blindness and slowness
@@ -381,7 +397,9 @@ func use_redcoin_power_up(): # blindness and slowness
 	normal_walk_speed = walk_speed * 0.6
 
 	normal_run_speed = (walk_speed + 50) * 0.6
-	AudioManager.play_sound("pickupcoin")
+
+	pickupcoinsound.play()
+
 	await get_tree().create_timer(powerupduration).timeout
 
 	$Blackscreenmode.modulate = Color(1, 1, 1, 0) # hide
@@ -391,13 +409,8 @@ func use_redcoin_power_up(): # blindness and slowness
 	normal_walk_speed = 150
 
 	normal_run_speed = 200
-	AudioManager.play_sound("powerdown")
-	print("redcoin_powerdown")
 
-func use_key():
-	door.visible = false
-	dooropen = true
-	print("key_picked_up")
+	print("redcoin_powerdown")
 
 func _input(event):
 
@@ -454,7 +467,5 @@ func _unhandled_input(event):
 
 				break
 
-func use_door():
-	if dooropen == true:
-		print("newmap")
-		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
+func _ready() -> void:
+	Global.set_player_reference(self)
