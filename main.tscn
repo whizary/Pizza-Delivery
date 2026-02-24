@@ -142,8 +142,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lykh"]
-radius = 7.0
-height = 24.0
+radius = 5.515381
+height = 16.63794
 [sub_resource type="MeshTexture" id="MeshTexture_gngh3"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_0cp0l"]
@@ -616,6 +616,31 @@ layer = 0
 [node name="Inventory_Hotbar" parent="map/Player/InventoryHotbar" instance=ExtResource("16_p4lcs")]
 metadata/_edit_use_anchors_ = true
 
+[node name="Player_Sprite2D" type="Sprite2D" parent="map/Player"]
+visible = false
+position = Vector2(-1, 2)
+texture = ExtResource("1_xmroj")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="map/Player"]
+position = Vector2(-1, 7)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_come4")
+one_way_collision_margin = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="map/Player"]
+script = ExtResource("17_41to2")
+
+[node name="RayCast2D" type="RayCast2D" parent="map/Player"]
+position = Vector2(-1, 0)
+target_position = Vector2(0, 12)
+
+[node name="Player_Area2D" type="Area2D" parent="map/Player" groups=["player"]]
+position = Vector2(-1, -1)
+script = SubResource("GDScript_fmfy4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Player/Player_Area2D"]
+shape = SubResource("CapsuleShape2D_235ec")
+
 [node name="forceshield" type="AnimatedSprite2D" parent="map/Player"]
 visible = false
 position = Vector2(-1, -1)
@@ -635,15 +660,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = 9
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("17_pjyto")
-
-[node name="powerup" type="AudioStreamPlayer2D" parent="map/Player"]
-stream = ExtResource("18_ntx8l")
-
-[node name="powerdown" type="AudioStreamPlayer2D" parent="map/Player"]
-stream = ExtResource("19_rqtf5")
-
-[node name="pickupcoin" type="AudioStreamPlayer2D" parent="map/Player"]
-stream = ExtResource("20_1vm84")
 
 [node name="quest" type="Area2D" parent="map/Player"]
 position = Vector2(18, 0)
