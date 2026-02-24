@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/stone2.mp3-229fc056d5db10b1bd366279fb2b2d2b.m
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
