@@ -1,5 +1,4 @@
-
-extends Node2D
+class_name ItemData extends Node2D
 
 @export var item_type = ""
 @export var item_name = ""

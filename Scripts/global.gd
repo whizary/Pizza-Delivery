@@ -67,7 +67,7 @@ func remove_item(item_type, item_effect):
 func increase_inventory_size(extra_slots):
 	inventory.resize(inventory.size() + extra_slots)
 	inventory_updated.emit()
-func set_player_reference(player):
+func set_player_reference(player: Node) -> void:
 	player_node = player
 func adjust_drop_position(position):
 	var radius = 100

@@ -482,3 +482,6 @@ func _unhandled_input(event):
 				use_hotbar_item(i)
 
 				break
+
+func _ready() -> void:
+	Global.set_player_reference(self)

@@ -86,12 +86,11 @@ func _on_drop_button_pressed() -> void:
 
 func _on_use_button_pressed():
 	usage_panel.visible = false
-	if item != null and item["effect"] != "":
-		if Global.player_node:
-			Global.player_node.apply_item_effect(item)
-			Global.remove_item(item["type"], item["effect"])
-		else:
-			print("Player could not be found")
+	if is_instance_valid(Global.player_node):
+		Global.player_node.apply_item_effect(item)
+		Global.remove_item(item["type"], item["effect"])
+	else:
+		print("Player could not be found")
 
 func update_assignment_status():
 	is_assigned = Global.is_item_assigned_to_hotbar(item)
