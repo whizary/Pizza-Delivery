@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="12_wohnl"]
 [ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="13_36dho"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="14_yh6i2"]
-[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="15_nv4vc"]
+[ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_nv4vc"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
@@ -339,6 +339,3 @@ offset_left = -432.0
 offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
-
-[connection signal="body_entered" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_entered"]
-[connection signal="body_exited" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_exited"]
