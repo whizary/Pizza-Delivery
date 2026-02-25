@@ -61,131 +61,73 @@ func _physics_process(delta):
 			position += Vector2(70, 70)
 		elif forward and left:
 			position += Vector2(-70, 70)
-
 		elif right:
-
 			position += Vector2(100, 0)
-
 		elif left:
-
 			position += Vector2(-100, 0)
-
 		elif forward:
-
 			position += Vector2(0, 100)
-
 		dodgeBool = false
-
 		dodgeCD = 2.0
 		
 	#HEALTH
-
 	if Global.health <= 0.0 and Global.death == false:
-
 		Global.death = true
 		print("GAME OVER")
-
 	if Global.iframes == true and Global.death == false:
-
 		Global.iframesTimer -= delta
-
 	if Global.iframesTimer <= 0.0:
-
 		Global.iframes = false
 	
 	#STAMINA AND RUN CODE
-
 	if Global.stamina > Global.maxStamina:
-
 		Global.stamina = Global.maxStamina
-
 	if Global.stamina <= 0.0 and run == false or Global.stamina >= 0.0 and run == false:
-
 		Global.stamina += delta * Global.staminaRecovery
-
 	if run and Global.stamina > 0.0:
-
 		walk_speed = normal_run_speed
-
 		Global.stamina -= delta * Global.staminaDrain
-
 	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
-
 		walk_speed = normal_walk_speed
-
 	if run and delay <= 0:
-
 		delay = 0.3
-
 		AudioManager.play_random_from("grass")
-
 	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0  or left && forward and delay <= 0 or left && back and delay <= 0 or right && forward and delay <= 0 or right && back and delay <= 0:
-
 		delay = 0.5
-
 		AudioManager.play_random_from("grass")
-
 	else:
-
 		delay -= delta
 		
 	#MOVEMENT
-
 	if right:
-
 		velocity.x += walk_speed
-
 		_animated_sprite.play("WalkRight")
-
 	elif left:
-
 		velocity.x -= walk_speed
-
 		_animated_sprite.play("WalkLeft")
-
 	elif back:
-
 		velocity.y -= walk_speed
-
 		_animated_sprite.play("WalkBack")
-
 	elif forward:
-
 		velocity.y += walk_speed
-
 		_animated_sprite.play("WalkForward")
-
 	else:
-
 		_animated_sprite.play("IdleFront")
-
 	if right && forward:
-
 		velocity.x = walk_speed * 0.7
-
 		velocity.y = walk_speed * 0.7
-
 	elif left && back:
-
 		velocity.x = -walk_speed * 0.7
-
 		velocity.y = -walk_speed * 0.7
-
 	elif right && back:
-
 		velocity.x = walk_speed * 0.7
-
 		velocity.y = -walk_speed * 0.7
-
 	elif left && forward:
-
 		velocity.x = -walk_speed * 0.7
-
 		velocity.y = walk_speed * 0.7
-
+	
 	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
-
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
