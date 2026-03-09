@@ -42,7 +42,7 @@ func _unhandled_input(event):
 			return
 
 		# Slutför questen
-		if Takecomplete.visible:
+		if completequest1.visible == true:
 			_completed_quest()
 			return
 

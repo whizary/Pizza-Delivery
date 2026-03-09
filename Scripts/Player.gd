@@ -8,7 +8,6 @@ extends CharacterBody2D
 var player_in_range = false
 var gravity = 0
 var bluepowerup = false
-
 var delay = 0
 var dooropen = false
 
@@ -32,14 +31,32 @@ func _process(delta):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _physics_process(delta):
-	$Camera2D/STA_bar.value = Global.stamina
-	$Camera2D/HP_bar.value = Global.health
+	$Camera2D/CanvasLayer/STA_bar.value = Global.stamina
+	$Camera2D/CanvasLayer/HP_bar.value = Global.health
 	Global.player_node = self
 	velocity.y += gravity * delta
 	
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
+	
+	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+		$Camera2D.zoom = Vector2(2.295, 2.295)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+	
+	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
+		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
 	
 	#Movement variables	
 	var run = Input.is_action_pressed("run")
