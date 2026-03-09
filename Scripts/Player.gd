@@ -58,7 +58,7 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
 	
-	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room.tscn":
+	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
 		$Camera2D.zoom = Vector2(4.1, 4.1)
 		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
 		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
