@@ -17,7 +17,10 @@ var maxHealth = 100.0
 var iframesTimer = 1.0
 var iframes = false
 var death = false
- 
+var bossroomcomplete = false
+var bossdooropen = true
+
+
 var current_wave: int
 var moving_to_next_wave: bool
  

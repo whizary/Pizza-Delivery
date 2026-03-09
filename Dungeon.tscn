@@ -207,10 +207,11 @@ position = Vector2(12, 17.5)
 shape = SubResource("RectangleShape2D_gbu8i")
 
 [node name="key" type="Area2D" parent="map"]
-position = Vector2(1603, 413)
+position = Vector2(2857.7405, 2501.0525)
 script = ExtResource("21_1x724")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/key"]
+[node name="animatedkeysprite" type="AnimatedSprite2D" parent="map/key"]
+visible = false
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_y2adg")
 autoplay = "default"
@@ -227,7 +228,7 @@ position = Vector2(12, 17.5)
 shape = SubResource("RectangleShape2D_gbu8i")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(777, 909)
+position = Vector2(1656, 1109)
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(743.522, 872.48785)

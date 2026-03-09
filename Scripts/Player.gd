@@ -14,6 +14,8 @@ extends CharacterBody2D
 
 @onready var pickupcoinsound = $pickupcoin
 
+signal open_door
+
 var player_in_range = false
 var gravity = 0
 
@@ -21,7 +23,7 @@ var bluepowerup = false
 
 var delay = 0
 var dooropen = false
-var bossdooropen = true
+#var bossdooropen = true
 
 #Dodge variables
 
@@ -50,15 +52,40 @@ func _process(delta):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _physics_process(delta):
-	$Camera2D/STA_bar.value = Global.stamina
-	$Camera2D/HP_bar.value = Global.health
+	$Camera2D/CanvasLayer/STA_bar.value = Global.stamina
+	$Camera2D/CanvasLayer/HP_bar.value = Global.health
 	velocity.y += gravity * delta
 
 	move_and_slide()
-
 	velocity.x = 0
-
 	velocity.y = 0
+	
+	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+		$Camera2D.zoom = Vector2(2.295, 2.295)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+
+	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
+		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		
+	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
+		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
 	
 	#Movement variables
 
@@ -396,8 +423,8 @@ func use_redcoin_power_up(): # blindness and slowness
 	print("redcoin_powerdown")
 
 func use_key():
-	door.visible = false
 	dooropen = true
+	open_door.emit()
 	print("key_picked_up")
 
 func _input(event):
@@ -453,6 +480,6 @@ func use_spikes():
 		Global.health = 0
 
 func use_boss_door():
-	if bossdooropen == true:
+	if Global.bossdooropen == true:
 		print("bossroomentered")
 		get_tree().change_scene_to_file("res://dungeon_boss_room-tscn.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen

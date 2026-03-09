@@ -414,6 +414,106 @@ shape = SubResource("CircleShape2D_4obbf")
 [node name="SpawnPoint" type="Marker2D" parent="map"]
 position = Vector2(1278, 1086)
 
+[node name="TakeQuest" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/TakeQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
+
+[node name="CompleteQuest" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/CompleteQuest"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 25.0
+offset_right = -13.0
+offset_bottom = 157.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Completed ally
+
+"
+
+[node name="Completequest1" type="CanvasLayer" parent="map"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="map/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = 113.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.607843, 0.101961, 1)
+
+[node name="Label" type="Label" parent="map/Completequest1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 10.0
+offset_right = -7.0
+offset_bottom = 97.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Talk to Ally
+"
+
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
 item_type = "Consumable"

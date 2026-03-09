@@ -14,7 +14,8 @@
 [node name="void_7" parent="." instance=ExtResource("7_id")]
 
 [node name="Collision_layer_6" parent="." instance=ExtResource("6_id")]
-collision_visibility_mode = 1
+visible = false
+collision_visibility_mode = 2
 
 [node name="Layer_1_5" parent="." instance=ExtResource("5_id")]
 

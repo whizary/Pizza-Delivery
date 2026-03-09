@@ -6,6 +6,7 @@ var current_wave: int
 var starting_nodes: int
 var current_nodes: int
 var wave_spawn_ended
+@onready var door: TileMapLayer = $door
 
 @onready var spawn_point = $SpawnPoint
 var player_scene = preload("res://Scenes/player.tscn")
@@ -14,6 +15,7 @@ func _ready():
 	var player = player_scene.instantiate()
 	player.global_position = spawn_point.global_position
 	add_child(player)
+	player.connect("open_door", _door_opened)
 	#current_wave = 0
 	#Global.current_wave = current_wave
 	#starting_nodes = get_child_count()
@@ -60,3 +62,7 @@ func _ready():
 				#mob_spawn_rounds -= 1
 				#await get_tree().create_timer(mob_wait_time).timeout
 		#wave_spawn_ended = true
+
+func _door_opened():
+	print("signal open door")
+	door.visible = false
