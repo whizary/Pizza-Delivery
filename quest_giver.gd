@@ -7,6 +7,7 @@ var quest_taken = false
 
 @onready var TakeQuest = $"../map/TakeQuest"
 @onready var completequest1 = $"../map/Completequest1"
+@onready var pressE = $"../map/Control"
 
 # Called when the node enters the scene tree for the first time.
 
@@ -18,6 +19,7 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	quest1 = player.get_node("quest1")
 	Takecomplete = player.get_node("complete_quest1")
+
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
@@ -42,7 +44,7 @@ func _unhandled_input(event):
 			return
 
 		# Slutför questen
-		if Takecomplete.visible:
+		if completequest1.visible == true:
 			_completed_quest()
 			return
 

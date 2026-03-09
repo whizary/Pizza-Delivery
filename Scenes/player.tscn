@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=35 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
+[ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="22_wpjfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("17_11gg7")
@@ -160,6 +161,7 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 process_mode = 3
+z_index = 2
 position = Vector2(1, 0)
 collision_mask = 14
 safe_margin = 0.6
@@ -315,6 +317,7 @@ layout_mode = 1
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="Player"]
 layer = 0
+visible = false
 
 [node name="Inventory_Hotbar" parent="Player/InventoryHotbar" instance=ExtResource("16_8gxox")]
 z_as_relative = false
@@ -339,6 +342,14 @@ offset_left = -432.0
 offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
+
+[node name="Tutorial" parent="Player" instance=ExtResource("22_wpjfl")]
+z_index = 1000
+offset_left = -18.0
+offset_top = 244.0
+offset_right = -18.0
+offset_bottom = 244.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_exited" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_exited"]

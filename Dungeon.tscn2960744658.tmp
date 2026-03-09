@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=39 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_6h3ij"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="7_8mbj2"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="7_i2x58"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="8_dqayi"]
-[ext_resource type="PackedScene" uid="uid://5qnuksmmq8g3" path="res://TalkTextHitbox.tscn" id="11_dqayi"]
 [ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="21_1x724"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
@@ -194,10 +193,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn6qf"]
 radius = 5.0990195
 
-[sub_resource type="SystemFont" id="SystemFont_8mbj2"]
-font_weight = 100
-font_stretch = 50
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ib7k"]
 size = Vector2(11.068634, 13.9999695)
 
@@ -338,23 +333,12 @@ text = "Completed ally
 [node name="SpawnPoint" type="Marker2D" parent="map"]
 position = Vector2(1871, 2384)
 
-[node name="PressE" type="Control" parent="map"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="map/PressE"]
-layout_mode = 0
-offset_left = 1772.0
-offset_top = 2148.0
-offset_right = 1827.0
-offset_bottom = 2171.0
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Press E"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Inventory_Item2" parent="map" instance=ExtResource("7_8mbj2")]
+position = Vector2(1790, 2397)
+item_type = "Consumable"
+item_name = "Food"
+item_texture = ExtResource("8_dqayi")
+item_effect = "Health boost"
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(743.522, 872.48785)
@@ -397,19 +381,7 @@ position = Vector2(0.0637207, -1.4655762)
 shape = SubResource("RectangleShape2D_2ib7k")
 
 [node name="QuestGiver" parent="." instance=ExtResource("7_i2x58")]
-z_index = 1
-position = Vector2(1797, 2142)
-
-[node name="Inventory_Item" parent="." instance=ExtResource("7_8mbj2")]
-position = Vector2(1655, 2185)
-item_type = "Consumable"
-item_name = "Food"
-item_texture = ExtResource("8_dqayi")
-item_effect = "Health boost"
-
-[node name="Node2D" parent="." instance=ExtResource("11_dqayi")]
-position = Vector2(1873, 2339)
-scale = Vector2(0.9521072, 1.1202813)
+position = Vector2(1794, 2331)
 
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]

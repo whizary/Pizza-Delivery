@@ -338,13 +338,13 @@ text = "Completed ally
 [node name="SpawnPoint" type="Marker2D" parent="map"]
 position = Vector2(1871, 2384)
 
-[node name="PressE" type="Control" parent="map"]
+[node name="Control" type="Control" parent="map"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="map/PressE"]
+[node name="Label" type="Label" parent="map/Control"]
 layout_mode = 0
 offset_left = 1772.0
 offset_top = 2148.0
@@ -409,7 +409,6 @@ item_effect = "Health boost"
 
 [node name="Node2D" parent="." instance=ExtResource("11_dqayi")]
 position = Vector2(1873, 2339)
-scale = Vector2(0.9521072, 1.1202813)
 
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]
