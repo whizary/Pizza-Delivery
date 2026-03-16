@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=35 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -50,10 +50,6 @@ animations = [{
 "name": &"default",
 "speed": 4.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
-radius = 4.992
-height = 14.016
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ldla"]
 animations = [{
@@ -140,6 +136,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
+radius = 4.992
+height = 14.016
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olqyp"]
+radius = 7.0
+
 [sub_resource type="MeshTexture" id="MeshTexture_ax3m3"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_3vlem"]
@@ -179,12 +182,6 @@ position = Vector2(-0.85941887, -1.010557)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("18_qpa8y")
 
-[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.992, 7.008)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ph33w")
-one_way_collision_margin = 0.0
-
 [node name="Player_Sprite2D" type="Sprite2D" parent="Player"]
 visible = false
 position = Vector2(-1, 2)
@@ -201,6 +198,17 @@ z_index = 11
 position = Vector2(-1.1221218, -1.0387316)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_qpa8y")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.992, 7.008)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ph33w")
+one_way_collision_margin = 0.0
+
+[node name="PlayeCollisionShape2D2" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, -6)
+scale = Vector2(1, 1.1200001)
+shape = SubResource("CircleShape2D_olqyp")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-141, -110)

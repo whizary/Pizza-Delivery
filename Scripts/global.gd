@@ -6,6 +6,7 @@ var player_hit = false
  
 var detect_distance = 255
 var enemy_speed = 155.0
+var boss_speed = 70.0
 var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
