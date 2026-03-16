@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwlpkavk25chs"]
+[gd_scene load_steps=7 format=3 uid="uid://dwlpkavk25chs"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
+[ext_resource type="Script" uid="uid://db0500vctpfgf" path="res://dungeondoor.gd" id="3_jt7ob"]
 [ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
 [ext_resource type="Script" path="res://spikes.gd" id="20_x8erc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eicpd"]
+size = Vector2(28, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l57no"]
 size = Vector2(11.023009, 15)
@@ -11,6 +15,15 @@ size = Vector2(11.023009, 15)
 
 [node name="map" parent="." instance=ExtResource("4_jt7ob")]
 script = ExtResource("2_cmqoe")
+
+[node name="dungeondoor2" type="Area2D" parent="map"]
+position = Vector2(756, 817)
+script = ExtResource("3_jt7ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/dungeondoor2"]
+z_index = 1
+position = Vector2(-4, -527.5)
+shape = SubResource("RectangleShape2D_eicpd")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
 position = Vector2(756.5437, 499.68195)
@@ -47,6 +60,7 @@ script = ExtResource("20_x8erc")
 position = Vector2(0.048339844, -0.93896484)
 shape = SubResource("RectangleShape2D_l57no")
 
+[connection signal="body_entered" from="map/dungeondoor2" to="map/dungeondoor2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]

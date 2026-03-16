@@ -14,8 +14,6 @@ extends CharacterBody2D
 
 @onready var pickupcoinsound = $pickupcoin
 
-signal open_door
-
 var player_in_range = false
 var gravity = 0
 
@@ -23,7 +21,6 @@ var bluepowerup = false
 
 var delay = 0
 var dooropen = false
-#var bossdooropen = true
 
 #Dodge variables
 
@@ -59,6 +56,9 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
+	
+	# temp
+	var t = Input.is_action_pressed("key_t")
 	
 	if get_tree().current_scene.scene_file_path == "res://main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
@@ -252,6 +252,10 @@ func _physics_process(delta):
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
+		
+	if t and Global.bossalive == true:
+		print("t pressed")
+		Global.bossalive = false
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -423,8 +427,7 @@ func use_redcoin_power_up(): # blindness and slowness
 	print("redcoin_powerdown")
 
 func use_key():
-	dooropen = true
-	open_door.emit()
+	Global.dooropen = true
 	print("key_picked_up")
 
 func _input(event):
@@ -469,9 +472,10 @@ func _unhandled_input(event):
 				break
 
 func use_door():
-	if dooropen == true:
+	if Global.dooropen == true:
 		print("newmap")
 		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
+		Global.normalspawn = true
 
 func use_spikes():
 	if Global.health > 0 and Global.health >= 20:
@@ -480,6 +484,13 @@ func use_spikes():
 		Global.health = 0
 
 func use_boss_door():
-	if Global.bossdooropen == true:
+	if Global.bossdooropen == true and Global.bossalive == true:
 		print("bossroomentered")
+		Global.bossroomactive = true
 		get_tree().change_scene_to_file("res://dungeon_boss_room-tscn.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen
+
+func use_dungeon_door():
+	if Global.dungeondooropen == true and Global.bossalive == false and Global.bossroomactive == true:
+		Global.bossroomactive = false
+		Global.bossdooropen = false
+		get_tree().change_scene_to_file("res://Dungeon.tscn")

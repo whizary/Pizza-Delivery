@@ -7,11 +7,15 @@ var starting_nodes: int
 var current_nodes: int
 var wave_spawn_ended
 @onready var door: TileMapLayer = $door
-
 @onready var spawn_point = $SpawnPoint
+
 var player_scene = preload("res://Scenes/player.tscn")
 
 func _ready():
+	if Global.bossroomactive == false and Global.bossalive == false and Global.normalspawn == false:
+		spawn_point = $SpawnPoint2
+	elif Global.normalspawn == true:
+		spawn_point = $SpawnPoint
 	var player = player_scene.instantiate()
 	player.global_position = spawn_point.global_position
 	add_child(player)
