@@ -6,6 +6,7 @@
 [sub_resource type="SystemFont" id="SystemFont_yb1ct"]
 font_weight = 300
 font_stretch = 50
+subpixel_positioning = 0
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3

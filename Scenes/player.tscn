@@ -163,7 +163,7 @@ height = 26.0
 process_mode = 3
 z_index = 2
 position = Vector2(1, 0)
-collision_mask = 14
+collision_mask = 15
 safe_margin = 0.6
 script = ExtResource("1_olqyp")
 
@@ -315,7 +315,7 @@ text = "Inventory
 [node name="Inventory_UI" parent="Player/InventoryUI/ColorRect" instance=ExtResource("15_nv4vc")]
 layout_mode = 1
 
-[node name="InventoryHotbar" type="CanvasLayer" parent="Player"]
+[node name="InventoryHotbar" type="CanvasLayer" parent="Player" groups=["hotbar"]]
 layer = 0
 visible = false
 
@@ -343,7 +343,7 @@ offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
 
-[node name="Tutorial" parent="Player" instance=ExtResource("22_wpjfl")]
+[node name="Tutorial" parent="Player" groups=["tutorial"] instance=ExtResource("22_wpjfl")]
 z_index = 1000
 offset_left = -18.0
 offset_top = 244.0

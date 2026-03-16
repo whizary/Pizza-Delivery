@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=44 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_6h3ij"]
@@ -200,6 +200,14 @@ font_stretch = 50
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ib7k"]
 size = Vector2(11.068634, 13.9999695)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dqayi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqayi"]
+size = Vector2(167, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgn0p"]
+size = Vector2(47.5, 121.125)
 
 [node name="Node2D" type="Node2D"]
 
@@ -408,8 +416,27 @@ item_texture = ExtResource("8_dqayi")
 item_effect = "Health boost"
 
 [node name="Node2D" parent="." instance=ExtResource("11_dqayi")]
+visible = false
 position = Vector2(1873, 2339)
 scale = Vector2(0.9521072, 1.1202813)
+
+[node name="FirstSpawnHb" type="StaticBody2D" parent="." groups=["barrier"]]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_dqayi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSpawnHb"]
+position = Vector2(1867, 2212)
+shape = SubResource("RectangleShape2D_dqayi")
+
+[node name="SecondSpawnHb" type="StaticBody2D" parent="." groups=["Barrier2"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondSpawnHb"]
+position = Vector2(1609, 2155.75)
+shape = SubResource("RectangleShape2D_dgn0p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SecondSpawnHb"]
+position = Vector2(2164, 2152.5625)
+shape = SubResource("RectangleShape2D_dgn0p")
 
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]

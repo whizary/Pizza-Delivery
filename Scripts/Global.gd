@@ -3,6 +3,9 @@ extends Node
 #inventory items
 var inventory = []
 var player_hit = false
+
+var tutorial_index = 0
+var tut = false
  
 var detect_distance = 255
 var enemy_speed = 155.0
