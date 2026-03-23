@@ -46,9 +46,7 @@ func pickup_item():
 		queue_free()
 	else:
 		print("Inventory full / kunde inte lägga till item")
-	if quest1.visible == true and item["name"] == "Food":
-		quest1.visible = false
-		Takecomplete.visible = true
+
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):

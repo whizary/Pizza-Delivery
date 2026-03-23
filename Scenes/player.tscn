@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=36 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -18,10 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
-[ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
-[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
+[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scenes/quests.tscn" id="20_xwi16"]
+[ext_resource type="Script" uid="uid://cdom3hylkvpmt" path="res://Scripts/quests.gd" id="21_bi64h"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
 [ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="22_wpjfl"]
+[ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="23_bi64h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("17_11gg7")
@@ -329,27 +330,32 @@ rotation = 3.1415927
 scale = Vector2(-0.056472383, 0.29072562)
 size_flags_vertical = 8
 
-[node name="quest1" parent="Player" instance=ExtResource("19_sbwqj")]
-visible = false
-offset_left = -428.0
-offset_top = -239.0
-offset_right = -428.0
-offset_bottom = -239.0
-
-[node name="complete_quest1" parent="Player" instance=ExtResource("20_xwi16")]
+[node name="complete_quests" parent="Player" instance=ExtResource("20_xwi16")]
 visible = false
 offset_left = -432.0
 offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
+script = ExtResource("21_bi64h")
 
 [node name="Tutorial" parent="Player" groups=["tutorial"] instance=ExtResource("22_wpjfl")]
+visible = false
 z_index = 1000
 offset_left = -18.0
 offset_top = 244.0
 offset_right = -18.0
 offset_bottom = 244.0
 metadata/_edit_use_anchors_ = true
+
+[node name="key-quest" parent="Player" instance=ExtResource("23_bi64h")]
+offset_left = -438.0
+offset_top = -249.0
+offset_right = -438.0
+offset_bottom = -249.0
+
+[node name="quests" parent="Player" instance=ExtResource("20_xwi16")]
+offset_left = -1.0
+offset_right = -1.0
 
 [connection signal="body_entered" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_entered"]
 [connection signal="body_exited" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_exited"]

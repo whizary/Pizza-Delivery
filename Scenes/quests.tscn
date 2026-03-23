@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://isaw5ceoe8nv"]
+
+[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://Images/QuestFrame.png" id="1_ev3hf"]
+[ext_resource type="Script" uid="uid://cdom3hylkvpmt" path="res://Scripts/quests.gd" id="1_rr5hr"]
+
+[node name="quests" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rr5hr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 161.0
+offset_bottom = 49.0
+texture = ExtResource("1_ev3hf")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 173.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 11
+text = "☑ Go back to Ally"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 44.0
+offset_right = 160.0
+offset_bottom = 102.0
+texture = ExtResource("1_ev3hf")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 173.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 11
+text = "☑ Go back to Ally"
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 100.0
+offset_right = 160.0
+offset_bottom = 158.0
+texture = ExtResource("1_ev3hf")
+
+[node name="Label" type="Label" parent="TextureRect3"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 173.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 11
+text = "☑ Go back to Ally"
