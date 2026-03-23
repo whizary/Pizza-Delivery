@@ -147,6 +147,8 @@ func _physics_process(delta):
 
 		Global.death = true
 		print("GAME OVER")
+		await resetglobal()
+		get_tree().reload_current_scene()
 
 	if Global.iframes == true and Global.death == false:
 
@@ -252,7 +254,17 @@ func _physics_process(delta):
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
+	
+	if bluepowerup == true and Global.spikesactive == true:
+		$forceshield.visible = false
+		Global.health += 20
+		print("bluegem_powerdown")
+		AudioManager.play_sound("powerdown")
+		bluepowerup = false
 		
+	elif bluepowerup == false and Global.spikesactive == true:
+		Global.spikesactive = false
+
 	if t and Global.bossalive == true:
 		print("t pressed")
 		Global.bossalive = false
@@ -261,12 +273,15 @@ func _physics_process(delta):
 
 func use_redgem_power_up(): # damage boost
 
-	var powerupduration = 5.0
-
+	var powerupduration = 15.5
 	print("redgem_powerup")
 	AudioManager.play_sound("powerup")
+	Global.damage *= 1.5
+	$active.text = "Damage Boost Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
-
+	Global.damage /= 1.5
 	print("redgem_powerdown")
 	AudioManager.play_sound("powerdown")
 
@@ -277,10 +292,13 @@ func use_bluegem_power_up(): #force shield
 	print("bluegem_powerup")
 	AudioManager.play_sound("powerup")
 	$forceshield.visible = true  # show
+	$active.text = "Forcefield Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	
 func use_yellowgem_power_up(): # speed boost
 
-	var powerupduration = 8.0
+	var powerupduration = 5.5
 
 	print("yellowgem_powerup")
 
@@ -288,6 +306,9 @@ func use_yellowgem_power_up(): # speed boost
 
 	normal_run_speed = walk_speed * 1.7
 	AudioManager.play_sound("powerup")
+	$active.text = "Speed Boost Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 
 	print("yellowgem_powerdown")
@@ -303,10 +324,13 @@ func use_greengem_power_up(): # health boost
 
 	Global.health = 100.0
 	AudioManager.play_sound("powerup")
+	$active.text = "Health Boost Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 
 func use_blackgem_power_up(): #invisibility men lite slowness
 
-	var powerupduration = 10.0
+	var powerupduration = 7.5
 
 	print("blackgem_powerup")
 
@@ -316,6 +340,9 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 	Global.stop_distance = 9999999999999
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
 	AudioManager.play_sound("powerup")
+	$active.text = "Invisiblity Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
@@ -328,7 +355,7 @@ func use_blackgem_power_up(): #invisibility men lite slowness
 
 func use_blackcoin_power_up(): #invert movement
 
-	var powerupduration = 25.0
+	var powerupduration = 22.5
 
 	print("blackcoin_powerup")
 
@@ -364,6 +391,9 @@ func use_blackcoin_power_up(): #invert movement
 
 	InputMap.action_add_event("move_down", event_w)
 	AudioManager.play_sound("pickupcoin")
+	$active.text = "Inverted Controls Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 
 	InputMap.action_erase_events("move_right")
@@ -402,7 +432,7 @@ func use_blackcoin_power_up(): #invert movement
 
 func use_redcoin_power_up(): # blindness and slowness
 
-	var powerupduration = 18.0
+	var powerupduration = 15.5
 
 	print("redcoin_powerup")
 
@@ -414,6 +444,9 @@ func use_redcoin_power_up(): # blindness and slowness
 
 	normal_run_speed = (walk_speed + 50) * 0.6
 	AudioManager.play_sound("pickupcoin")
+	$active.text = "Blindness Activated"
+	await get_tree().create_timer(2.5).timeout
+	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 
 	$Blackscreenmode.modulate = Color(1, 1, 1, 0) # hide
@@ -480,6 +513,7 @@ func use_door():
 func use_spikes():
 	if Global.health > 0 and Global.health >= 20:
 		Global.health -= 20
+		Global.spikesactive = true
 	elif Global.health > 0 and Global.health < 20:
 		Global.health = 0
 
@@ -494,3 +528,29 @@ func use_dungeon_door():
 		Global.bossroomactive = false
 		Global.bossdooropen = false
 		get_tree().change_scene_to_file("res://Dungeon.tscn")
+
+func resetglobal():
+	Global.inventory = []
+	Global.player_hit = false
+	Global.detect_distance = 255
+	Global.enemy_speed = 155.0
+	Global.stamina = 100.0
+	Global.maxStamina = 100.0
+	Global.staminaDrain = 25.0
+	Global.staminaRecovery = 25.0
+	Global.stop_distance = 35.0 
+	Global.health = 100.0
+	Global.maxHealth = 100.0
+	Global.iframesTimer = 1.0
+	Global.iframes = false
+	Global.death = false
+	Global.bossroomcomplete = false
+	Global.bossdooropen = true
+	Global.bossroomactive = false
+	Global.bossalive = true
+	Global.dungeondooropen = true
+	Global.dooropen = false
+	Global.normalspawn = false
+	Global.damage = 0
+	Global.spikesactive = false
+	Global.hotbar_size = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cu5chayfyfdd8"]
+[gd_scene load_steps=34 format=3 uid="uid://cu5chayfyfdd8"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
+[ext_resource type="Script" uid="uid://djofdybvereyc" path="res://Scenes/active.gd" id="22_wpjfl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
 radius = 5.0
@@ -169,10 +170,12 @@ one_way_collision_margin = 0.0
 
 [node name="Player_Sprite2D" type="Sprite2D" parent="Player"]
 visible = false
+z_index = 1
 position = Vector2(-1, 2)
 texture = ExtResource("2_wpjfl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+z_index = 1
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_7ldla")
 animation = &"IdleFront"
@@ -195,7 +198,7 @@ texture_under = SubResource("MeshTexture_ax3m3")
 texture_over = ExtResource("14_yh6i2")
 texture_progress = SubResource("MeshTexture_3vlem")
 tint_under = Color(0.42745098, 0.45882353, 0.40784314, 0.8352941)
-tint_progress = Color(0.06666667, 0.3372549, 0.7411765, 1)
+tint_progress = Color(0.93435836, 0.93435824, 7.70092e-07, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="HP_bar" type="TextureProgressBar" parent="Player/Camera2D/CanvasLayer"]
@@ -297,8 +300,15 @@ autoplay = "default"
 [node name="Blackscreenmode" type="Sprite2D" parent="Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 11
-position = Vector2(19, 0)
+position = Vector2(-1.0054531, -0.99601746)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_qpa8y")
+
+[node name="Blackscreenmega" type="Sprite2D" parent="Player"]
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+position = Vector2(-1.0161952, -0.9889354)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("18_qpa8y")
 
 [node name="quest" type="Area2D" parent="Player"]
@@ -324,3 +334,14 @@ offset_bottom = -239.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
 script = ExtResource("21_sweqm")
+
+[node name="active" type="Label" parent="Player"]
+z_index = 40
+offset_left = -192.99219
+offset_top = -94.99219
+offset_right = 193.00781
+offset_bottom = -59.992188
+horizontal_alignment = 1
+script = ExtResource("22_wpjfl")
+
+[node name="Timer" type="Timer" parent="."]

@@ -24,7 +24,8 @@ var bossalive = true
 var dungeondooropen = true
 var dooropen = false
 var normalspawn = false
-
+var damage = 0
+var spikesactive = false
 
 var current_wave: int
 var moving_to_next_wave: bool
