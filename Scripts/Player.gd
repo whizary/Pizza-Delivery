@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var interact_ui = $InteractUI
@@ -16,7 +17,6 @@ var dodgeCD = 2.0
 var dodgeBool = true
 
 #Movement variables
-
 var walk_speed = 150.0
 var normal_walk_speed = 150.0
 var normal_run_speed = 200.0
@@ -33,6 +33,7 @@ func _process(delta):
 func _physics_process(delta):
 	$Camera2D/CanvasLayer/STA_bar.value = Global.stamina
 	$Camera2D/CanvasLayer/HP_bar.value = Global.health
+	$Camera2D/CanvasLayer/boss_HP_bar.value = Global.boss_health
 	Global.player_node = self
 	velocity.y += gravity * delta
 	
@@ -48,6 +49,10 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
 	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
 		$Camera2D.zoom = Vector2(4.1, 4.1)
@@ -57,6 +62,10 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
 	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
 		$Camera2D.zoom = Vector2(4.1, 4.1)
@@ -66,6 +75,10 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
+		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
+		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
+		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
 	
 	#Movement variables	
 	var run = Input.is_action_pressed("run")

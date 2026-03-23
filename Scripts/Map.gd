@@ -8,6 +8,8 @@ var current_nodes: int
 var wave_spawn_ended
 
 @onready var spawn_point = $SpawnPoint
+@onready var BossSpawnPoint = $BossSpawnPoint
+var demon_slime_boss = preload("res://Scenes/demon_slime_boss.tscn")
 var player_scene = preload("res://Scenes/player.tscn")
 
 func _ready():
@@ -15,6 +17,10 @@ func _ready():
 	player.global_position = $SpawnPoint.global_position
 	add_child(player)
 	Global.set_player_reference(player)
+	var demon_slime = demon_slime_boss.instantiate()
+	demon_slime.global_position = $BossSpawnPoint.global_position
+	add_child(demon_slime)
+	Global.set_player_reference(demon_slime)
 	#current_wave = 0
 	#Global.current_wave = current_wave
 	#starting_nodes = get_child_count()

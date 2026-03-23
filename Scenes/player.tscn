@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=37 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_nv4vc"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
+[ext_resource type="Shader" uid="uid://ctpvah33t1ug6" path="res://Scripts/player.gdshader" id="17_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
@@ -151,6 +152,11 @@ radius = 7.0
 
 [sub_resource type="MeshTexture" id="MeshTexture_nmr2m"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bi64h"]
+shader = ExtResource("17_wpjfl")
+shader_parameter/color_start = Color(1, 0, 0, 2)
+shader_parameter/color_end = Color(1, 0.5, 0, 2)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5x828"]
 radius = 7.0
 height = 26.0
@@ -243,6 +249,31 @@ texture_over = ExtResource("14_yh6i2")
 texture_progress = SubResource("MeshTexture_nmr2m")
 tint_under = Color(0.45882353, 0.45882353, 0.45882353, 0.88235295)
 tint_progress = Color(1, 0.047058824, 0.105882354, 1)
+
+[node name="boss_HP_bar" type="TextureProgressBar" parent="Player/Camera2D/CanvasLayer"]
+z_index = 1
+z_as_relative = false
+offset_left = -128.0
+offset_top = 88.0
+offset_right = -18.0
+offset_bottom = 115.0
+scale = Vector2(2.4224937, 1.5599988)
+nine_patch_stretch = true
+texture_under = SubResource("MeshTexture_r7t2e")
+texture_over = ExtResource("14_yh6i2")
+texture_progress = SubResource("MeshTexture_nmr2m")
+tint_under = Color(0.45882353, 0.45882353, 0.45882353, 0.88235295)
+tint_progress = Color(1, 0.047058824, 0.105882354, 1)
+
+[node name="Boss_Name" type="RichTextLabel" parent="Player/Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_bi64h")
+offset_left = -80.0
+offset_top = 56.0
+offset_right = 27.0
+offset_bottom = 96.0
+scale = Vector2(1.5200002, 1.44)
+theme_override_colors/default_color = Color(1, 0, 0.003921569, 1)
+text = "Demon Slime"
 
 [node name="quest" type="Area2D" parent="Player"]
 position = Vector2(18, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://dcsomharb6awg"]
+[gd_scene load_steps=126 format=3 uid="uid://dcsomharb6awg"]
 
 [ext_resource type="Script" uid="uid://bs30b0lhlnjpq" path="res://Scripts/boss.gd" id="1_vapqn"]
 [ext_resource type="Texture2D" uid="uid://cdai6a80y3xgc" path="res://Characters/Bosses/Demon Slime/ATTACK/Left/demon_cleave_1.png" id="2_vapqn"]
@@ -121,7 +121,8 @@
 [ext_resource type="Texture2D" uid="uid://dsk82br831u7e" path="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_10.png" id="119_p4nji"]
 [ext_resource type="Texture2D" uid="uid://wtjpy0mvmp7g" path="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_11.png" id="120_au7wk"]
 [ext_resource type="Texture2D" uid="uid://mnkiyadmbdue" path="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_12.png" id="121_seyul"]
-[ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="122_vapqn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vapqn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t25a5"]
 animations = [{
@@ -171,7 +172,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_yeoi8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Boss_Attack_Left",
 "speed": 7.0
 }, {
@@ -221,7 +222,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_x5ic5")
 }],
-"loop": true,
+"loop": false,
 "name": &"Boss_Attack_Right",
 "speed": 7.0
 }, {
@@ -241,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("36_5ek1k")
 }],
-"loop": true,
+"loop": false,
 "name": &"Boss_Damage_Left",
 "speed": 10.0
 }, {
@@ -261,7 +262,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("41_tieac")
 }],
-"loop": true,
+"loop": false,
 "name": &"Boss_Damage_Right",
 "speed": 10.0
 }, {
@@ -539,11 +540,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vapqn"]
 size = Vector2(57.733078, 71)
 
-[sub_resource type="MeshTexture" id="MeshTexture_akkuf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tym8k"]
+size = Vector2(124, 81)
 
-[sub_resource type="MeshTexture" id="MeshTexture_c8lvx"]
-
-[node name="DemonSlimeBoss" type="Node2D"]
+[node name="DemonSlimeBoss" type="Node2D" groups=["boss"]]
 
 [node name="Boss" type="CharacterBody2D" parent="." groups=["boss"]]
 collision_layer = 2
@@ -551,34 +551,32 @@ collision_mask = 3
 safe_margin = 0.1
 script = ExtResource("1_vapqn")
 
-[node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss" groups=["boss"]]
+position = Vector2(1, 40)
+shape = SubResource("CapsuleShape2D_vapqn")
+disabled = true
+
+[node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
 sprite_frames = SubResource("SpriteFrames_t25a5")
 animation = &"Boss_Attack_Left"
 
-[node name="BossSprite2D" type="Sprite2D" parent="Boss"]
+[node name="BossSprite2D" type="Sprite2D" parent="Boss" groups=["boss"]]
 visible = false
 texture = ExtResource("86_e0f7v")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Boss"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Boss" groups=["boss"]]
 
-[node name="BossArea2D" type="Area2D" parent="Boss"]
+[node name="BossArea2D" type="Area2D" parent="Boss" groups=["boss"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/BossArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/BossArea2D" groups=["boss"]]
 position = Vector2(2.8698866, 43.5)
 scale = Vector2(1.0091307, 0.9964162)
 shape = SubResource("RectangleShape2D_vapqn")
 
-[node name="boss_HP_bar" type="TextureProgressBar" parent="Boss"]
-offset_left = -45.0
-offset_top = -53.0
-offset_right = 46.0
-offset_bottom = -29.0
-nine_patch_stretch = true
-texture_under = SubResource("MeshTexture_akkuf")
-texture_over = ExtResource("122_vapqn")
-texture_progress = SubResource("MeshTexture_c8lvx")
-tint_under = Color(0.5372549, 0.5372549, 0.5372549, 0.8509804)
-tint_progress = Color(0.16410574, 0.6838889, 0.09445078, 1)
-metadata/_edit_use_anchors_ = true
+[node name="AttackTelegraph" type="Area2D" parent="Boss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/AttackTelegraph"]
+position = Vector2(-62, 43.5)
+shape = SubResource("RectangleShape2D_tym8k")
 
 [connection signal="body_entered" from="Boss/BossArea2D" to="Boss" method="_on_boss_area_2d_body_entered"]
