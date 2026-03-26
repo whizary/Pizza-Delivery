@@ -2,18 +2,17 @@ extends CharacterBody2D
 
 @onready var _animated_enemy_sprite = $AnimatedBossSprite2D
 @onready var BossArea = $BossArea2D
-@onready var BossAttackArea = $AttackTelegraph
 @onready var agent = $NavigationAgent2D
 @onready var attack_telegraph = $AttackTelegraph
+@onready var BossAttackCollision = $AttackTelegraph/CollisionShape2D
 
 var player = null
 var is_dead = false
 var is_taking_damage = false
 var is_attacking = false
 
-var attack_delay = 1.2       # delay before attack hits
-var attack_range = 90        # boss starts attack when within this range
-
+var attack_delay = 0.7    
+var attack_range = 90
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -21,7 +20,9 @@ func _ready():
 
 	_animated_enemy_sprite.position.y = -40
 	BossArea.position.y = -40
-	BossAttackArea.position.y = -40
+	attack_telegraph.position.y = -40
+	BossAttackCollision.position = Vector2(-5, 20)
+	
 	attack_telegraph.visible = false
 	
 	agent.avoidance_enabled = true
@@ -41,20 +42,16 @@ func _physics_process(_delta):
 		return
 		
 	if is_attacking:
-		# Do not move during attack
 		return
 		
 	if player == null:
 		return
 	
 	var distance_to_player = global_position.distance_to(player.global_position)
-	
-	# >>> ATTACK CHECK <<<
+
 	if distance_to_player <= attack_range:
 		_start_attack()
 		return
-	
-	# >>> NORMAL MOVEMENT BELOW <<<
 
 	if distance_to_player > Global.detect_distance + 300:
 		_idle_face_player()
@@ -91,10 +88,6 @@ func _physics_process(_delta):
 	else:
 		_idle_face_player()
 
-
-# -------------------------------
-#            IDLE
-# -------------------------------
 func _idle_face_player():
 	if is_taking_damage or is_attacking:
 		return
@@ -107,10 +100,6 @@ func _idle_face_player():
 	else:
 		_animated_enemy_sprite.play("Boss_Idle_Left")
 
-
-# -------------------------------
-#           ATTACK LOGIC
-# -------------------------------
 func _start_attack():
 	if is_dead or is_taking_damage or is_attacking:
 		return
@@ -123,12 +112,11 @@ func _start_attack():
 	var facing_right = player.global_position.x > global_position.x
 	if facing_right:
 		_animated_enemy_sprite.play("Boss_Attack_Right")
+		BossAttackCollision.position = Vector2(20, 20)
 	else:
 		_animated_enemy_sprite.play("Boss_Attack_Left")
+		BossAttackCollision.position = Vector2(-5, 20)
 
-	# ------------------------------
-	# TELEGRAPH POSITION (side swap)
-	# ------------------------------
 	attack_telegraph.visible = true
 
 	var attack_offset = Vector2(50, 0)   # attack moves to left or right side

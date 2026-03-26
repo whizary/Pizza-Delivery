@@ -49,10 +49,14 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/Boss_Name.visible = false
-		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		#$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		#$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		#$Camera2D/CanvasLayer/Boss_Name.visible = false
+		#$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
+		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
+		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
+		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
 	
 	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
 		$Camera2D.zoom = Vector2(4.1, 4.1)

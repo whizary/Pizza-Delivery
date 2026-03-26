@@ -174,7 +174,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Boss_Attack_Left",
-"speed": 7.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -224,7 +224,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Boss_Attack_Right",
-"speed": 7.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -493,7 +493,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Boss_Walk_Left",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -534,14 +534,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Boss_Walk_Right",
-"speed": 6.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vapqn"]
 size = Vector2(57.733078, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tym8k"]
-size = Vector2(124, 81)
+size = Vector2(162, 50)
 
 [node name="DemonSlimeBoss" type="Node2D" groups=["boss"]]
 
@@ -559,6 +559,8 @@ disabled = true
 [node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
 sprite_frames = SubResource("SpriteFrames_t25a5")
 animation = &"Boss_Attack_Left"
+frame = 14
+frame_progress = 1.0
 
 [node name="BossSprite2D" type="Sprite2D" parent="Boss" groups=["boss"]]
 visible = false
@@ -576,7 +578,10 @@ shape = SubResource("RectangleShape2D_vapqn")
 [node name="AttackTelegraph" type="Area2D" parent="Boss"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/AttackTelegraph"]
-position = Vector2(-62, 43.5)
+modulate = Color(0.1254902, 1, 1, 1)
+self_modulate = Color(0.19215687, 1, 1, 1)
+position = Vector2(-43, 59)
 shape = SubResource("RectangleShape2D_tym8k")
+debug_color = Color(0.12941177, 0.61960787, 0.40392157, 0.5019608)
 
 [connection signal="body_entered" from="Boss/BossArea2D" to="Boss" method="_on_boss_area_2d_body_entered"]
