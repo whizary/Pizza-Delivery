@@ -13,11 +13,12 @@ var staminaDrain = 25.0
 var staminaRecovery = 25.0
 var stop_distance = 35.0 
 var boss_health = 100.0
+var boss_max_health = 100.0
 
 var damage = 0
 var health = 100.0
 var maxHealth = 100.0
-var iframesTimer = 1.0
+var iframesTimer = 0.8
 var iframes = false
 var death = false
  
