@@ -213,6 +213,7 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 process_mode = 3
+texture_filter = 1
 position = Vector2(1, 0)
 collision_mask = 14
 safe_margin = 0.6
@@ -238,6 +239,7 @@ position = Vector2(-1, 2)
 texture = ExtResource("2_wpjfl")
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(19, -2.9999998)
 rotation = -0.00048653223
 scale = Vector2(0.47409847, 0.6819854)
@@ -247,6 +249,7 @@ frame = 7
 frame_progress = 0.015006789
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_7ldla")
 animation = &"IdleBack"
@@ -322,6 +325,7 @@ tint_under = Color(0.45882353, 0.45882353, 0.45882353, 0.88235295)
 tint_progress = Color(1, 0.047058824, 0.105882354, 1)
 
 [node name="Boss_Name" type="RichTextLabel" parent="Player/Camera2D/CanvasLayer"]
+texture_filter = 1
 material = SubResource("ShaderMaterial_bi64h")
 offset_left = -80.0
 offset_top = 56.0
