@@ -280,6 +280,7 @@ text = "Talk to Ally
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/Completequest1"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -294,6 +295,7 @@ grow_vertical = 2
 color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/Completequest1"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -311,6 +313,7 @@ Talk to Ally
 "
 
 [node name="CompleteQuest" type="CanvasLayer" parent="map"]
+layer = -10
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/CompleteQuest"]

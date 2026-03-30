@@ -8,7 +8,13 @@ var tutorial_index = 0
 var keyquest_index = 0
 var tut = false
 var keyQ = false
+var movement = true
 
+var allyQ = false
+var allyquest_index = 0
+var AllyquestComplete = false   # sätts till true när maten är hämtad
+var allyTurnInFinished = false  # sätts till true när slutdialogen med Ally är klar
+var allyRewardGiven = false
 var acceptedQuest = false
  
 var detect_distance = 255
@@ -57,6 +63,8 @@ func add_item(item: Dictionary, to_hotbar = false) -> bool:
 				inventory[i] = item
 				inventory_updated.emit()
 				print("Item added", inventory)
+				AllyquestComplete = true
+				
 				return true
 		print("Inventory full", inventory)
 		return false

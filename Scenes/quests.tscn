@@ -14,9 +14,9 @@ script = ExtResource("1_rr5hr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -9.0
+offset_left = -4.0
 offset_top = -9.0
-offset_right = 161.0
+offset_right = 166.0
 offset_bottom = 49.0
 texture = ExtResource("1_ev3hf")
 
@@ -31,9 +31,9 @@ text = "☑ Go back to Ally"
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -10.0
+offset_left = -6.0
 offset_top = 44.0
-offset_right = 160.0
+offset_right = 164.0
 offset_bottom = 102.0
 texture = ExtResource("1_ev3hf")
 
@@ -48,9 +48,9 @@ text = "☑ Go back to Ally"
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -10.0
+offset_left = -4.0
 offset_top = 100.0
-offset_right = 160.0
+offset_right = 166.0
 offset_bottom = 158.0
 texture = ExtResource("1_ev3hf")
 

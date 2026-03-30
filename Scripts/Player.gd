@@ -24,6 +24,9 @@ var normal_run_speed = 200.0
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+func _ready():
+	Global.movement = true
+	
 func _process(delta):
 	dodgeCD -= delta
 	if dodgeCD <=0 && dodgeBool == false:
@@ -35,11 +38,15 @@ func _physics_process(delta):
 	$Camera2D/STA_bar.value = Global.stamina
 	$Camera2D/HP_bar.value = Global.health
 	Global.player_node = self
+
+	if Global.movement == false:
+		velocity = Vector2.ZERO
+		_animated_sprite.play("IdleFront")
+		move_and_slide()
+		return
+
+	velocity = Vector2.ZERO
 	velocity.y += gravity * delta
-	
-	move_and_slide()
-	velocity.x = 0
-	velocity.y = 0
 	
 	#Movement variables	
 	var run = Input.is_action_pressed("run")
@@ -189,6 +196,8 @@ func _physics_process(delta):
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
+	
+	move_and_slide()
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

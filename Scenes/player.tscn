@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=35 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scenes/quests.tscn" id="20_xwi16"]
-[ext_resource type="Script" uid="uid://cdom3hylkvpmt" path="res://Scripts/quests.gd" id="21_bi64h"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
 [ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="22_wpjfl"]
 [ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="23_bi64h"]
@@ -336,7 +335,6 @@ offset_left = -432.0
 offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
-script = ExtResource("21_bi64h")
 
 [node name="Tutorial" parent="Player" groups=["tutorial"] instance=ExtResource("22_wpjfl")]
 visible = false
@@ -353,7 +351,7 @@ offset_top = -249.0
 offset_right = -438.0
 offset_bottom = -249.0
 
-[node name="quests" parent="Player" instance=ExtResource("20_xwi16")]
+[node name="quests" parent="Player" groups=["player"] instance=ExtResource("20_xwi16")]
 offset_left = -1.0
 offset_right = -1.0
 
