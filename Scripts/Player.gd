@@ -15,6 +15,11 @@ extends CharacterBody2D
 @onready var pickupcoinsound = $pickupcoin
 @onready var dash: AnimatedSprite2D = $dash
 @onready var dashinverted: AnimatedSprite2D = $dashinverted
+@onready var dashup: AnimatedSprite2D = $dashup
+@onready var dashup2: AnimatedSprite2D = $dashup2
+@onready var dashdown: AnimatedSprite2D = $dashdown
+@onready var dashdown2: AnimatedSprite2D = $dashdown2
+
 
 var player_in_range = false
 var gravity = 0
@@ -111,6 +116,8 @@ func _physics_process(delta):
 		if back:
 
 			position += Vector2(0, -100)
+			dashup.play("default")
+			dashup2.play("default")
 
 		elif back and right:
 
@@ -141,6 +148,8 @@ func _physics_process(delta):
 		elif forward:
 
 			position += Vector2(0, 100)
+			dashdown.play("default")
+			dashdown2.play("default")
 
 		dodgeBool = false
 
