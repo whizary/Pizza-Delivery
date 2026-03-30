@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_nulmw"]
 [ext_resource type="Script" path="res://dungeonnewmapdoor.gd" id="2_1312v"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_i2x58"]
-[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="8_4p0qp"]
+[ext_resource type="Script" path="res://Scripts/redgem.gd" id="8_4p0qp"]
 [ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="9_8mbj2"]
 [ext_resource type="Script" path="res://Scripts/bluegem.gd" id="10_837t5"]
 [ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://Coin_Gems/spr_coin_azu.png" id="11_1312v"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="21_lyk6o"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="22_lyk6o"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="23_2ib7k"]
-[ext_resource type="Script" path="res://spikes.gd" id="23_lyk6o"]
+[ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="23_lyk6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)

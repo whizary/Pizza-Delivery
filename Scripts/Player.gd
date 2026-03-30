@@ -126,13 +126,18 @@ func _physics_process(delta):
 		elif back and left:
 
 			position += Vector2(-70, -70)
+			
 
 		elif forward and right:
 
+			dash.play("default")
+			dashdown2.play("default")
 			position += Vector2(70, 70)
 
 		elif forward and left:
 
+			dashinverted.play("default")
+			dashdown.play("default")
 			position += Vector2(-70, 70)
 
 		elif right:
@@ -521,6 +526,7 @@ func _unhandled_input(event):
 func use_door():
 	if Global.dooropen == true:
 		print("newmap")
+		await resetglobal()
 		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
 		Global.normalspawn = true
 
