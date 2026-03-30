@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var attack_telegraph = $AttackTelegraph
 @onready var BossAttackCollision = $AttackTelegraph/CollisionShape2D
 @onready var AttackAreaVisible = $AttackTelegraph/ColorRect
+@onready var BloodEffect = $GPUParticles2D
+@onready var AttackEffect = $BossSlamParticle
 
 var player = null
 var is_dead = false
@@ -14,7 +16,7 @@ var is_attacking = false
 var attack_delay = 0.8
 
 var phase_2 = false
-var phase_2_speed_multiplier = 1.5
+var phase_2_speed_multiplier = 1.8
 var phase_2_attack_speed_multiplier = 1.5
 
 var stomp_cooldown := 0.0
@@ -25,6 +27,7 @@ func _ready():
 	_animated_enemy_sprite.play("idle_right")
 	_animated_enemy_sprite.position.y = -40
 	BossArea.position.y = -40
+	BloodEffect.position.y = 0
 	attack_telegraph.visible = false
 	agent.avoidance_enabled = true
 	agent.radius = 8.0
@@ -101,8 +104,7 @@ func _start_attack():
 	velocity = Vector2.ZERO
 	move_and_slide()
 
-	var facing_right = player.global_position.x > global_position.x
-	if facing_right:
+	if player.global_position.x > global_position.x:
 		_animated_enemy_sprite.play("Boss_Attack_Right")
 		BossAttackCollision.position = Vector2(70, 20)
 		AttackAreaVisible.position = Vector2(-5, -15)
@@ -116,7 +118,7 @@ func _start_attack():
 	AttackAreaVisible.visible = true
 
 	await get_tree().create_timer(attack_delay).timeout
-
+	AudioManager.play_boss_sound(self, "BossAttack")
 	var bodies = attack_telegraph.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("player"):
@@ -140,6 +142,7 @@ func _on_boss_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		if is_attacking:
 			Global.boss_health -= 10
+			BloodEffect.emitting = true
 			_check_phase_2()
 			if Global.boss_health <= 0:
 				die()
@@ -152,9 +155,14 @@ func _on_boss_area_2d_body_entered(body):
 		
 		if player.global_position.x > global_position.x:
 			_animated_enemy_sprite.play("Boss_Damage_Right")
+			Global.boss_health -= 10
+			AudioManager.play_boss_sound(self, "BossHurt")
+			BloodEffect.emitting = true
 		else:
 			_animated_enemy_sprite.play("Boss_Damage_Left")
-
+			Global.boss_health -= 10
+			AudioManager.play_boss_sound(self, "BossHurt")
+			BloodEffect.emitting = true
 		Global.boss_health -= 10
 		_check_phase_2()
 
@@ -173,12 +181,15 @@ func _on_boss_area_2d_body_entered(body):
 			Global.iframes = true
 
 func die():
+	Global.bossalive = false
 	is_dead = true
 	velocity = Vector2.ZERO
 	if player.global_position.x > global_position.x:
 		_animated_enemy_sprite.play("Boss_Death_Right")
+		AudioManager.play_boss_sound(self, "BossDeath")
 	else:
 		_animated_enemy_sprite.play("Boss_Death_Left")
+		AudioManager.play_boss_sound(self, "BossDeath")
 	await _animated_enemy_sprite.animation_finished
 	queue_free()
 
@@ -192,7 +203,7 @@ func _check_phase_2():
 func _enter_phase_2():
 	Global.boss_speed *= phase_2_speed_multiplier
 	attack_delay /= phase_2_attack_speed_multiplier
-	_animated_enemy_sprite.speed_scale = phase_2_attack_speed_multiplier
+	_animated_enemy_sprite.speed_scale *= phase_2_attack_speed_multiplier
 	stomp_interval /= phase_2_speed_multiplier
 
 func _is_enemy_in_front() -> bool:

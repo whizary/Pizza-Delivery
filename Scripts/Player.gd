@@ -42,6 +42,7 @@ func _physics_process(delta):
 	velocity.y = 0
 	
 	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+		AudioManager.play_music("BossMusic1")
 		$Camera2D.zoom = Vector2(2.295, 2.295)
 		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
 		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
@@ -49,10 +50,10 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
 		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-		#$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		#$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		#$Camera2D/CanvasLayer/Boss_Name.visible = false
-		#$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
 		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
 		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
 		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
@@ -72,6 +73,7 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
 	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
+		AudioManager.play_music("BossMusic1")
 		$Camera2D.zoom = Vector2(4.1, 4.1)
 		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
 		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
@@ -117,6 +119,7 @@ func _physics_process(delta):
 	if Global.health <= 0.0 and Global.death == false:
 		Global.death = true
 		print("GAME OVER")
+		$"..".queue_free()
 	if Global.iframes == true and Global.death == false:
 		Global.iframesTimer -= delta
 	if Global.iframesTimer <= 0.0:
@@ -222,7 +225,7 @@ func use_greengem_power_up(): # health boost
 	Global.health = 100.0
 	AudioManager.play_sound("powerup")
 
-func use_blackgem_power_up(): #invisibility men lite slowness
+func use_blackgem_power_up(): #invisibility med lite slowness
 
 	var powerupduration = 10.0
 

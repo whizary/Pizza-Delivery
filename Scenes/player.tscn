@@ -1,18 +1,27 @@
-[gd_scene load_steps=37 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=47 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://do7p8d7b30l8q" path="res://Characters/Characters/Man/IdleBack.webp" id="3_bi64h"]
 [ext_resource type="Texture2D" uid="uid://b3a8oibb8jy2c" path="res://Characters/Characters/Man/IdleLeft.webp" id="4_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://empgac43c8oh" path="res://Characters/Characters/Man/IdleRight.webp" id="5_p1odr"]
+[ext_resource type="Texture2D" uid="uid://hbbi4668rpv6" path="res://Characters/Characters/Man/Attack/Slash_color2_frame1.png" id="5_xuaoq"]
 [ext_resource type="Texture2D" uid="uid://ds8ka0xyi3pce" path="res://Characters/Characters/Man/WalkBackR.webp" id="6_0gysh"]
+[ext_resource type="Texture2D" uid="uid://daphkqc200cuw" path="res://Characters/Characters/Man/Attack/Slash_color2_frame2.png" id="6_wohnl"]
+[ext_resource type="Texture2D" uid="uid://4bgymfci4txh" path="res://Characters/Characters/Man/Attack/Slash_color2_frame3.png" id="7_36dho"]
 [ext_resource type="Texture2D" uid="uid://wmde4qu1xmw7" path="res://Characters/Characters/Man/WalkBackL.webp" id="7_vfarp"]
 [ext_resource type="Texture2D" uid="uid://cx7chkkgsivfm" path="res://Characters/Characters/Man/WalkForwardR.webp" id="8_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://cs8snl578knoy" path="res://Characters/Characters/Man/Attack/Slash_color2_frame4.png" id="8_yh6i2"]
 [ext_resource type="Texture2D" uid="uid://br2v6jmps7ge6" path="res://Characters/Characters/Man/WalkForwardL.webp" id="9_83xs0"]
+[ext_resource type="Texture2D" uid="uid://b0f0s7lsbw3cs" path="res://Characters/Characters/Man/Attack/Slash_color2_frame5.png" id="9_nv4vc"]
+[ext_resource type="Texture2D" uid="uid://dduo4kit2hf7w" path="res://Characters/Characters/Man/Attack/Slash_color2_frame6.png" id="10_8gxox"]
 [ext_resource type="Texture2D" uid="uid://c4kvp8f1qttmn" path="res://Characters/Characters/Man/WalkLL.webp" id="10_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://cov8x84cd26yv" path="res://Characters/Characters/Man/Attack/Slash_color2_frame7.png" id="11_11gg7"]
 [ext_resource type="Texture2D" uid="uid://bp48r1lkfhrfy" path="res://Characters/Characters/Man/WalkLR.webp" id="11_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://ccanv8dd31edq" path="res://Characters/Characters/Man/Attack/Slash_color2_frame8.png" id="12_qpa8y"]
 [ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="12_wohnl"]
 [ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="13_36dho"]
+[ext_resource type="Texture2D" uid="uid://dsb3qb25yuile" path="res://Characters/Characters/Man/Attack/Slash_color2_frame9.png" id="13_sbwqj"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="14_yh6i2"]
 [ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_nv4vc"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
@@ -50,6 +59,41 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xuaoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wohnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_36dho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yh6i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nv4vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8gxox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_11gg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qpa8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sbwqj")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 20.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ldla"]
@@ -193,10 +237,20 @@ visible = false
 position = Vector2(-1, 2)
 texture = ExtResource("2_wpjfl")
 
+[node name="AttackAnimation" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(19, -2.9999998)
+rotation = -0.00048653223
+scale = Vector2(0.47409847, 0.6819854)
+sprite_frames = SubResource("SpriteFrames_xuaoq")
+animation = &"Attack"
+frame = 7
+frame_progress = 0.015006789
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_7ldla")
-animation = &"IdleFront"
+animation = &"IdleBack"
+frame_progress = 0.2943356
 
 [node name="Blackscreenmode" type="Sprite2D" parent="Player"]
 modulate = Color(1, 1, 1, 0)
@@ -258,6 +312,8 @@ offset_top = 88.0
 offset_right = -18.0
 offset_bottom = 115.0
 scale = Vector2(2.4224937, 1.5599988)
+max_value = 1000.0
+allow_greater = true
 nine_patch_stretch = true
 texture_under = SubResource("MeshTexture_r7t2e")
 texture_over = ExtResource("14_yh6i2")

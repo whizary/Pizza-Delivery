@@ -1,6 +1,6 @@
-[gd_scene load_steps=126 format=3 uid="uid://dcsomharb6awg"]
+[gd_scene load_steps=127 format=3 uid="uid://dcsomharb6awg"]
 
-[ext_resource type="Script" uid="uid://bs30b0lhlnjpq" path="res://Scripts/boss.gd" id="1_vapqn"]
+[ext_resource type="Script" uid="uid://bs30b0lhlnjpq" path="res://Scripts/Boss.gd" id="1_vapqn"]
 [ext_resource type="Texture2D" uid="uid://cdai6a80y3xgc" path="res://Characters/Bosses/Demon Slime/ATTACK/Left/demon_cleave_1.png" id="2_vapqn"]
 [ext_resource type="Texture2D" uid="uid://iix5u5abn5nx" path="res://Characters/Bosses/Demon Slime/ATTACK/Left/demon_cleave_2.png" id="3_akkuf"]
 [ext_resource type="Texture2D" uid="uid://cecrxs0vcfi5n" path="res://Characters/Bosses/Demon Slime/ATTACK/Left/demon_cleave_3.png" id="4_c8lvx"]
@@ -543,6 +543,18 @@ size = Vector2(57.733078, 68.11689)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tym8k"]
 size = Vector2(130, 50)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tym8k"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 81.25
+radial_velocity_min = -20.000021
+radial_velocity_max = 39.999977
+gravity = Vector3(0, 110, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
+collision_mode = 2
+
 [node name="DemonSlimeBoss" type="Node2D" groups=["boss"]]
 
 [node name="Boss" type="CharacterBody2D" parent="." groups=["boss"]]
@@ -558,7 +570,7 @@ disabled = true
 
 [node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
 sprite_frames = SubResource("SpriteFrames_t25a5")
-animation = &"Boss_Death_Left"
+animation = &"Boss_Attack_Left"
 
 [node name="BossSprite2D" type="Sprite2D" parent="Boss" groups=["boss"]]
 visible = false
@@ -588,5 +600,14 @@ offset_top = 49.0
 offset_right = 97.0
 offset_bottom = 119.0
 color = Color(1, 0.023529412, 0.105882354, 0.28627452)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Boss"]
+position = Vector2(0, 39)
+emitting = false
+amount = 40
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_tym8k")
 
 [connection signal="body_entered" from="Boss/BossArea2D" to="Boss" method="_on_boss_area_2d_body_entered"]
