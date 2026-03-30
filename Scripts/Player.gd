@@ -13,6 +13,8 @@ extends CharacterBody2D
 @onready var powerdownsound = $powerdown
 
 @onready var pickupcoinsound = $pickupcoin
+@onready var dash: AnimatedSprite2D = $dash
+@onready var dashinverted: AnimatedSprite2D = $dashinverted
 
 var player_in_range = false
 var gravity = 0
@@ -56,6 +58,7 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
+
 	
 	# temp
 	var t = Input.is_action_pressed("key_t")
@@ -127,12 +130,14 @@ func _physics_process(delta):
 
 		elif right:
 
+			dash.play("default")
 			position += Vector2(100, 0)
 
 		elif left:
 
+			dashinverted.play("default")
 			position += Vector2(-100, 0)
-
+			
 		elif forward:
 
 			position += Vector2(0, 100)
@@ -148,7 +153,7 @@ func _physics_process(delta):
 		Global.death = true
 		print("GAME OVER")
 		await resetglobal()
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 	if Global.iframes == true and Global.death == false:
 
