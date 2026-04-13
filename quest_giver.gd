@@ -35,20 +35,17 @@ func _on_area_2d_body_exited(body):
 		player_in_range = false
 		TakeQuest.visible = false
 		completequest1.visible = false
-		Global.tut = false
 		Global.allyQ = false
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player") and quest_taken == false and Global.allyRewardGiven == false and Global.AllyquestComplete == false:
 		player_in_range = true
 		TakeQuest.visible = true
-		Global.tut = true
 		Global.allyQ = true
 
 	if body.is_in_group("player") and Global.AllyquestComplete == true and Global.allyRewardGiven == false:
 		player_in_range = true
 		completequest1.visible = true
-		Global.tut = true
 		Global.allyQ = true
 
 func _unhandled_input(event):

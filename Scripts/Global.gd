@@ -6,9 +6,11 @@ var player_hit = false
 
 var tutorial_index = 0
 var keyquest_index = 0
-var tut = false
+var tut = true
 var keyQ = false
 var movement = true
+var tut_pause = false
+var ally_dialog_seen = false
 
 var allyQ = false
 var allyquest_index = 0
