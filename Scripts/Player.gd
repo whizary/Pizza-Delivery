@@ -19,6 +19,8 @@ extends CharacterBody2D
 @onready var dashup2: AnimatedSprite2D = $dashup2
 @onready var dashdown: AnimatedSprite2D = $dashdown
 @onready var dashdown2: AnimatedSprite2D = $dashdown2
+@onready var dashrightupsidedown: AnimatedSprite2D = $dashrightupsidedown
+@onready var dashleftupsidedown: AnimatedSprite2D = $dashleftupsidedown
 
 
 var player_in_range = false
@@ -42,6 +44,8 @@ var walk_speed = 150.0
 var normal_walk_speed = 150.0
 
 var normal_run_speed = 200.0
+
+var cantrun = false
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -113,7 +117,7 @@ func _physics_process(delta):
 
 	if dodge and dodgeBool:
 
-		if back:
+		if back and right == false and left == false:
 
 			position += Vector2(0, -100)
 			dashup.play("default")
@@ -121,10 +125,14 @@ func _physics_process(delta):
 
 		elif back and right:
 
+			dashrightupsidedown.play("default")
+			dashup.play("default")
 			position += Vector2(70, -70)
 
 		elif back and left:
 
+			dashleftupsidedown.play("default")
+			dashup2.play("default")
 			position += Vector2(-70, -70)
 			
 
@@ -183,21 +191,28 @@ func _physics_process(delta):
 
 		Global.stamina = Global.maxStamina
 
-	if Global.stamina <= 0.0 and run == false or Global.stamina >= 0.0 and run == false:
+	if cantrun == true or run == false:
 
 		Global.stamina += delta * Global.staminaRecovery
 
-	if run and Global.stamina > 0.0:
+	if run and Global.stamina <= 0.0:
+		cantrun = true
+	
+	if cantrun == true and Global.stamina >= Global.maxStamina:
+		cantrun = false
+		
+	if run and Global.stamina > 0.0 and cantrun == false:
 
 		walk_speed = normal_run_speed
 
 		Global.stamina -= delta * Global.staminaDrain
+	
 
 	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
 
 		walk_speed = normal_walk_speed
 
-	if run and delay <= 0:
+	if run and delay <= 0 and cantrun == false:
 
 		delay = 0.3
 
@@ -321,9 +336,9 @@ func use_yellowgem_power_up(): # speed boost
 
 	print("yellowgem_powerup")
 
-	normal_walk_speed = walk_speed * 1.4
+	normal_walk_speed = walk_speed * 1.3
 
-	normal_run_speed = walk_speed * 1.7
+	normal_run_speed = walk_speed * 1.6
 	AudioManager.play_sound("powerup")
 	$active.text = "Speed Boost Activated"
 	await get_tree().create_timer(2.5).timeout
