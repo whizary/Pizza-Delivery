@@ -21,18 +21,30 @@ var acceptedQuest = false
  
 var detect_distance = 255
 var enemy_speed = 155.0
+var boss_speed = 70.0
 var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
 var staminaRecovery = 25.0
 var stop_distance = 35.0 
+var boss_health = 1000.0
+var boss_max_health = 1000.0
+var bossalive = true
 
+var damage = 0
 var health = 100.0
 var maxHealth = 100.0
-var iframesTimer = 1.0
+var iframesTimer = 0.8
 var iframes = false
 var death = false
- 
+var bossroomcomplete = false
+var bossdooropen = true
+var bossroomactive = false
+var dungeondooropen = true
+var dooropen = false
+var normalspawn = false
+var spikesactive = false
+
 var current_wave: int
 var moving_to_next_wave: bool
  
