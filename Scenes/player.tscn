@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://cu5chayfyfdd8"]
+[gd_scene load_steps=114 format=3 uid="uid://cu5chayfyfdd8"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -21,9 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://ccanv8dd31edq" path="res://Characters/Characters/Man/Attack/Slash_color2_frame8.png" id="12_qpa8y"]
 [ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="12_wohnl"]
 [ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="13_36dho"]
+[ext_resource type="Texture2D" uid="uid://dsb3qb25yuile" path="res://Characters/Characters/Man/Attack/Slash_color2_frame9.png" id="13_sbwqj"]
 [ext_resource type="Texture2D" uid="uid://b1hkld7lf3qxg" path="res://Images/emptybox2d.png" id="14_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://b3dmbco8b37gy" path="res://Images/SmokeNDust P03 VFX 2.png" id="14_bi64h"]
-[ext_resource type="Texture2D" uid="uid://dsb3qb25yuile" path="res://Characters/Characters/Man/Attack/Slash_color2_frame9.png" id="13_sbwqj"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="14_yh6i2"]
 [ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="15_nv4vc"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="16_8gxox"]
@@ -33,11 +33,12 @@
 [ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
 [ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
-[ext_resource type="Script" uid="uid://djofdybvereyc" path="res://Scripts/active.gd" id="22_wpjfl"]
+[ext_resource type="Script" path="res://Scripts/active.gd" id="22_wpjfl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
-radius = 5.0
-height = 14.0
+radius = 4.992
+height = 14.016
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("17_11gg7")
 region = Rect2(0, 0, 128, 128)
@@ -64,7 +65,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]
@@ -187,6 +188,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_olqyp"]
+radius = 7.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("14_bi64h")
 region = Rect2(0, 0, 64, 64)
@@ -257,50 +261,35 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nv4vc"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gxox"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpa8y"]
-atlas = ExtResource("14_bi64h")
-region = Rect2(448, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xwi16"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_36dho")
+"texture": ExtResource("14_2ijsl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yh6i2")
+"texture": SubResource("AtlasTexture_2ijsl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nv4vc")
+"texture": SubResource("AtlasTexture_p1odr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8gxox")
+"texture": SubResource("AtlasTexture_0gysh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_11gg7")
+"texture": SubResource("AtlasTexture_vfarp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qpa8y")
+"texture": SubResource("AtlasTexture_y6uwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83xs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypfnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuaoq")
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_2ijsl")
@@ -729,12 +718,6 @@ animations = [{
 "name": &"default",
 "speed": 30.0
 }]
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
-radius = 4.992
-height = 14.016
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_olqyp"]
-radius = 7.0
 
 [sub_resource type="MeshTexture" id="MeshTexture_ax3m3"]
 
@@ -744,30 +727,6 @@ radius = 7.0
 
 [sub_resource type="MeshTexture" id="MeshTexture_nmr2m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
-atlas = ExtResource("17_11gg7")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
-atlas = ExtResource("17_11gg7")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wy5fy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gx4rg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dllo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bi64h"]
 shader = ExtResource("17_wpjfl")
 shader_parameter/color_start = Color(1, 0, 0, 2)
@@ -796,6 +755,7 @@ position = Vector2(-0.9921875, 7.0078125)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ph33w")
 one_way_collision_margin = 0.0
+
 [node name="forceshield" type="AnimatedSprite2D" parent="Player"]
 visible = false
 position = Vector2(-1, -1)
@@ -840,7 +800,7 @@ position = Vector2(-1.1221218, -1.0387316)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_qpa8y")
 
-[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="PlayerCollisionShape2D2" type="CollisionShape2D" parent="Player"]
 position = Vector2(-0.992, 7.008)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ph33w")
@@ -961,6 +921,10 @@ position = Vector2(18, 0)
 position = Vector2(-19, -1)
 shape = SubResource("CapsuleShape2D_5x828")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/quest"]
+position = Vector2(-19, -1)
+shape = SubResource("CapsuleShape2D_5x828")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
 script = ExtResource("21_sweqm")
 
@@ -1044,7 +1008,7 @@ offset_bottom = 369.0
 scale = Vector2(-0.056, 0.291)
 metadata/_edit_use_anchors_ = true
 
-[node name="forceshield" type="AnimatedSprite2D" parent="Player"]
+[node name="forceshield2" type="AnimatedSprite2D" parent="Player"]
 visible = false
 z_index = 2
 position = Vector2(-1, -1)
@@ -1052,26 +1016,22 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8eeqe")
 autoplay = "default"
 
-[node name="Blackscreenmode" type="Sprite2D" parent="Player"]
+[node name="Blackscreenmode2" type="Sprite2D" parent="Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 11
 position = Vector2(-1.0054531, -0.99601746)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_qpa8y")
 
-[node name="Blackscreenmega" type="Sprite2D" parent="Player"]
+[node name="Blackscreenmega2" type="Sprite2D" parent="Player"]
 modulate = Color(1, 1, 1, 0)
 z_index = 9
 position = Vector2(-1.0161952, -0.9889354)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("18_qpa8y")
 
-[node name="quest" type="Area2D" parent="Player"]
+[node name="quest2" type="Area2D" parent="Player"]
 position = Vector2(18, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/quest"]
-position = Vector2(-19, -1)
-shape = SubResource("CapsuleShape2D_5x828")
 
 [node name="quest1" parent="Player" instance=ExtResource("19_sbwqj")]
 visible = false
@@ -1087,7 +1047,7 @@ offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Player"]
 script = ExtResource("21_sweqm")
 
 [node name="active" type="Label" parent="Player"]

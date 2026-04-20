@@ -25,11 +25,9 @@ var death = false
 var bossroomcomplete = false
 var bossdooropen = true
 var bossroomactive = false
-var bossalive = true
 var dungeondooropen = true
 var dooropen = false
 var normalspawn = false
-var damage = 0
 var spikesactive = false
 
 var current_wave: int

@@ -55,40 +55,11 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
-
 	
 	# temp
 	var t = Input.is_action_pressed("key_t")
 	
 	if get_tree().current_scene.scene_file_path == "res://main.tscn":
-		$Camera2D.zoom = Vector2(2.295, 2.295)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-
-	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
-		$Camera2D.zoom = Vector2(4.1, 4.1)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-		
-	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
-		$Camera2D.zoom = Vector2(4.1, 4.1)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-	
-	if get_tree().current_scene.scene_file_path == "res://main.tscn":
-		AudioManager.play_music("BossMusic1")
 		$Camera2D.zoom = Vector2(2.295, 2.295)
 		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
 		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
