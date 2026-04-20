@@ -321,6 +321,9 @@ position = Vector2(21, 8)
 script = ExtResource("2_nf4i1")
 orc_scene = ExtResource("3_ryguw")
 
+[node name="SpawnPointM" type="Marker2D" parent="map"]
+position = Vector2(1278, 1086)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_d2t1y")
 
@@ -401,9 +404,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/redcoin"]
 position = Vector2(1057, 1151)
 shape = SubResource("CircleShape2D_4obbf")
-
-[node name="SpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(1278, 1086)
 
 [node name="TakeQuest" type="CanvasLayer" parent="map"]
 visible = false
