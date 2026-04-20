@@ -1,5 +1,6 @@
 class_name ItemData extends Node2D
 
+@export var quantity: int = 1
 @export var item_type = ""
 @export var item_name = ""
 @export var item_texture: Texture2D
@@ -19,6 +20,11 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	quest1 = player.get_node("quest1")
 	Takecomplete = player.get_node("complete_quest1")
+	update_visual()
+
+func update_visual():
+	if icon_sprite:
+		icon_sprite.texture = item_texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -40,9 +46,7 @@ func pickup_item():
 		queue_free()
 	else:
 		print("Inventory full / kunde inte lägga till item")
-	if quest1.visible == true and item["name"] == "Food":
-		quest1.visible = false
-		Takecomplete.visible = true
+
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
@@ -55,8 +59,13 @@ func _on_area_2d_body_entered(body):
 		body.interact_ui.visible = true
 	
 	
+
 func set_item_data(data):
+	quantity = data["quantity"]
 	item_type = data["type"]
 	item_name = data["name"]
 	item_effect = data["effect"]
 	item_texture = data["texture"]
+	scene_path = data["scene_path"]
+
+	update_visual()

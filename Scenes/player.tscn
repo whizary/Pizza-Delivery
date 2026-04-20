@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://cu5chayfyfdd8"]
+[gd_scene load_steps=121 format=3 uid="uid://cu5chayfyfdd8"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bh1uggdp3idjj" path="res://Characters/Characters/Man/IdleFront.png" id="2_wpjfl"]
@@ -30,9 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="17_11gg7"]
 [ext_resource type="Shader" uid="uid://ctpvah33t1ug6" path="res://Scripts/player.gdshader" id="17_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="18_qpa8y"]
-[ext_resource type="PackedScene" uid="uid://b8oavdwtlpj0w" path="res://quest.tscn" id="19_sbwqj"]
-[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scripts/complete_quest.tscn" id="20_xwi16"]
+[ext_resource type="PackedScene" uid="uid://isaw5ceoe8nv" path="res://Scenes/quests.tscn" id="20_xwi16"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="21_sweqm"]
+[ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="22_wpjfl"]
+[ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="23_bi64h"]
 [ext_resource type="Script" path="res://Scripts/active.gd" id="22_wpjfl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
@@ -744,9 +745,9 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 process_mode = 3
-texture_filter = 1
+z_index = 2
 position = Vector2(1, 0)
-collision_mask = 14
+collision_mask = 15
 safe_margin = 0.6
 script = ExtResource("1_olqyp")
 
@@ -996,8 +997,9 @@ text = "Inventory
 [node name="Inventory_UI" parent="Player/InventoryUI/ColorRect" instance=ExtResource("15_nv4vc")]
 layout_mode = 1
 
-[node name="InventoryHotbar" type="CanvasLayer" parent="Player"]
+[node name="InventoryHotbar" type="CanvasLayer" parent="Player" groups=["hotbar"]]
 layer = 0
+visible = false
 
 [node name="Inventory_Hotbar" parent="Player/InventoryHotbar" instance=ExtResource("16_8gxox")]
 z_as_relative = false
@@ -1033,20 +1035,30 @@ texture = ExtResource("18_qpa8y")
 [node name="quest2" type="Area2D" parent="Player"]
 position = Vector2(18, 0)
 
-[node name="quest1" parent="Player" instance=ExtResource("19_sbwqj")]
-visible = false
-offset_left = -428.0
-offset_top = -239.0
-offset_right = -428.0
-offset_bottom = -239.0
-
-[node name="complete_quest1" parent="Player" instance=ExtResource("20_xwi16")]
+[node name="complete_quests" parent="Player" instance=ExtResource("20_xwi16")]
 visible = false
 offset_left = -432.0
 offset_top = -239.0
 offset_right = -432.0
 offset_bottom = -239.0
 
+[node name="Tutorial" parent="Player" groups=["tutorial"] instance=ExtResource("22_wpjfl")]
+z_index = 1000
+offset_left = 10.0
+offset_top = 236.0
+offset_right = 10.0
+offset_bottom = 236.0
+metadata/_edit_use_anchors_ = true
+
+[node name="key-quest" parent="Player" instance=ExtResource("23_bi64h")]
+offset_left = -442.0
+offset_top = -251.0
+offset_right = -442.0
+offset_bottom = -251.0
+
+[node name="quests" parent="Player" groups=["player"] instance=ExtResource("20_xwi16")]
+offset_left = -1.0
+offset_right = -1.0
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Player"]
 script = ExtResource("21_sweqm")
 
@@ -1060,3 +1072,5 @@ horizontal_alignment = 1
 script = ExtResource("22_wpjfl")
 
 [node name="Timer" type="Timer" parent="."]
+[connection signal="body_entered" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_entered"]
+[connection signal="body_exited" from="Player/PlayerArea2D" to="Player" method="_on_player_area_2d_body_exited"]

@@ -1,0 +1,236 @@
+[gd_scene load_steps=17 format=3 uid="uid://ck7frnx8be76"]
+
+[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://Images/QuestFrame.png" id="1_nj3fh"]
+[ext_resource type="Script" uid="uid://oq1e6heve4cq" path="res://key_quest.gd" id="1_uwxp1"]
+[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://Images/TextRuta.png" id="2_uwxp1"]
+[ext_resource type="FontFile" uid="uid://ekxxn2ic2kga" path="res://Images/PressStart2P-Regular.ttf" id="3_aqpon"]
+
+[sub_resource type="FontVariation" id="FontVariation_aqpon"]
+base_font = ExtResource("3_aqpon")
+spacing_top = 2
+
+[sub_resource type="FontVariation" id="FontVariation_yecq5"]
+base_font = ExtResource("3_aqpon")
+
+[sub_resource type="FontVariation" id="FontVariation_4dke5"]
+base_font = ExtResource("3_aqpon")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwxp1"]
+bg_color = Color(0.5303617, 0.30527282, 2.8878452e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dke5"]
+bg_color = Color(0.3053106, 0.16757852, 7.219613e-08, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqpon"]
+bg_color = Color(0.34528172, 0.19217965, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id="GDScript_uwxp1"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="FontVariation" id="FontVariation_0atwc"]
+base_font = ExtResource("3_aqpon")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d82o1"]
+bg_color = Color(0.5919768, 0.53020173, 0.09123958, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yecq5"]
+bg_color = Color(0.36124393, 0.32113338, 0.042291574, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id="GDScript_d82o1"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="FontVariation" id="FontVariation_p4qyu"]
+base_font = ExtResource("3_aqpon")
+spacing_space = -3
+
+[node name="key-quest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwxp1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 270.0
+offset_top = 370.0
+offset_right = 440.0
+offset_bottom = 428.0
+scale = Vector2(1.9937584, 1.9937584)
+texture = ExtResource("2_uwxp1")
+
+[node name="Text" type="Label" parent="TextureRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.27600002
+anchor_right = 0.18800001
+anchor_bottom = 0.27600002
+offset_left = -6.8817387
+offset_top = 3.5530376
+offset_right = 162.39653
+offset_bottom = 42.424316
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = SubResource("FontVariation_aqpon")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+clip_text = true
+
+[node name="Name" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 11.034431
+offset_right = 56.03443
+offset_bottom = 16.999992
+theme_override_fonts/font = SubResource("FontVariation_yecq5")
+theme_override_font_sizes/font_size = 8
+text = "Henry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deny" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 106.83341
+offset_top = 21.065737
+offset_right = 154.8334
+offset_bottom = 49.065735
+theme_override_fonts/font = SubResource("FontVariation_4dke5")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_uwxp1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4dke5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aqpon")
+text = "Deny"
+script = SubResource("GDScript_uwxp1")
+
+[node name="Accept" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 27.58609
+offset_top = 21.065735
+offset_right = 87.58609
+offset_bottom = 49.065735
+theme_override_fonts/font = SubResource("FontVariation_0atwc")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_d82o1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yecq5")
+text = "Accept"
+script = SubResource("GDScript_d82o1")
+
+[node name="Quest1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 175.0
+offset_bottom = 62.0
+texture = ExtResource("1_nj3fh")
+
+[node name="Label" type="Label" parent="Quest1"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 18.0
+offset_right = 185.0
+offset_bottom = 44.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = SubResource("FontVariation_p4qyu")
+theme_override_font_sizes/font_size = 8
+text = "Go back to Ally"
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="CheckBox" type="CheckBox" parent="Quest1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20600002
+anchor_top = 0.483
+anchor_right = 0.20600002
+anchor_bottom = 0.483
+offset_left = -3.0200043
+offset_top = -7.014
+offset_right = 20.979996
+offset_bottom = 16.986
+scale = Vector2(0.6, 0.6)
+disabled = true
+
+[node name="Quest2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 48.0
+offset_right = 175.0
+offset_bottom = 106.0
+texture = ExtResource("1_nj3fh")
+
+[node name="Label" type="Label" parent="Quest2"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 18.0
+offset_right = 185.0
+offset_bottom = 44.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = SubResource("FontVariation_p4qyu")
+theme_override_font_sizes/font_size = 8
+text = "Go back to Ally"
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="CheckBox2" type="CheckBox" parent="Quest2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20600002
+anchor_top = 0.483
+anchor_right = 0.20600002
+anchor_bottom = 0.483
+offset_left = -3.0200043
+offset_top = -7.014
+offset_right = 20.979996
+offset_bottom = 16.986
+scale = Vector2(0.6, 0.6)
+disabled = true
+
+[connection signal="pressed" from="TextureRect/Deny" to="." method="_on_deny_pressed"]
+[connection signal="pressed" from="TextureRect/Accept" to="." method="_on_accept_pressed"]
