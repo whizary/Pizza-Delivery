@@ -1,26 +1,27 @@
 [gd_scene load_steps=68 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_nf4i1"]
-[ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_ryguw"]
+[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="3_ryguw"]
+[ext_resource type="Script" path="res://Scripts/bluegem.gd" id="5_d13ii"]
+[ext_resource type="Script" path="res://Scripts/yellowgem.gd" id="7_1u8w0"]
+[ext_resource type="Script" path="res://Scripts/greengem.gd" id="9_0odxb"]
+[ext_resource type="Script" path="res://Scripts/blackgem.gd" id="11_lswn8"]
+[ext_resource type="Script" path="res://Scripts/blackcoin.gd" id="14_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://1awb575pkxov" path="res://Maps/Earth Map/Map.tscn" id="14_p5bhk"]
+[ext_resource type="Script" path="res://Scripts/redcoin.gd" id="16_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://bsp4jq8mm2t86" path="res://forceshield/blackscreenmode.png" id="17_pjyto"]
+[ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_ryguw"]
 [ext_resource type="Texture2D" uid="uid://dx0nbh3h5gqno" path="res://item_icons/Bag.png" id="42_2amsj"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="43_anp0o"]
-[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="48_0cbny"]
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="48_amqjv"]
 [ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="49_hrvbo"]
 [ext_resource type="Texture2D" uid="uid://d1b8k1h87jw7r" path="res://item_icons/Berries.webp" id="49_sjkjh"]
-[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://Scripts/bluegem.gd" id="51_blkrb"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="51_pbdrf"]
 [ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://Coin_Gems/spr_coin_azu.png" id="52_abqjc"]
-[ext_resource type="Script" uid="uid://tpfwbmgixdqj" path="res://Scripts/yellowgem.gd" id="53_6iyjs"]
 [ext_resource type="Texture2D" uid="uid://n5d2pd54eeaj" path="res://Coin_Gems/spr_coin_ama.png" id="54_4w656"]
-[ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="55_e71vb"]
 [ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="56_rnkwl"]
-[ext_resource type="Script" uid="uid://dmcs3j7i72f3s" path="res://Scripts/blackgem.gd" id="57_vke2r"]
 [ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://Coin_Gems/spr_coin_gri.png" id="58_uit24"]
-[ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://Scripts/blackcoin.gd" id="59_ruth0"]
 [ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="60_rm4vd"]
-[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://Scripts/redcoin.gd" id="62_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="63_b17eg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d2t1y"]
@@ -322,15 +323,12 @@ position = Vector2(21, 8)
 script = ExtResource("2_nf4i1")
 orc_scene = ExtResource("3_ryguw")
 
-[node name="SpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(1303.508, 1051.683)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_d2t1y")
 
 [node name="redgem" type="Area2D" parent="map"]
 position = Vector2(1216, 1049)
-script = ExtResource("48_0cbny")
+script = ExtResource("3_ryguw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/redgem"]
 sprite_frames = SubResource("SpriteFrames_4w656")
@@ -341,7 +339,7 @@ shape = SubResource("CircleShape2D_e71vb")
 
 [node name="bluegem" type="Area2D" parent="map"]
 position = Vector2(1275, 1156)
-script = ExtResource("51_blkrb")
+script = ExtResource("5_d13ii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/bluegem"]
 sprite_frames = SubResource("SpriteFrames_uit24")
@@ -352,7 +350,7 @@ shape = SubResource("CircleShape2D_blkrb")
 
 [node name="yellowgem" type="Area2D" parent="map"]
 position = Vector2(1365, 1110)
-script = ExtResource("53_6iyjs")
+script = ExtResource("7_1u8w0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/yellowgem"]
 sprite_frames = SubResource("SpriteFrames_sm6fg")
@@ -363,7 +361,7 @@ shape = SubResource("CircleShape2D_b17eg")
 
 [node name="greengem" type="Area2D" parent="map"]
 position = Vector2(1148, 1131)
-script = ExtResource("55_e71vb")
+script = ExtResource("9_0odxb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/greengem"]
 sprite_frames = SubResource("SpriteFrames_rqtf5")
@@ -374,7 +372,7 @@ shape = SubResource("CircleShape2D_1vm84")
 
 [node name="blackgem" type="Area2D" parent="map"]
 position = Vector2(1082, 1076)
-script = ExtResource("57_vke2r")
+script = ExtResource("11_lswn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/blackgem"]
 sprite_frames = SubResource("SpriteFrames_0dhbp")
@@ -385,7 +383,7 @@ shape = SubResource("CircleShape2D_jx0wj")
 
 [node name="blackcoin" type="Area2D" parent="map"]
 position = Vector2(1434, 1176)
-script = ExtResource("59_ruth0")
+script = ExtResource("14_a6jrf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/blackcoin"]
 sprite_frames = SubResource("SpriteFrames_wy5fy")
@@ -396,7 +394,7 @@ shape = SubResource("CircleShape2D_gx4rg")
 
 [node name="redcoin" type="Area2D" parent="map"]
 position = Vector2(32, 24)
-script = ExtResource("62_sm6fg")
+script = ExtResource("16_xuqvo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="map/redcoin"]
 position = Vector2(1057, 1151)
@@ -406,6 +404,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/redcoin"]
 position = Vector2(1057, 1151)
 shape = SubResource("CircleShape2D_4obbf")
+
+[node name="SpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(1278, 1086)
 
 [node name="TakeQuest" type="CanvasLayer" parent="map"]
 visible = false

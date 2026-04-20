@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=4 uid="uid://8rj7pyc1egx4"]
+
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/above_character_2_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/above_character_1.tscn" id="1_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/Layer_4_2.tscn" id="2_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/Layer_3_3.tscn" id="3_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/Layer_2_4.tscn" id="4_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/Layer_1_5.tscn" id="5_id"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/Collision_layer_6.tscn" id="6_id"]
+[ext_resource type="TileSet" uid="uid://boutfoya1hpql" path="res://Maps/Dungeon Map/tileset.tres" id="7_8aq5j"]
+[ext_resource type="PackedScene" path="res://Maps/Dungeon Boss Room Map/void_7.tscn" id="7_id"]
+[ext_resource type="Script" uid="uid://cftmc5epnqsel" path="res://Maps/Dungeon Boss Room Map/dungeondoorlayer.gd" id="8_uqb80"]
+
+[node name="map" type="Node2D"]
+
+[node name="void_7" parent="." instance=ExtResource("7_id")]
+
+[node name="Collision_layer_6" parent="." instance=ExtResource("6_id")]
+visible = false
+collision_visibility_mode = 2
+
+[node name="Layer_1_5" parent="." instance=ExtResource("5_id")]
+
+[node name="Layer_2_4" parent="." instance=ExtResource("4_id")]
+
+[node name="Layer_3_3" parent="." instance=ExtResource("3_id")]
+
+[node name="Layer_4_2" parent="." instance=ExtResource("2_id")]
+
+[node name="dungeondoor" parent="." instance=ExtResource("2_id")]
+visible = false
+tile_map_data = PackedByteArray("AAAvABIAAAAEABwAAAAuABIAAAADABwAAAAvABEAAAACABwAAAAuABEAAAABABwAAAAvABAAAAAAABwAAAAuABAAAAAHABsAAAA=")
+tile_set = ExtResource("7_8aq5j")
+script = ExtResource("8_uqb80")
+
+[node name="above_character_1" parent="." instance=ExtResource("1_id")]
+z_index = 15
+
+[node name="above_character_2_0" parent="." instance=ExtResource("0_id")]
+z_index = 16
