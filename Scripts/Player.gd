@@ -1,226 +1,179 @@
 extends CharacterBody2D
-@onready var door: Node2D = $"../door"
+
+@onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
-
 @onready var interact_ui = $InteractUI
-
 @onready var inventory_ui = $InventoryUI
-
 @onready var inventory_hotbar = $InventoryHotbar
-
-@onready var powerupsound = $powerup
-
-@onready var powerdownsound = $powerdown
-
-@onready var pickupcoinsound = $pickupcoin
 
 var player_in_range = false
 var gravity = 0
-
 var bluepowerup = false
-
 var delay = 0
 var dooropen = false
 
 #Dodge variables
-
 var dodgeCD = 2.0
-
 var dodgeBool = true
 
 #Movement variables
-
 var walk_speed = 150.0
-
 var normal_walk_speed = 150.0
-
 var normal_run_speed = 200.0
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _process(delta):
-
 	dodgeCD -= delta
-
 	if dodgeCD <=0 && dodgeBool == false:
-
 		dodgeBool = true
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func _physics_process(delta):
-	$Camera2D/STA_bar.value = Global.stamina
-	$Camera2D/HP_bar.value = Global.health
+	$Camera2D/CanvasLayer/STA_bar.value = Global.stamina
+	$Camera2D/CanvasLayer/HP_bar.value = Global.health
+	$Camera2D/CanvasLayer/boss_HP_bar.value = Global.boss_health
+	Global.player_node = self
 	velocity.y += gravity * delta
-
+	
 	move_and_slide()
-
 	velocity.x = 0
-
 	velocity.y = 0
 	
-	#Movement variables
-
+	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+		AudioManager.play_music("BossMusic1")
+		$Camera2D.zoom = Vector2(2.295, 2.295)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
+		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
+		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
+		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
+	
+	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
+		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
+	
+	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
+		AudioManager.play_music("BossMusic1")
+		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
+		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
+		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
+		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
+		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
+		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
+		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
+		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
+	
+	#Movement variables	
 	var run = Input.is_action_pressed("run")
-
 	var forward = Input.is_action_pressed('move_down')
-
 	var right = Input.is_action_pressed('move_right')
-
 	var left = Input.is_action_pressed('move_left')
-
 	var back = Input.is_action_pressed('move_up')
-
 	var dodge = Input.is_action_just_pressed("dodge")
 	
 	#DODGE
-
 	if dodge and dodgeBool:
-
 		if back:
-
 			position += Vector2(0, -100)
-
 		elif back and right:
-
 			position += Vector2(70, -70)
-
 		elif back and left:
-
 			position += Vector2(-70, -70)
-
 		elif forward and right:
-
 			position += Vector2(70, 70)
-
 		elif forward and left:
-
 			position += Vector2(-70, 70)
-
 		elif right:
-
 			position += Vector2(100, 0)
-
 		elif left:
-
 			position += Vector2(-100, 0)
-
 		elif forward:
-
 			position += Vector2(0, 100)
-
 		dodgeBool = false
-
 		dodgeCD = 2.0
 		
 	#HEALTH
-
 	if Global.health <= 0.0 and Global.death == false:
-
 		Global.death = true
 		print("GAME OVER")
-
+		$"..".queue_free()
 	if Global.iframes == true and Global.death == false:
-
 		Global.iframesTimer -= delta
-
 	if Global.iframesTimer <= 0.0:
-
 		Global.iframes = false
 	
 	#STAMINA AND RUN CODE
-
 	if Global.stamina > Global.maxStamina:
-
 		Global.stamina = Global.maxStamina
-
 	if Global.stamina <= 0.0 and run == false or Global.stamina >= 0.0 and run == false:
-
 		Global.stamina += delta * Global.staminaRecovery
-
 	if run and Global.stamina > 0.0:
-
 		walk_speed = normal_run_speed
-
 		Global.stamina -= delta * Global.staminaDrain
-
 	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
-
 		walk_speed = normal_walk_speed
-
 	if run and delay <= 0:
-
 		delay = 0.3
-
 		AudioManager.play_random_from("grass")
-
 	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0  or left && forward and delay <= 0 or left && back and delay <= 0 or right && forward and delay <= 0 or right && back and delay <= 0:
-
 		delay = 0.5
-
 		AudioManager.play_random_from("grass")
-
 	else:
-
 		delay -= delta
 		
 	#MOVEMENT
-
 	if right:
-
 		velocity.x += walk_speed
-
 		_animated_sprite.play("WalkRight")
-
 	elif left:
-
 		velocity.x -= walk_speed
-
 		_animated_sprite.play("WalkLeft")
-
 	elif back:
-
 		velocity.y -= walk_speed
-
 		_animated_sprite.play("WalkBack")
-
 	elif forward:
-
 		velocity.y += walk_speed
-
 		_animated_sprite.play("WalkForward")
-
 	else:
-
 		_animated_sprite.play("IdleFront")
-
 	if right && forward:
-
 		velocity.x = walk_speed * 0.7
-
 		velocity.y = walk_speed * 0.7
-
 	elif left && back:
-
 		velocity.x = -walk_speed * 0.7
-
 		velocity.y = -walk_speed * 0.7
-
 	elif right && back:
-
 		velocity.x = walk_speed * 0.7
-
 		velocity.y = -walk_speed * 0.7
-
 	elif left && forward:
-
 		velocity.x = -walk_speed * 0.7
-
 		velocity.y = walk_speed * 0.7
-
+	
 	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
-
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
@@ -272,7 +225,7 @@ func use_greengem_power_up(): # health boost
 	Global.health = 100.0
 	AudioManager.play_sound("powerup")
 
-func use_blackgem_power_up(): #invisibility men lite slowness
+func use_blackgem_power_up(): #invisibility med lite slowness
 
 	var powerupduration = 10.0
 
@@ -412,13 +365,15 @@ func _input(event):
 func apply_item_effect(item):
 	match item["effect"]:
 		"Stamina":
-			walk_speed += 50
-			print("Speed increased to ", walk_speed)
+			normal_walk_speed = 200.0
+			normal_run_speed = 250.0
+			print("Walk speed increased to ", normal_walk_speed," and run speed to ", normal_run_speed)
 		"Slot Boost":
 			Global.increase_inventory_size(5)
 			print("Slots increased to ", Global.inventory.size())
 		"Health boost":
-			Global.health = 200
+			Global.maxHealth = 200
+			Global.health = Global.maxHealth
 		_:
 			print("There is no effect for this item")
  
