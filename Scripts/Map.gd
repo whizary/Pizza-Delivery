@@ -9,6 +9,9 @@ var wave_spawn_ended
 @onready var door: TileMapLayer = $door
 @onready var spawn_point = $SpawnPoint
 
+@onready var spawn_point = $SpawnPoint
+@onready var BossSpawnPoint = $BossSpawnPoint
+var demon_slime_boss = preload("res://Scenes/demon_slime_boss.tscn")
 var player_scene = preload("res://Scenes/player.tscn")
 
 func _ready():
@@ -17,9 +20,15 @@ func _ready():
 	elif Global.normalspawn == true:
 		spawn_point = $SpawnPoint
 	var player = player_scene.instantiate()
-	player.global_position = spawn_point.global_position
+  player.connect("open_door", _door_opened)
+	player.global_position = spawnPoint.global_position
 	add_child(player)
-	player.connect("open_door", _door_opened)
+	Global.set_player_reference(player)
+	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
+		var demon_slime = demon_slime_boss.instantiate()
+		demon_slime.global_position = $BossSpawnPoint.global_position
+		add_child(demon_slime)
+		Global.set_player_reference(demon_slime)
 	#current_wave = 0
 	#Global.current_wave = current_wave
 	#starting_nodes = get_child_count()
