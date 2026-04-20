@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cd7q33iju0h7a"]
+[gd_scene load_steps=68 format=3 uid="uid://cd7q33iju0h7a"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_nf4i1"]
 [ext_resource type="PackedScene" uid="uid://b0woo3ewbrdfs" path="res://Scenes/orc_enemy.tscn" id="3_ryguw"]
@@ -324,9 +324,6 @@ orc_scene = ExtResource("3_ryguw")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
 position = Vector2(1303.508, 1051.683)
-
-[node name="BossSpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(1469.3286, 1060.9404)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_d2t1y")
