@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://isaw5ceoe8nv"]
 
-[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://Images/QuestFrame.png" id="1_ev3hf"]
-[ext_resource type="Script" uid="uid://cdom3hylkvpmt" path="res://Scripts/quests.gd" id="1_rr5hr"]
+[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://images/QuestFrame.png" id="1_ev3hf"]
+[ext_resource type="Script" uid="uid://cdom3hylkvpmt" path="res://scripts/quests.gd" id="1_rr5hr"]
 
 [node name="quests" type="Control"]
 layout_mode = 3

@@ -5,34 +5,34 @@ var music_volume_db: float = -4.0
 
 var sounds = {
 	"grass": [
-		preload("res://Audio/grass1.mp3"),
-		preload("res://Audio/grass2.mp3"),
-		preload("res://Audio/grass3.mp3"),
+		preload("res://audio/grass1.mp3"),
+		preload("res://audio/grass2.mp3"),
+		preload("res://audio/grass3.mp3"),
 	],
 	"stone": [
-		preload("res://Audio/stone1.mp3"),
-		preload("res://Audio/stone2.mp3"),
-		preload("res://Audio/stone3.mp3"),
+		preload("res://audio/stone1.mp3"),
+		preload("res://audio/stone2.mp3"),
+		preload("res://audio/stone3.mp3"),
 	],
 	"BossWalk": [
-		preload("res://Audio/stomp1.mp3"),
-		preload("res://Audio/stomp2.mp3"),
+		preload("res://audio/stomp1.mp3"),
+		preload("res://audio/stomp2.mp3"),
 	],
 	"BossHurt": [
-		preload("res://Audio/BossHurt1.wav"),
-		preload("res://Audio/BossHurt2.wav"),
+		preload("res://audio/BossHurt1.wav"),
+		preload("res://audio/BossHurt2.wav"),
 	],
 	"BossAttack": [
-		preload("res://Audio/BossSlam1.wav"),
-		preload("res://Audio/BossSlam2.wav"),
+		preload("res://audio/BossSlam1.wav"),
+		preload("res://audio/BossSlam2.wav"),
 	],
 	"BossDeath": [
-		preload("res://Audio/BossDeath.wav"),
+		preload("res://audio/BossDeath.wav"),
 	],
-	"BossMusic1": preload("res://Audio/Music/BossMusic1.mp3"),
-	"powerup": preload("res://Audio/powerUp.wav"),
-	"powerdown": preload("res://Audio/powerDown.wav"),
-	"pickupcoin": preload("res://Audio/pickupCoin.wav"),
+	"BossMusic1": preload("res://audio/Music/BossMusic1.mp3"),
+	"powerup": preload("res://audio/powerUp.wav"),
+	"powerdown": preload("res://audio/powerDown.wav"),
+	"pickupcoin": preload("res://audio/pickupCoin.wav"),
 }
 
 func play_music(track: String):
@@ -48,7 +48,7 @@ func play_music(track: String):
 		music_player.bus = "Music"
 
 	music_player.stream = sounds[track]
-	music_player.volume_db = 10
+	music_player.volume_db = 0
 	music_player.play()
 
 func play_sound(sound: String):
@@ -82,7 +82,7 @@ func play_boss_sound(boss: Node2D, category: String):
 	boss.add_child(p)
 	p.stream = stream
 	p.pitch_scale = randf_range(0.95, 1.05)
-	p.volume_db = 18
+	p.volume_db = 3
 	p.play()
 	p.finished.connect(p.queue_free)
 

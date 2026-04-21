@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfup1v71mn6j8"
-path="res://.godot/imported/demon_walk_3.png-15680cbb3dc8f7bcc982eca1bdddcbea.ctex"
+path="res://.godot/imported/demon_walk_3.png-75fe08e15894181a4ea13a3880148905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_3.png"
-dest_files=["res://.godot/imported/demon_walk_3.png-15680cbb3dc8f7bcc982eca1bdddcbea.ctex"]
+source_file="res://characters/Bosses/Demon Slime/WALK/Right/demon_walk_3.png"
+dest_files=["res://.godot/imported/demon_walk_3.png-75fe08e15894181a4ea13a3880148905.ctex"]
 
 [params]
 

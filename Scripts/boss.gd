@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var BossAttackCollision = $AttackTelegraph/CollisionShape2D
 @onready var AttackAreaVisible = $AttackTelegraph/ColorRect
 @onready var BloodEffect = $GPUParticles2D
-@onready var AttackEffect = $BossSlamParticle
 
 var player = null
 var is_dead = false
@@ -143,6 +142,7 @@ func _on_boss_area_2d_body_entered(body):
 		if is_attacking:
 			Global.boss_health -= 10
 			BloodEffect.emitting = true
+			AudioManager.play_boss_sound(self, "BossHurt")
 			_check_phase_2()
 			if Global.boss_health <= 0:
 				die()
@@ -176,7 +176,6 @@ func _on_boss_area_2d_body_entered(body):
 		if Global.death == false and Global.iframes == false:
 			Global.iframes = true
 			Global.iframesTimer = 1.0
-			Global.health -= 10.0
 		else:
 			Global.iframes = true
 

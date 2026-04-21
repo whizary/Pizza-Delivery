@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmkhvvlpc13jf"
-path="res://.godot/imported/demon_take_hit_3.png-9c7028f0536efdd2689140d3f25689b1.ctex"
+path="res://.godot/imported/demon_take_hit_3.png-cd754c40f89ea4a6c788311ff7178899.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Bosses/Demon Slime/DAMAGE/Left/demon_take_hit_3.png"
-dest_files=["res://.godot/imported/demon_take_hit_3.png-9c7028f0536efdd2689140d3f25689b1.ctex"]
+source_file="res://characters/Bosses/Demon Slime/DAMAGE/Left/demon_take_hit_3.png"
+dest_files=["res://.godot/imported/demon_take_hit_3.png-cd754c40f89ea4a6c788311ff7178899.ctex"]
 
 [params]
 

@@ -17,16 +17,16 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://Audio/Music/default_bus_layout.tres"
+buses/default_bus_layout="res://audio/Music/default_bus_layout.tres"
 
 [autoload]
 
-Global="*res://Scripts/global.gd"
-AudioManager="*res://Scripts/AudioManager.gd"
-JsonData="*res://Scripts/JSONData.gd"
-GameManager="*res://Scripts/GameManager.gd"
-SettingsManager="*res://Scripts/SettingsManager.gd"
-KeybindsManager="*res://Scripts/KeybindsManager.gd"
+Global="*res://scripts/global.gd"
+AudioManager="*res://scripts/AudioManager.gd"
+JsonData="*res://scripts/JSONData.gd"
+GameManager="*res://scripts/GameManager.gd"
+SettingsManager="*res://scripts/SettingsManager.gd"
+KeybindsManager="*res://scripts/KeybindsManager.gd"
 
 [display]
 
@@ -37,8 +37,8 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://Buttons/": "red",
-"res://Inventory-stuff/": "green",
+"res://buttons/": "red",
+"res://inventory-stuff/": "green",
 "res://item_icons/": "blue"
 }
 

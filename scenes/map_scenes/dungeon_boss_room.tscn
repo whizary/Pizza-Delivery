@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr6ve6e7knm86"]
 
-[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://scripts/Map.gd" id="2_cmqoe"]
 [ext_resource type="Script" path="res://dungeondoor.gd" id="3_jt7ob"]
-[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
+[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="20_x8erc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jt7ob"]

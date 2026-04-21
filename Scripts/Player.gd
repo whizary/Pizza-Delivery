@@ -2,14 +2,11 @@ extends CharacterBody2D
 
 @onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var interact_ui = $InteractUI
-@onready var inventory_ui = $InventoryUI
-@onready var inventory_hotbar = $InventoryHotbar
-
+@onready var interact_ui = $Camera2D/InteractUI
+@onready var inventory_ui = $Camera2D/InventoryUI
+@onready var inventory_hotbar = $Camera2D/InventoryHotbar
 @onready var powerupsound = $powerup
-
 @onready var powerdownsound = $powerdown
-
 @onready var pickupcoinsound = $pickupcoin
 @onready var dash: AnimatedSprite2D = $dash
 @onready var dashinverted: AnimatedSprite2D = $dashinverted
@@ -62,49 +59,26 @@ func _physics_process(delta):
 	# temp
 	var t = Input.is_action_pressed("key_t")
 	
-	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/Boss_Name.visible = false
-		$Camera2D/CanvasLayer/Boss_Name.visible = false
 		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
 		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
 		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
 		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
+		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
-	if get_tree().current_scene.scene_file_path == "res://Dungeon.tscn":
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
 		$Camera2D.zoom = Vector2(4.1, 4.1)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
-		$Camera2D/CanvasLayer/Boss_Name.visible = false
 		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
-	if get_tree().current_scene.scene_file_path == "res://dungeon_boss_room-tscn.tscn":
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/dungeon_boss_room.tscn":
 		AudioManager.play_music("BossMusic1")
 		$Camera2D.zoom = Vector2(4.1, 4.1)
-		$InventoryHotbar/Inventory_Hotbar.position = Vector2(655, 980)
-		$InventoryHotbar/Inventory_Hotbar.scale = Vector2(-0.040, 0.20)
-		$Camera2D/CanvasLayer/STA_bar.position = Vector2(20, 110)
-		$Camera2D/CanvasLayer/HP_bar.position = Vector2(20, 20)
-		$Camera2D/CanvasLayer/HP_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/STA_bar.scale = Vector2(3, 3)
-		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
-		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
-		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
-		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
+		$Camera2D/CanvasLayer/boss_HP_bar.value = Global.boss_health
+		$Camera2D/CanvasLayer/boss_HP_bar.visible = true
+		$Camera2D/CanvasLayer/Boss_Name.visible = true
 	
 	#Movement variables	
 	var run = Input.is_action_pressed("run")
@@ -164,6 +138,7 @@ func _physics_process(delta):
 		
 	#HEALTH
 	if Global.health <= 0.0 and Global.death == false:
+		AudioManager.music_player.stop()
 		Global.death = true
 		print("GAME OVER")
 		await resetglobal()

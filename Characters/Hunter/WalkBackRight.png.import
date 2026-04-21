@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3onvsy13pfh0"
-path="res://.godot/imported/WalkBackRight.png-c9dcbe09298605c551866aa045389484.ctex"
+path="res://.godot/imported/WalkBackRight.png-1e4905bafd00741c7a83995c000d94bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Hunter/WalkBackRight.png"
-dest_files=["res://.godot/imported/WalkBackRight.png-c9dcbe09298605c551866aa045389484.ctex"]
+source_file="res://characters/Hunter/WalkBackRight.png"
+dest_files=["res://.godot/imported/WalkBackRight.png-1e4905bafd00741c7a83995c000d94bf.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy8koq5wl331o"
-path="res://.godot/imported/demon_cleave_3.png-69f2a5e1bc92a2ad52ff0c42a7f346cb.ctex"
+path="res://.godot/imported/demon_cleave_3.png-60c253ce255bfe7f96a42c6c9fb21e47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Bosses/Demon Slime/ATTACK/Right/demon_cleave_3.png"
-dest_files=["res://.godot/imported/demon_cleave_3.png-69f2a5e1bc92a2ad52ff0c42a7f346cb.ctex"]
+source_file="res://characters/Bosses/Demon Slime/ATTACK/Right/demon_cleave_3.png"
+dest_files=["res://.godot/imported/demon_cleave_3.png-60c253ce255bfe7f96a42c6c9fb21e47.ctex"]
 
 [params]
 

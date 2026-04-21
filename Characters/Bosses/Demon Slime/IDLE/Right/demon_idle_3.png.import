@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq1pe0vbvdw7i"
-path="res://.godot/imported/demon_idle_3.png-76de321736f956554fe28e9225192ff8.ctex"
+path="res://.godot/imported/demon_idle_3.png-1f2755987dfb5bd57e7b242e3ad42324.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Bosses/Demon Slime/IDLE/Right/demon_idle_3.png"
-dest_files=["res://.godot/imported/demon_idle_3.png-76de321736f956554fe28e9225192ff8.ctex"]
+source_file="res://characters/Bosses/Demon Slime/IDLE/Right/demon_idle_3.png"
+dest_files=["res://.godot/imported/demon_idle_3.png-1f2755987dfb5bd57e7b242e3ad42324.ctex"]
 
 [params]
 

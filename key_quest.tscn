@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://ck7frnx8be76"]
 
-[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://Images/QuestFrame.png" id="1_nj3fh"]
-[ext_resource type="Script" uid="uid://oq1e6heve4cq" path="res://key_quest.gd" id="1_uwxp1"]
-[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://Images/TextRuta.png" id="2_uwxp1"]
-[ext_resource type="FontFile" uid="uid://ekxxn2ic2kga" path="res://Images/PressStart2P-Regular.ttf" id="3_aqpon"]
+[ext_resource type="Texture2D" uid="uid://c5vukri5wdj00" path="res://images/QuestFrame.png" id="1_nj3fh"]
+[ext_resource type="Script" path="res://key_quest.gd" id="1_uwxp1"]
+[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://images/TextRuta.png" id="2_uwxp1"]
+[ext_resource type="FontFile" uid="uid://ekxxn2ic2kga" path="res://images/PressStart2P-Regular.ttf" id="3_aqpon"]
 
 [sub_resource type="FontVariation" id="FontVariation_aqpon"]
 base_font = ExtResource("3_aqpon")

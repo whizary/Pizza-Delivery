@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do7p8d7b30l8q"
-path="res://.godot/imported/IdleBack.webp-adae548804ffed351492d8c9cc541955.ctex"
+path="res://.godot/imported/IdleBack.webp-47468f98c913ddc82e54e322f92da0c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Characters/Man/IdleBack.webp"
-dest_files=["res://.godot/imported/IdleBack.webp-adae548804ffed351492d8c9cc541955.ctex"]
+source_file="res://characters/Characters/Man/IdleBack.webp"
+dest_files=["res://.godot/imported/IdleBack.webp-47468f98c913ddc82e54e322f92da0c1.ctex"]
 
 [params]
 
