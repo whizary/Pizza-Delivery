@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://beagjpwpiwrj0"]
+
+[ext_resource type="Script" uid="uid://ba8i2p4cdhmam" path="res://boss_key_quest.gd" id="1_5td8c"]
+[ext_resource type="Texture2D" uid="uid://bnc636jme4o0x" path="res://quest_things/swordman_1.png" id="1_hgioo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5td8c"]
+radius = 11.0
+
+[node name="Boss-key-quest" type="Node2D"]
+script = ExtResource("1_5td8c")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5td8c")
+
+[node name="Swordman1" type="Sprite2D" parent="."]
+scale = Vector2(1.2647059, 1.2647059)
+texture = ExtResource("1_hgioo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

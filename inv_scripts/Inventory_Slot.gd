@@ -71,8 +71,6 @@ func set_item(new_item):
 		item_effect.text = ""
 	update_assignment_status()
 
-
-
 func _on_drop_button_pressed() -> void:
 	if item != null:
 		var drop_position = Global.player_node.global_position

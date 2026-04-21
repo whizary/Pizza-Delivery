@@ -1,0 +1,226 @@
+[gd_scene load_steps=41 format=3 uid="uid://b0woo3ewbrdfs"]
+
+[ext_resource type="Script" uid="uid://cj8hmgvj80hl0" path="res://scripts/Enemy.gd" id="1_qdngw"]
+[ext_resource type="Texture2D" uid="uid://e87nlkrh4cdj" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png" id="2_e2a4y"]
+[ext_resource type="Texture2D" uid="uid://djhu1a0aagecy" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-2-left.png" id="3_80wj4"]
+[ext_resource type="Texture2D" uid="uid://bywniamca146g" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-3-left.png" id="4_ky2ac"]
+[ext_resource type="Texture2D" uid="uid://bfca28yqf6e0d" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-4-left.png" id="5_qcrje"]
+[ext_resource type="Texture2D" uid="uid://b2e0hxi2j1cgu" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-5-left.png" id="6_qrafj"]
+[ext_resource type="Texture2D" uid="uid://d201rh25052hx" path="res://characters/Enemies/Orc - Rogue/DEATH/Left/Death-6-left.png" id="7_i8yk3"]
+[ext_resource type="Texture2D" uid="uid://b0jyfisrvucv8" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-1.png" id="8_2hnij"]
+[ext_resource type="Texture2D" uid="uid://bmt2gvmfx7hu7" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-2.png" id="9_wsygu"]
+[ext_resource type="Texture2D" uid="uid://dsxc02juyxb3w" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-3.png" id="10_rnmcu"]
+[ext_resource type="Texture2D" uid="uid://d1573led727ju" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-4.png" id="11_diqgk"]
+[ext_resource type="Texture2D" uid="uid://cnvn0ffq4pprx" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-5.png" id="12_1kt5v"]
+[ext_resource type="Texture2D" uid="uid://dagxioffyol72" path="res://characters/Enemies/Orc - Rogue/DEATH/Right/Death-6.png" id="13_pq2py"]
+[ext_resource type="Texture2D" uid="uid://c8cl38etuk62o" path="res://characters/Enemies/Orc - Rogue/IDLE/Left/Idle-1-left.png" id="14_otgyd"]
+[ext_resource type="Texture2D" uid="uid://dewg6c8c0y4q0" path="res://characters/Enemies/Orc - Rogue/IDLE/Left/Idle-2-left.png" id="15_fovkj"]
+[ext_resource type="Texture2D" uid="uid://chjkbb0ensj7e" path="res://characters/Enemies/Orc - Rogue/IDLE/Left/Idle-3-left.png" id="16_3ghyb"]
+[ext_resource type="Texture2D" uid="uid://7qheemxc3mcb" path="res://characters/Enemies/Orc - Rogue/IDLE/Left/Idle-4-left.png" id="17_xru01"]
+[ext_resource type="Texture2D" uid="uid://bp4rdlmnxm2yq" path="res://characters/Enemies/Orc - Rogue/IDLE/Right/Idle-1.png" id="18_1o0b2"]
+[ext_resource type="Texture2D" uid="uid://c3yjbqdjw25o7" path="res://characters/Enemies/Orc - Rogue/IDLE/Right/Idle-2.png" id="19_3x77w"]
+[ext_resource type="Texture2D" uid="uid://cingelp3mk5sk" path="res://characters/Enemies/Orc - Rogue/IDLE/Right/Idle-3.png" id="20_ht51e"]
+[ext_resource type="Texture2D" uid="uid://c7phstncpypr4" path="res://characters/Enemies/Orc - Rogue/IDLE/Right/Idle-4.png" id="21_3nker"]
+[ext_resource type="Texture2D" uid="uid://iokhx3qel84p" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-1-left.png" id="22_wq4xn"]
+[ext_resource type="Texture2D" uid="uid://dv2vr8jk5bvxb" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-2-left.png" id="23_jggbq"]
+[ext_resource type="Texture2D" uid="uid://cmyhtgabk5t2s" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-3-left.png" id="24_j4xgs"]
+[ext_resource type="Texture2D" uid="uid://df0ex5whxf60c" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-4-left.png" id="25_v0c6u"]
+[ext_resource type="Texture2D" uid="uid://dqlxvyhss7l80" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-5-left.png" id="26_hfqa7"]
+[ext_resource type="Texture2D" uid="uid://dyyomcoomsivi" path="res://characters/Enemies/Orc - Rogue/RUN/Left/Run-6-left.png" id="27_v0qfy"]
+[ext_resource type="Texture2D" uid="uid://da6l7oydypht2" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-1.png" id="28_32lds"]
+[ext_resource type="Texture2D" uid="uid://iqwhjcvfnx70" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-2.png" id="29_gca1g"]
+[ext_resource type="Texture2D" uid="uid://bdx3rhaufd38s" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-3.png" id="30_c3kkr"]
+[ext_resource type="Texture2D" uid="uid://cj1grqlem8sw1" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-4.png" id="31_i0fiv"]
+[ext_resource type="Texture2D" uid="uid://br3wgvsm1ukww" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-5.png" id="32_t1xms"]
+[ext_resource type="Texture2D" uid="uid://cxtwwd8ssmil5" path="res://characters/Enemies/Orc - Rogue/RUN/Right/Run-6.png" id="33_enwvb"]
+[ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://images/black-borders.png" id="34_5ilqk"]
+[ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://scripts/AudioManager.gd" id="35_7bvfm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvroo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e2a4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_80wj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ky2ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qcrje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qrafj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i8yk3")
+}],
+"loop": false,
+"name": &"death_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2hnij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wsygu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rnmcu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_diqgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1kt5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pq2py")
+}],
+"loop": false,
+"name": &"death_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_otgyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fovkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3ghyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xru01")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_1o0b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3x77w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ht51e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3nker")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_wq4xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jggbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j4xgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_v0c6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hfqa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_v0qfy")
+}],
+"loop": true,
+"name": &"run_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_32lds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gca1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_c3kkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_i0fiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_t1xms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_enwvb")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jap2g"]
+radius = 8.5
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7equ6"]
+radius = 9.0
+
+[sub_resource type="MeshTexture" id="MeshTexture_7bvfm"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_6wsfp"]
+
+[node name="OrcEnemy" type="Node2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
+position = Vector2(19, 18)
+collision_layer = 2
+collision_mask = 3
+safe_margin = 0.001
+script = ExtResource("1_qdngw")
+
+[node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+sprite_frames = SubResource("SpriteFrames_vvroo")
+animation = &"death_left"
+
+[node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_jap2g")
+
+[node name="Enemy2D" type="Sprite2D" parent="Enemy"]
+visible = false
+texture = ExtResource("19_3x77w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+avoidance_enabled = true
+radius = 8.0
+neighbor_distance = 64.0
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_7equ6")
+
+[node name="enemy_HP_bar" type="TextureProgressBar" parent="Enemy"]
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 9.0
+offset_bottom = -17.0
+nine_patch_stretch = true
+texture_under = SubResource("MeshTexture_7bvfm")
+texture_over = ExtResource("34_5ilqk")
+texture_progress = SubResource("MeshTexture_6wsfp")
+tint_under = Color(0.5372549, 0.5372549, 0.5372549, 0.8509804)
+tint_progress = Color(0.16410574, 0.6838889, 0.09445078, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Enemy"]
+script = ExtResource("35_7bvfm")
+
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]

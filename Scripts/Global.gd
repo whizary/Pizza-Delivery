@@ -3,21 +3,48 @@ extends Node
 #inventory items
 var inventory = []
 var player_hit = false
+
+var tutorial_index = 0
+var keyquest_index = 0
+var tut = true
+var keyQ = false
+var movement = true
+var tut_pause = false
+var ally_dialog_seen = false
+
+var allyQ = false
+var allyquest_index = 0
+var AllyquestComplete = false   # sätts till true när maten är hämtad
+var allyTurnInFinished = false  # sätts till true när slutdialogen med Ally är klar
+var allyRewardGiven = false
+var acceptedQuest = false
  
 var detect_distance = 255
 var enemy_speed = 155.0
+var boss_speed = 70.0
 var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
 var staminaRecovery = 25.0
 var stop_distance = 35.0 
+var boss_health = 1000.0
+var boss_max_health = 1000.0
+var bossalive = true
 
+var damage = 0
 var health = 100.0
 var maxHealth = 100.0
-var iframesTimer = 1.0
+var iframesTimer = 0.8
 var iframes = false
 var death = false
- 
+var bossroomcomplete = false
+var bossdooropen = true
+var bossroomactive = false
+var dungeondooropen = true
+var dooropen = false
+var normalspawn = false
+var spikesactive = false
+
 var current_wave: int
 var moving_to_next_wave: bool
  
@@ -50,6 +77,8 @@ func add_item(item: Dictionary, to_hotbar = false) -> bool:
 				inventory[i] = item
 				inventory_updated.emit()
 				print("Item added", inventory)
+				AllyquestComplete = true
+				
 				return true
 		print("Inventory full", inventory)
 		return false
@@ -88,7 +117,7 @@ func drop_item(item_data, drop_position):
 		return
 	var item_instance = item_scene.instantiate()
 	item_instance.set_item_data(item_data)
-	drop_position = adjust_drop_position(drop_position)
+	drop_position = Global.player_node.global_position
 	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
 func add_hotbar_item(item):

@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbo22vob0ho7y"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_8fo1c"]
+[ext_resource type="Texture2D" uid="uid://mn53ivb52tca" path="res://images/youdiedscreen.png" id="2_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://dnk30bdvf3u12" path="res://images/restartbutton2d.png" id="3_14u15"]
+[ext_resource type="Texture2D" uid="uid://dhbh3u3b22xbv" path="res://images/menubutton2d.png" id="4_j3ryr"]
+[ext_resource type="Texture2D" uid="uid://c2qfs0bqxpdmk" path="res://images/quitbutton2d.png" id="5_rjluv"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fo1c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ek8ke")
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99500006
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 427.0
+offset_right = -358.40015
+offset_bottom = -345.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("3_14u15")
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 629.0
+offset_right = -368.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("4_j3ryr")
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 831.0
+offset_right = -368.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("5_rjluv")
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

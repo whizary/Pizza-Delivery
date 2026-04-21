@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxl4588vnoyjp"
-path="res://.godot/imported/WalkLL.png-8243a2ef6d9ea0a7c1577ab01d7dc988.ctex"
+path="res://.godot/imported/WalkLL.png-2a674d97f32c873a4fa61058d7188106.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Characters/Man/WalkLL.png"
-dest_files=["res://.godot/imported/WalkLL.png-8243a2ef6d9ea0a7c1577ab01d7dc988.ctex"]
+source_file="res://characters/Characters/Man/WalkLL.png"
+dest_files=["res://.godot/imported/WalkLL.png-2a674d97f32c873a4fa61058d7188106.ctex"]
 
 [params]
 

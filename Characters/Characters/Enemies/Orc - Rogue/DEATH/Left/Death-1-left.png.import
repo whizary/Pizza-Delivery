@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfjdj1ghch6iq"
-path="res://.godot/imported/Death-1-left.png-beed3318686af849621567c2eceeda5a.ctex"
+path="res://.godot/imported/Death-1-left.png-9978bb584961e4c9cf83921cd964a04e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png"
-dest_files=["res://.godot/imported/Death-1-left.png-beed3318686af849621567c2eceeda5a.ctex"]
+source_file="res://characters/Characters/Enemies/Orc - Rogue/DEATH/Left/Death-1-left.png"
+dest_files=["res://.godot/imported/Death-1-left.png-9978bb584961e4c9cf83921cd964a04e.ctex"]
 
 [params]
 

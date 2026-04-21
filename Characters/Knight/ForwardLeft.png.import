@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xue33ko1xar8"
-path="res://.godot/imported/ForwardLeft.png-3788dac8d86a8e42d7c9c3684a18fe1e.ctex"
+path="res://.godot/imported/ForwardLeft.png-90a4c0df6d91775f2859e41be3d4b106.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Knight/ForwardLeft.png"
-dest_files=["res://.godot/imported/ForwardLeft.png-3788dac8d86a8e42d7c9c3684a18fe1e.ctex"]
+source_file="res://characters/Knight/ForwardLeft.png"
+dest_files=["res://.godot/imported/ForwardLeft.png-90a4c0df6d91775f2859e41be3d4b106.ctex"]
 
 [params]
 

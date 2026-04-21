@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5yuhfterlgjq"
-path="res://.godot/imported/three-distinct-pixel-art-backpack-260nw-2640128253.webp-7be79d3392807b9aa4b0285a3a578487.ctex"
+path="res://.godot/imported/three-distinct-pixel-art-backpack-260nw-2640128253.webp-27958dd16b00dcd74ee634d655c200f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/three-distinct-pixel-art-backpack-260nw-2640128253.webp"
-dest_files=["res://.godot/imported/three-distinct-pixel-art-backpack-260nw-2640128253.webp-7be79d3392807b9aa4b0285a3a578487.ctex"]
+source_file="res://images/three-distinct-pixel-art-backpack-260nw-2640128253.webp"
+dest_files=["res://.godot/imported/three-distinct-pixel-art-backpack-260nw-2640128253.webp-27958dd16b00dcd74ee634d655c200f8.ctex"]
 
 [params]
 

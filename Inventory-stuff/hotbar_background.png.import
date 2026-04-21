@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5cgf68365ob0"
-path="res://.godot/imported/hotbar_background.png-afd199e75b4f1d77bd73e003854a5e8d.ctex"
+path="res://.godot/imported/hotbar_background.png-b25d5c91e3b435ae6a9387231c927ffa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory-stuff/hotbar_background.png"
-dest_files=["res://.godot/imported/hotbar_background.png-afd199e75b4f1d77bd73e003854a5e8d.ctex"]
+source_file="res://inventory-stuff/hotbar_background.png"
+dest_files=["res://.godot/imported/hotbar_background.png-b25d5c91e3b435ae6a9387231c927ffa.ctex"]
 
 [params]
 

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr6ve6e7knm86"]
+
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://scripts/Map.gd" id="2_cmqoe"]
+[ext_resource type="Script" path="res://dungeondoor.gd" id="3_jt7ob"]
+[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
+[ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="20_x8erc"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jt7ob"]
+vertices = PackedVector2Array(1043.0234, 321.97656, 1043.9688, 660, 460, 660, 460, 321.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(450, 311, 450, 670, 1054, 670, 1053, 312)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eicpd"]
+size = Vector2(28, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l57no"]
+size = Vector2(11.023009, 15)
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="map" parent="." instance=ExtResource("4_jt7ob")]
+script = ExtResource("2_cmqoe")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
+navigation_polygon = SubResource("NavigationPolygon_jt7ob")
+
+[node name="dungeondoor2" type="Area2D" parent="map"]
+position = Vector2(756, 817)
+script = ExtResource("3_jt7ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/dungeondoor2"]
+z_index = 1
+position = Vector2(-4, -527.5)
+shape = SubResource("RectangleShape2D_eicpd")
+
+[node name="SpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(756.5437, 499.68195)
+
+[node name="BossSpawnPoint" type="Marker2D" parent="map"]
+position = Vector2(757.5724, 437.80417)
+
+[node name="spikes1" type="Area2D" parent="."]
+position = Vector2(551.4363, 424.3703)
+script = ExtResource("20_x8erc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes1"]
+position = Vector2(0.0637207, -2.3703003)
+shape = SubResource("RectangleShape2D_l57no")
+
+[node name="spikes2" type="Area2D" parent="."]
+position = Vector2(839.58344, 552.3691)
+script = ExtResource("20_x8erc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes2"]
+position = Vector2(-0.04663086, -2.8703003)
+shape = SubResource("RectangleShape2D_l57no")
+
+[node name="spikes3" type="Area2D" parent="."]
+position = Vector2(855.4842, 360.53284)
+script = ExtResource("20_x8erc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes3"]
+position = Vector2(0.015808105, -1.0328369)
+shape = SubResource("RectangleShape2D_l57no")
+
+[node name="spikes4" type="Area2D" parent="."]
+position = Vector2(935.4402, 616.43896)
+script = ExtResource("20_x8erc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes4"]
+position = Vector2(0.048339844, -0.93896484)
+shape = SubResource("RectangleShape2D_l57no")
+
+[connection signal="body_entered" from="map/dungeondoor2" to="map/dungeondoor2" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]
+[connection signal="body_entered" from="spikes4" to="spikes4" method="_on_body_entered"]

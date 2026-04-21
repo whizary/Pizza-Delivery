@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://empgac43c8oh"
-path="res://.godot/imported/IdleRight.webp-a8b9b199b0804ecdccb717dff36de882.ctex"
+path="res://.godot/imported/IdleRight.webp-e3399853d7f708a52cf3f3db54b43538.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Characters/Man/IdleRight.webp"
-dest_files=["res://.godot/imported/IdleRight.webp-a8b9b199b0804ecdccb717dff36de882.ctex"]
+source_file="res://characters/Characters/Man/IdleRight.webp"
+dest_files=["res://.godot/imported/IdleRight.webp-e3399853d7f708a52cf3f3db54b43538.ctex"]
 
 [params]
 
