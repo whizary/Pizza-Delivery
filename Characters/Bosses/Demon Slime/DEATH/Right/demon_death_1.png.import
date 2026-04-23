@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qx41s7cjls4s"
-path="res://.godot/imported/demon_death_1.png-43babfd28dee6d27b51d798e99d34e3d.ctex"
+path="res://.godot/imported/demon_death_1.png-844da1842dea51d9dce39056968dab30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Bosses/Demon Slime/DEATH/Right/demon_death_1.png"
-dest_files=["res://.godot/imported/demon_death_1.png-43babfd28dee6d27b51d798e99d34e3d.ctex"]
+source_file="res://Characters/Bosses/Demon Slime/DEATH/Right/demon_death_1.png"
+dest_files=["res://.godot/imported/demon_death_1.png-844da1842dea51d9dce39056968dab30.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2jecco54o6xs"
-path="res://.godot/imported/Idle-1.png-9940fc32fb92155dc8ec910846792ca7.ctex"
+path="res://.godot/imported/Idle-1.png-bef4b521c81a8bd16d06c5487832117e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-1.png"
-dest_files=["res://.godot/imported/Idle-1.png-9940fc32fb92155dc8ec910846792ca7.ctex"]
+source_file="res://Characters/Characters/Enemies/Orc - Rogue/IDLE/Right/Idle-1.png"
+dest_files=["res://.godot/imported/Idle-1.png-bef4b521c81a8bd16d06c5487832117e.ctex"]
 
 [params]
 

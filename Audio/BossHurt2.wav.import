@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dpeitdwgsorn5"
-path="res://.godot/imported/BossHurt2.wav-3bd82c81d5cc89db69410e21122cf4c0.sample"
+path="res://.godot/imported/BossHurt2.wav-3d0290358108b10e103968fbfc142a83.sample"
 
 [deps]
 
-source_file="res://audio/BossHurt2.wav"
-dest_files=["res://.godot/imported/BossHurt2.wav-3bd82c81d5cc89db69410e21122cf4c0.sample"]
+source_file="res://Audio/BossHurt2.wav"
+dest_files=["res://.godot/imported/BossHurt2.wav-3d0290358108b10e103968fbfc142a83.sample"]
 
 [params]
 

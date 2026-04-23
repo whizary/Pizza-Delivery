@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d165tml2p8wxh"
-path="res://.godot/imported/Earth.png-3423710659f2a21b07ecd9f0f1ad23aa.ctex"
+path="res://.godot/imported/Earth.png-97f1b4d9f8d8481f806e136a1bb5c806.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Earth.png"
-dest_files=["res://.godot/imported/Earth.png-3423710659f2a21b07ecd9f0f1ad23aa.ctex"]
+source_file="res://Images/Earth.png"
+dest_files=["res://.godot/imported/Earth.png-97f1b4d9f8d8481f806e136a1bb5c806.ctex"]
 
 [params]
 

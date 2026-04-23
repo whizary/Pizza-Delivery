@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5p7fkpne32jq"
-path="res://.godot/imported/LeftWalkRight.png-1f151f5e91780078ddcb802ce2c148b7.ctex"
+path="res://.godot/imported/LeftWalkRight.png-cce5453318d815ca8b1266f956b91990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Knight/LeftWalkRight.png"
-dest_files=["res://.godot/imported/LeftWalkRight.png-1f151f5e91780078ddcb802ce2c148b7.ctex"]
+source_file="res://Characters/Knight/LeftWalkRight.png"
+dest_files=["res://.godot/imported/LeftWalkRight.png-cce5453318d815ca8b1266f956b91990.ctex"]
 
 [params]
 

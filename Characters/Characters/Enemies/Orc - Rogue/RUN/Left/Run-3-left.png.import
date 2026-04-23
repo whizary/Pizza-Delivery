@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkfkmihjq3vsy"
-path="res://.godot/imported/Run-3-left.png-32b59f4c886ed006855258f032aae34b.ctex"
+path="res://.godot/imported/Run-3-left.png-1da9f527c421c179725f04bb233109da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Characters/Enemies/Orc - Rogue/RUN/Left/Run-3-left.png"
-dest_files=["res://.godot/imported/Run-3-left.png-32b59f4c886ed006855258f032aae34b.ctex"]
+source_file="res://Characters/Characters/Enemies/Orc - Rogue/RUN/Left/Run-3-left.png"
+dest_files=["res://.godot/imported/Run-3-left.png-1da9f527c421c179725f04bb233109da.ctex"]
 
 [params]
 

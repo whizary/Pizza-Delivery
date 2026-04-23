@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c13g8f1yf74w2"
-path="res://.godot/imported/WalkForwardL.png-ee3ac71c0fc635bc469a244c69a56b02.ctex"
+path="res://.godot/imported/WalkForwardL.png-f51c79519df522fe18cc0b912d96182a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Characters/Man/WalkForwardL.png"
-dest_files=["res://.godot/imported/WalkForwardL.png-ee3ac71c0fc635bc469a244c69a56b02.ctex"]
+source_file="res://Characters/Characters/Man/WalkForwardL.png"
+dest_files=["res://.godot/imported/WalkForwardL.png-f51c79519df522fe18cc0b912d96182a.ctex"]
 
 [params]
 
