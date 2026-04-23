@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0lgyj0mc0ngm"
-path="res://.godot/imported/RunForward Left.png-f7b9e14ba7c9aa67fafeea98cc2effeb.ctex"
+path="res://.godot/imported/RunForward Left.png-7507d69782f3ec533b92e3cee2269ab5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Hunter/RunForward Left.png"
-dest_files=["res://.godot/imported/RunForward Left.png-f7b9e14ba7c9aa67fafeea98cc2effeb.ctex"]
+source_file="res://Characters/Hunter/RunForward Left.png"
+dest_files=["res://.godot/imported/RunForward Left.png-7507d69782f3ec533b92e3cee2269ab5.ctex"]
 
 [params]
 

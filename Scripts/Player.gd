@@ -142,7 +142,7 @@ func _physics_process(delta):
 		Global.death = true
 		print("GAME OVER")
 		await resetglobal()
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 	if Global.iframes == true and Global.death == false:
 		Global.iframesTimer -= delta
@@ -483,13 +483,13 @@ func use_boss_door():
 	if Global.bossdooropen == true and Global.bossalive == true:
 		print("bossroomentered")
 		Global.bossroomactive = true
-		get_tree().change_scene_to_file("res://dungeon_boss_room-tscn.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen
+		get_tree().change_scene_to_file("res://scenes/map_scenes/dungeon_boss_room.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen
 
 func use_dungeon_door():
 	if Global.dungeondooropen == true and Global.bossalive == false and Global.bossroomactive == true:
 		Global.bossroomactive = false
 		Global.bossdooropen = false
-		get_tree().change_scene_to_file("res://Dungeon.tscn")
+		get_tree().change_scene_to_file("res://scenes/map_scenes/Dungeon.tscn")
 
 func resetglobal():
 	Global.inventory = []

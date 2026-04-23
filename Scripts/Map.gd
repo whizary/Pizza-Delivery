@@ -23,6 +23,7 @@ func _ready():
 	add_child(player)
 	Global.set_player_reference(player)
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/dungeon_boss_room.tscn":
+		print("boss")
 		var demon_slime = demon_slime_boss.instantiate()
 		demon_slime.global_position = $BossSpawnPoint.global_position
 		add_child(demon_slime)

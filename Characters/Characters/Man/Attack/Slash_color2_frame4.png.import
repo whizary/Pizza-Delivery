@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs8snl578knoy"
-path="res://.godot/imported/Slash_color2_frame4.png-8feb318c2204fc935ed4e01c9beaf831.ctex"
+path="res://.godot/imported/Slash_color2_frame4.png-f5590f8ecb4410cb5fc3f40f04a53ce6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Characters/Man/Attack/Slash_color2_frame4.png"
-dest_files=["res://.godot/imported/Slash_color2_frame4.png-8feb318c2204fc935ed4e01c9beaf831.ctex"]
+source_file="res://Characters/Characters/Man/Attack/Slash_color2_frame4.png"
+dest_files=["res://.godot/imported/Slash_color2_frame4.png-f5590f8ecb4410cb5fc3f40f04a53ce6.ctex"]
 
 [params]
 
