@@ -93,7 +93,7 @@ func _physics_process(delta):
 
 		if back and right == false and left == false:
 
-			position += Vector2(0, -100)
+			move_and_collide(Vector2(0, -100))
 			dashup.play("default")
 			dashup2.play("default")
 
@@ -101,35 +101,34 @@ func _physics_process(delta):
 
 			dashrightupsidedown.play("default")
 			dashup.play("default")
-			position += Vector2(70, -70)
+			move_and_collide(Vector2(70, -70))
 		elif back and left:
 
 			dashleftupsidedown.play("default")
 			dashup2.play("default")
-			position += Vector2(-70, -70)
+			move_and_collide(Vector2(-70, -70))
 			
-
 		elif forward and right:
 
 			dash.play("default")
 			dashdown2.play("default")
-			position += Vector2(70, 70)
+			move_and_collide(Vector2(70, 70))
 		elif forward and left:
 
 			dashinverted.play("default")
 			dashdown.play("default")
-			position += Vector2(-70, 70)
+			move_and_collide(Vector2(-70, 70))
 		elif right:
 
 			dash.play("default")
-			position += Vector2(100, 0)
+			move_and_collide(Vector2(100, 0))
 		elif left:
 
 			dashinverted.play("default")
-			position += Vector2(-100, 0)
+			move_and_collide(Vector2(-100, 0))
 			
 		elif forward:
-			position += Vector2(0, 100)
+			move_and_collide(Vector2(0, 100))
 			dashdown.play("default")
 			dashdown2.play("default")
 
@@ -224,9 +223,9 @@ func _physics_process(delta):
 	elif bluepowerup == false and Global.spikesactive == true:
 		Global.spikesactive = false
 
-	if t and Global.bossalive == true:
-		print("t pressed")
-		Global.bossalive = false
+	#if t and Global.bossalive == true:
+		#print("t pressed")
+		#Global.bossalive = false
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

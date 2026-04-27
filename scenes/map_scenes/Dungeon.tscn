@@ -1,10 +1,10 @@
 [gd_scene load_steps=103 format=3 uid="uid://kb64xwjl2eh8"]
 
-[ext_resource type="PackedScene" uid="uid://map" path="res://maps/Dungeon Map/Map.tscn" id="1_xdbph"]
-[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://scripts/Map.gd" id="2_82mmt"]
+[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_xdbph"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_82mmt"]
 [ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://dungeonnewmapdoor.gd" id="3_74cj6"]
 [ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="4_qs0nd"]
-[ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://coin_Gems/key_32x32_24f.png" id="5_o4jhv"]
+[ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="5_o4jhv"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="6_jcpia"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="7_7lv8o"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="8_cwcqt"]
@@ -12,20 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="10_wym2t"]
 [ext_resource type="PackedScene" uid="uid://5qnuksmmq8g3" path="res://TalkTextHitbox.tscn" id="11_kiww1"]
 [ext_resource type="PackedScene" uid="uid://beagjpwpiwrj0" path="res://boss_key_quest.tscn" id="12_inq8d"]
-[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://scripts/redgem.gd" id="13_nw1k5"]
-[ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://coin_Gems/spr_coin_roj.png" id="14_tqbp0"]
-[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://scripts/bluegem.gd" id="15_jldc8"]
-[ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://coin_Gems/spr_coin_azu.png" id="16_n8kiy"]
-[ext_resource type="Script" uid="uid://tpfwbmgixdqj" path="res://scripts/yellowgem.gd" id="17_ib4gy"]
-[ext_resource type="Texture2D" uid="uid://n5d2pd54eeaj" path="res://coin_Gems/spr_coin_ama.png" id="18_kotyq"]
-[ext_resource type="Script" uid="uid://detjr85infekb" path="res://scripts/greengem.gd" id="19_qftbk"]
-[ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://coin_Gems/spr_coin_strip4.png" id="20_pnn4w"]
-[ext_resource type="Script" uid="uid://dmcs3j7i72f3s" path="res://scripts/blackgem.gd" id="21_jdy6l"]
-[ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://coin_Gems/spr_coin_gri.png" id="22_h33js"]
-[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://scripts/redcoin.gd" id="23_304vn"]
-[ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://coin_Gems/MonedaR.png" id="24_e10dr"]
-[ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://scripts/blackcoin.gd" id="25_dsypr"]
-[ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://coin_Gems/MonedaP.png" id="26_jxhe6"]
+[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="13_nw1k5"]
+[ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="14_tqbp0"]
+[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://Scripts/bluegem.gd" id="15_jldc8"]
+[ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://Coin_Gems/spr_coin_azu.png" id="16_n8kiy"]
+[ext_resource type="Script" uid="uid://tpfwbmgixdqj" path="res://Scripts/yellowgem.gd" id="17_ib4gy"]
+[ext_resource type="Texture2D" uid="uid://n5d2pd54eeaj" path="res://Coin_Gems/spr_coin_ama.png" id="18_kotyq"]
+[ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="19_qftbk"]
+[ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="20_pnn4w"]
+[ext_resource type="Script" uid="uid://dmcs3j7i72f3s" path="res://Scripts/blackgem.gd" id="21_jdy6l"]
+[ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://Coin_Gems/spr_coin_gri.png" id="22_h33js"]
+[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://Scripts/redcoin.gd" id="23_304vn"]
+[ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="24_e10dr"]
+[ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://Scripts/blackcoin.gd" id="25_dsypr"]
+[ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="26_jxhe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
@@ -219,7 +219,7 @@ size = Vector2(11.068634, 13.9999695)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dqayi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqayi"]
-size = Vector2(167, 33)
+size = Vector2(93, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgn0p"]
 size = Vector2(47.5, 121.125)
@@ -514,6 +514,7 @@ radius = 6.1366105
 [node name="Node2D" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("1_xdbph")]
+texture_filter = 1
 script = ExtResource("2_82mmt")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
@@ -536,6 +537,7 @@ script = ExtResource("4_qs0nd")
 
 [node name="animatedkeysprite" type="AnimatedSprite2D" parent="map/key"]
 visible = false
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_y2adg")
 autoplay = "default"
@@ -734,7 +736,7 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_dqayi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstSpawnHb"]
-position = Vector2(1867, 2212)
+position = Vector2(1871.5, 2212)
 shape = SubResource("RectangleShape2D_dqayi")
 
 [node name="SecondSpawnHb" type="StaticBody2D" parent="." groups=["Barrier2"]]

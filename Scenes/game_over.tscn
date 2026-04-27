@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbo22vob0ho7y"]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_8fo1c"]
-[ext_resource type="Texture2D" uid="uid://mn53ivb52tca" path="res://images/youdiedscreen.png" id="2_ek8ke"]
-[ext_resource type="Texture2D" uid="uid://dnk30bdvf3u12" path="res://images/restartbutton2d.png" id="3_14u15"]
-[ext_resource type="Texture2D" uid="uid://dhbh3u3b22xbv" path="res://images/menubutton2d.png" id="4_j3ryr"]
-[ext_resource type="Texture2D" uid="uid://c2qfs0bqxpdmk" path="res://images/quitbutton2d.png" id="5_rjluv"]
+[ext_resource type="Script" uid="uid://tvt8gyuqydl8" path="res://game_over.gd" id="1_8fo1c"]
+[ext_resource type="Texture2D" uid="uid://mn53ivb52tca" path="res://Images/youdiedscreen.png" id="2_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://dnk30bdvf3u12" path="res://Images/restartbutton2d.png" id="3_14u15"]
+[ext_resource type="Texture2D" uid="uid://dhbh3u3b22xbv" path="res://Images/menubutton2d.png" id="4_j3ryr"]
+[ext_resource type="Texture2D" uid="uid://c2qfs0bqxpdmk" path="res://Images/quitbutton2d.png" id="5_rjluv"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
