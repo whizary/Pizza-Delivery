@@ -1,10 +1,10 @@
 [gd_scene load_steps=103 format=3 uid="uid://kb64xwjl2eh8"]
 
-[ext_resource type="PackedScene" uid="uid://map" path="res://maps/Dungeon Map/Map.tscn" id="1_xdbph"]
-[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://scripts/Map.gd" id="2_82mmt"]
+[ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_xdbph"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_82mmt"]
 [ext_resource type="Script" uid="uid://gg6a0wle6epc" path="res://dungeonnewmapdoor.gd" id="3_74cj6"]
 [ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="4_qs0nd"]
-[ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://coin_Gems/key_32x32_24f.png" id="5_o4jhv"]
+[ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="5_o4jhv"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="6_jcpia"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="7_7lv8o"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="8_cwcqt"]
@@ -12,20 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="10_wym2t"]
 [ext_resource type="PackedScene" uid="uid://5qnuksmmq8g3" path="res://TalkTextHitbox.tscn" id="11_kiww1"]
 [ext_resource type="PackedScene" uid="uid://beagjpwpiwrj0" path="res://boss_key_quest.tscn" id="12_inq8d"]
-[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://scripts/redgem.gd" id="13_nw1k5"]
-[ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://coin_Gems/spr_coin_roj.png" id="14_tqbp0"]
-[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://scripts/bluegem.gd" id="15_jldc8"]
-[ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://coin_Gems/spr_coin_azu.png" id="16_n8kiy"]
-[ext_resource type="Script" uid="uid://tpfwbmgixdqj" path="res://scripts/yellowgem.gd" id="17_ib4gy"]
-[ext_resource type="Texture2D" uid="uid://n5d2pd54eeaj" path="res://coin_Gems/spr_coin_ama.png" id="18_kotyq"]
-[ext_resource type="Script" uid="uid://detjr85infekb" path="res://scripts/greengem.gd" id="19_qftbk"]
-[ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://coin_Gems/spr_coin_strip4.png" id="20_pnn4w"]
-[ext_resource type="Script" uid="uid://dmcs3j7i72f3s" path="res://scripts/blackgem.gd" id="21_jdy6l"]
-[ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://coin_Gems/spr_coin_gri.png" id="22_h33js"]
-[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://scripts/redcoin.gd" id="23_304vn"]
-[ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://coin_Gems/MonedaR.png" id="24_e10dr"]
-[ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://scripts/blackcoin.gd" id="25_dsypr"]
-[ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://coin_Gems/MonedaP.png" id="26_jxhe6"]
+[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="13_nw1k5"]
+[ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="14_tqbp0"]
+[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://Scripts/bluegem.gd" id="15_jldc8"]
+[ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://Coin_Gems/spr_coin_azu.png" id="16_n8kiy"]
+[ext_resource type="Script" uid="uid://tpfwbmgixdqj" path="res://Scripts/yellowgem.gd" id="17_ib4gy"]
+[ext_resource type="Texture2D" uid="uid://n5d2pd54eeaj" path="res://Coin_Gems/spr_coin_ama.png" id="18_kotyq"]
+[ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="19_qftbk"]
+[ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="20_pnn4w"]
+[ext_resource type="Script" uid="uid://dmcs3j7i72f3s" path="res://Scripts/blackgem.gd" id="21_jdy6l"]
+[ext_resource type="Texture2D" uid="uid://ck4jqmhr0qab1" path="res://Coin_Gems/spr_coin_gri.png" id="22_h33js"]
+[ext_resource type="Script" uid="uid://lb854cnwsk04" path="res://Scripts/redcoin.gd" id="23_304vn"]
+[ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="24_e10dr"]
+[ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://Scripts/blackcoin.gd" id="25_dsypr"]
+[ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="26_jxhe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
@@ -536,6 +536,7 @@ script = ExtResource("4_qs0nd")
 
 [node name="animatedkeysprite" type="AnimatedSprite2D" parent="map/key"]
 visible = false
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_y2adg")
 autoplay = "default"
@@ -555,6 +556,7 @@ shape = SubResource("RectangleShape2D_gbu8i")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/TakeQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -569,6 +571,7 @@ grow_vertical = 2
 color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/TakeQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -589,6 +592,7 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/Completequest1"]
 visible = false
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -604,6 +608,7 @@ color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/Completequest1"]
 visible = false
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -625,6 +630,7 @@ layer = -10
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/CompleteQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -639,6 +645,7 @@ grow_vertical = 2
 color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/CompleteQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -662,6 +669,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="map/PressE"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1772.0
 offset_top = 2148.0
@@ -755,6 +763,7 @@ position = Vector2(1179.2484, 1755.5863)
 script = ExtResource("13_nw1k5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_dqayi")
 autoplay = "default"
@@ -767,6 +776,7 @@ position = Vector2(2137.7458, 1532.5044)
 script = ExtResource("15_jldc8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bluegem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_1apex")
 autoplay = "default"
@@ -779,6 +789,7 @@ position = Vector2(2547.2217, 2381.3052)
 script = ExtResource("17_ib4gy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="yellowgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_dfd4i")
 autoplay = "default"
@@ -791,6 +802,7 @@ position = Vector2(975.83185, 744.72675)
 script = ExtResource("19_qftbk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="greengem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_x7oye")
 autoplay = "default"
@@ -803,6 +815,7 @@ position = Vector2(655.5533, 1438.3425)
 script = ExtResource("21_jdy6l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="blackgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_5lepr")
 autoplay = "default"
@@ -816,6 +829,7 @@ script = ExtResource("23_304vn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redcoin"]
 visibility_layer = 3
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_5pq5r")
 autoplay = "default"
@@ -828,6 +842,7 @@ position = Vector2(618.55383, 2354.015)
 script = ExtResource("25_dsypr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="blackcoin"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_2ib7k")
 autoplay = "default"

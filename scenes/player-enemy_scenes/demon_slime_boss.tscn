@@ -570,11 +570,13 @@ shape = SubResource("CapsuleShape2D_vapqn")
 disabled = true
 
 [node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_t25a5")
 animation = &"Boss_Attack_Left"
 
 [node name="BossSprite2D" type="Sprite2D" parent="Boss" groups=["boss"]]
 visible = false
+texture_filter = 1
 texture = ExtResource("86_aunr3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Boss" groups=["boss"]]
