@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" path="res://maps/Dungeon Boss Room Map/Layer_2_4.tscn" id="4_id"]
 [ext_resource type="PackedScene" path="res://maps/Dungeon Boss Room Map/Layer_1_5.tscn" id="5_id"]
 [ext_resource type="PackedScene" path="res://maps/Dungeon Boss Room Map/Collision_layer_6.tscn" id="6_id"]
-[ext_resource type="TileSet" uid="uid://boutfoya1hpql" path="res://maps/Dungeon Map/tileset.tres" id="7_8aq5j"]
+[ext_resource type="TileSet" uid="uid://boutfoya1hpql" path="res://Maps/Dungeon Map/tileset.tres" id="7_8aq5j"]
 [ext_resource type="PackedScene" path="res://maps/Dungeon Boss Room Map/void_7.tscn" id="7_id"]
-[ext_resource type="Script" uid="uid://cftmc5epnqsel" path="res://maps/Dungeon Boss Room Map/dungeondoorlayer.gd" id="8_uqb80"]
+[ext_resource type="Script" uid="uid://cftmc5epnqsel" path="res://Maps/Dungeon Boss Room Map/dungeondoorlayer.gd" id="8_uqb80"]
 
 [node name="map" type="Node2D"]
+texture_filter = 1
 
 [node name="void_7" parent="." instance=ExtResource("7_id")]
 
