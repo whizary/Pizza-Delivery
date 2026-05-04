@@ -506,9 +506,6 @@ text = "Completed the quest
 Talk to Ally
 "
 
-[node name="OrcEnemy" parent="map" instance=ExtResource("3_ryguw")]
-position = Vector2(1525, 1073)
-
 [node name="Inventory_Item" parent="." instance=ExtResource("48_amqjv")]
 position = Vector2(1336, 1081)
 item_type = "Consumable"

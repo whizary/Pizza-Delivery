@@ -82,7 +82,7 @@ func play_boss_sound(boss: Node2D, category: String):
 	boss.add_child(p)
 	p.stream = stream
 	p.pitch_scale = randf_range(0.95, 1.05)
-	p.volume_db = 12
+	p.volume_db = 3
 	p.play()
 	p.finished.connect(p.queue_free)
 
