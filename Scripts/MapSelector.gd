@@ -1,8 +1,8 @@
 extends Control
  
+@onready var dungeon = $"../Dungeon"
 @onready var earth = $"../Earth"
 @onready var ice = $"../Ice"
-@onready var dungeon = $"../Dungeon"
 @onready var moon = $"../Moon"
  
 @onready var map_label = $MapLabel
@@ -14,17 +14,17 @@ var maps := []
 var map_names := []
 var map_scenes := []
 var current_index := 0
+@onready var dungeon_status_button = $"../Dungeon/Button"
 @onready var earth_status_button = $"../Earth/Button"
 @onready var ice_status_button = $"../Ice/Button"
-@onready var dungeon_status_button = $"../Dungeon/Button"
 @onready var moon_status_button = $"../Moon/Button"
  
 var status_buttons := []
  
  
 func _ready():
-	maps = [earth, ice, dungeon, moon]
-	map_names = ["Earth", "Ice", "Dungeon", "Moon"]
+	maps = [dungeon, earth, ice, moon]
+	map_names = ["Dungeon", "Earth", "Ice", "Moon"]
  
 	status_buttons = [
 		earth_status_button,

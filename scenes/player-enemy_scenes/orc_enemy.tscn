@@ -177,8 +177,10 @@ radius = 9.0
 [sub_resource type="MeshTexture" id="MeshTexture_6wsfp"]
 
 [node name="OrcEnemy" type="Node2D"]
+texture_filter = 1
 
 [node name="Enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
+texture_filter = 1
 position = Vector2(19, 18)
 collision_layer = 2
 collision_mask = 3
@@ -193,6 +195,7 @@ animation = &"death_left"
 [node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_jap2g")
+disabled = true
 
 [node name="Enemy2D" type="Sprite2D" parent="Enemy"]
 visible = false
@@ -210,6 +213,7 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_7equ6")
 
 [node name="enemy_HP_bar" type="TextureProgressBar" parent="Enemy"]
+texture_filter = 1
 offset_left = -9.0
 offset_top = -21.0
 offset_right = 9.0

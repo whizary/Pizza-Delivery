@@ -56,8 +56,6 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
 	
-	# temp
-	var t = Input.is_action_pressed("key_t")
 	
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
@@ -96,41 +94,49 @@ func _physics_process(delta):
 			move_and_collide(Vector2(0, -100))
 			dashup.play("default")
 			dashup2.play("default")
+			Global.stamina -= 10
 
 		elif back and right:
 
 			dashrightupsidedown.play("default")
 			dashup.play("default")
 			move_and_collide(Vector2(70, -70))
+			Global.stamina -= 10
 		elif back and left:
 
 			dashleftupsidedown.play("default")
 			dashup2.play("default")
 			move_and_collide(Vector2(-70, -70))
+			Global.stamina -= 10
 			
 		elif forward and right:
 
 			dash.play("default")
 			dashdown2.play("default")
 			move_and_collide(Vector2(70, 70))
+			Global.stamina -= 10
 		elif forward and left:
 
 			dashinverted.play("default")
 			dashdown.play("default")
 			move_and_collide(Vector2(-70, 70))
+			Global.stamina -= 10
 		elif right:
 
 			dash.play("default")
 			move_and_collide(Vector2(100, 0))
+			Global.stamina -= 10
 		elif left:
 
 			dashinverted.play("default")
 			move_and_collide(Vector2(-100, 0))
+			Global.stamina -= 10
 			
 		elif forward:
 			move_and_collide(Vector2(0, 100))
 			dashdown.play("default")
 			dashdown2.play("default")
+			Global.stamina -= 10
 
 		dodgeBool = false
 		dodgeCD = 2.0
@@ -172,10 +178,10 @@ func _physics_process(delta):
 	if run and delay <= 0 and cantrun == false:
 
 		delay = 0.3
-		AudioManager.play_random_from("grass")
+		AudioManager.play_random_from("stone")
 	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0  or left && forward and delay <= 0 or left && back and delay <= 0 or right && forward and delay <= 0 or right && back and delay <= 0:
 		delay = 0.5
-		AudioManager.play_random_from("grass")
+		AudioManager.play_random_from("stone")
 	else:
 		delay -= delta
 		
@@ -222,10 +228,6 @@ func _physics_process(delta):
 		
 	elif bluepowerup == false and Global.spikesactive == true:
 		Global.spikesactive = false
-
-	#if t and Global.bossalive == true:
-		#print("t pressed")
-		#Global.bossalive = false
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

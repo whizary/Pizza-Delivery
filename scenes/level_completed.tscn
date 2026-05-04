@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b41knla7utx1i" path="res://Buttons/pizza-quit-button.png" id="3_btyrf"]
 
 [node name="LevelCompleted" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
