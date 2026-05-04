@@ -56,15 +56,12 @@ func _unhandled_input(event):
 		# första pratet, key_quest.gd sköter dialogen
 		if TakeQuest.visible and quest_taken == false:
 			quest_taken = true
-			Global.movement = false
 			TakeQuest.visible = false
 			return
 
 		# återvänd efter klarad quest, key_quest.gd sköter slutdialogen
 		if completequest1.visible == true:
-			Global.movement = false
 			await get_tree().create_timer(5.0).timeout
-			Global.movement = true
 			return
 
 func give_food_reward():

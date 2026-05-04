@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=103 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_xdbph"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_82mmt"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" uid="uid://k3dms4yyiqn4" path="res://key.gd" id="4_qs0nd"]
 [ext_resource type="Texture2D" uid="uid://b4sb1fgsph0ct" path="res://Coin_Gems/key_32x32_24f.png" id="5_o4jhv"]
 [ext_resource type="Script" uid="uid://byha6cnana2h6" path="res://dungeonbossroomdoor.gd" id="6_jcpia"]
-[ext_resource type="Script" uid="uid://bs5qmp10cwbc" path="res://scenes/map_scenes/pizza.gd" id="7_3ilge"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="7_7lv8o"]
-[ext_resource type="Texture2D" uid="uid://d35fvmhhkgnp3" path="res://Images/pizza.png" id="7_e4gw3"]
 [ext_resource type="PackedScene" uid="uid://d3txjlavhqsmo" path="res://quest_giver.tscn" id="8_cwcqt"]
 [ext_resource type="PackedScene" uid="uid://cya420bwuh1ja" path="res://Inventory_Item.tscn" id="9_yxgye"]
 [ext_resource type="Texture2D" uid="uid://ccvqsf0m2fht4" path="res://item_icons/Food.webp" id="10_wym2t"]
@@ -214,10 +212,6 @@ radius = 5.0990195
 [sub_resource type="SystemFont" id="SystemFont_8mbj2"]
 font_weight = 100
 font_stretch = 50
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ilge"]
-radius = 10.99707
-height = 37.98999
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ib7k"]
 size = Vector2(11.068634, 13.9999695)
@@ -518,7 +512,6 @@ animations = [{
 radius = 6.1366105
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(2, 0)
 
 [node name="map" parent="." instance=ExtResource("1_xdbph")]
 script = ExtResource("2_82mmt")
@@ -552,7 +545,6 @@ shape = SubResource("CircleShape2D_mn6qf")
 
 [node name="bossroomdoor" type="Area2D" parent="map"]
 position = Vector2(756, 817)
-rotation = -0.004495937
 script = ExtResource("6_jcpia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/bossroomdoor"]
@@ -680,53 +672,6 @@ theme_override_font_sizes/font_size = 10
 text = "Press E"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="map/PressE"]
-layout_mode = 0
-offset_left = 1772.0
-offset_top = 2106.0
-offset_right = 1827.0
-offset_bottom = 2129.0
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Ally"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PressE2" type="Control" parent="map"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 754.0
-offset_top = 855.0
-offset_right = 794.0
-offset_bottom = 895.0
-
-[node name="Label" type="Label" parent="map/PressE2"]
-layout_mode = 0
-offset_left = -13.0
-offset_top = -72.0
-offset_right = 42.0
-offset_bottom = -49.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Boss Room"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pizza" type="Area2D" parent="map"]
-position = Vector2(1783, 2416)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("7_3ilge")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Pizza"]
-position = Vector2(0, -1)
-rotation = -1.5934856
-shape = SubResource("CapsuleShape2D_3ilge")
-
-[node name="Sprite2D" type="Sprite2D" parent="map/Pizza"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_e4gw3")
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(743.522, 872.48785)
@@ -893,8 +838,6 @@ shape = SubResource("CircleShape2D_awf4c")
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]
 [connection signal="body_entered" from="map/bossroomdoor" to="map/bossroomdoor" method="_on_body_entered"]
-[connection signal="body_entered" from="map/Pizza" to="map/Pizza" method="_on_body_entered"]
-[connection signal="body_exited" from="map/Pizza" to="map/Pizza" method="_on_body_exited"]
 [connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]
