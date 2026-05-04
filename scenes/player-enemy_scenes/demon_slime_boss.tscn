@@ -570,11 +570,13 @@ shape = SubResource("RectangleShape2D_irtee")
 disabled = true
 
 [node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_t25a5")
 animation = &"Boss_Attack_Left"
 
 [node name="BossSprite2D" type="Sprite2D" parent="Boss" groups=["boss"]]
 visible = false
+texture_filter = 1
 texture = ExtResource("86_aunr3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Boss" groups=["boss"]]
@@ -596,6 +598,7 @@ shape = SubResource("RectangleShape2D_tym8k")
 debug_color = Color(0.12941177, 0.61960787, 0.40392157, 0.5019608)
 
 [node name="ColorRect" type="ColorRect" parent="Boss/AttackTelegraph"]
+texture_filter = 1
 offset_left = -53.0
 offset_top = 49.0
 offset_right = 97.0
@@ -603,6 +606,7 @@ offset_bottom = 119.0
 color = Color(1, 0.023529412, 0.105882354, 0.28627452)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Boss"]
+texture_filter = 1
 position = Vector2(0, 39)
 emitting = false
 amount = 40

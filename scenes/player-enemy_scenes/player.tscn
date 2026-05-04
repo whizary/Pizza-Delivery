@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=144 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_g0yvd"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="2_1xkb1"]
@@ -757,6 +757,7 @@ one_way_collision_margin = 0.0
 
 [node name="forceshield" type="AnimatedSprite2D" parent="Player"]
 visible = false
+texture_filter = 1
 position = Vector2(-1, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8eeqe")
@@ -772,11 +773,13 @@ texture = ExtResource("3_aoi48")
 [node name="Player_Sprite2D" type="Sprite2D" parent="Player"]
 visible = false
 z_index = 1
+texture_filter = 1
 position = Vector2(-1, 2)
 texture = ExtResource("4_3do7u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 z_index = 1
+texture_filter = 1
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_7ldla")
 animation = &"WalkLeft"
@@ -789,40 +792,50 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_aoi48")
 
 [node name="dash" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(-33.4, -3.9)
 sprite_frames = SubResource("SpriteFrames_wohnl")
 
 [node name="dashinverted" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(31.5, -3.9)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_xwi16")
 
 [node name="dashup" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(-15.4, 40.008)
 rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_3vlem")
 
 [node name="dashup2" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(24.608, 55.407997)
-rotation = 3.1415925
-sprite_frames = SubResource("SpriteFrames_3vlem")
+texture_filter = 1
+position = Vector2(13.6, 40.008)
+rotation = 1.5707964
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_pukcj")
 
 [node name="dashdown" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(13.6, -17.992)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_usbl8")
 
 [node name="dashdown2" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(31.592003, -4.3919992)
-rotation = -3.1415925
-sprite_frames = SubResource("SpriteFrames_usbl8")
+texture_filter = 1
+position = Vector2(-15.4, -17.992)
+rotation = 1.5707964
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_2ijsl")
 
 [node name="dashrightupsidedown" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(-31.992188, 25.007813)
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_qavoy")
 
 [node name="dashleftupsidedown" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 position = Vector2(30.007813, 25.007813)
 scale = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_4grkl")
@@ -836,6 +849,7 @@ zoom = Vector2(2.295, 2.295)
 
 [node name="STA_bar" type="TextureProgressBar" parent="Player/Camera2D/CanvasLayer"]
 z_index = 1
+texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -855,6 +869,7 @@ tint_progress = Color(0.06666667, 0.3372549, 0.7411765, 1)
 [node name="HP_bar" type="TextureProgressBar" parent="Player/Camera2D/CanvasLayer"]
 z_index = 1
 z_as_relative = false
+texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -875,6 +890,7 @@ tint_progress = Color(1, 0.047058824, 0.105882354, 1)
 visible = false
 z_index = 1
 z_as_relative = false
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -921,6 +937,7 @@ layer = 0
 
 [node name="Inventory_Hotbar" parent="Player/Camera2D/InventoryHotbar" instance=ExtResource("31_hvc7r")]
 z_as_relative = false
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_right = 0.5
@@ -942,6 +959,7 @@ grow_vertical = 2
 color = Color(0.192157, 0.376471, 0.321569, 1)
 
 [node name="Label" type="Label" parent="Player/Camera2D/InventoryUI/ColorRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -956,6 +974,7 @@ text = "Inventory
 "
 
 [node name="Inventory_UI" parent="Player/Camera2D/InventoryUI/ColorRect" instance=ExtResource("30_ydv1g")]
+texture_filter = 1
 layout_mode = 1
 
 [node name="InteractUI" type="CanvasLayer" parent="Player/Camera2D"]
@@ -963,6 +982,7 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Player/Camera2D/InteractUI"]
 visible = false
+texture_filter = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -977,6 +997,7 @@ grow_vertical = 0
 color = Color(0.192157, 0.376471, 0.321569, 1)
 
 [node name="Label" type="Label" parent="Player/Camera2D/InteractUI/ColorRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1009,6 +1030,7 @@ position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_qqcod")
 
 [node name="key-quest" parent="Player" instance=ExtResource("32_y6b84")]
+texture_filter = 1
 offset_left = -442.0
 offset_top = -251.0
 offset_right = -442.0
@@ -1016,6 +1038,7 @@ offset_bottom = -251.0
 
 [node name="active" type="Label" parent="Player"]
 z_index = 40
+texture_filter = 1
 offset_left = -192.99219
 offset_top = -94.99219
 offset_right = 193.00781
