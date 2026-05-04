@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var BossAttackCollision = $AttackTelegraph/CollisionShape2D
 @onready var AttackAreaVisible = $AttackTelegraph/ColorRect
 @onready var BloodEffect = $GPUParticles2D
+@onready var BossCollision = $CollisionShape2D
 
 var player = null
 var is_dead = false
@@ -25,6 +26,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	_animated_enemy_sprite.play("idle_right")
 	_animated_enemy_sprite.position.y = -40
+	BossCollision.position.y = 2
 	BossArea.position.y = -40
 	BloodEffect.position.y = 0
 	attack_telegraph.visible = false
@@ -133,23 +135,23 @@ func _start_attack():
 	await _animated_enemy_sprite.animation_finished
 	is_attacking = false
 
-func _on_boss_area_2d_body_entered(body):
+func _on_boss_area_2d_area_entered(area: Area2D) -> void:
 	if is_dead:
 		return
 	if Global.death == true:
 		return
-	if body.is_in_group("player"):
+	if area.is_in_group("player"):
+		Global.health -= 10
+	if area.name == "AttackArea" and Global.boss_damaged == true:
 		if is_attacking:
-			Global.boss_health -= 10
 			BloodEffect.emitting = true
-			AudioManager.play_boss_sound(self, "BossHurt")
 			_check_phase_2()
 			if Global.boss_health <= 0:
 				die()
 			return
 		if is_taking_damage:
+			BloodEffect.emitting = true
 			return
-		
 		is_taking_damage = true
 		velocity = Vector2.ZERO
 		

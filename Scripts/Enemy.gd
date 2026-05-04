@@ -73,18 +73,18 @@ func _idle_face_player():
 	else:
 		_animated_enemy_sprite.play("idle_left")
 	
-func _on_area_2d_body_entered(body):
-	if is_dead:
-		return
-	
-	enemy_health -= 10
-	
-	if enemy_health <= 0:
-		die()
-		return
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "AttackArea":
+		if is_dead:
+			return
+		enemy_health -= 10
+		print("Enemy hit")
+		if enemy_health <= 0:
+			die()
+			return
 	
 	if Global.death == false and Global.iframes == false:
-		if body.is_in_group("player"):
+		if area.is_in_group("player"):
 			Global.iframes = true
 			Global.iframesTimer = 1.0
 			Global.health -= 10.0
