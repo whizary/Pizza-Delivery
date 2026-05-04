@@ -16,8 +16,6 @@ extends CharacterBody2D
 @onready var dashdown2: AnimatedSprite2D = $dashdown2
 @onready var dashrightupsidedown: AnimatedSprite2D = $dashrightupsidedown
 @onready var dashleftupsidedown: AnimatedSprite2D = $dashleftupsidedown
-
-# NEW: AttackArea reference (adjust path if needed)
 @onready var attack_area = $AttackAnimation/AttackArea
 
 var player_in_range = false
@@ -114,7 +112,6 @@ func _physics_process(delta):
 		await $AttackAnimation.animation_finished
 		attack_area.monitoring = false
 		attack_area.monitorable = false
-
 		$AttackAnimation.visible = false
 	
 	# DODGE
@@ -257,13 +254,12 @@ func _physics_process(delta):
 		#Global.bossalive = false
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-func _on_attack_area_body_entered(body):
-	if body.is_in_group("enemy"):
-		print("Enemy hit: ", body)
-	elif body.is_in_group("boss"):
-		print("Boss hit: ", body)
-
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("boss"):
+		Global.boss_health -= 10
+		Global.boss_damaged = true
+		AudioManager.play_boss_sound(self, "BossHurt")
+		print("Boss hit")
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func use_redgem_power_up(): # damage boost
