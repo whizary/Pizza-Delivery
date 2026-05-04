@@ -873,6 +873,7 @@ safe_margin = 0.6
 script = ExtResource("1_g0yvd")
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="Player"]
+visible = false
 texture_filter = 1
 rotation = -0.00048653223
 scale = Vector2(0.47409847, 0.68198544)
