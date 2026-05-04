@@ -16,7 +16,7 @@ extends CharacterBody2D
 @onready var dashdown2: AnimatedSprite2D = $dashdown2
 @onready var dashrightupsidedown: AnimatedSprite2D = $dashrightupsidedown
 @onready var dashleftupsidedown: AnimatedSprite2D = $dashleftupsidedown
-
+@onready var attack_area = $AttackAnimation/AttackArea
 
 var player_in_range = false
 var gravity = 0
@@ -24,11 +24,14 @@ var bluepowerup = false
 var delay = 0
 var dooropen = false
 
-#Dodge variables
+# Facing direction
+var facing_dir := "down"
+
+# Dodge variables
 var dodgeCD = 2.0
 var dodgeBool = true
 
-#Movement variables
+# Movement variables
 var walk_speed = 150.0
 var normal_walk_speed = 150.0
 var normal_run_speed = 200.0
@@ -39,10 +42,13 @@ var cantrun = false
 
 func _ready():
 	Global.movement = true
+	# Make sure AttackArea is off by default
+	attack_area.monitoring = false
+	attack_area.monitorable = false
 	
 func _process(delta):
 	dodgeCD -= delta
-	if dodgeCD <=0 && dodgeBool == false:
+	if dodgeCD <= 0 and dodgeBool == false:
 		dodgeBool = true
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -56,15 +62,10 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
 	
-	# temp
-	var t = Input.is_action_pressed("key_t")
+	#var t = Input.is_action_pressed("key_t")
 	
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
-		$Camera2D/CanvasLayer/boss_HP_bar.position = Vector2(660, 800)
-		$Camera2D/CanvasLayer/boss_HP_bar.scale = Vector2(5, 3)
-		$Camera2D/CanvasLayer/Boss_Name.position = Vector2(780, 730)
-		$Camera2D/CanvasLayer/Boss_Name.scale = Vector2(3, 3)
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
 		$Camera2D/CanvasLayer/Boss_Name.visible = false
 	
@@ -80,63 +81,76 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = true
 		$Camera2D/CanvasLayer/Boss_Name.visible = true
 	
-	#Movement variables	
+	# Movement input
 	var run = Input.is_action_pressed("run")
-	var forward = Input.is_action_pressed('move_down')
-	var right = Input.is_action_pressed('move_right')
-	var left = Input.is_action_pressed('move_left')
-	var back = Input.is_action_pressed('move_up')
+	var forward = Input.is_action_pressed("move_down")
+	var right = Input.is_action_pressed("move_right")
+	var left = Input.is_action_pressed("move_left")
+	var back = Input.is_action_pressed("move_up")
 	var dodge = Input.is_action_just_pressed("dodge")
+	var attack = Input.is_action_just_pressed("left_click")
 	
-	#DODGE
-	if dodge and dodgeBool:
+	# ATTACK
+	if attack:
+		$AttackAnimation.visible = true
+		attack_area.monitoring = true
+		attack_area.monitorable = true
 
-		if back and right == false and left == false:
-
-			position += Vector2(0, -100)
+		match facing_dir:
+			"right":
+				$AttackAnimation.position = Vector2(20, 0)
+				$AttackAnimation.play("AttackRight")
+			"left":
+				$AttackAnimation.position = Vector2(-20, 0)
+				$AttackAnimation.play("AttackLeft")
+			"up":
+				$AttackAnimation.position = Vector2(0, -20)
+				$AttackAnimation.play("AttackUp")
+			"down":
+				$AttackAnimation.position = Vector2(0, 20)
+				$AttackAnimation.play("AttackDown")
+		await $AttackAnimation.animation_finished
+		attack_area.monitoring = false
+		attack_area.monitorable = false
+		$AttackAnimation.visible = false
+	
+	# DODGE
+	if dodge and dodgeBool: 
+		if back and right == false and left == false: 
+			move_and_collide(Vector2(0, -100))
 			dashup.play("default")
-			dashup2.play("default")
-
-		elif back and right:
-
+			dashup2.play("default") 
+		elif back and right: 
 			dashrightupsidedown.play("default")
 			dashup.play("default")
-			position += Vector2(70, -70)
-		elif back and left:
-
+			move_and_collide(Vector2(70, -70))
+		elif back and left: 
 			dashleftupsidedown.play("default")
 			dashup2.play("default")
-			position += Vector2(-70, -70)
-			
-
-		elif forward and right:
-
+			move_and_collide(Vector2(-70, -70))
+		elif forward and right: 
 			dash.play("default")
 			dashdown2.play("default")
-			position += Vector2(70, 70)
-		elif forward and left:
-
+			move_and_collide(Vector2(70, 70))
+		elif forward and left: 
 			dashinverted.play("default")
 			dashdown.play("default")
-			position += Vector2(-70, 70)
-		elif right:
-
+			move_and_collide(Vector2(-70, 70))
+		elif right: 
 			dash.play("default")
-			position += Vector2(100, 0)
-		elif left:
-
+			move_and_collide(Vector2(100, 0))
+		elif left: 
 			dashinverted.play("default")
-			position += Vector2(-100, 0)
-			
+			move_and_collide(Vector2(-100, 0))
 		elif forward:
-			position += Vector2(0, 100)
+			move_and_collide(Vector2(0, 100))
 			dashdown.play("default")
 			dashdown2.play("default")
-
+ 
 		dodgeBool = false
 		dodgeCD = 2.0
-		
-	#HEALTH
+	
+	# HEALTH
 	if Global.health <= 0.0 and Global.death == false:
 		AudioManager.music_player.stop()
 		Global.death = true
@@ -149,12 +163,11 @@ func _physics_process(delta):
 	if Global.iframesTimer <= 0.0:
 		Global.iframes = false
 	
-	#STAMINA AND RUN CODE
+	# STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
 		Global.stamina = Global.maxStamina
 
 	if cantrun == true or run == false:
-
 		Global.stamina += delta * Global.staminaRecovery
 
 	if run and Global.stamina <= 0.0:
@@ -164,47 +177,59 @@ func _physics_process(delta):
 		cantrun = false
 		
 	if run and Global.stamina > 0.0 and cantrun == false:
-
 		walk_speed = normal_run_speed
 		Global.stamina -= delta * Global.staminaDrain
-	elif right or left or forward or back  or left && forward or left && back or right && forward or right && back:
+	elif right or left or forward or back or left and forward or left and back or right and forward or right and back:
 		walk_speed = normal_walk_speed
 
 	if run and delay <= 0 and cantrun == false:
-
 		delay = 0.3
 		AudioManager.play_random_from("grass")
-	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0  or left && forward and delay <= 0 or left && back and delay <= 0 or right && forward and delay <= 0 or right && back and delay <= 0:
+	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0 or left and forward and delay <= 0 or left and back and delay <= 0 or right and forward and delay <= 0 or right and back and delay <= 0:
 		delay = 0.5
 		AudioManager.play_random_from("grass")
 	else:
 		delay -= delta
 		
-	#MOVEMENT
+	# MOVEMENT + FACING + IDLE
 	if right:
+		facing_dir = "right"
 		velocity.x += walk_speed
 		_animated_sprite.play("WalkRight")
 	elif left:
+		facing_dir = "left"
 		velocity.x -= walk_speed
 		_animated_sprite.play("WalkLeft")
 	elif back:
+		facing_dir = "up"
 		velocity.y -= walk_speed
 		_animated_sprite.play("WalkBack")
 	elif forward:
+		facing_dir = "down"
 		velocity.y += walk_speed
 		_animated_sprite.play("WalkForward")
 	else:
-		_animated_sprite.play("IdleFront")
-	if right && forward:
+		match facing_dir:
+			"right":
+				_animated_sprite.play("IdleRight")
+			"left":
+				_animated_sprite.play("IdleLeft")
+			"up":
+				_animated_sprite.play("IdleBack")
+			"down":
+				_animated_sprite.play("IdleFront")
+
+	# DIAGONAL MOVEMENT
+	if right and forward:
 		velocity.x = walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
-	elif left && back:
+	elif left and back:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = -walk_speed * 0.7
-	elif right && back:
+	elif right and back:
 		velocity.x = walk_speed * 0.7
 		velocity.y = -walk_speed * 0.7
-	elif left && forward:
+	elif left and forward:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
 	
@@ -224,14 +249,20 @@ func _physics_process(delta):
 	elif bluepowerup == false and Global.spikesactive == true:
 		Global.spikesactive = false
 
-	if t and Global.bossalive == true:
-		print("t pressed")
-		Global.bossalive = false
+	#if t and Global.bossalive == true:
+		#print("t pressed")
+		#Global.bossalive = false
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("boss"):
+		Global.boss_health -= 10
+		Global.boss_damaged = true
+		AudioManager.play_boss_sound(self, "BossHurt")
+		print("Boss hit")
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 func use_redgem_power_up(): # damage boost
-
 	var powerupduration = 15.5
 	print("redgem_powerup")
 	AudioManager.play_sound("powerup")
@@ -245,9 +276,7 @@ func use_redgem_power_up(): # damage boost
 	AudioManager.play_sound("powerdown")
 
 func use_bluegem_power_up(): #force shield
-
 	bluepowerup = true
-
 	print("bluegem_powerup")
 	AudioManager.play_sound("powerup")
 	$forceshield.visible = true  # show
@@ -256,31 +285,22 @@ func use_bluegem_power_up(): #force shield
 	$active.text = ""
 	
 func use_yellowgem_power_up(): # speed boost
-
 	var powerupduration = 5.5
-
 	print("yellowgem_powerup")
-
 	normal_walk_speed = walk_speed * 1.3
-
 	normal_run_speed = walk_speed * 1.6
 	AudioManager.play_sound("powerup")
 	$active.text = "Speed Boost Activated"
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
-
 	print("yellowgem_powerdown")
-
 	normal_walk_speed = 150.0
-
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
 
 func use_greengem_power_up(): # health boost
-
 	print("greengem_powerup")
-
 	Global.health = 100.0
 	AudioManager.play_sound("powerup")
 	$active.text = "Health Boost Activated"
@@ -288,13 +308,9 @@ func use_greengem_power_up(): # health boost
 	$active.text = ""
 
 func use_blackgem_power_up(): #invisibility med lite slowness
-
 	var powerupduration = 7.5
-
 	print("blackgem_powerup")
-
 	normal_walk_speed = walk_speed * 0.75
-
 	normal_run_speed = (walk_speed + 50) * 0.75
 	Global.stop_distance = 9999999999999
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.4) # blir mer transparent
@@ -303,52 +319,38 @@ func use_blackgem_power_up(): #invisibility med lite slowness
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
-
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # resetar transparency
 	Global.stop_distance = 35.0
 	normal_walk_speed = 150.0
-
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
 	print("blackgem_powerdown")
 
 func use_blackcoin_power_up(): #invert movement
-
 	var powerupduration = 22.5
-
 	print("blackcoin_powerup")
 
 	InputMap.action_erase_events("move_right")
-
 	InputMap.action_erase_events("move_left")
-
 	InputMap.action_erase_events("move_up")
-
 	InputMap.action_erase_events("move_down")
 
 	var event_d = InputEventKey.new()
-
 	event_d.physical_keycode = KEY_D
-
 	InputMap.action_add_event("move_left", event_d)
 
 	var event_a = InputEventKey.new()
-
 	event_a.physical_keycode = KEY_A
-
 	InputMap.action_add_event("move_right", event_a)
 
 	var event_s = InputEventKey.new()
-
 	event_s.physical_keycode = KEY_S
-
 	InputMap.action_add_event("move_up", event_s)
 
 	var event_w = InputEventKey.new()
-
 	event_w.physical_keycode = KEY_W
-
 	InputMap.action_add_event("move_down", event_w)
+
 	AudioManager.play_sound("pickupcoin")
 	$active.text = "Inverted Controls Activated"
 	await get_tree().create_timer(2.5).timeout
@@ -356,64 +358,44 @@ func use_blackcoin_power_up(): #invert movement
 	await get_tree().create_timer(powerupduration).timeout
 
 	InputMap.action_erase_events("move_right")
-
 	InputMap.action_erase_events("move_left")
-
 	InputMap.action_erase_events("move_up")
-
 	InputMap.action_erase_events("move_down")
 
 	event_d = InputEventKey.new()
-
 	event_d.physical_keycode = KEY_D
-
 	InputMap.action_add_event("move_right", event_d)
 
 	event_a = InputEventKey.new()
-
 	event_a.physical_keycode = KEY_A
-
 	InputMap.action_add_event("move_left", event_a)
 
 	event_s = InputEventKey.new()
-
 	event_s.physical_keycode = KEY_S
-
 	InputMap.action_add_event("move_down", event_s)
 
 	event_w = InputEventKey.new()
-
 	event_w.physical_keycode = KEY_W
-
 	InputMap.action_add_event("move_up", event_w)
+
 	AudioManager.play_sound("powerdown")
 	print("blackcoin_powerdown")
 
 func use_redcoin_power_up(): # blindness and slowness
-
 	var powerupduration = 15.5
-
 	print("redcoin_powerup")
-
 	$Blackscreenmode.modulate = Color(1, 1, 1, 1) # show
-
 	$Blackscreenmega.modulate = Color(1, 1, 1, 1) # show
-
 	normal_walk_speed = walk_speed * 0.6
-
 	normal_run_speed = (walk_speed + 50) * 0.6
 	AudioManager.play_sound("pickupcoin")
 	$active.text = "Blindness Activated"
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
-
 	$Blackscreenmode.modulate = Color(1, 1, 1, 0) # hide
-
 	$Blackscreenmega.modulate = Color(1, 1, 1, 0) # hide
-
 	normal_walk_speed = 150
-
 	normal_run_speed = 200
 	AudioManager.play_sound("powerdown")
 	print("redcoin_powerdown")
@@ -423,13 +405,9 @@ func use_key():
 	print("key_picked_up")
 
 func _input(event):
-
 	if event.is_action_pressed("inventory"):
-
 		inventory_ui.visible = !inventory_ui.visible
-
 		get_tree().paused = !get_tree().paused
-
 		inventory_hotbar.visible = !inventory_hotbar.visible
 
 func apply_item_effect(item):
@@ -469,7 +447,7 @@ func use_door():
 	if Global.dooropen == true:
 		print("newmap")
 		await resetglobal()
-		get_tree().change_scene_to_file("res://menu.tscn") # Byter till meny scenen när man går in i dörröppningen
+		get_tree().change_scene_to_file("res://menu.tscn")
 		Global.normalspawn = true
 
 func use_spikes():
@@ -483,7 +461,7 @@ func use_boss_door():
 	if Global.bossdooropen == true and Global.bossalive == true:
 		print("bossroomentered")
 		Global.bossroomactive = true
-		get_tree().change_scene_to_file("res://scenes/map_scenes/dungeon_boss_room.tscn") # Byter till dungeon boss room scenen när man går in i dörröppningen
+		get_tree().change_scene_to_file("res://scenes/map_scenes/dungeon_boss_room.tscn")
 
 func use_dungeon_door():
 	if Global.dungeondooropen == true and Global.bossalive == false and Global.bossroomactive == true:

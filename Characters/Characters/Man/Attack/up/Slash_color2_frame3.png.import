@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsb3qb25yuile"
-path="res://.godot/imported/Slash_color2_frame9.png-a912c4e6df1c0af135f15a103103fe35.ctex"
+uid="uid://b4vx7j0gwxdc6"
+path="res://.godot/imported/Slash_color2_frame3.png-f48baab551cf04e2cf46dffa0637d47b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Characters/Man/Attack/Slash_color2_frame9.png"
-dest_files=["res://.godot/imported/Slash_color2_frame9.png-a912c4e6df1c0af135f15a103103fe35.ctex"]
+source_file="res://Characters/Characters/Man/Attack/up/Slash_color2_frame3.png"
+dest_files=["res://.godot/imported/Slash_color2_frame3.png-f48baab551cf04e2cf46dffa0637d47b.ctex"]
 
 [params]
 

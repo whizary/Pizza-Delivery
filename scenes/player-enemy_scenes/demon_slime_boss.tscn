@@ -122,7 +122,8 @@
 [ext_resource type="Texture2D" uid="uid://wtjpy0mvmp7g" path="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_11.png" id="120_clvx3"]
 [ext_resource type="Texture2D" uid="uid://mnkiyadmbdue" path="res://Characters/Bosses/Demon Slime/WALK/Right/demon_walk_12.png" id="121_y55oa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vapqn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irtee"]
+size = Vector2(58, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t25a5"]
 animations = [{
@@ -555,18 +556,17 @@ scale_max = 4.0
 color = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
 collision_mode = 2
 
-[node name="DemonSlimeBoss" type="Node2D" groups=["boss"]]
+[node name="DemonSlimeBoss" type="Node2D" groups=["boss", "bossGlobal"]]
 
 [node name="Boss" type="CharacterBody2D" parent="." groups=["boss"]]
-texture_filter = 1
-collision_layer = 2
-collision_mask = 3
+collision_layer = 16
+collision_mask = 128
 safe_margin = 0.1
 script = ExtResource("1_irtee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss" groups=["boss"]]
-position = Vector2(1, 40)
-shape = SubResource("CapsuleShape2D_vapqn")
+position = Vector2(3, 42)
+shape = SubResource("RectangleShape2D_irtee")
 disabled = true
 
 [node name="AnimatedBossSprite2D" type="AnimatedSprite2D" parent="Boss" groups=["boss"]]
@@ -615,4 +615,4 @@ one_shot = true
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_tym8k")
 
-[connection signal="body_entered" from="Boss/BossArea2D" to="Boss" method="_on_boss_area_2d_body_entered"]
+[connection signal="area_entered" from="Boss/BossArea2D" to="Boss" method="_on_boss_area_2d_area_entered"]
