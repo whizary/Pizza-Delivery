@@ -31,7 +31,7 @@ var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
 var staminaRecovery = 25.0
-var stop_distance = 35.0 
+var stop_distance = 35.0
 var boss_health = 1000.0
 var boss_max_health = 1000.0
 var bossalive = true
@@ -60,7 +60,7 @@ var player_node: Node = null
 @onready var inventory_slot_scene = preload("res://Inventory_Slot.tscn")
  
 func _ready():
-	inventory.resize(12)
+	inventory.resize(2)
 	hotbar_inventory.resize(hotbar_size)
  
 func add_item(item: Dictionary, to_hotbar = false) -> bool:
@@ -114,15 +114,21 @@ func drop_item(item_data, drop_position):
 	if not item_data.has("scene_path"):
 		print("Missing scene_path in item_data:", item_data)
 		return
+
 	var item_scene: PackedScene = load(item_data["scene_path"])
+
 	if item_scene == null:
 		print("Could not load scene:", item_data["scene_path"])
 		return
+
 	var item_instance = item_scene.instantiate()
-	item_instance.set_item_data(item_data)
-	drop_position = Global.player_node.global_position
-	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
+
+	item_instance.global_position = drop_position
+	item_instance.set_item_data(item_data)
+
+	print("GLOBAL DROP POSITION:", drop_position)
+	print("ITEM SPAWNED AT:", item_instance.global_position)
 func add_hotbar_item(item):
 	for i in range(hotbar_size):
 		if hotbar_inventory[i] == null:
@@ -163,7 +169,6 @@ func swap_inventory_items(index1: int, index2: int) -> bool:
 func swap_hotbar_items(index1: int, index2: int) -> bool:
 	if index1 < 0 or index1 >= hotbar_inventory.size() or index2 < 0 or index2 >= hotbar_inventory.size():
 		return false
-	print("BEFORE SWAP:", index1, index2, inventory[index1], inventory[index2])
 	var temp = hotbar_inventory[index1]
 	hotbar_inventory[index1] = hotbar_inventory[index2]
 	hotbar_inventory[index2] = temp

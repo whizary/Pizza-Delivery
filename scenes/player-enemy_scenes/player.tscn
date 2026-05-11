@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=113 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_g0yvd"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="2_1xkb1"]
@@ -187,9 +187,6 @@ animations = [{
 "name": &"WalkRight",
 "speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_olqyp"]
-radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("26_7hyyu")
@@ -751,7 +748,7 @@ safe_margin = 0.6
 script = ExtResource("1_g0yvd")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.9921875, 7.0078125)
+position = Vector2(-1, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ph33w")
 one_way_collision_margin = 0.0
@@ -799,17 +796,6 @@ z_index = 11
 position = Vector2(-1.1221218, -1.0387316)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_aoi48")
-
-[node name="PlayerCollisionShape2D2" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.992, 7.008)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ph33w")
-one_way_collision_margin = 0.0
-
-[node name="PlayeCollisionShape2D2" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, -6)
-scale = Vector2(1, 1.1200001)
-shape = SubResource("CircleShape2D_olqyp")
 
 [node name="dash" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-33.4, -3.9)
@@ -965,7 +951,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.192157, 0.376471, 0.321569, 1)
+color = Color(0.35934335, 0.25791314, 0.055502333, 1)
 
 [node name="Label" type="Label" parent="Player/Camera2D/InventoryUI/ColorRect"]
 layout_mode = 1

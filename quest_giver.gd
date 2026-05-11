@@ -33,14 +33,14 @@ func _process(delta):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false
-		TakeQuest.visible = false
+		#TakeQuest.visible = false
 		completequest1.visible = false
 		Global.allyQ = false
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player") and quest_taken == false and Global.allyRewardGiven == false and Global.AllyquestComplete == false:
 		player_in_range = true
-		TakeQuest.visible = true
+		#TakeQuest.visible = true
 		Global.allyQ = true
 
 	if body.is_in_group("player") and Global.AllyquestComplete == true and Global.allyRewardGiven == false:

@@ -38,7 +38,7 @@ var cantrun = false
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 func _ready():
-	pass
+	Global.player_node = self
 	
 func _process(delta):
 	if Global.movement == false:
@@ -89,7 +89,7 @@ func _physics_process(delta):
 		await $AttackAnimation.animation_finished
 		$AttackAnimation.visible = false
 	#DODGE
-	if dodge and dodgeBool:
+	if dodge and dodgeBool and Global.movement == true:
  
 		if back and right == false and left == false:
  
@@ -405,15 +405,13 @@ func use_key():
 	print("key_picked_up")
  
 func _input(event):
- 
 	if event.is_action_pressed("inventory"):
- 
 		inventory_ui.visible = !inventory_ui.visible
- 
-		get_tree().paused = !get_tree().paused
- 
 		inventory_hotbar.visible = !inventory_hotbar.visible
- 
+	if inventory_ui.visible == true:
+		Engine.time_scale = 0.0
+	else:
+		Engine.time_scale = 1.0
 func apply_item_effect(item):
 	match item["effect"]:
 		"Stamina":
@@ -424,8 +422,7 @@ func apply_item_effect(item):
 			Global.increase_inventory_size(5)
 			print("Slots increased to ", Global.inventory.size())
 		"Health boost":
-			Global.maxHealth = 200
-			Global.health = Global.maxHealth
+			Global.health += 40
 		_:
 			print("There is no effect for this item")
 func use_hotbar_item(slot_index):

@@ -96,6 +96,7 @@ func _process(_delta):
 	elif Global.tutorial_index == 10 and Input.is_action_just_pressed("inventory"):
 		main_label.text = "Good! You're ready."
 		barrier2.get_node("CollisionShape2D").disabled = true
+		barrier2.get_node("CollisionShape2D2").disabled = true
 		await get_tree().create_timer(2.0).timeout
 		Global.hottis = false
 		texture_rect.visible = false

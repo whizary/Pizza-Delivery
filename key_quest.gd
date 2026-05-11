@@ -6,7 +6,7 @@ extends Control
 
 @onready var deny = $TextureRect/Deny
 @onready var accept = $TextureRect/Accept
-
+var hotbar
 @onready var quest_1 = $Quest1
 @onready var quest_2 = $Quest2
 @onready var label1 = $Quest1/Label
@@ -14,7 +14,7 @@ extends Control
 @onready var label3 = $Quest3/Label
 @onready var check_box = $Quest1/CheckBox
 @onready var check_box_2 = $Quest2/CheckBox2
-
+@onready var arrows_after_pizza = get_tree().current_scene.get_node_or_null("map/ArrowsAfterPizza")
 var dialogue_playing = false
 
 func _ready():
@@ -23,10 +23,19 @@ func _ready():
 	quest.visible = false
 	accept.visible = false
 	deny.visible = false
+	hotbar = get_tree().get_first_node_in_group("hotbar")
 
 func _process(delta):
 	# STOPPA ALLT med Henry om han redan är klar
+	# STOPPA HENRY HELT om han redan är klar
 	if Global.henry_dialog_done and Global.keyQ:
+		Global.keyQ = false
+		Global.keyquest_index = 1
+		Global.movement = true
+		quest.visible = false
+		accept.visible = false
+		deny.visible = false
+		keyText.text = ""
 		return
 	# HENRY
 	if !dialogue_playing \
@@ -42,6 +51,8 @@ func _process(delta):
 		Global.hottis = false
 		deny.visible = false
 		Global.keyquest_index = 1
+		Global.hottis = true
+		hotbar.visible = false
 		
 
 		nameText.text = "Henry"
@@ -61,7 +72,7 @@ func _process(delta):
 		await get_tree().create_timer(2.0).timeout
 		keyText.text = "Behind it... a powerful boss awaits."
 		await get_tree().create_timer(2.0).timeout
-		keyText.text = "Defeat it, and a key will appear."
+		keyText.text = "Defeat it, and a key will appear in the bottom right."
 		await get_tree().create_timer(2.0).timeout
 		keyText.text = "That key is your only way forward."
 		await get_tree().create_timer(2.0).timeout
@@ -73,14 +84,7 @@ func _process(delta):
 		keyText.text = ""
 		accept.visible = true
 		deny.visible = false
-		dialogue_playing = false
-
-	# SKIP DIALOG
-	if Input.is_action_just_pressed("KEY_SPACE") and dialogue_playing:
-		accept.visible = true
-		deny.visible = false
-		dialogue_playing = false
-		keyText.text = ""
+		dialogue_playing = true
 
 	# ALLY - ta questen
 	if !dialogue_playing and Global.allyquest_index == 0 and Global.allyQ == true and !Global.AllyquestComplete and Input.is_action_just_pressed("take_quest"):
@@ -215,15 +219,22 @@ func _on_accept_pressed():
 	# Henry
 	if Global.keyQ:
 		Global.henry_dialog_done = true
+		Global.keyQ = false
+		if arrows_after_pizza != null:
+			arrows_after_pizza.visible = true
+	
 		if quest_1.visible == true:
 			quest_2.visible = true
 			label2.text = "Find the Pizza"
-			
+			Global.hottis = false
+			hotbar.visible = true
 			check_box_2.button_pressed = false
 		else:
 			quest_1.visible = true
 			check_box.button_pressed = false
 			label1.text = "Find the Pizza"
+			Global.hottis = false
+			hotbar.visible = true
 
 		Global.keyquest_index = 1
 

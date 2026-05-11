@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=107 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_xdbph"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_82mmt"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dj7xn7xf13l6a" path="res://Coin_Gems/MonedaR.png" id="24_e10dr"]
 [ext_resource type="Script" uid="uid://baei3yfm1xwvw" path="res://Scripts/blackcoin.gd" id="25_dsypr"]
 [ext_resource type="Texture2D" uid="uid://caecmki6qlclg" path="res://Coin_Gems/MonedaP.png" id="26_jxhe6"]
+[ext_resource type="Texture2D" uid="uid://dx0nbh3h5gqno" path="res://item_icons/Bag.png" id="29_qs0nd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbu8i"]
 size = Vector2(26, 33)
@@ -681,6 +682,18 @@ text = "Press E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label3" type="Label" parent="map/PressE"]
+layout_mode = 0
+offset_left = 783.0
+offset_top = 888.0
+offset_right = 838.0
+offset_bottom = 911.0
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Press E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label2" type="Label" parent="map/PressE"]
 layout_mode = 0
 offset_left = 1772.0
@@ -690,6 +703,105 @@ offset_bottom = 2129.0
 theme_override_fonts/font = SubResource("SystemFont_8mbj2")
 theme_override_font_sizes/font_size = 10
 text = "Ally"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="map/PressE"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 842.0
+offset_right = 839.0
+offset_bottom = 865.0
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Henry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArrowsAfterPizza" type="Control" parent="map"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 2643.0
+offset_top = 811.0
+offset_right = 2698.0
+offset_bottom = 860.0
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 1626.0
+offset_top = 1084.0
+offset_right = 1681.0
+offset_bottom = 1133.0
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 2548.0
+offset_top = 1599.0
+offset_right = 2603.0
+offset_bottom = 1648.0
+rotation = -1.5707964
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 1260.0
+offset_top = 1077.0
+offset_right = 1315.0
+offset_bottom = 1126.0
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 869.0
+offset_right = 1033.0
+offset_bottom = 918.0
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="map/ArrowsAfterPizza"]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 1186.0
+offset_right = 1046.0
+offset_bottom = 1235.0
+rotation = -1.5707964
+theme_override_colors/font_color = Color(1, 0, 0.11764706, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 35
+text = "⮕"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -714,8 +826,21 @@ text = "Boss Room"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="map/PressE2"]
+layout_mode = 0
+offset_left = 786.0
+offset_top = -569.0
+offset_right = 840.0
+offset_bottom = -546.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pizza" type="Area2D" parent="map"]
-position = Vector2(1783, 2416)
+position = Vector2(2850, 984)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("7_3ilge")
 
@@ -784,6 +909,11 @@ visible = false
 position = Vector2(1873, 2339)
 scale = Vector2(0.9521072, 1.1202813)
 
+[node name="ebutton-appearance2" parent="." instance=ExtResource("11_kiww1")]
+visible = false
+position = Vector2(847, 949)
+scale = Vector2(0.9521072, 1.1202813)
+
 [node name="FirstSpawnHb" type="StaticBody2D" parent="." groups=["barrier"]]
 disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_dqayi")
@@ -803,7 +933,7 @@ position = Vector2(2164, 2152.5625)
 shape = SubResource("RectangleShape2D_dgn0p")
 
 [node name="Boss-key-quest" parent="." groups=["Henry"] instance=ExtResource("12_inq8d")]
-position = Vector2(1831, 2343)
+position = Vector2(810, 876)
 
 [node name="redgem" type="Area2D" parent="."]
 position = Vector2(1179.2484, 1755.5863)
@@ -889,6 +1019,13 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blackcoin"]
 shape = SubResource("CircleShape2D_awf4c")
+
+[node name="Inventory_Item2" parent="." instance=ExtResource("9_yxgye")]
+position = Vector2(1738, 2178)
+item_type = "Boost"
+item_name = "Bag"
+item_texture = ExtResource("29_qs0nd")
+item_effect = "Slot Boost"
 
 [connection signal="body_entered" from="map/newmapdoor" to="map/newmapdoor" method="_on_body_entered"]
 [connection signal="body_entered" from="map/key" to="map/key" method="_on_body_entered"]
