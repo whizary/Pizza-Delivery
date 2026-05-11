@@ -152,3 +152,6 @@ func _refresh_button_text(action: String) -> void:
 	var btn: Button = bind_buttons[action]
 	var ev := KeybindsManager.get_primary_event(action)
 	btn.text = KeybindsManager.event_to_text(ev)
+
+func _physics_process(delta):
+	AudioManager.play_music("MenuMusic")

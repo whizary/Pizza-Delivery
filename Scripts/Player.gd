@@ -64,19 +64,22 @@ func _physics_process(delta):
 	
 	#var t = Input.is_action_pressed("key_t")
 	
-	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/main.tscn":
+	
+	if get_tree().current_scene.scene_file_path == "res://main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
 		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		AudioManager.play_music("EarthMapMusic")
 	
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
-		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$Camera2D.zoom = Vector2(2.295, 2.295)
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = false
 		$Camera2D/CanvasLayer/Boss_Name.visible = false
+		AudioManager.play_music("DungeonMapMusic")
 	
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/dungeon_boss_room.tscn":
 		AudioManager.play_music("BossMusic1")
-		$Camera2D.zoom = Vector2(4.1, 4.1)
+		$Camera2D.zoom = Vector2(2.295, 2.295)
 		$Camera2D/CanvasLayer/boss_HP_bar.value = Global.boss_health
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = true
 		$Camera2D/CanvasLayer/Boss_Name.visible = true
@@ -146,7 +149,6 @@ func _physics_process(delta):
 			move_and_collide(Vector2(0, 100))
 			dashdown.play("default")
 			dashdown2.play("default")
- 
 		dodgeBool = false
 		dodgeCD = 2.0
 	
@@ -184,10 +186,10 @@ func _physics_process(delta):
 
 	if run and delay <= 0 and cantrun == false:
 		delay = 0.3
-		AudioManager.play_random_from("grass")
+		AudioManager.play_random_from("stone")
 	elif right and delay <= 0 or left and delay <= 0 or forward and delay <= 0 or back and delay <= 0 or left and forward and delay <= 0 or left and back and delay <= 0 or right and forward and delay <= 0 or right and back and delay <= 0:
 		delay = 0.5
-		AudioManager.play_random_from("grass")
+		AudioManager.play_random_from("stone")
 	else:
 		delay -= delta
 		
@@ -407,8 +409,11 @@ func use_key():
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
-		get_tree().paused = !get_tree().paused
 		inventory_hotbar.visible = !inventory_hotbar.visible
+	if inventory_ui.visible == true:
+		Engine.time_scale = 0.0
+	else:
+		Engine.time_scale = 1.0
 
 func apply_item_effect(item):
 	match item["effect"]:
