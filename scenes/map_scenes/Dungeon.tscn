@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://kb64xwjl2eh8"]
+[gd_scene load_steps=113 format=3 uid="uid://kb64xwjl2eh8"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://Maps/Dungeon Map/Map.tscn" id="1_xdbph"]
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_82mmt"]
@@ -245,6 +245,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(943, 1313, 943, 1329, 9
 vertices = PackedVector2Array(2342, 1429, 2331, 1429, 2331, 1387, 2342, 1387, 2405, 1539, 2395.0703, 1539, 2395.5078, 1477, 2404.9766, 1477, 2746, 827, 2746, 811, 2805, 811, 2805, 827, 2842, 827, 2842, 811, 2885, 811, 2885, 885, 2853.1484, 885, 2842.9766, 885, 2667, 885, 2667, 853, 2693, 827, 2597, 1275, 2629, 1275, 2629, 1291, 2555, 1275, 2597, 1301.0313, 2555, 1301, 2597, 853, 2555, 1125, 2501, 1125, 2501, 1151, 2486, 1151, 2474, 1083, 2486, 1189, 2469, 1189, 2667, 1291, 2667, 1275, 2740, 1275, 2740, 1291, 2779, 1291, 2779, 1275, 2853, 1275, 2853, 1291, 2891, 1291, 2891, 1275, 2896, 1275, 2896, 1300.0313, 2597, 1539, 2555, 1539, 2555, 1445, 2331, 1477, 2331, 1467, 2427, 1467, 2469, 1477, 2469, 1445, 2427, 1403, 2459, 1403, 2459, 1387, 2469, 1387, 2469, 1419, 2555, 1419, 2469, 1275, 2411, 1291, 2221, 1301, 2221, 1275, 2245, 1275, 2245, 1291, 2283, 1291, 2283, 1275, 2373, 1275, 2373, 1291, 2411, 1275, 2459, 1275, 2459, 1189, 2427, 1189, 2427, 1067, 2437, 1083, 2437, 1067, 2474, 1067, 2501, 1067, 2501, 1115.1172, 2555, 1114.9688, 2555, 853, 2253, 853, 2253, 827, 2277, 827, 2277, 843, 2315, 843, 2315, 827, 2373, 827, 2373, 843, 2411, 843, 2469, 843.14844, 2411, 827, 2469, 827, 2507, 842.5781, 2549, 843, 2507, 827, 2549, 827, 2602, 843, 2667, 827, 2602, 827, 2667, 811, 2693, 811, 2853.0234, 950, 2843, 950)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20, 8), PackedInt32Array(21, 22, 23), PackedInt32Array(24, 21, 23, 25, 26), PackedInt32Array(27, 21, 24, 28), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(31, 33, 34, 32), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(43, 46, 25, 42), PackedInt32Array(39, 42, 25), PackedInt32Array(38, 39, 25), PackedInt32Array(35, 38, 25), PackedInt32Array(23, 35, 25), PackedInt32Array(25, 47, 48, 49), PackedInt32Array(6, 50, 51, 52), PackedInt32Array(7, 6, 52), PackedInt32Array(53, 7, 52), PackedInt32Array(54, 53, 52, 55, 56), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(54, 56, 59), PackedInt32Array(49, 54, 59, 60), PackedInt32Array(25, 49, 60), PackedInt32Array(25, 60, 26), PackedInt32Array(61, 24, 26, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(26, 63, 66, 67), PackedInt32Array(67, 68, 69, 70), PackedInt32Array(26, 67, 70), PackedInt32Array(26, 70, 62), PackedInt32Array(62, 71, 72), PackedInt32Array(61, 62, 72), PackedInt32Array(34, 61, 72, 73), PackedInt32Array(73, 74, 75, 76), PackedInt32Array(75, 77, 76), PackedInt32Array(73, 76, 32, 34), PackedInt32Array(32, 78, 79, 80), PackedInt32Array(29, 32, 80), PackedInt32Array(28, 29, 80, 81), PackedInt32Array(27, 28, 81), PackedInt32Array(27, 81, 82), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(82, 83, 86, 87), PackedInt32Array(87, 88, 89, 90), PackedInt32Array(82, 87, 90), PackedInt32Array(82, 90, 91, 92), PackedInt32Array(91, 93, 94, 92), PackedInt32Array(82, 92, 95, 96), PackedInt32Array(95, 97, 98, 96), PackedInt32Array(82, 96, 99, 27), PackedInt32Array(19, 27, 99, 100, 20), PackedInt32Array(99, 101, 100), PackedInt32Array(100, 102, 103, 20), PackedInt32Array(17, 8, 11), PackedInt32Array(17, 11, 12, 16), PackedInt32Array(17, 16, 104, 105)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2545, 1265, 2479, 1265, 2479, 1199, 2511, 1199, 2511, 1185, 2496, 1185, 2496, 1161, 2511, 1161, 2511, 1135, 2545, 1135, 2545, 1105, 2511.0002, 1105.0856, 2511, 1057, 2464, 1057, 2464, 1073, 2447, 1073, 2447, 1057, 2417, 1057, 2417, 1199, 2449, 1199, 2449, 1265, 2401, 1265, 2401, 1281, 2383, 1281, 2383, 1265, 2273, 1265, 2273, 1281, 2255, 1281, 2255, 1265, 2211, 1265, 2211, 1311, 2545, 1311, 2545, 1409, 2479, 1409, 2479, 1377, 2449, 1377, 2449, 1393, 2431, 1393, 2431, 1377, 2369, 1377, 2369, 1391, 2417, 1391, 2417, 1457, 2352, 1457, 2352, 1377, 2321, 1377, 2321, 1439, 2336, 1439, 2336, 1457, 2321, 1457, 2321, 1487, 2385.4402, 1487.0001, 2385, 1549, 2415, 1549, 2414.9749, 1487.0001, 2479, 1487, 2479, 1455, 2545, 1455, 2545, 1549, 2607, 1549, 2607, 1311, 2906, 1310, 2906, 1265, 2881, 1265, 2881, 1281, 2863, 1281, 2863, 1265, 2769, 1265, 2769, 1281, 2750, 1281, 2750, 1265, 2657, 1265, 2657, 1281, 2639, 1281, 2639, 1265, 2607, 1265, 2607, 863, 2657, 863, 2657, 895, 2832.9814, 895, 2833, 960, 2863, 960, 2863.1355, 895, 2895, 895, 2895, 801, 2832, 801, 2832, 817, 2815, 817, 2815, 801, 2736, 801, 2736, 817, 2703, 817, 2703, 801, 2657, 801, 2657, 817, 2592, 817, 2592, 833, 2559, 833, 2559, 817, 2497, 817, 2496.9998, 832.7331, 2479, 833, 2479, 817, 2401, 817, 2401, 833, 2383, 833, 2383, 817, 2305, 817, 2305, 833, 2287, 833, 2287, 817, 2243, 817, 2243, 863, 2545, 863)])
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ilge"]
 radius = 10.99707
 height = 37.98999
@@ -552,11 +553,10 @@ texture_filter = 1
 position = Vector2(2, 0)
 
 [node name="map" parent="." instance=ExtResource("1_xdbph")]
-texture_filter = 1
 script = ExtResource("2_82mmt")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(2859.2832, 1842.7693)
+position = Vector2(1874, 2385)
 
 [node name="SpawnPoint2" type="Marker2D" parent="map"]
 position = Vector2(768.1007, 861.0086)
@@ -723,6 +723,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Label3" type="Label" parent="map/PressE"]
+layout_mode = 0
+offset_left = 783.0
+offset_top = 888.0
+offset_right = 838.0
+offset_bottom = 911.0
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Press E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="map/PressE"]
+layout_mode = 0
+offset_left = 1772.0
+offset_top = 2106.0
+offset_right = 1827.0
+offset_bottom = 2129.0
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Ally"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="map/PressE"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 842.0
+offset_right = 839.0
+offset_bottom = 865.0
+theme_override_fonts/font = SubResource("SystemFont_8mbj2")
+theme_override_font_sizes/font_size = 10
+text = "Henry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 position = Vector2(0, 14)
 navigation_polygon = SubResource("NavigationPolygon_xdbph")
@@ -759,42 +795,6 @@ position = Vector2(1322.319, 1336.5093)
 
 [node name="EnemySpawnPoint6" type="Marker2D" parent="map"]
 position = Vector2(2575.9756, 1119.7584)
-
-[node name="Label3" type="Label" parent="map/PressE"]
-layout_mode = 0
-offset_left = 783.0
-offset_top = 888.0
-offset_right = 838.0
-offset_bottom = 911.0
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Press E"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="map/PressE"]
-layout_mode = 0
-offset_left = 1772.0
-offset_top = 2106.0
-offset_right = 1827.0
-offset_bottom = 2129.0
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Ally"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="map/PressE"]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 842.0
-offset_right = 839.0
-offset_bottom = 865.0
-theme_override_fonts/font = SubResource("SystemFont_8mbj2")
-theme_override_font_sizes/font_size = 10
-text = "Henry"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ArrowsAfterPizza" type="Control" parent="map"]
 visible = false
