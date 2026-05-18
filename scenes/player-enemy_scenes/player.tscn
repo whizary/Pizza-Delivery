@@ -80,23 +80,6 @@ region = Rect2(128, 0, 128, 128)
 atlas = ExtResource("2_1xkb1")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wy5fy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gx4rg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dllo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]
 animations = [{
 "frames": [{
