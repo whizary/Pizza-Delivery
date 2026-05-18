@@ -18,7 +18,7 @@ var step_7_started = false
  
 func _ready():
 
-	if Global.bossalive == true:
+	if Global.bossalive == true and Global.bossroomactive == false:
 
 		Global.tut = true
 
@@ -54,7 +54,7 @@ func _ready():
  
 func _process(_delta):
 
-	if Global.bossalive == true:
+	if Global.bossalive == true and Global.bossroomactive == false:
 
 	# Visa/göm tutorial
 

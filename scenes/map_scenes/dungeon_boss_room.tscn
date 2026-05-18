@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cr6ve6e7knm86"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
-[ext_resource type="Script" uid="uid://db0500vctpfgf" path="res://dungeondoor.gd" id="3_jt7ob"]
+[ext_resource type="Script" path="res://dungeondoor.gd" id="3_jt7ob"]
 [ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
 [ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="5_ii746"]
 [ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="6_6k164"]

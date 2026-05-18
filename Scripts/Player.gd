@@ -41,6 +41,7 @@ var cantrun = false
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 func _ready():
+	
 	Global.movement = true
 	# Make sure AttackArea is off by default
 	attack_area.monitoring = false
@@ -65,9 +66,9 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
+	Global.player_node = self
 	
 	#var t = Input.is_action_pressed("key_t")
-	
 	
 	if get_tree().current_scene.scene_file_path == "res://main.tscn":
 		$Camera2D.zoom = Vector2(2.295, 2.295)
@@ -87,6 +88,7 @@ func _physics_process(delta):
 		$Camera2D/CanvasLayer/boss_HP_bar.value = Global.boss_health
 		$Camera2D/CanvasLayer/boss_HP_bar.visible = true
 		$Camera2D/CanvasLayer/Boss_Name.visible = true
+		Global.bossroomactive = true
 	
 	# Movement input
 	var run = Input.is_action_pressed("run")
@@ -473,28 +475,49 @@ func use_dungeon_door():
 func resetglobal():
 	Global.inventory = []
 	Global.player_hit = false
+	Global.hottis = false
+	Global.tutorial_index = 0
+	Global.keyquest_index = 0
+	Global.tut = true
+	Global.keyQ = false
+	Global.movement = true
+	Global.tut_pause = false
+	Global.ally_dialog_seen = false
+	Global.allyQ = false
+	Global.allyquest_index = 0
+	Global.AllyquestComplete = false
+	Global.allyTurnInFinished = false
+	Global.allyRewardGiven = false
+	Global.acceptedQuest = false
+	Global.HenryquestComplete = false
+	Global.henry_dialog_done = false
 	Global.detect_distance = 255
-	Global.enemy_speed = 155.0
+	Global.enemy_speed = 85.0
+	Global.boss_speed = 70.0
 	Global.stamina = 100.0
 	Global.maxStamina = 100.0
 	Global.staminaDrain = 25.0
 	Global.staminaRecovery = 25.0
-	Global.stop_distance = 35.0 
+	Global.stop_distance = 35.0
+	Global.boss_health = 1000.0
+	Global.boss_damaged = false
+	Global.boss_max_health = 1000.0
+	Global.bossalive = true
+	Global.damage = 0
 	Global.health = 100.0
 	Global.maxHealth = 100.0
-	Global.iframesTimer = 1.0
+	Global.iframesTimer = 0.8
 	Global.iframes = false
 	Global.death = false
 	Global.bossroomcomplete = false
-	Global.bossdooropen = true
+	Global.bossdooropen = false
 	Global.bossroomactive = false
-	Global.bossalive = true
 	Global.dungeondooropen = true
 	Global.dooropen = false
 	Global.normalspawn = false
-	Global.damage = 0
 	Global.spikesactive = false
 	Global.hotbar_size = 3
+	Global.hotbar_inventory = []
 
 @onready var hotbaring = $InventoryHotbar
 
