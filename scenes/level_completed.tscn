@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8j2caq00am5i"]
+
+[ext_resource type="Script" uid="uid://1nb8imw8e384" path="res://scenes/level_completed.gd" id="1_iv0s2"]
+[ext_resource type="Texture2D" uid="uid://26sx0thw0s65" path="res://Images/levelcompleted.png" id="1_vh8u0"]
+[ext_resource type="Texture2D" uid="uid://bmyr8aih3hj5v" path="res://Buttons/pizza-menu-button.png" id="2_wpaqk"]
+[ext_resource type="Texture2D" uid="uid://b41knla7utx1i" path="res://Buttons/pizza-quit-button.png" id="3_btyrf"]
+
+[node name="LevelCompleted" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iv0s2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vh8u0")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 694.0
+offset_top = 450.0
+offset_right = -663.0
+offset_bottom = -453.99994
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("2_wpaqk")
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 694.0
+offset_top = 720.0
+offset_right = -663.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_btyrf")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

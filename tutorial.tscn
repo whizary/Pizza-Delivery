@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3eh1gfsu7wu6"]
 
-[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://images/TextRuta.png" id="1_7n6eb"]
-[ext_resource type="Script" path="res://tutorial.gd" id="1_yb1ct"]
+[ext_resource type="Texture2D" uid="uid://b2rjprem0sx8x" path="res://Images/TextRuta.png" id="1_7n6eb"]
+[ext_resource type="Script" uid="uid://cug5w3s6dhpa3" path="res://tutorial.gd" id="1_yb1ct"]
 
 [sub_resource type="SystemFont" id="SystemFont_yb1ct"]
 font_weight = 300

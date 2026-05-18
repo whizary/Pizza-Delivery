@@ -1,9 +1,10 @@
 extends Node
- 
+
 #inventory items
 var inventory = []
 var player_hit = false
-
+var hottis = false
+ 
 var tutorial_index = 0
 var keyquest_index = 0
 var tut = true
@@ -11,27 +12,31 @@ var keyQ = false
 var movement = true
 var tut_pause = false
 var ally_dialog_seen = false
-
+ 
 var allyQ = false
 var allyquest_index = 0
 var AllyquestComplete = false   # sätts till true när maten är hämtad
 var allyTurnInFinished = false  # sätts till true när slutdialogen med Ally är klar
 var allyRewardGiven = false
 var acceptedQuest = false
- 
+
+var HenryquestComplete = false
+var henry_dialog_done = false
+
+
 var detect_distance = 255
-var enemy_speed = 155.0
+var enemy_speed = 85.0
 var boss_speed = 70.0
 var stamina = 100.0
 var maxStamina = 100.0
 var staminaDrain = 25.0
 var staminaRecovery = 25.0
-var stop_distance = 35.0 
+var stop_distance = 35.0
 var boss_health = 1000.0
 var boss_damaged = false
 var boss_max_health = 1000.0
 var bossalive = true
-
+ 
 var damage = 0
 var health = 100.0
 var maxHealth = 100.0
@@ -39,27 +44,26 @@ var iframesTimer = 0.8
 var iframes = false
 var death = false
 var bossroomcomplete = false
-var bossdooropen = true
+var bossdooropen = false
 var bossroomactive = false
 var dungeondooropen = true
 var dooropen = false
 var normalspawn = false
 var spikesactive = false
-
+ 
 var current_wave: int
 var moving_to_next_wave: bool
- 
 #Hotbar Items
 var hotbar_size = 3
 var hotbar_inventory = []
 signal inventory_updated
 var player_node: Node = null
 @onready var inventory_slot_scene = preload("res://Inventory_Slot.tscn")
-
+ 
 func _ready():
-	inventory.resize(12)
+	inventory.resize(2)
 	hotbar_inventory.resize(hotbar_size)
-
+ 
 func add_item(item: Dictionary, to_hotbar = false) -> bool:
 	var added_to_hotbar = false
 	#Add to hotbar
@@ -79,12 +83,11 @@ func add_item(item: Dictionary, to_hotbar = false) -> bool:
 				inventory_updated.emit()
 				print("Item added", inventory)
 				AllyquestComplete = true
-				
 				return true
 		print("Inventory full", inventory)
 		return false
 	return false
-
+ 
 func remove_item(item_type, item_effect):
 	for i in range(inventory.size()):
 		if inventory[i] != null and inventory[i]["type"] == item_type and inventory[i]["effect"] == item_effect:
@@ -112,15 +115,21 @@ func drop_item(item_data, drop_position):
 	if not item_data.has("scene_path"):
 		print("Missing scene_path in item_data:", item_data)
 		return
+
 	var item_scene: PackedScene = load(item_data["scene_path"])
+
 	if item_scene == null:
 		print("Could not load scene:", item_data["scene_path"])
 		return
+
 	var item_instance = item_scene.instantiate()
-	item_instance.set_item_data(item_data)
-	drop_position = Global.player_node.global_position
-	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
+
+	item_instance.global_position = drop_position
+	item_instance.set_item_data(item_data)
+
+	print("GLOBAL DROP POSITION:", drop_position)
+	print("ITEM SPAWNED AT:", item_instance.global_position)
 func add_hotbar_item(item):
 	for i in range(hotbar_size):
 		if hotbar_inventory[i] == null:
@@ -135,7 +144,7 @@ func remove_hotbar_item(item_type, item_effect):
 			inventory_updated.emit()
 			return true
 	return false
-
+ 
 func unassign_hotbar_item(item_type, item_effect):
 	for i in range(hotbar_inventory.size()):
 		if hotbar_inventory[i] != null and hotbar_inventory[i]["type"] == item_type and hotbar_inventory[i]["effect"] == item_effect:
@@ -143,10 +152,10 @@ func unassign_hotbar_item(item_type, item_effect):
 			inventory_updated.emit()
 			return true
 	return false
-
+ 
 func is_item_assigned_to_hotbar(item_to_check):
 	return item_to_check in hotbar_inventory
-
+ 
 func swap_inventory_items(index1: int, index2: int) -> bool:
 	if index1 < 0 or index1 >= inventory.size() or index2 < 0 or index2 >= inventory.size():
 		return false
@@ -157,11 +166,10 @@ func swap_inventory_items(index1: int, index2: int) -> bool:
 	print("AFTER SWAP:", inventory[index1], inventory[index2])
 	inventory_updated.emit()
 	return true
-
+ 
 func swap_hotbar_items(index1: int, index2: int) -> bool:
 	if index1 < 0 or index1 >= hotbar_inventory.size() or index2 < 0 or index2 >= hotbar_inventory.size():
 		return false
-	print("BEFORE SWAP:", index1, index2, inventory[index1], inventory[index2])
 	var temp = hotbar_inventory[index1]
 	hotbar_inventory[index1] = hotbar_inventory[index2]
 	hotbar_inventory[index2] = temp
