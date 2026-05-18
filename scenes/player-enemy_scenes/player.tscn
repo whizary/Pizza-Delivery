@@ -51,6 +51,19 @@
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="31_hvc7r"]
 [ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="32_y6b84"]
 
+
+[ext_resource type="Script" path="res://scripts/active.gd" id="33_oj82y"]
+[ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="34_egj8n"]
+[ext_resource type="Texture2D" uid="uid://dqamy24oegyju" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame1.png" id="20_raisp"]
+[ext_resource type="Texture2D" uid="uid://iowedn7slldf" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame2.png" id="21_4xn7c"]
+[ext_resource type="Texture2D" uid="uid://b4vx7j0gwxdc6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame3.png" id="22_viv2c"]
+[ext_resource type="Texture2D" uid="uid://b4dp0k2tran75" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame4.png" id="23_7g2r1"]
+[ext_resource type="Texture2D" uid="uid://wmohkedpxrdy" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame5.png" id="24_jblrx"]
+[ext_resource type="Texture2D" uid="uid://dmj4wai1er4m5" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame6.png" id="25_lct8v"]
+[ext_resource type="Texture2D" uid="uid://d1451icoj7hi6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame7.png" id="26_xua1i"]
+[ext_resource type="Texture2D" uid="uid://coo0uwe0wp6sa" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame8.png" id="27_7hyyu"]
+[ext_resource type="Texture2D" uid="uid://dlg3pui0espsx" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame9.png" id="28_qg6ys"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph33w"]
 radius = 3.992
 height = 14.016
@@ -67,17 +80,22 @@ region = Rect2(128, 0, 128, 128)
 atlas = ExtResource("2_1xkb1")
 region = Rect2(256, 0, 128, 128)
 
-[ext_resource type="Script" path="res://scripts/active.gd" id="33_oj82y"]
-[ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="34_egj8n"]
-[ext_resource type="Texture2D" uid="uid://dqamy24oegyju" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame1.png" id="20_raisp"]
-[ext_resource type="Texture2D" uid="uid://iowedn7slldf" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame2.png" id="21_4xn7c"]
-[ext_resource type="Texture2D" uid="uid://b4vx7j0gwxdc6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame3.png" id="22_viv2c"]
-[ext_resource type="Texture2D" uid="uid://b4dp0k2tran75" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame4.png" id="23_7g2r1"]
-[ext_resource type="Texture2D" uid="uid://wmohkedpxrdy" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame5.png" id="24_jblrx"]
-[ext_resource type="Texture2D" uid="uid://dmj4wai1er4m5" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame6.png" id="25_lct8v"]
-[ext_resource type="Texture2D" uid="uid://d1451icoj7hi6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame7.png" id="26_xua1i"]
-[ext_resource type="Texture2D" uid="uid://coo0uwe0wp6sa" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame8.png" id="27_7hyyu"]
-[ext_resource type="Texture2D" uid="uid://dlg3pui0espsx" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame9.png" id="28_qg6ys"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8eeqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dllo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]
 animations = [{
