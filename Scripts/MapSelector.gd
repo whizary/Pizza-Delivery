@@ -27,9 +27,9 @@ func _ready():
 	map_names = ["Dungeon", "Earth", "Ice", "Moon"]
  
 	status_buttons = [
+		dungeon_status_button,
 		earth_status_button,
 		ice_status_button,
-		dungeon_status_button,
 		moon_status_button
 	]
  

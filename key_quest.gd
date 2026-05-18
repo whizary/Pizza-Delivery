@@ -88,6 +88,7 @@ func _process(delta):
 
 	# ALLY - ta questen
 	if !dialogue_playing and Global.allyquest_index == 0 and Global.allyQ == true and !Global.AllyquestComplete and Input.is_action_just_pressed("take_quest"):
+		Engine.time_scale = 0.0
 		dialogue_playing = true
 		quest.visible = true
 		accept.visible = false

@@ -140,8 +140,8 @@ func _on_boss_area_2d_area_entered(area: Area2D) -> void:
 		return
 	if Global.death == true:
 		return
-	if area.is_in_group("player"):
-		Global.health -= 10
+	#if area.is_in_group("player"):
+		#Global.health -= 10
 	if area.name == "AttackArea" and Global.boss_damaged == true:
 		if is_attacking:
 			BloodEffect.emitting = true

@@ -122,7 +122,7 @@ func _physics_process(delta):
 		$AttackAnimation.visible = false
 	
 	# DODGE
-	if dodge and dodgeBool: 
+	if dodge and dodgeBool and Global.movement == true:
 		if back and right == false and left == false: 
 			move_and_collide(Vector2(0, -100))
 			dashup.play("default")

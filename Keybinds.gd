@@ -155,3 +155,7 @@ func _refresh_button_text(action: String) -> void:
 
 func _physics_process(delta):
 	AudioManager.play_music("MenuMusic")
+
+func _process(delta):
+	if Global.movement == false:
+		InputMap.action_erase_events("dodge")
