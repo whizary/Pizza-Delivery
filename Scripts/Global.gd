@@ -25,7 +25,7 @@ var henry_dialog_done = false
 
 
 var detect_distance = 255
-var enemy_speed = 155.0
+var enemy_speed = 85.0
 var boss_speed = 70.0
 var stamina = 100.0
 var maxStamina = 100.0

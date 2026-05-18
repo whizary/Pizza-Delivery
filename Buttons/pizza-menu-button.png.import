@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0resielek1j"
-path="res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"
+uid="uid://bmyr8aih3hj5v"
+path="res://.godot/imported/pizza-menu-button.png-e38442a1ba89512308ea48d25333a990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Knight/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"]
+source_file="res://Buttons/pizza-menu-button.png"
+dest_files=["res://.godot/imported/pizza-menu-button.png-e38442a1ba89512308ea48d25333a990.ctex"]
 
 [params]
 

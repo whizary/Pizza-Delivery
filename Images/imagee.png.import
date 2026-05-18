@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0resielek1j"
-path="res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"
+uid="uid://bop5l7a4sojp5"
+path="res://.godot/imported/imagee.png-0932909148dbe61dd31ea3af3315d544.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Knight/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"]
+source_file="res://Images/imagee.png"
+dest_files=["res://.godot/imported/imagee.png-0932909148dbe61dd31ea3af3315d544.ctex"]
 
 [params]
 

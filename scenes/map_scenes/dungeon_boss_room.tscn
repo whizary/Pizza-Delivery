@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr6ve6e7knm86"]
+[gd_scene load_steps=16 format=3 uid="uid://cr6ve6e7knm86"]
 
-[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://scripts/Map.gd" id="2_cmqoe"]
-[ext_resource type="Script" path="res://dungeondoor.gd" id="3_jt7ob"]
-[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
+[ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
+[ext_resource type="Script" uid="uid://db0500vctpfgf" path="res://dungeondoor.gd" id="3_jt7ob"]
+[ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
+[ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="5_ii746"]
+[ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="6_6k164"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="20_x8erc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jt7ob"]
@@ -15,6 +17,45 @@ size = Vector2(28, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l57no"]
 size = Vector2(11.023009, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm6fg"]
+atlas = ExtResource("6_6k164")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b17eg"]
+atlas = ExtResource("6_6k164")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntx8l"]
+atlas = ExtResource("6_6k164")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uatky"]
+atlas = ExtResource("6_6k164")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjfng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm6fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b17eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntx8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b030j"]
+radius = 6.0440984
 
 [node name="Node2D2" type="Node2D"]
 
@@ -71,8 +112,21 @@ script = ExtResource("20_x8erc")
 position = Vector2(0.048339844, -0.93896484)
 shape = SubResource("RectangleShape2D_l57no")
 
+[node name="greengem" type="Area2D" parent="."]
+position = Vector2(528.36304, 639.1813)
+script = ExtResource("5_ii746")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="greengem"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_rjfng")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="greengem"]
+shape = SubResource("CircleShape2D_b030j")
+
 [connection signal="body_entered" from="map/dungeondoor2" to="map/dungeondoor2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes4" to="spikes4" method="_on_body_entered"]
+[connection signal="body_entered" from="greengem" to="greengem" method="_on_body_entered"]

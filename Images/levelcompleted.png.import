@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0resielek1j"
-path="res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"
+uid="uid://26sx0thw0s65"
+path="res://.godot/imported/levelcompleted.png-1251d2e5c97ce1ec7605a14c7557ddbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Knight/IdleFront.png"
-dest_files=["res://.godot/imported/IdleFront.png-ec453a112c4a26e6f388d57c6b83b86a.ctex"]
+source_file="res://Images/levelcompleted.png"
+dest_files=["res://.godot/imported/levelcompleted.png-1251d2e5c97ce1ec7605a14c7557ddbc.ctex"]
 
 [params]
 

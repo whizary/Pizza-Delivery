@@ -1,8 +1,6 @@
 extends Node2D
 
 var current_wave: int
-@export var orc_scene: PackedScene
-
 var starting_nodes: int
 var current_nodes: int
 var wave_spawn_ended
@@ -11,6 +9,7 @@ var wave_spawn_ended
 @onready var BossSpawnPoint = $BossSpawnPoint
 @onready var demon_slime_boss = preload("res://scenes/player-enemy_scenes/demon_slime_boss.tscn")
 @onready var player_scene = preload("res://scenes/player-enemy_scenes/player.tscn")
+@onready var orc_enemy = preload("res://scenes/player-enemy_scenes/orc_enemy.tscn")
 
 func _ready():
 	var player = player_scene.instantiate()
@@ -22,6 +21,30 @@ func _ready():
 	player.connect("open_door", _door_opened)
 	add_child(player)
 	Global.set_player_reference(player)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc = orc_enemy.instantiate()
+		orc.global_position = $EnemySpawnPoint.global_position
+		add_child(orc)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc2 = orc_enemy.instantiate()
+		orc2.global_position = $EnemySpawnPoint2.global_position
+		add_child(orc2)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc3 = orc_enemy.instantiate()
+		orc3.global_position = $EnemySpawnPoint3.global_position
+		add_child(orc3)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc4 = orc_enemy.instantiate()
+		orc4.global_position = $EnemySpawnPoint4.global_position
+		add_child(orc4)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc5 = orc_enemy.instantiate()
+		orc5.global_position = $EnemySpawnPoint5.global_position
+		add_child(orc5)
+	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/Dungeon.tscn":
+		var orc6 = orc_enemy.instantiate()
+		orc6.global_position = $EnemySpawnPoint6.global_position
+		add_child(orc6)
 	if get_tree().current_scene.scene_file_path == "res://scenes/map_scenes/dungeon_boss_room.tscn":
 		print("boss")
 		var demon_slime = demon_slime_boss.instantiate()
