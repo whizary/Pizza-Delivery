@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=191 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_g0yvd"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="2_1xkb1"]
