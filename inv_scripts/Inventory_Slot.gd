@@ -73,10 +73,27 @@ func set_item(new_item):
 
 func _on_drop_button_pressed() -> void:
 	if item != null:
-		var drop_position = Global.player_node.global_position
-		var drop_offset = Vector2(0, 50)
-		drop_offset = drop_offset.rotated(Global.player_node.rotation)
-		Global.drop_item(item, drop_position + drop_offset)
+		var real_player = Global.player_node
+
+		if real_player != null and !real_player.has_method("apply_item_effect"):
+			real_player = real_player.get_node_or_null("Player")
+
+		if real_player == null:
+			print("No real player found")
+			return
+
+		var drop_offset = Vector2(
+			randf_range(-60, 60),
+			randf_range(-60, 60)
+		)
+
+		var final_drop_position = real_player.global_position + drop_offset
+
+		print("Dropping from player:", real_player)
+		print("Player position:", real_player.global_position)
+		print("Drop position:", final_drop_position)
+
+		Global.drop_item(item, final_drop_position)
 		Global.remove_item(item["type"], item["effect"])
 		Global.remove_hotbar_item(item["type"], item["effect"])
 		usage_panel.visible = false
@@ -84,11 +101,21 @@ func _on_drop_button_pressed() -> void:
 
 func _on_use_button_pressed():
 	usage_panel.visible = false
-	if is_instance_valid(Global.player_node):
-		Global.player_node.apply_item_effect(item)
+
+	if item == null:
+		return
+
+	var real_player = Global.player_node
+
+	if real_player != null and !real_player.has_method("apply_item_effect"):
+		real_player = real_player.get_node_or_null("Player")
+
+	if real_player != null and real_player.has_method("apply_item_effect"):
+		real_player.apply_item_effect(item)
 		Global.remove_item(item["type"], item["effect"])
+		Global.remove_hotbar_item(item["type"], item["effect"])
 	else:
-		print("Player could not be found")
+		print("Fel player_node:", Global.player_node)
 
 func update_assignment_status():
 	is_assigned = Global.is_item_assigned_to_hotbar(item)
@@ -117,7 +144,7 @@ func _on_item_button_gui_input(event):
 			#Drag system
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.is_pressed():
-				outer_border.modulate = Color(1, 1, 0)
+				outer_border.modulate = Color(0.666, 0.448, 0.0, 1.0)
 				drag_start.emit(self)
 			else:
 				outer_border.modulate = Color(1, 1, 1)

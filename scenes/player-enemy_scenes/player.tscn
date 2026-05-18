@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://bwy7ajwi2b5fc"]
+[gd_scene load_steps=163 format=3 uid="uid://bwy7ajwi2b5fc"]
 
 [ext_resource type="Script" uid="uid://cblm3kl7ad3gx" path="res://Scripts/Player.gd" id="1_g0yvd"]
 [ext_resource type="Texture2D" uid="uid://cpkrsnaaiqgor" path="res://forceshield/Namnlös.png" id="2_1xkb1"]
@@ -38,28 +38,29 @@
 [ext_resource type="Texture2D" uid="uid://wmde4qu1xmw7" path="res://Characters/Characters/Man/WalkBackL.webp" id="18_tx5cy"]
 [ext_resource type="Texture2D" uid="uid://cx7chkkgsivfm" path="res://Characters/Characters/Man/WalkForwardR.webp" id="19_raisp"]
 [ext_resource type="Texture2D" uid="uid://br2v6jmps7ge6" path="res://Characters/Characters/Man/WalkForwardL.webp" id="20_4xn7c"]
-[ext_resource type="Texture2D" uid="uid://dqamy24oegyju" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame1.png" id="20_raisp"]
-[ext_resource type="Texture2D" uid="uid://iowedn7slldf" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame2.png" id="21_4xn7c"]
 [ext_resource type="Texture2D" uid="uid://c4kvp8f1qttmn" path="res://Characters/Characters/Man/WalkLL.webp" id="21_viv2c"]
 [ext_resource type="Texture2D" uid="uid://bp48r1lkfhrfy" path="res://Characters/Characters/Man/WalkLR.webp" id="22_7g2r1"]
-[ext_resource type="Texture2D" uid="uid://b4vx7j0gwxdc6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame3.png" id="22_viv2c"]
-[ext_resource type="Texture2D" uid="uid://b4dp0k2tran75" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame4.png" id="23_7g2r1"]
 [ext_resource type="Texture2D" uid="uid://b3hlmkhqihnc6" path="res://Characters/Characters/Man/WalkRightRight.webp" id="23_jblrx"]
-[ext_resource type="Texture2D" uid="uid://wmohkedpxrdy" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame5.png" id="24_jblrx"]
 [ext_resource type="Texture2D" uid="uid://2tynaw81ia4g" path="res://Characters/Characters/Man/WalkRL.webp" id="24_lct8v"]
-[ext_resource type="Texture2D" uid="uid://dmj4wai1er4m5" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame6.png" id="25_lct8v"]
 [ext_resource type="Texture2D" uid="uid://b1hkld7lf3qxg" path="res://Images/emptybox2d.png" id="25_xua1i"]
 [ext_resource type="Texture2D" uid="uid://b3dmbco8b37gy" path="res://Images/SmokeNDust P03 VFX 2.png" id="26_7hyyu"]
-[ext_resource type="Texture2D" uid="uid://d1451icoj7hi6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame7.png" id="26_xua1i"]
-[ext_resource type="Texture2D" uid="uid://coo0uwe0wp6sa" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame8.png" id="27_7hyyu"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="27_qg6ys"]
-[ext_resource type="Texture2D" uid="uid://dlg3pui0espsx" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame9.png" id="28_qg6ys"]
-[ext_resource type="Shader" uid="uid://ctpvah33t1ug6" path="res://Scripts/player.gdshader" id="28_wjqxd"]
+[ext_resource type="Shader" path="res://scripts/player.gdshader" id="28_wjqxd"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="29_14a0a"]
-[ext_resource type="PackedScene" path="res://Inventory_UI.tscn" id="30_ydv1g"]
+[ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="30_ydv1g"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="31_hvc7r"]
 [ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="32_y6b84"]
 [ext_resource type="Script" path="res://scripts/active.gd" id="33_oj82y"]
+[ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="34_egj8n"]
+[ext_resource type="Texture2D" uid="uid://dqamy24oegyju" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame1.png" id="20_raisp"]
+[ext_resource type="Texture2D" uid="uid://iowedn7slldf" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame2.png" id="21_4xn7c"]
+[ext_resource type="Texture2D" uid="uid://b4vx7j0gwxdc6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame3.png" id="22_viv2c"]
+[ext_resource type="Texture2D" uid="uid://b4dp0k2tran75" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame4.png" id="23_7g2r1"]
+[ext_resource type="Texture2D" uid="uid://wmohkedpxrdy" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame5.png" id="24_jblrx"]
+[ext_resource type="Texture2D" uid="uid://dmj4wai1er4m5" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame6.png" id="25_lct8v"]
+[ext_resource type="Texture2D" uid="uid://d1451icoj7hi6" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame7.png" id="26_xua1i"]
+[ext_resource type="Texture2D" uid="uid://coo0uwe0wp6sa" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame8.png" id="27_7hyyu"]
+[ext_resource type="Texture2D" uid="uid://dlg3pui0espsx" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame9.png" id="28_qg6ys"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]
 animations = [{
@@ -890,7 +891,7 @@ scale = Vector2(0.99999875, 0.9999999)
 shape = SubResource("RectangleShape2D_wjqxd")
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.9921875, 7.0078125)
+position = Vector2(-1, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ph33w")
 one_way_collision_margin = 0.0
@@ -1074,6 +1075,7 @@ text = "Demon Slime"
 
 [node name="InventoryHotbar" type="CanvasLayer" parent="Player/Camera2D" groups=["hotbar"]]
 layer = 0
+visible = false
 
 [node name="Inventory_Hotbar" parent="Player/Camera2D/InventoryHotbar" instance=ExtResource("31_hvc7r")]
 z_as_relative = false
@@ -1081,10 +1083,10 @@ texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 335.0
+offset_left = -304.765
 offset_top = -123.01001
-offset_right = 335.0
-offset_bottom = 297.98657
+offset_right = -304.765
+offset_bottom = 297.98535
 scale = Vector2(-0.056, 0.291)
 
 [node name="InventoryUI" type="CanvasLayer" parent="Player/Camera2D"]
@@ -1096,7 +1098,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.192157, 0.376471, 0.321569, 1)
+color = Color(0.35934335, 0.25791314, 0.055502333, 1)
 
 [node name="Label" type="Label" parent="Player/Camera2D/InventoryUI/ColorRect"]
 texture_filter = 1
@@ -1188,6 +1190,12 @@ offset_right = 193.00781
 offset_bottom = -59.992188
 horizontal_alignment = 1
 script = ExtResource("33_oj82y")
+
+[node name="Tutorial" parent="Player" instance=ExtResource("34_egj8n")]
+offset_left = 14.0
+offset_top = 237.0
+offset_right = 14.0
+offset_bottom = 237.0
 
 [node name="Timer" type="Timer" parent="."]
 

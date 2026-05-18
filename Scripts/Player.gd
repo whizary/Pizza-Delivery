@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+ 
 @onready var door: Node2D = $"map/door"
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var interact_ui = $Camera2D/InteractUI
@@ -35,11 +35,11 @@ var dodgeBool = true
 var walk_speed = 150.0
 var normal_walk_speed = 150.0
 var normal_run_speed = 200.0
-
+ 
 var cantrun = false
-
+ 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+ 
 func _ready():
 	Global.movement = true
 	# Make sure AttackArea is off by default
@@ -47,17 +47,21 @@ func _ready():
 	attack_area.monitorable = false
 	
 func _process(delta):
+	if Global.movement == false:
+		velocity.x = 0
+		velocity.y = 0
+
+
 	dodgeCD -= delta
 	if dodgeCD <= 0 and dodgeBool == false:
 		dodgeBool = true
-
+ 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+ 
 func _physics_process(delta):
 	$Camera2D/CanvasLayer/STA_bar.value = Global.stamina
 	$Camera2D/CanvasLayer/HP_bar.value = Global.health
 	velocity.y += gravity * delta
-	
 	move_and_slide()
 	velocity.x = 0
 	velocity.y = 0
@@ -159,7 +163,7 @@ func _physics_process(delta):
 		print("GAME OVER")
 		await resetglobal()
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-
+ 
 	if Global.iframes == true and Global.death == false:
 		Global.iframesTimer -= delta
 	if Global.iframesTimer <= 0.0:
@@ -168,22 +172,20 @@ func _physics_process(delta):
 	# STAMINA AND RUN CODE
 	if Global.stamina > Global.maxStamina:
 		Global.stamina = Global.maxStamina
-
+ 
 	if cantrun == true or run == false:
 		Global.stamina += delta * Global.staminaRecovery
-
+ 
 	if run and Global.stamina <= 0.0:
 		cantrun = true
-	
 	if cantrun == true and Global.stamina >= Global.maxStamina:
 		cantrun = false
-		
 	if run and Global.stamina > 0.0 and cantrun == false:
 		walk_speed = normal_run_speed
 		Global.stamina -= delta * Global.staminaDrain
 	elif right or left or forward or back or left and forward or left and back or right and forward or right and back:
 		walk_speed = normal_walk_speed
-
+ 
 	if run and delay <= 0 and cantrun == false:
 		delay = 0.3
 		AudioManager.play_random_from("stone")
@@ -234,20 +236,17 @@ func _physics_process(delta):
 	elif left and forward:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
-	
 	if bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
-	
 	if bluepowerup == true and Global.spikesactive == true:
 		$forceshield.visible = false
 		Global.health += 20
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
 		bluepowerup = false
-		
 	elif bluepowerup == false and Global.spikesactive == true:
 		Global.spikesactive = false
 
@@ -276,7 +275,7 @@ func use_redgem_power_up(): # damage boost
 	Global.damage /= 1.5
 	print("redgem_powerdown")
 	AudioManager.play_sound("powerdown")
-
+ 
 func use_bluegem_power_up(): #force shield
 	bluepowerup = true
 	print("bluegem_powerup")
@@ -285,7 +284,6 @@ func use_bluegem_power_up(): #force shield
 	$active.text = "Forcefield Activated"
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
-	
 func use_yellowgem_power_up(): # speed boost
 	var powerupduration = 5.5
 	print("yellowgem_powerup")
@@ -300,7 +298,7 @@ func use_yellowgem_power_up(): # speed boost
 	normal_walk_speed = 150.0
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
-
+ 
 func use_greengem_power_up(): # health boost
 	print("greengem_powerup")
 	Global.health = 100.0
@@ -308,7 +306,7 @@ func use_greengem_power_up(): # health boost
 	$active.text = "Health Boost Activated"
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
-
+ 
 func use_blackgem_power_up(): #invisibility med lite slowness
 	var powerupduration = 7.5
 	print("blackgem_powerup")
@@ -327,28 +325,28 @@ func use_blackgem_power_up(): #invisibility med lite slowness
 	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
 	print("blackgem_powerdown")
-
+ 
 func use_blackcoin_power_up(): #invert movement
 	var powerupduration = 22.5
 	print("blackcoin_powerup")
-
+ 
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
 	InputMap.action_erase_events("move_up")
 	InputMap.action_erase_events("move_down")
-
+ 
 	var event_d = InputEventKey.new()
 	event_d.physical_keycode = KEY_D
 	InputMap.action_add_event("move_left", event_d)
-
+ 
 	var event_a = InputEventKey.new()
 	event_a.physical_keycode = KEY_A
 	InputMap.action_add_event("move_right", event_a)
-
+ 
 	var event_s = InputEventKey.new()
 	event_s.physical_keycode = KEY_S
 	InputMap.action_add_event("move_up", event_s)
-
+ 
 	var event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_down", event_w)
@@ -358,31 +356,31 @@ func use_blackcoin_power_up(): #invert movement
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
-
+ 
 	InputMap.action_erase_events("move_right")
 	InputMap.action_erase_events("move_left")
 	InputMap.action_erase_events("move_up")
 	InputMap.action_erase_events("move_down")
-
+ 
 	event_d = InputEventKey.new()
 	event_d.physical_keycode = KEY_D
 	InputMap.action_add_event("move_right", event_d)
-
+ 
 	event_a = InputEventKey.new()
 	event_a.physical_keycode = KEY_A
 	InputMap.action_add_event("move_left", event_a)
-
+ 
 	event_s = InputEventKey.new()
 	event_s.physical_keycode = KEY_S
 	InputMap.action_add_event("move_down", event_s)
-
+ 
 	event_w = InputEventKey.new()
 	event_w.physical_keycode = KEY_W
 	InputMap.action_add_event("move_up", event_w)
 
 	AudioManager.play_sound("powerdown")
 	print("blackcoin_powerdown")
-
+ 
 func use_redcoin_power_up(): # blindness and slowness
 	var powerupduration = 15.5
 	print("redcoin_powerup")
@@ -401,11 +399,11 @@ func use_redcoin_power_up(): # blindness and slowness
 	normal_run_speed = 200
 	AudioManager.play_sound("powerdown")
 	print("redcoin_powerdown")
-
+ 
 func use_key():
 	Global.dooropen = true
 	print("key_picked_up")
-
+ 
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
@@ -425,11 +423,9 @@ func apply_item_effect(item):
 			Global.increase_inventory_size(5)
 			print("Slots increased to ", Global.inventory.size())
 		"Health boost":
-			Global.maxHealth = 200
-			Global.health = Global.maxHealth
+			Global.health += 40
 		_:
 			print("There is no effect for this item")
- 
 func use_hotbar_item(slot_index):
 	if slot_index < Global.hotbar_inventory.size():
 		var item = Global.hotbar_inventory[slot_index]
@@ -440,28 +436,28 @@ func use_hotbar_item(slot_index):
 				Global.hotbar_inventory[slot_index] = null
 				Global.remove_item(item["type"], item["effect"])
 			Global.inventory_updated.emit()
-
+ 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		for i in range(Global.hotbar_size):
 			if Input.is_action_just_pressed("hotbar_" + str(i + 1)):
 				use_hotbar_item(i)
 				break
-
+ 
 func use_door():
 	if Global.dooropen == true:
 		print("newmap")
 		await resetglobal()
 		get_tree().change_scene_to_file("res://menu.tscn")
 		Global.normalspawn = true
-
+ 
 func use_spikes():
 	if Global.health > 0 and Global.health >= 20:
 		Global.health -= 20
 		Global.spikesactive = true
 	elif Global.health > 0 and Global.health < 20:
 		Global.health = 0
-
+ 
 func use_boss_door():
 	if Global.bossdooropen == true and Global.bossalive == true:
 		print("bossroomentered")
@@ -473,7 +469,7 @@ func use_dungeon_door():
 		Global.bossroomactive = false
 		Global.bossdooropen = false
 		get_tree().change_scene_to_file("res://scenes/map_scenes/Dungeon.tscn")
-
+ 
 func resetglobal():
 	Global.inventory = []
 	Global.player_hit = false
@@ -499,3 +495,11 @@ func resetglobal():
 	Global.damage = 0
 	Global.spikesactive = false
 	Global.hotbar_size = 3
+
+@onready var hotbaring = $InventoryHotbar
+
+func hotbarvis():
+	if Global.hottis == true:
+		hotbaring.visible = false
+	else:
+		hotbaring.visible = true
