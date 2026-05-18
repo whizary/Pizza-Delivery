@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_8fo1c")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +28,7 @@ grow_vertical = 2
 texture = ExtResource("2_ek8ke")
 
 [node name="restart" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.99500006
@@ -39,6 +41,7 @@ scale = Vector2(0.5, 0.5)
 icon = ExtResource("3_14u15")
 
 [node name="menu" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +56,7 @@ scale = Vector2(0.5, 0.5)
 icon = ExtResource("4_j3ryr")
 
 [node name="quit" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

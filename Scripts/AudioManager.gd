@@ -29,6 +29,9 @@ var sounds = {
 	"BossDeath": [
 		preload("res://audio/BossDeath.wav"),
 	],
+	"MenuMusic": preload("res://audio/Music/MenuMusic.wav"),
+	"EarthMapMusic": preload("res://audio/Music/EarthMap.wav"),
+	"DungeonMapMusic": preload("res://audio/Music/DungeonMap.mp3"),
 	"BossMusic1": preload("res://audio/Music/BossMusic1.mp3"),
 	"powerup": preload("res://audio/powerUp.wav"),
 	"powerdown": preload("res://audio/powerDown.wav"),
@@ -39,16 +42,17 @@ func play_music(track: String):
 	if not sounds.has(track):
 		return
 
-	if music_player and music_player.playing:
-		return
-
 	if music_player == null:
 		music_player = AudioStreamPlayer.new()
 		add_child(music_player)
 		music_player.bus = "Music"
 
+	if music_player.stream == sounds[track] and music_player.playing:
+		return
+
+	music_player.stop()
 	music_player.stream = sounds[track]
-	music_player.volume_db = 0
+	music_player.volume_db = music_volume_db
 	music_player.play()
 
 func play_sound(sound: String):
@@ -82,7 +86,7 @@ func play_boss_sound(boss: Node2D, category: String):
 	boss.add_child(p)
 	p.stream = stream
 	p.pitch_scale = randf_range(0.95, 1.05)
-	p.volume_db = 3
+	p.volume_db = 12
 	p.play()
 	p.finished.connect(p.queue_free)
 

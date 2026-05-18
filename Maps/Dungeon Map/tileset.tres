@@ -242,6 +242,7 @@ texture = ExtResource("1")
 1:29/0 = 0
 2:29/0 = 0
 3:29/0 = 0
+4:29/next_alternative_id = 2
 4:29/0 = 0
 5:29/0 = 0
 6:29/0 = 0

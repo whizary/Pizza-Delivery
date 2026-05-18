@@ -58,6 +58,7 @@ func _idle_face_player():
 		_animated_enemy_sprite.play("idle_right")
 	else:
 		_animated_enemy_sprite.play("idle_left")
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		if is_dead:
@@ -67,6 +68,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if enemy_health <= 0:
 			die()
 			return
+	
 	if Global.death == false and Global.iframes == false:
 		if area.is_in_group("player"):
 			Global.iframes = true

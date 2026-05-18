@@ -144,14 +144,15 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_uwxp1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4dke5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aqpon")
+disabled = true
 text = "Deny"
 script = SubResource("GDScript_uwxp1")
 
 [node name="Accept" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 27.58609
+offset_left = 24.576706
 offset_top = 21.065735
-offset_right = 87.58609
+offset_right = 160.5009
 offset_bottom = 49.065735
 theme_override_fonts/font = SubResource("FontVariation_0atwc")
 theme_override_font_sizes/font_size = 8

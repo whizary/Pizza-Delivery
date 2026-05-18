@@ -34,7 +34,7 @@ func _ready():
 	]
  
 	map_scenes = [
-		"res://Dungeon.tscn",
+		"res://scenes/map_scenes/Dungeon.tscn",
 		"res://Maps/Ice Map/Map.tscn",
 		"res://Maps/Dungeon_Map/Map.tscn",
 		"res://Maps/Moon_Map/Map.tscn"
@@ -48,6 +48,8 @@ func _ready():
  
 	update_ui()
  
+func _physics_process(delta):
+	AudioManager.play_music("MenuMusic")
  
 func change_map(direction: int):
 	current_index += direction

@@ -33,14 +33,14 @@ func _process(delta):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false
-		TakeQuest.visible = false
+		#TakeQuest.visible = false
 		completequest1.visible = false
 		Global.allyQ = false
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player") and quest_taken == false and Global.allyRewardGiven == false and Global.AllyquestComplete == false:
 		player_in_range = true
-		TakeQuest.visible = true
+		#TakeQuest.visible = true
 		Global.allyQ = true
 
 	if body.is_in_group("player") and Global.AllyquestComplete == true and Global.allyRewardGiven == false:
@@ -56,15 +56,12 @@ func _unhandled_input(event):
 		# första pratet, key_quest.gd sköter dialogen
 		if TakeQuest.visible and quest_taken == false:
 			quest_taken = true
-			Global.movement = false
 			TakeQuest.visible = false
 			return
 
 		# återvänd efter klarad quest, key_quest.gd sköter slutdialogen
 		if completequest1.visible == true:
-			Global.movement = false
 			await get_tree().create_timer(5.0).timeout
-			Global.movement = true
 			return
 
 func give_food_reward():
