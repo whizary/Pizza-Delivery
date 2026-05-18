@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://1aqwtvc241re"
-path="res://.godot/imported/EarthMap.wav-c80139696048e9e779c2e94cd6643ac6.sample"
+path="res://.godot/imported/EarthMap.wav-0f2a8d9beba2beaa232cf76628da5fe8.sample"
 
 [deps]
 
-source_file="res://Audio/Music/EarthMap.wav"
-dest_files=["res://.godot/imported/EarthMap.wav-c80139696048e9e779c2e94cd6643ac6.sample"]
+source_file="res://audio/Music/EarthMap.wav"
+dest_files=["res://.godot/imported/EarthMap.wav-0f2a8d9beba2beaa232cf76628da5fe8.sample"]
 
 [params]
 
