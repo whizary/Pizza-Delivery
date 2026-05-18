@@ -12,6 +12,9 @@ extends Control
 
 var _loading_ui := false
 
+func _physics_process(delta):
+	AudioManager.play_music("MenuMusic")
+
 func _ready():
 	_loading_ui = true
 

@@ -544,6 +544,7 @@ script = ExtResource("4_qs0nd")
 
 [node name="animatedkeysprite" type="AnimatedSprite2D" parent="map/key"]
 visible = false
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_y2adg")
 autoplay = "default"
@@ -564,6 +565,7 @@ shape = SubResource("RectangleShape2D_gbu8i")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/TakeQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -578,6 +580,7 @@ grow_vertical = 2
 color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/TakeQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -598,6 +601,7 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/Completequest1"]
 visible = false
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -613,6 +617,7 @@ color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/Completequest1"]
 visible = false
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -634,6 +639,7 @@ layer = -10
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="map/CompleteQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -648,6 +654,7 @@ grow_vertical = 2
 color = Color(0.752941, 0.607843, 0.101961, 1)
 
 [node name="Label" type="Label" parent="map/CompleteQuest"]
+texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -671,6 +678,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="map/PressE"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1772.0
 offset_top = 2148.0
@@ -940,6 +948,7 @@ position = Vector2(1179.2484, 1755.5863)
 script = ExtResource("13_nw1k5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_dqayi")
 autoplay = "default"
@@ -952,6 +961,7 @@ position = Vector2(2137.7458, 1532.5044)
 script = ExtResource("15_jldc8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bluegem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_1apex")
 autoplay = "default"
@@ -964,6 +974,7 @@ position = Vector2(2547.2217, 2381.3052)
 script = ExtResource("17_ib4gy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="yellowgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_dfd4i")
 autoplay = "default"
@@ -976,6 +987,7 @@ position = Vector2(975.83185, 744.72675)
 script = ExtResource("19_qftbk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="greengem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_x7oye")
 autoplay = "default"
@@ -988,6 +1000,7 @@ position = Vector2(655.5533, 1438.3425)
 script = ExtResource("21_jdy6l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="blackgem"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_5lepr")
 autoplay = "default"
@@ -1001,6 +1014,7 @@ script = ExtResource("23_304vn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redcoin"]
 visibility_layer = 3
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_5pq5r")
 autoplay = "default"
@@ -1013,6 +1027,7 @@ position = Vector2(618.55383, 2354.015)
 script = ExtResource("25_dsypr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="blackcoin"]
+texture_filter = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_2ib7k")
 autoplay = "default"

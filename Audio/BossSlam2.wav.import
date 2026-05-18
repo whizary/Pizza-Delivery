@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dpsmwsyqbv4ks"
-path="res://.godot/imported/BossSlam2.wav-e5acba829633c7a3ba16ea8966af3e46.sample"
+path="res://.godot/imported/BossSlam2.wav-01ad6b16b77f24971572cdc68ccd8b6b.sample"
 
 [deps]
 
-source_file="res://Audio/BossSlam2.wav"
-dest_files=["res://.godot/imported/BossSlam2.wav-e5acba829633c7a3ba16ea8966af3e46.sample"]
+source_file="res://audio/BossSlam2.wav"
+dest_files=["res://.godot/imported/BossSlam2.wav-01ad6b16b77f24971572cdc68ccd8b6b.sample"]
 
 [params]
 

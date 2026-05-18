@@ -48,6 +48,8 @@ func _ready():
  
 	update_ui()
  
+func _physics_process(delta):
+	AudioManager.play_music("MenuMusic")
  
 func change_map(direction: int):
 	current_index += direction

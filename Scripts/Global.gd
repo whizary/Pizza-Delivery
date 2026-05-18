@@ -33,6 +33,7 @@ var staminaDrain = 25.0
 var staminaRecovery = 25.0
 var stop_distance = 35.0
 var boss_health = 1000.0
+var boss_damaged = false
 var boss_max_health = 1000.0
 var bossalive = true
  
