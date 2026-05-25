@@ -78,6 +78,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		Global.iframes = true
 	if Global.death == false and area.is_in_group("player") and Global.bluepowerup == true:
 		Global.bluepowerup = false
+
 func die():
 	is_dead = true
 	velocity = Vector2.ZERO

@@ -294,6 +294,7 @@ func use_bluegem_power_up(): #force shield
 	$active.text = "Forcefield Activated"
 	await get_tree().create_timer(2.5).timeout
 	$active.text = ""
+
 func use_yellowgem_power_up(): # speed boost
 	var powerupduration = 5.5
 	print("yellowgem_powerup")
@@ -305,10 +306,10 @@ func use_yellowgem_power_up(): # speed boost
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 	print("yellowgem_powerdown")
-	normal_walk_speed = walk_speed / 1.3
-	normal_run_speed = walk_speed / 1.6
+	normal_walk_speed = 150.0
+	normal_run_speed = 200.0
 	AudioManager.play_sound("powerdown")
- 
+
 func use_greengem_power_up(): # health boost
 	print("greengem_powerup")
 	Global.health = Global.maxHealth
