@@ -50,12 +50,13 @@ var dungeondooropen = true
 var dooropen = false
 var normalspawn = false
 var spikesactive = false
+var bluepowerup = false
  
 var current_wave: int
 var moving_to_next_wave: bool
 #Hotbar Items
 var hotbar_size = 3
-var hotbar_inventory = []
+var hotbar_inventory = [null, null, null]
 signal inventory_updated
 var player_node: Node = null
 @onready var inventory_slot_scene = preload("res://Inventory_Slot.tscn")

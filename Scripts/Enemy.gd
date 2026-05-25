@@ -70,7 +70,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			return
 	
 	if Global.death == false and Global.iframes == false:
-		if area.is_in_group("player"):
+		if area.is_in_group("player") and Global.bluepowerup == false:
 			Global.health -= 10.0
 			Global.iframes = true
 			Global.iframesTimer = 1.0

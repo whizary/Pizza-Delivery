@@ -122,11 +122,13 @@ func _start_attack():
 	AudioManager.play_boss_sound(self, "BossAttack")
 	var bodies = attack_telegraph.get_overlapping_bodies()
 	for body in bodies:
-		if body.is_in_group("player"):
+		if body.is_in_group("player") and Global.bluepowerup == false:
 			if Global.iframes == false:
 				Global.iframes = true
 				Global.iframesTimer = Global.iframesTimer
 				Global.health -= 20
+		if body.is_in_group("player") and Global.bluepowerup == true:
+			Global.bluepowerup = false
 
 	attack_telegraph.visible = false
 	BossAttackCollision.visible = false

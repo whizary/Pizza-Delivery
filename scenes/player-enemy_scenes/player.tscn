@@ -59,7 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="30_ydv1g"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="31_hvc7r"]
 [ext_resource type="PackedScene" uid="uid://ck7frnx8be76" path="res://key_quest.tscn" id="32_y6b84"]
-[ext_resource type="Script" path="res://scripts/active.gd" id="33_oj82y"]
+[ext_resource type="Script" uid="uid://djofdybvereyc" path="res://scripts/active.gd" id="33_oj82y"]
 [ext_resource type="PackedScene" uid="uid://c3eh1gfsu7wu6" path="res://tutorial.tscn" id="34_egj8n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuaoq"]

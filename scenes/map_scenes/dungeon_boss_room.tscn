@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr6ve6e7knm86"]
+[gd_scene load_steps=32 format=3 uid="uid://cr6ve6e7knm86"]
 
 [ext_resource type="Script" uid="uid://dqg7bx62nlp5d" path="res://Scripts/Map.gd" id="2_cmqoe"]
-[ext_resource type="Script" path="res://dungeondoor.gd" id="3_jt7ob"]
+[ext_resource type="Script" uid="uid://db0500vctpfgf" path="res://dungeondoor.gd" id="3_jt7ob"]
 [ext_resource type="PackedScene" uid="uid://8rj7pyc1egx4" path="res://Maps/Dungeon Boss Room Map/Map.tscn" id="4_jt7ob"]
 [ext_resource type="Script" uid="uid://detjr85infekb" path="res://Scripts/greengem.gd" id="5_ii746"]
 [ext_resource type="Texture2D" uid="uid://csw14ps4f234q" path="res://Coin_Gems/spr_coin_strip4.png" id="6_6k164"]
+[ext_resource type="Script" uid="uid://cp14ja5ueuiww" path="res://Scripts/bluegem.gd" id="7_kcr02"]
+[ext_resource type="Texture2D" uid="uid://cic848csp8n5f" path="res://Coin_Gems/spr_coin_azu.png" id="8_6pp7g"]
+[ext_resource type="Script" uid="uid://bwqu7je2fmyng" path="res://Scripts/redgem.gd" id="9_pgrt2"]
+[ext_resource type="Texture2D" uid="uid://bqnc58y1sfkne" path="res://Coin_Gems/spr_coin_roj.png" id="10_damwh"]
 [ext_resource type="Script" uid="uid://bpsrocj1d0q2c" path="res://spikes.gd" id="20_x8erc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jt7ob"]
@@ -57,6 +61,84 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_b030j"]
 radius = 6.0440984
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w656"]
+atlas = ExtResource("8_6pp7g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e71vb"]
+atlas = ExtResource("8_6pp7g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnkwl"]
+atlas = ExtResource("8_6pp7g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vke2r"]
+atlas = ExtResource("8_6pp7g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ian6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w656")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e71vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnkwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vke2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3kv4"]
+radius = 6.169445
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uypp3"]
+atlas = ExtResource("10_damwh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blkrb"]
+atlas = ExtResource("10_damwh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqjc"]
+atlas = ExtResource("10_damwh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iyjs"]
+atlas = ExtResource("10_damwh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5oawq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uypp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blkrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abqjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iyjs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybyjr"]
+radius = 5.996911
+
 [node name="Node2D2" type="Node2D"]
 
 [node name="map" parent="." instance=ExtResource("4_jt7ob")]
@@ -75,10 +157,10 @@ position = Vector2(-4, -527.5)
 shape = SubResource("RectangleShape2D_eicpd")
 
 [node name="SpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(756.5437, 499.68195)
+position = Vector2(753, 345)
 
 [node name="BossSpawnPoint" type="Marker2D" parent="map"]
-position = Vector2(757.5724, 437.80417)
+position = Vector2(753, 524)
 
 [node name="spikes1" type="Area2D" parent="."]
 position = Vector2(551.4363, 424.3703)
@@ -124,9 +206,37 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="greengem"]
 shape = SubResource("CircleShape2D_b030j")
 
+[node name="bluegem" type="Area2D" parent="."]
+position = Vector2(1022.34296, 342.4679)
+script = ExtResource("7_kcr02")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bluegem"]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ian6t")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bluegem"]
+shape = SubResource("CircleShape2D_q3kv4")
+
+[node name="redgem" type="Area2D" parent="."]
+position = Vector2(1034, 634)
+script = ExtResource("9_pgrt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redgem"]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_5oawq")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="redgem"]
+shape = SubResource("CircleShape2D_ybyjr")
+
 [connection signal="body_entered" from="map/dungeondoor2" to="map/dungeondoor2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes1" to="spikes1" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes2" to="spikes2" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes3" to="spikes3" method="_on_body_entered"]
 [connection signal="body_entered" from="spikes4" to="spikes4" method="_on_body_entered"]
 [connection signal="body_entered" from="greengem" to="greengem" method="_on_body_entered"]
+[connection signal="body_entered" from="bluegem" to="bluegem" method="_on_body_entered"]
+[connection signal="body_entered" from="redgem" to="redgem" method="_on_body_entered"]

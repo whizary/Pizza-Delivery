@@ -66,9 +66,9 @@ func _process(delta):
 		await get_tree().create_timer(2.0).timeout
 		keyText.text = "But there is a way."
 		await get_tree().create_timer(2.0).timeout
-		keyText.text = "Somewhere out there lies a legendary pizza..."
+		keyText.text = "In the top right there lies a legendary pizza."
 		await get_tree().create_timer(2.0).timeout
-		keyText.text = "Find it, and the door will open."
+		keyText.text = "Obtain it, and the door will open."
 		await get_tree().create_timer(2.0).timeout
 		keyText.text = "Behind it... a powerful boss awaits."
 		await get_tree().create_timer(2.0).timeout
@@ -132,6 +132,7 @@ func _process(delta):
 		accept.visible = false
 		deny.visible = false
 		Global.movement = false
+		Global.allyTurnInFinished = true
 
 		nameText.text = "Ally"
 
@@ -167,7 +168,6 @@ func _process(delta):
 			check_box_2.button_pressed = false
 			label2.text = ""
 
-		Global.allyTurnInFinished = true
 		dialogue_playing = false
 
 	# uppdatera text när Ally-questen är klar

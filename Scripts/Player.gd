@@ -20,7 +20,6 @@ extends CharacterBody2D
 
 var player_in_range = false
 var gravity = 0
-var bluepowerup = false
 var delay = 0
 var dooropen = false
 
@@ -128,32 +127,40 @@ func _physics_process(delta):
 			move_and_collide(Vector2(0, -100))
 			dashup.play("default")
 			dashup2.play("default") 
+			Global.stamina -= 15
 		elif back and right: 
 			dashrightupsidedown.play("default")
 			dashup.play("default")
 			move_and_collide(Vector2(70, -70))
+			Global.stamina -= 15
 		elif back and left: 
 			dashleftupsidedown.play("default")
 			dashup2.play("default")
 			move_and_collide(Vector2(-70, -70))
+			Global.stamina -= 15
 		elif forward and right: 
 			dash.play("default")
 			dashdown2.play("default")
 			move_and_collide(Vector2(70, 70))
+			Global.stamina -= 15
 		elif forward and left: 
 			dashinverted.play("default")
 			dashdown.play("default")
 			move_and_collide(Vector2(-70, 70))
+			Global.stamina -= 15
 		elif right: 
 			dash.play("default")
 			move_and_collide(Vector2(100, 0))
+			Global.stamina -= 15
 		elif left: 
 			dashinverted.play("default")
 			move_and_collide(Vector2(-100, 0))
+			Global.stamina -= 15
 		elif forward:
 			move_and_collide(Vector2(0, 100))
 			dashdown.play("default")
 			dashdown2.play("default")
+			Global.stamina -= 15
 		dodgeBool = false
 		dodgeCD = 2.0
 	
@@ -237,19 +244,21 @@ func _physics_process(delta):
 	elif left and forward:
 		velocity.x = -walk_speed * 0.7
 		velocity.y = walk_speed * 0.7
-	if bluepowerup == true and Global.iframes == true:
+	if Global.bluepowerup == true and Global.iframes == true:
 		$forceshield.visible = false # hide
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
-		bluepowerup = false
-	if bluepowerup == true and Global.spikesactive == true:
+		Global.bluepowerup = false
+	if Global.bluepowerup == true and Global.spikesactive == true:
 		$forceshield.visible = false
-		Global.health += 20
+		Global.health += 40
 		print("bluegem_powerdown")
 		AudioManager.play_sound("powerdown")
-		bluepowerup = false
-	elif bluepowerup == false and Global.spikesactive == true:
+		Global.bluepowerup = false
+	elif Global.bluepowerup == false and Global.spikesactive == true:
 		Global.spikesactive = false
+	if Global.bluepowerup == false:
+		$forceshield.visible = false # hide
 
 	#if t and Global.bossalive == true:
 		#print("t pressed")
@@ -278,7 +287,7 @@ func use_redgem_power_up(): # damage boost
 	AudioManager.play_sound("powerdown")
  
 func use_bluegem_power_up(): #force shield
-	bluepowerup = true
+	Global.bluepowerup = true
 	print("bluegem_powerup")
 	AudioManager.play_sound("powerup")
 	$forceshield.visible = true  # show
@@ -296,13 +305,13 @@ func use_yellowgem_power_up(): # speed boost
 	$active.text = ""
 	await get_tree().create_timer(powerupduration).timeout
 	print("yellowgem_powerdown")
-	normal_walk_speed = 150.0
-	normal_run_speed = 200.0
+	normal_walk_speed = walk_speed / 1.3
+	normal_run_speed = walk_speed / 1.6
 	AudioManager.play_sound("powerdown")
  
 func use_greengem_power_up(): # health boost
 	print("greengem_powerup")
-	Global.health = 100.0
+	Global.health = Global.maxHealth
 	AudioManager.play_sound("powerup")
 	$active.text = "Health Boost Activated"
 	await get_tree().create_timer(2.5).timeout
@@ -424,7 +433,7 @@ func apply_item_effect(item):
 			Global.increase_inventory_size(5)
 			print("Slots increased to ", Global.inventory.size())
 		"Health boost":
-			Global.health += 40
+			Global.health += 60
 		_:
 			print("There is no effect for this item")
 func use_hotbar_item(slot_index):
@@ -437,7 +446,7 @@ func use_hotbar_item(slot_index):
 				Global.hotbar_inventory[slot_index] = null
 				Global.remove_item(item["type"], item["effect"])
 			Global.inventory_updated.emit()
- 
+
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		for i in range(Global.hotbar_size):
@@ -449,22 +458,22 @@ func use_door():
 	if Global.dooropen == true:
 		print("newmap")
 		await resetglobal()
-		get_tree().change_scene_to_file("res://menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_completed.tscn")
 		Global.normalspawn = true
  
 func use_spikes():
-	if Global.health > 0 and Global.health >= 20:
-		Global.health -= 20
+	if Global.health > 0 and Global.health >= 40:
+		Global.health -= 40
 		Global.spikesactive = true
-	elif Global.health > 0 and Global.health < 20:
+	elif Global.health > 0 and Global.health < 40:
 		Global.health = 0
- 
+
 func use_boss_door():
 	if Global.bossdooropen == true and Global.bossalive == true:
 		print("bossroomentered")
 		Global.bossroomactive = true
 		get_tree().change_scene_to_file("res://scenes/map_scenes/dungeon_boss_room.tscn")
-
+		
 func use_dungeon_door():
 	if Global.dungeondooropen == true and Global.bossalive == false and Global.bossroomactive == true:
 		Global.bossroomactive = false
@@ -503,8 +512,8 @@ func resetglobal():
 	Global.boss_max_health = 1000.0
 	Global.bossalive = true
 	Global.damage = 0
-	Global.health = 100.0
-	Global.maxHealth = 100.0
+	Global.health = 200.0
+	Global.maxHealth = 200.0
 	Global.iframesTimer = 0.8
 	Global.iframes = false
 	Global.death = false
@@ -516,7 +525,8 @@ func resetglobal():
 	Global.normalspawn = false
 	Global.spikesactive = false
 	Global.hotbar_size = 3
-	Global.hotbar_inventory = []
+	Global.hotbar_inventory = [null, null, null]
+	Global.bluepowerup = false
 
 @onready var hotbaring = $InventoryHotbar
 

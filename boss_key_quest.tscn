@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnc636jme4o0x" path="res://quest_things/swordman_1.png" id="1_hgioo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5td8c"]
-radius = 11.0
+radius = 18.0
 
 [node name="Boss-key-quest" type="Node2D"]
 script = ExtResource("1_5td8c")
