@@ -52,7 +52,6 @@ func _process(delta):
 		velocity.x = 0
 		velocity.y = 0
 
-
 	dodgeCD -= delta
 	if dodgeCD <= 0 and dodgeBool == false:
 		dodgeBool = true
@@ -259,7 +258,7 @@ func _physics_process(delta):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("boss"):
-		Global.boss_health -= 10
+		Global.boss_health -= Global.damage
 		Global.boss_damaged = true
 		AudioManager.play_boss_sound(self, "BossHurt")
 		print("Boss hit")

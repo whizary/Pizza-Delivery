@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b7rxxg34twfsk" path="res://inv_scripts/Inventory_Item.gd" id="1_pba8l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nvwpw"]
-radius = 5.09902
+radius = 30.0
 
 [node name="Inventory_Item" type="Node2D" groups=["Items"]]
 scale = Vector2(0.3, 0.3)

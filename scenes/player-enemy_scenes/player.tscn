@@ -54,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://coo0uwe0wp6sa" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame8.png" id="27_7hyyu"]
 [ext_resource type="Texture2D" uid="uid://bqkhco3d2n0j4" path="res://Images/black-borders.png" id="27_qg6ys"]
 [ext_resource type="Texture2D" uid="uid://dlg3pui0espsx" path="res://Characters/Characters/Man/Attack/up/Slash_color2_frame9.png" id="28_qg6ys"]
-[ext_resource type="Shader" uid="uid://ctpvah33t1ug6" path="res://scripts/player.gdshader" id="28_wjqxd"]
+[ext_resource type="Shader" uid="uid://ctpvah33t1ug6" path="res://Scripts/player.gdshader" id="28_wjqxd"]
 [ext_resource type="Script" uid="uid://djcxhgb6ga7bv" path="res://Scripts/AudioManager.gd" id="29_14a0a"]
 [ext_resource type="PackedScene" uid="uid://rifvmpn0klqk" path="res://Inventory_UI.tscn" id="30_ydv1g"]
 [ext_resource type="PackedScene" uid="uid://d4e184kshuhim" path="res://Inventory_Hotbar.tscn" id="31_hvc7r"]
@@ -1021,6 +1021,7 @@ offset_right = -260.0
 offset_bottom = 77.0
 grow_horizontal = 0
 scale = Vector2(3, 3)
+max_value = 200.0
 nine_patch_stretch = true
 texture_under = SubResource("MeshTexture_r7t2e")
 texture_over = ExtResource("27_qg6ys")

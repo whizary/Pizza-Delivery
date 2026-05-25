@@ -63,7 +63,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "AttackArea":
 		if is_dead:
 			return
-		enemy_health -= 10
+		enemy_health -= Global.damage
 		print("Enemy hit")
 		if enemy_health <= 0:
 			die()
@@ -71,9 +71,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	if Global.death == false and Global.iframes == false:
 		if area.is_in_group("player"):
+			Global.health -= 10.0
 			Global.iframes = true
 			Global.iframesTimer = 1.0
-			Global.health -= 10.0
 	else:
 		Global.iframes = true
 func die():
